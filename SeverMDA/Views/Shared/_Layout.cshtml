@@ -7,116 +7,18 @@
     <link href="~/css/style.css" rel="stylesheet" />
 </head>
 <body>
-    <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
-        <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-            <a class="navbar-brand brand-logo mr-5" href="index.html"><img src="~/images/logo-text.png" class="mr-2" alt="logo"></a>
-            <a class="navbar-brand brand-logo-mini" href="index.html"><img src="~/images/logo-text.png" alt="logo"></a>
-        </div>
-
-        <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
-            <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
-                <span class="icon-menu"></span>
-            </button>
-            <ul class="navbar-nav mr-lg-2">
-                <li class="nav-item nav-search d-none d-lg-block">
-                    <div class="input-group">
-                        <div class="input-group-prepend hover-cursor" id="navbar-search-icon">
-                            <span class="input-group-text" id="search">
-                                <i class="icon-search"></i>
-                            </span>
-                        </div>
-                        <input type="text" class="form-control" id="navbar-search-input" placeholder="Search now" aria-label="search" aria-describedby="search">
-                    </div>
-                </li>
-            </ul>
-            <ul class="navbar-nav navbar-nav-right">
-                <li class="nav-item dropdown">
-                    <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#" data-toggle="dropdown">
-                        <i class="icon-bell mx-0"></i>
-                        <span class="count"></span>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="notificationDropdown">
-                        <p class="mb-0 font-weight-normal float-left dropdown-header">Notifications</p>
-                        <a class="dropdown-item preview-item">
-                            <div class="preview-thumbnail">
-                                <div class="preview-icon bg-success">
-                                    <i class="ti-info-alt mx-0"></i>
-                                </div>
-                            </div>
-                            <div class="preview-item-content">
-                                <h6 class="preview-subject font-weight-normal">Application Error</h6>
-                                <p class="font-weight-light small-text mb-0 text-muted">
-                                    Just now
-                                </p>
-                            </div>
-                        </a>
-                        <a class="dropdown-item preview-item">
-                            <div class="preview-thumbnail">
-                                <div class="preview-icon bg-warning">
-                                    <i class="ti-settings mx-0"></i>
-                                </div>
-                            </div>
-                            <div class="preview-item-content">
-                                <h6 class="preview-subject font-weight-normal">Settings</h6>
-                                <p class="font-weight-light small-text mb-0 text-muted">
-                                    Private message
-                                </p>
-                            </div>
-                        </a>
-                        <a class="dropdown-item preview-item">
-                            <div class="preview-thumbnail">
-                                <div class="preview-icon bg-info">
-                                    <i class="ti-user mx-0"></i>
-                                </div>
-                            </div>
-                            <div class="preview-item-content">
-                                <h6 class="preview-subject font-weight-normal">New user registration</h6>
-                                <p class="font-weight-light small-text mb-0 text-muted">
-                                    2 days ago
-                                </p>
-                            </div>
-                        </a>
-                    </div>
-                </li>
-                <li class="nav-item nav-profile dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
-                        <img src="~/images/logo-text.png" alt="profile">
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
-                        <a class="dropdown-item">
-                            <i class="ti-settings text-primary"></i>
-                            Settings
-                        </a>
-                        <a class="dropdown-item">
-                            <i class="ti-power-off text-primary"></i>
-                            Logout
-                        </a>
-                    </div>
-                </li>
-                <li class="nav-item nav-settings d-none d-lg-flex">
-                    <a class="nav-link" href="#">
-                        <i class="icon-ellipsis"></i>
-                    </a>
-                </li>
-            </ul>
-            <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
-                <span class="icon-menu"></span>
-            </button>
-        </div>
-    </nav>
     <div class="quixnav">
         <div class="quixnav-scroll ps mm-active">
             <ul class="metismenu mm-show" id="menu">
                 <li class="nav-label first">Main Menu</li>
-
                 <li class="mm-active">
-                    <a class="has-arrow" href="javascript:void()" aria-expanded="false"><i class="icon icon-single-04"></i><span class="nav-text">Dashboard</span></a>
-                    <ul aria-expanded="false" class="mm-collapse mm-show">
+                    <a class="has-arrow" href="javascript:void()" aria-expanded="true"><i class="icon icon-single-04"></i><span class="nav-text">Dashboard</span></a>
+                    <ul aria-expanded="false" class="mm-collapse mm-show" style="">
                         <li class="mm-active"><a href="./index.html" class="mm-active">Dashboard 1</a></li>
                         <li><a href="./index2.html">Dashboard 2</a></li>
                     </ul>
                 </li>
-                <li class="nav-label" data-bs-toggle="collapse">Apps</li>
+                <li class="nav-label">Apps</li>
                 <li>
                     <a class="has-arrow" href="javascript:void()" aria-expanded="false"><i class="icon icon-app-store"></i><span class="nav-text">Apps</span></a>
                     <ul aria-expanded="false" class="mm-collapse">
@@ -191,7 +93,7 @@
                         <li><a href="form-validation-jquery.html">Jquery Validate</a></li>
                     </ul>
                 </li>
-                <li class="nav-label" >Table</li>
+                <li class="nav-label">Table</li>
                 <li>
                     <a class="has-arrow" href="javascript:void()" aria-expanded="false"><i class="icon icon-layout-25"></i><span class="nav-text">Table</span></a>
                     <ul aria-expanded="false" class="mm-collapse">
@@ -238,25 +140,30 @@
         </div>
     </div>
     <!-- Required vendors -->
-    <script src="../vendor/global/global.min.js"></script>
-    <script src="../js/quixnav-init.js"></script>
-    <script src="../js/custom.min.js"></script>
+    <script src="~/js/vendor/global/global.min.js"></script>
+    <script src="~/js/quixnav-init.js"></script>
+    <script src="~/js/custom.min.js"></script>
     <!-- Vectormap -->
-    <script src="../vendor/raphael/raphael.min.js"></script>
-    <script src="../vendor/morris/morris.min.js"></script>
-    <script src="../vendor/circle-progress/circle-progress.min.js"></script>
-    <script src="../vendor/chart.js/Chart.bundle.min.js"></script>
-    <script src="../vendor/gaugeJS/dist/gauge.min.js"></script>
+    <script src="~/js/vendor/raphael/raphael.min.js"></script>
+    <script src="~/js/vendor/morris/morris.min.js"></script>
+    <script src="~/js/vendor/circle-progress/circle-progress.min.js"></script>
+    <script src="~/js/vendor/chart.js/Chart.bundle.min.js"></script>
+    <script src="~/js/vendor/gaugeJS/dist/gauge.min.js"></script>
     <!--  flot-chart js -->
-    <script src="../vendor/flot/jquery.flot.js"></script>
-    <script src="../vendor/flot/jquery.flot.resize.js"></script>
+    <script src="~/js/vendor/flot/jquery.flot.js"></script>
+    <script src="~/js/vendor/flot/jquery.flot.resize.js"></script>
     <!-- Owl Carousel -->
-    <script src="../vendor/owl-carousel/js/owl.carousel.min.js"></script>
+    <script src="~/js/vendor/owl-carousel/js/owl.carousel.min.js"></script>
     <!-- Counter Up -->
-    <script src="../vendor/jqvmap/js/jquery.vmap.min.js"></script>
-    <script src="../vendor/jqvmap/js/jquery.vmap.usa.js"></script>
-    <script src="../vendor/jquery.counterup/jquery.counterup.min.js"></script>
-    <script src="../js/dashboard/dashboard-1.js"></script>
-    <script src="~/js/bootstrap.js"></script>
+    <script src="~/js/vendor/jqvmap/js/jquery.vmap.min.js"></script>
+    <script src="~/js/vendor/jqvmap/js/jquery.vmap.usa.js"></script>
+    <script src="~/js/vendor/jquery.counterup/jquery.counterup.min.js"></script>
+    <script src="~/js/dashboard/dashboard-1.js"></script>
+    <script src="~/wwwroot/js/bootstrap.js"></script>
+
+
+    <script src="~/js/vendor/bootstrap-touchspin/js/jquery.bootstrap-touchspin.min.js"></script>
+
+
 </body>
 </html>

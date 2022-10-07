@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "TT3910Y3RMZjtDwYkjMUmN1TlQQHolrcXhwnklFSmqqMmY2gpFzZqLBVy0wiJk//cKAZG1drg1ks16eOmglHNQ==",
+  "dgSpecHash": "wlJAX0FPs3YNZ86g2Rxim1NPq6SRw1HY8DL7uQnEgYSg8f2YLUc3nkH6F1V9XipfOl97ha2vb0LbfmSx5Bpo5Q==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Student\\source\\repos\\SeverMDA\\SeverMDA\\SeverMDA.csproj",
+  "projectFilePath": "C:\\Users\\Student\\Documents\\ServerMDA-\\SeverMDA\\SeverMDA.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Student\\.nuget\\packages\\humanizer.core\\2.2.0\\humanizer.core.2.2.0.nupkg.sha512",
     "C:\\Users\\Student\\.nuget\\packages\\microsoft.aspnetcore.html.abstractions\\2.2.0\\microsoft.aspnetcore.html.abstractions.2.2.0.nupkg.sha512",
