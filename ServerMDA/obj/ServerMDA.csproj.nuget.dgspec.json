@@ -1,21 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "E:\\C#\\MSIT143.ServerMDA\\ServerMDA\\ServerMDA.csproj": {}
+    "C:\\Users\\duckl\\Documents\\ServerMDA-\\ServerMDA\\ServerMDA.csproj": {}
   },
   "projects": {
-    "E:\\C#\\MSIT143.ServerMDA\\ServerMDA\\ServerMDA.csproj": {
+    "C:\\Users\\duckl\\Documents\\ServerMDA-\\ServerMDA\\ServerMDA.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\C#\\MSIT143.ServerMDA\\ServerMDA\\ServerMDA.csproj",
+        "projectUniqueName": "C:\\Users\\duckl\\Documents\\ServerMDA-\\ServerMDA\\ServerMDA.csproj",
         "projectName": "ServerMDA",
-        "projectPath": "E:\\C#\\MSIT143.ServerMDA\\ServerMDA\\ServerMDA.csproj",
-        "packagesPath": "C:\\Users\\boboc\\.nuget\\packages\\",
-        "outputPath": "E:\\C#\\MSIT143.ServerMDA\\ServerMDA\\obj\\",
+        "projectPath": "C:\\Users\\duckl\\Documents\\ServerMDA-\\ServerMDA\\ServerMDA.csproj",
+        "packagesPath": "C:\\Users\\duckl\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\duckl\\Documents\\ServerMDA-\\ServerMDA\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+        ],
         "configFilePaths": [
-          "C:\\Users\\boboc\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\duckl\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
@@ -63,7 +67,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.412\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.411\\RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Dashboard</title>
+    <title>M.D.A.後台系統</title>
 
     <script src="https://kit.fontawesome.com/c6052fa518.js" crossorigin="anonymous"></script>
     @* <link href="~/css/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">*@
@@ -28,10 +28,8 @@
 
         <!-- Sidebar - Brand -->
         <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-            <div class="sidebar-brand-icon rotate-n-15">
-                <i class="fas fa-laugh-wink"></i>
-            </div>
-            <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
+            <img class="img-thumbnail w-25" src="~/images/LOGO.png" />
+            <div class="sidebar-brand-text mx-2">MDA</div>
         </a>
 
         <!-- Divider -->
@@ -41,7 +39,7 @@
         <li class="nav-item active">
             <a class="nav-link" href="index.html">
                 <i class="fas fa-fw fa-tachometer-alt"></i>
-                <span>Dashboard</span>
+                <span>總表清單</span>
             </a>
         </li>
 
@@ -49,36 +47,66 @@
         <hr class="sidebar-divider">
 
         <!-- Heading -->
-        <div class="sidebar-heading">Interface</div>
+        <div class="sidebar-heading text-white">
+            電影院資料庫
+        </div>
 
         <!-- Nav Item - Pages Collapse Menu -->
         <li class="nav-item">
-            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-                <i class="fas fa-fw fa-cog"></i>
-                <span>Components</span>
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+               aria-expanded="true" aria-controls="collapseTwo">
+                <i class="fas fa-fw fa-film"></i>
+                <span>電影</span>
             </a>
             <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
-                    <h6 class="collapse-header">Custom Components:</h6>
-                    <a class="collapse-item" href="buttons.html">Buttons</a>
-                    <a class="collapse-item" href="cards.html">Cards</a>
+                    <h6 class="collapse-header text-gray-600">電影細部:</h6>
+                    <a class="collapse-item" href="buttons.html">導演類</a>
+                    <a class="collapse-item" href="cards.html">演員類</a>
+                    <a class="collapse-item" href="cards.html">電影分級</a>
+                    <a class="collapse-item" href="cards.html">電影語言</a>
+                    <a class="collapse-item" href="cards.html">電影代碼</a>
+                    <a class="collapse-item" href="cards.html">圖片</a>
                 </div>
             </div>
         </li>
 
         <!-- Nav Item - Utilities Collapse Menu -->
         <li class="nav-item">
-            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
-                <i class="fas fa-fw fa-wrench"></i>
-                <span>Utilities</span>
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseKwo"
+               aria-expanded="true" aria-controls="collapseKwo">
+                <i class="fas fa-fw fa fa-github-alt"></i>
+                <span>影城系統</span>
             </a>
-            <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+            <div id="collapseKwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
-                    <h6 class="collapse-header">Custom Utilities:</h6>
-                    <a class="collapse-item" href="utilities-color.html">Colors</a>
-                    <a class="collapse-item" href="utilities-border.html">Borders</a>
-                    <a class="collapse-item" href="utilities-animation.html">Animations</a>
-                    <a class="collapse-item" href="utilities-other.html">Other</a>
+                    <h6 class="collapse-header text-gray-600">影城細節:</h6>
+                    <a class="collapse-item" href="buttons.html">影城</a>
+                    <a class="collapse-item" href="cards.html">電影院</a>
+                    <a class="collapse-item" href="cards.html">影廳</a>
+                    <a class="collapse-item" href="cards.html">場次</a>
+                    <a class="collapse-item" href="cards.html">座位資訊</a>
+                </div>
+            </div>
+        </li>
+
+        <!-- Nav Item - Utilities Collapse Menu /*fa-wrench*/ -->
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
+               aria-expanded="true" aria-controls="collapseUtilities">
+                <i class="fas fa-fw fa-ticket"></i>
+                <span>票券、商品、點數</span>
+            </a>
+            <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
+                 data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header text-gray-600">商品:</h6>
+                    <a class="collapse-item" href="utilities-color.html">商品細節</a>
+                    <a class="collapse-item" href="utilities-border.html">票種</a>
+                    <div class="collapse-divider"></div>
+                    <h6 class="collapse-header text-gray-600">點數:</h6>
+                    <a class="collapse-item" href="404.html">優惠券總表</a>
+                    <a class="collapse-item" href="blank.html">會員優惠券</a>
                 </div>
             </div>
         </li>
@@ -87,24 +115,24 @@
         <hr class="sidebar-divider" />
 
         <!-- Heading -->
-        <div class="sidebar-heading">Addons</div>
+        <div class="sidebar-heading text-white">
+            會員區
+        </div>
 
         <!-- Nav Item - Pages Collapse Menu -->
         <li class="nav-item">
-            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
-                <i class="fas fa-fw fa-folder"></i>
-                <span>Pages</span>
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
+               aria-expanded="true" aria-controls="collapsePages">
+                <i class="fas fa-fw fa-user-circle"></i>
+                <span>會員管理</span>
             </a>
             <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
-                    <h6 class="collapse-header">Login Screens:</h6>
-                    <a class="collapse-item" href="login.html">Login</a>
-                    <a class="collapse-item" href="register.html">Register</a>
-                    <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
-                    <div class="collapse-divider"></div>
-                    <h6 class="collapse-header">Other Pages:</h6>
-                    <a class="collapse-item" href="404.html">404 Page</a>
-                    <a class="collapse-item" href="blank.html">Blank Page</a>
+                    <h6 class="collapse-header">會員明細:</h6>
+                    <a class="collapse-item" href="login.html">會員管理</a>
+                    <a class="collapse-item" href="register.html">會員增刪</a>
+                    <a class="collapse-item" href="forgot-password.html">檢舉管理</a>
+                    <a class="collapse-item" href="forgot-password.html">片單管理</a>
                 </div>
             </div>
         </li>
@@ -112,8 +140,16 @@
         <!-- Nav Item - Charts -->
         <li class="nav-item">
             <a class="nav-link" href="charts.html">
+                <i class="fas fa-fw fa-commenting"></i>
+                <span>評論系統</span>
+            </a>
+        </li>
+
+        <!-- Nav Item - Charts -->
+        <li class="nav-item">
+            <a class="nav-link" href="charts.html">
                 <i class="fas fa-fw fa-chart-area"></i>
-                <span>Charts</span>
+                <span>報表</span>
             </a>
         </li>
 
@@ -134,11 +170,11 @@
         </div>
 
         <!-- Sidebar Message -->
-        <div class="sidebar-card d-none d-lg-flex">
+        @*<div class="sidebar-card d-none d-lg-flex">
             <img class="sidebar-card-illustration mb-2" src="img/undraw_rocket.svg" alt="...">
             <p class="text-center mb-2"><strong>SB Admin Pro</strong> is packed with premium features, components, and more!</p>
             <a class="btn btn-success btn-sm" href="https://startbootstrap.com/theme/sb-admin-pro">Upgrade to Pro!</a>
-        </div>
+        </div>*@
 
     </ul>
     <!-- sidebar End -->
