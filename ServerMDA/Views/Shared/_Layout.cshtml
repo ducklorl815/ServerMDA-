@@ -37,7 +37,7 @@
 
         <!-- Nav Item - Dashboard -->
         <li class="nav-item active">
-            <a class="nav-link" href="index.html">
+            <a class="nav-link" asp-area="" asp-controller="HomePage" asp-action="List">
                 <i class="fas fa-fw fa-tachometer-alt"></i>
                 <span>總表清單</span>
             </a>
@@ -61,8 +61,8 @@
             <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header text-gray-600">電影細部:</h6>
-                    <a class="collapse-item" href="buttons.html">導演類</a>
-                    <a class="collapse-item" href="cards.html">演員類</a>
+                    <a class="collapse-item" asp-area="" asp-controller="導演總表director" asp-action="Index">導演類</a>
+                    <a class="collapse-item" asp-area="" asp-controller="演員總表actor" asp-action="Index">演員類</a>
                     <a class="collapse-item" href="cards.html">電影分級</a>
                     <a class="collapse-item" href="cards.html">電影語言</a>
                     <a class="collapse-item" href="cards.html">電影代碼</a>
@@ -81,8 +81,8 @@
             <div id="collapseKwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header text-gray-600">影城細節:</h6>
-                    <a class="collapse-item" href="buttons.html">影城</a>
-                    <a class="collapse-item" href="cards.html">電影院</a>
+                    <a class="collapse-item" asp-area="" asp-controller="影城mainTheater" asp-action="Index">影城</a>
+                    <a class="collapse-item" asp-area="" asp-controller="電影movie" asp-action="Index">電影院</a>
                     <a class="collapse-item" href="cards.html">影廳</a>
                     <a class="collapse-item" href="cards.html">場次</a>
                     <a class="collapse-item" href="cards.html">座位資訊</a>
@@ -100,12 +100,13 @@
             <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
                  data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
-                    <h6 class="collapse-header text-gray-600">商品:</h6>
-                    <a class="collapse-item" href="utilities-color.html">商品細節</a>
-                    <a class="collapse-item" href="utilities-border.html">票種</a>
+                    <h6 class="collapse-header text-gray-600">商品系統:</h6>
+                    <a class="collapse-item" asp-area="" asp-controller="商品資料product" asp-action="Index">商品</a>
+                    <h6 class="collapse-header text-gray-600">票種系統:</h6>
+                    <a class="collapse-item" asp-area="" asp-controller="票種ticketType" asp-action="Index">票種</a>
                     <div class="collapse-divider"></div>
-                    <h6 class="collapse-header text-gray-600">點數:</h6>
-                    <a class="collapse-item" href="404.html">優惠券總表</a>
+                    <h6 class="collapse-header text-gray-600">點數系統:</h6>
+                    <a class="collapse-item" asp-area="" asp-controller="優惠總表coupon" asp-action="Index">優惠券總表</a>
                     <a class="collapse-item" href="blank.html">會員優惠券</a>
                 </div>
             </div>
@@ -129,7 +130,7 @@
             <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">會員明細:</h6>
-                    <a class="collapse-item" href="login.html">會員管理</a>
+                    <a class="collapse-item" asp-area="" asp-controller="會員member" asp-action="Index">會員管理</a>
                     <a class="collapse-item" href="register.html">會員增刪</a>
                     <a class="collapse-item" href="forgot-password.html">檢舉管理</a>
                     <a class="collapse-item" href="forgot-password.html">片單管理</a>
@@ -139,7 +140,7 @@
 
         <!-- Nav Item - Charts -->
         <li class="nav-item">
-            <a class="nav-link" href="charts.html">
+            <a class="nav-link" asp-area="" asp-controller="電影評論movieComment" asp-action="Index">
                 <i class="fas fa-fw fa-commenting"></i>
                 <span>評論系統</span>
             </a>
@@ -171,10 +172,10 @@
 
         <!-- Sidebar Message -->
         @*<div class="sidebar-card d-none d-lg-flex">
-            <img class="sidebar-card-illustration mb-2" src="img/undraw_rocket.svg" alt="...">
-            <p class="text-center mb-2"><strong>SB Admin Pro</strong> is packed with premium features, components, and more!</p>
-            <a class="btn btn-success btn-sm" href="https://startbootstrap.com/theme/sb-admin-pro">Upgrade to Pro!</a>
-        </div>*@
+                <img class="sidebar-card-illustration mb-2" src="img/undraw_rocket.svg" alt="...">
+                <p class="text-center mb-2"><strong>SB Admin Pro</strong> is packed with premium features, components, and more!</p>
+                <a class="btn btn-success btn-sm" href="https://startbootstrap.com/theme/sb-admin-pro">Upgrade to Pro!</a>
+            </div>*@
 
     </ul>
     <!-- sidebar End -->
@@ -231,7 +232,7 @@
                     </a>
                     <!-- Dropdown - Alerts -->
                     <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="alertsDropdown">
-                        <h6 class="dropdown-header">Alerts Center</h6>
+                        <h6 class="dropdown-header">狀態中心</h6>
                         <a class="dropdown-item d-flex align-items-center" href="#">
                             <div class="mr-3">
                                 <div class="icon-circle bg-primary">
@@ -239,8 +240,8 @@
                                 </div>
                             </div>
                             <div>
-                                <div class="small text-gray-500">December 12, 2019</div>
-                                <span class="font-weight-bold">A new monthly report is ready to download!</span>
+                                <div class="small text-gray-500">10月11日, 2022</div>
+                                <span class="font-weight-bold">前台網頁製作模組完成</span>
                             </div>
                         </a>
                         <a class="dropdown-item d-flex align-items-center" href="#">
@@ -250,8 +251,8 @@
                                 </div>
                             </div>
                             <div>
-                                <div class="small text-gray-500">December 7, 2019</div>
-                                $290.29 has been deposited into your account!
+                                <div class="small text-gray-500">09月08日, 2022</div>
+                                專題期中報告
                             </div>
                         </a>
                         <a class="dropdown-item d-flex align-items-center" href="#">
@@ -261,8 +262,8 @@
                                 </div>
                             </div>
                             <div>
-                                <div class="small text-gray-500">December 2, 2019</div>
-                                Spending Alert: We've noticed unusually high spending for your account.
+                                <div class="small text-gray-500">07月20日, 2022</div>
+                                特別時刻! M.D.A. 專案小組啟動!!
                             </div>
                         </a>
                         <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
@@ -278,57 +279,53 @@
                     </a>
                     <!-- Dropdown - Messages -->
                     <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="messagesDropdown">
-                        <h6 class="dropdown-header">Message Center</h6>
+                        <h6 class="dropdown-header">訊息中心</h6>
                         <a class="dropdown-item d-flex align-items-center" href="#">
                             <div class="dropdown-list-image mr-3">
-                                <img class="rounded-circle" src="img/undraw_profile_1.svg" alt="...">
+                                <img class="rounded-circle" src="~/images/mem01.png" alt="...">
                                 <div class="status-indicator bg-success"></div>
                             </div>
                             <div class="font-weight-bold">
                                 <div class="text-truncate">
-                                    Hi there! I am wondering if you can help me with a
-                                    problem I've been having.
+                                    Hi 大家! 最近有些狀況可能無法加入專題，但我會繼續努力的，你們要等我喔~
                                 </div>
-                                <div class="small text-gray-500">Emily Fowler · 58m</div>
+                                <div class="small text-gray-500">游曉雯 · 58m</div>
                             </div>
                         </a>
                         <a class="dropdown-item d-flex align-items-center" href="#">
                             <div class="dropdown-list-image mr-3">
-                                <img class="rounded-circle" src="img/undraw_profile_2.svg" alt="...">
+                                <img class="rounded-circle" src="~/images/mem02.png" alt="...">
                                 <div class="status-indicator"></div>
                             </div>
                             <div>
                                 <div class="text-truncate">
-                                    I have the photos that you ordered last month, how
-                                    would you like them sent to you?
+                                    姊姊~ 今天要訂披薩嗎，我想吃!!!
                                 </div>
-                                <div class="small text-gray-500">Jae Chun · 1d</div>
+                                <div class="small text-gray-500">陳苡錚 · 1d</div>
                             </div>
                         </a>
                         <a class="dropdown-item d-flex align-items-center" href="#">
                             <div class="dropdown-list-image mr-3">
-                                <img class="rounded-circle" src="img/undraw_profile_3.svg" alt="...">
+                                <img class="rounded-circle" src="~/images/mem03.png" alt="...">
                                 <div class="status-indicator bg-warning"></div>
                             </div>
                             <div>
                                 <div class="text-truncate">
-                                    Last month's report looks great, I am very happy with
-                                    the progress so far, keep up the good work!
+                                    吼呦~ 我老公又加班了!! 整天在那邊寫code!!
                                 </div>
-                                <div class="small text-gray-500">Morgan Alvarez · 2d</div>
+                                <div class="small text-gray-500">洪暐婷 · 2d</div>
                             </div>
                         </a>
                         <a class="dropdown-item d-flex align-items-center" href="#">
                             <div class="dropdown-list-image mr-3">
-                                <img class="rounded-circle" src="https://source.unsplash.com/Mv9hjnEUHR4/60x60" alt="...">
+                                <img class="rounded-circle" src="~/images/cat01.png" alt="...">
                                 <div class="status-indicator bg-success"></div>
                             </div>
                             <div>
                                 <div class="text-truncate">
-                                    Am I a good boy? The reason I ask is because someone
-                                    told me that people say this to all dogs, even if they aren't good...
+                                    今天我想早點回去..  可以嗎?
                                 </div>
-                                <div class="small text-gray-500">Chicken the Dog · 2w</div>
+                                <div class="small text-gray-500">王婷薇 · 2w</div>
                             </div>
                         </a>
                         <a class="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>
@@ -340,16 +337,15 @@
                 <!-- Nav Item - User Information -->
                 <li class="nav-item dropdown no-arrow">
                     <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
-                        <img class="img-profile rounded-circle" src="img/undraw_profile.svg">
+                        <span class="mr-2 d-none d-lg-inline text-gray-600 small">Administrator</span>
+                        <img class="img-profile rounded-circle" src="~/images/MEMBER.png">
                     </a>
                     <!-- Dropdown - User Information -->
                     <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                        <a class="dropdown-item" href="#"><i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>Profile</a>
-                        <a class="dropdown-item" href="#"><i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>Settings</a>
-                        <a class="dropdown-item" href="#"><i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>Activity Log</a>
+                        <a class="dropdown-item" href="#"><i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>狀態</a>
+                        <a class="dropdown-item" href="#"><i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>設定</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal"><i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>Logout</a>
+                        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal"><i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>登出</a>
                     </div>
                 </li>
             </ul>
@@ -366,7 +362,7 @@
         <footer class="sticky-footer bg-white float-end">
             <div class="container my-auto">
                 <div class="copyright text-center my-auto">
-                    <span>Copyright &copy; Your Website 2021</span>
+                    <span>Copyright &copy; Your Website 2022</span>
                 </div>
             </div>
         </footer>
@@ -375,6 +371,21 @@
 
 
     @await RenderSectionAsync("Scripts", required: false)
+    < !--Bootstrap core JavaScript-->
+    <script src="~/js/vendor/jquery/jquery.min.js"></script>
+    <script src="~/js/vendor/bootstrap/js/bootstrap.min.js"></script>
 
+    <!-- Core plugin JavaScript-->
+    <script src="~/js/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="~/js/sb-admin-2.min.js"></script>
+
+    <!-- Page level plugins -->
+    <script src="~/js/vendor/chart.js/Chart.min.js"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="~/js/chart-area-demo.js"></script>
+    <script src="~/js/chart-pie-demo.js"></script>
 </body>
 </html>
