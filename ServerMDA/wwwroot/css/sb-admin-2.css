@@ -554,10 +554,10 @@ pre code {
 .container-lg,
 .container-xl {
     width: 100%;
-    padding-right: 0.75rem;
+/*    padding-right: 0.75rem;
     padding-left: 0.75rem;
     margin-right: auto;
-    margin-left: auto;
+    margin-left: auto;*/
 }
 
 @media (min-width: 576px) {

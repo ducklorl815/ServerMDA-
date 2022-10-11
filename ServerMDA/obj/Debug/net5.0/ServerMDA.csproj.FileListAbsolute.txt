@@ -616,3 +616,4 @@ C:\Users\Student\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\ServerMDA.dll
 C:\Users\Student\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\ref\ServerMDA.dll
 C:\Users\Student\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\ServerMDA.pdb
 C:\Users\Student\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\ServerMDA.genruntimeconfig.cache
+C:\Users\Student\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\PBI\PBI.cshtml.g.cs
