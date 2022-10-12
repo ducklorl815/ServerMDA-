@@ -1,0 +1,48 @@
+﻿@model ServerMDA.Models.導演總表director
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>導演總表director</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <input type="hidden" asp-for="導演編號directorId" class="form-control" />
+            </div>
+
+            <div class="form-group">
+                <label asp-for="中文名字nameCht" class="control-label"></label>
+                <input asp-for="中文名字nameCht" class="form-control" />
+                <span asp-validation-for="中文名字nameCht" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="英文名字nameEng" class="control-label"></label>
+                <input asp-for="英文名字nameEng" class="form-control" />
+                <span asp-validation-for="英文名字nameEng" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="導演照片imagepath" class="control-label"></label>
+                <input asp-for="導演照片imagepath" class="form-control" />
+                <span asp-validation-for="導演照片imagepath" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

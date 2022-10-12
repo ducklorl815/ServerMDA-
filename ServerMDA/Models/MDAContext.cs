@@ -64,14 +64,13 @@ namespace ServerMDA.Models
         public virtual DbSet<電影語言movieLanguage> 電影語言movieLanguages { get; set; }
         public virtual DbSet<電影院theater> 電影院theaters { get; set; }
 
-//        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-//        {
-//            if (!optionsBuilder.IsConfigured)
-//            {
-//#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-//                optionsBuilder.UseSqlServer("Data Source=.;Initial Catalog=MDA;Integrated Security=True");
-//            }
-//        }
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            if (!optionsBuilder.IsConfigured)
+            {
+                optionsBuilder.UseSqlServer("Data Source=.;Initial Catalog=MDA;Integrated Security=True");
+            }
+        }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -364,7 +363,9 @@ namespace ServerMDA.Models
                     .HasMaxLength(50)
                     .HasColumnName("中文名字Name_Cht");
 
-                entity.Property(e => e.導演照片image).HasColumnName("導演照片Image");
+                entity.Property(e => e.導演照片imagepath)
+                    .HasMaxLength(50)
+                    .HasColumnName("導演照片Imagepath");
 
                 entity.Property(e => e.英文名字nameEng)
                     .IsRequired()
