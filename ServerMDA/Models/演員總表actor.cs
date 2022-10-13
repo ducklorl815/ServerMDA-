@@ -15,7 +15,7 @@ namespace ServerMDA.Models
         public int 演員編號actorsId { get; set; }
         public string 中文名字nameCht { get; set; }
         public string 英文名字nameEng { get; set; }
-        public byte[] 演員照片image { get; set; }
+        public string 演員照片imagepath { get; set; }
 
         public virtual ICollection<電影主演cast> 電影主演casts { get; set; }
     }

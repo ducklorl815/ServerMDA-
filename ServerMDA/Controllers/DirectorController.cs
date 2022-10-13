@@ -26,7 +26,7 @@ namespace ServerMDA.Controllers
                 datas = from p in db.導演總表directors
                         select p;
             else
-                datas = db.導演總表directors.Where(p => p.中文名字nameCht.Contains(model.txtkeyword));
+                datas = db.導演總表directors.Where(p => p.中文名字nameCht.Contains(model.txtkeyword)|| p.英文名字nameEng.ToLower().Contains(model.txtkeyword.ToLower()));
 
             return View(datas);
         }
@@ -52,7 +52,7 @@ namespace ServerMDA.Controllers
                 {
                     string pName = Guid.NewGuid().ToString() + ".jpg";
                     c.導演照片imagepath = pName;
-                    string path = _enviro.WebRootPath + "/images/" + pName;
+                    string path = _enviro.WebRootPath + "/images/Director/" + pName;
                     inDir.photo.CopyTo(new FileStream(path, FileMode.Create));
                 }
                 c.中文名字nameCht = inDir.中文名字nameCht;
@@ -75,16 +75,14 @@ namespace ServerMDA.Controllers
         }
         public ActionResult Delete(int? id)
         {
-            //if (id != null)
-            //{
-            //    MDAContext db = new MDAContext();
-            //    導演總表director prod = db.導演總表directors.FirstOrDefault(p => p.FId == id);
-            //    if (prod != null)
-            //    {
-            //        db.導演總表directors.Remove(prod);
-            //    }
-            //}
-            return View();
+            if (id != null)
+            {
+                MDAContext db = new MDAContext();
+                導演總表director director = db.導演總表directors.FirstOrDefault(p => p.導演編號directorId == id);
+                if (director != null)
+                    return View(director);
+            }
+            return RedirectToAction("List");
         }
     }
 }

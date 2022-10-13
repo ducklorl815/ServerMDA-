@@ -684,7 +684,7 @@ namespace ServerMDA.Models
                     .HasMaxLength(20)
                     .HasColumnName("中文名字Name_Cht");
 
-                entity.Property(e => e.演員照片image).HasColumnName("演員照片Image");
+                entity.Property(e => e.演員照片imagepath).HasColumnName("演員照片Imagepath");
 
                 entity.Property(e => e.英文名字nameEng)
                     .IsRequired()

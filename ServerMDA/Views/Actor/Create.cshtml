@@ -1,20 +1,17 @@
-﻿@model ServerMDA.Models.導演總表director
+﻿@model ServerMDA.Models.演員總表actor
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Create";
 }
 
-<h1>Edit</h1>
+<h1>Create</h1>
 
-<h4>導演總表director</h4>
+<h4>演員總表actor</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Edit" enctype="multipart/form-data">
+        <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <input type="hidden" name="導演編號directorId" value="@Model.導演編號directorId" />
-            </div>
             <div class="form-group">
                 <label asp-for="中文名字nameCht" class="control-label"></label>
                 <input asp-for="中文名字nameCht" class="form-control" />
@@ -26,16 +23,12 @@
                 <span asp-validation-for="英文名字nameEng" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label class="control-label">導演照片</label>
-                <input type="file" name="photo" />
+                <label asp-for="演員照片imagepath" class="control-label"></label>
+                <input asp-for="演員照片imagepath" class="form-control" />
+                <span asp-validation-for="演員照片imagepath" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="導演照片imagepath" class="control-label"></label>
-                <input asp-for="導演照片imagepath" class="form-control" />
-                <span asp-validation-for="導演照片imagepath" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <input type="submit" value="Create" class="btn btn-primary" />
             </div>
         </form>
     </div>

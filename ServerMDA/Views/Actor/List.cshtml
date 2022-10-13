@@ -1,0 +1,55 @@
+﻿@model IEnumerable<ServerMDA.Models.演員總表actor>
+
+@{
+    ViewData["Title"] = "List";
+}
+
+<h1>List</h1>
+
+@using (Html.BeginForm())
+{
+    @:關鍵字 @Html.TextBox("txtkeyword", "", new { @class = "form-control" })
+    <input type="submit" value="查詢" />
+}
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.中文名字nameCht)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.英文名字nameEng)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.演員照片imagepath)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.中文名字nameCht)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.英文名字nameEng)
+                </td>
+                <td>
+                    <div>
+                        <img src="~/images/Actor/@item.演員照片imagepath" width="120" />
+                    </div>
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.演員編號actorsId">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.演員編號actorsId">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.演員編號actorsId">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
