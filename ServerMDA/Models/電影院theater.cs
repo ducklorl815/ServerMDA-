@@ -20,7 +20,7 @@ namespace ServerMDA.Models
         public string 電話phone { get; set; }
         public string 地址address { get; set; }
         public string 官方網站url { get; set; }
-        public byte[] 電影院照片image { get; set; }
+        public string 電影院照片imagepath { get; set; }
 
         public virtual 影城mainTheater 影城編號mainTheater { get; set; }
         public virtual ICollection<商品資料product> 商品資料products { get; set; }
