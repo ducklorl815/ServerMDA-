@@ -1,0 +1,72 @@
+﻿@model IEnumerable<ServerMDA.Models.電影院theater>
+
+@{
+    ViewData["Title"] = "List";
+}
+
+<h1>List</h1>
+
+<p>
+    <a asp-action="Create">新增</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.電影院名稱theaterName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.營業時間businessHours)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.電話phone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.地址address)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.官方網站url)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.電影院照片image)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.影城編號mainTheater)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.電影院名稱theaterName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.營業時間businessHours)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.電話phone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.地址address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.官方網站url)
+            </td>
+            <td>
+                <div>
+                    <img src="~/images/Actor/@item.電影院照片image" width="120" />
+                </div>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.影城編號mainTheater.影城名稱mainTheaterName)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.電影院編號theaterId">修改</a> 
+                <a asp-action="Delete" asp-route-id="@item.電影院編號theaterId">刪除</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

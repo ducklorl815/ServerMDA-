@@ -48,11 +48,6 @@ namespace ServerMDA.ViewModel
             get { return _movie.上映日期releaseDate; }
             set { _movie.上映日期releaseDate = value; }
         }
-        public DateTime? 最後上映日期releasedDate
-        {
-            get { return _movie.最後上映日期releasedDate; }
-            set { _movie.最後上映日期releasedDate = value; }
-        }
         public int 片長runtime
         {
             get { return _movie.片長runtime; }

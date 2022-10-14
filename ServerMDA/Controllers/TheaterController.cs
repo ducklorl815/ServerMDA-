@@ -51,7 +51,7 @@ namespace ServerMDA.Controllers
                 if (intheater.photo != null)
                 {
                     string pName = Guid.NewGuid().ToString() + ".jpg";
-                    c.電影院照片imagepath = pName;
+                    c.電影院照片image = pName;
                     string path = _enviro.WebRootPath + "/images/Theater/" + pName;
                     intheater.photo.CopyTo(new FileStream(path, FileMode.Create));
                 }

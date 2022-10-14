@@ -13,9 +13,8 @@ namespace ServerMDA.Models
         }
 
         public int 評論圖庫編號commentImageId { get; set; }
-        public byte[] 圖片image { get; set; }
+        public string 圖片image { get; set; }
         public int 屏蔽invisible { get; set; }
-        public int 檢舉report { get; set; }
 
         public virtual ICollection<評論圖片明細commentImagesList> 評論圖片明細commentImagesLists { get; set; }
     }

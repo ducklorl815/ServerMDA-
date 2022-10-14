@@ -20,6 +20,7 @@ namespace ServerMDA.Models
         public virtual DbSet<使用優惠明細usingCouponList> 使用優惠明細usingCouponLists { get; set; }
         public virtual DbSet<優惠明細couponList> 優惠明細couponLists { get; set; }
         public virtual DbSet<優惠總表coupon> 優惠總表coupons { get; set; }
+        public virtual DbSet<公開等級編號publicId> 公開等級編號publicIds { get; set; }
         public virtual DbSet<出售座位明細seatSold> 出售座位明細seatSolds { get; set; }
         public virtual DbSet<出售座位狀態seatStatus> 出售座位狀態seatStatuses { get; set; }
         public virtual DbSet<商品資料product> 商品資料products { get; set; }
@@ -68,6 +69,7 @@ namespace ServerMDA.Models
         {
             if (!optionsBuilder.IsConfigured)
             {
+#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
                 optionsBuilder.UseSqlServer("Data Source=.;Initial Catalog=MDA;Integrated Security=True");
             }
         }
@@ -163,6 +165,22 @@ namespace ServerMDA.Models
                     .HasColumnName("優惠折扣CouponDiscount");
             });
 
+            modelBuilder.Entity<公開等級編號publicId>(entity =>
+            {
+                entity.HasKey(e => e.公開等級編號publicId1);
+
+                entity.ToTable("公開等級編號Public_ID");
+
+                entity.Property(e => e.公開等級編號publicId1)
+                    .ValueGeneratedNever()
+                    .HasColumnName("公開等級編號Public_ID");
+
+                entity.Property(e => e.公開等級public)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .HasColumnName("公開等級Public");
+            });
+
             modelBuilder.Entity<出售座位明細seatSold>(entity =>
             {
                 entity.HasKey(e => e.出售明細編號soldId);
@@ -235,7 +253,9 @@ namespace ServerMDA.Models
                     .HasMaxLength(50)
                     .HasColumnName("商品名稱Product_Name");
 
-                entity.Property(e => e.商品圖片image).HasColumnName("商品圖片Image");
+                entity.Property(e => e.商品圖片image)
+                    .HasMaxLength(200)
+                    .HasColumnName("商品圖片Image");
 
                 entity.Property(e => e.電影院編號theaterId).HasColumnName("電影院編號Theater_ID");
 
@@ -262,8 +282,6 @@ namespace ServerMDA.Models
                 entity.Property(e => e.屏蔽invisible).HasColumnName("屏蔽Invisible");
 
                 entity.Property(e => e.會員編號memberId).HasColumnName("會員編號Member_ID");
-
-                entity.Property(e => e.檢舉report).HasColumnName("檢舉Report");
 
                 entity.Property(e => e.發佈時間floorTime)
                     .HasColumnType("smalldatetime")
@@ -363,9 +381,9 @@ namespace ServerMDA.Models
                     .HasMaxLength(50)
                     .HasColumnName("中文名字Name_Cht");
 
-                entity.Property(e => e.導演照片imagepath)
-                    .HasMaxLength(50)
-                    .HasColumnName("導演照片Imagepath");
+                entity.Property(e => e.導演照片image)
+                    .HasMaxLength(200)
+                    .HasColumnName("導演照片Image");
 
                 entity.Property(e => e.英文名字nameEng)
                     .IsRequired()
@@ -412,7 +430,9 @@ namespace ServerMDA.Models
                     .HasMaxLength(50)
                     .HasColumnName("影廳名稱Cinema_Name");
 
-                entity.Property(e => e.影廳照片image).HasColumnName("影廳照片Image");
+                entity.Property(e => e.影廳照片image)
+                    .HasMaxLength(200)
+                    .HasColumnName("影廳照片Image");
 
                 entity.Property(e => e.電影院編號theaterId).HasColumnName("電影院編號Theater_ID");
 
@@ -551,7 +571,9 @@ namespace ServerMDA.Models
 
                 entity.Property(e => e.會員權限permission).HasColumnName("會員權限Permission");
 
-                entity.Property(e => e.會員照片image).HasColumnName("會員照片Image");
+                entity.Property(e => e.會員照片image)
+                    .HasMaxLength(200)
+                    .HasColumnName("會員照片Image");
 
                 entity.Property(e => e.會員電話cellphone)
                     .IsRequired()
@@ -684,7 +706,9 @@ namespace ServerMDA.Models
                     .HasMaxLength(20)
                     .HasColumnName("中文名字Name_Cht");
 
-                entity.Property(e => e.演員照片image).HasColumnName("演員照片Image");
+                entity.Property(e => e.演員照片image)
+                    .HasMaxLength(200)
+                    .HasColumnName("演員照片Image");
 
                 entity.Property(e => e.英文名字nameEng)
                     .IsRequired()
@@ -897,12 +921,10 @@ namespace ServerMDA.Models
                 entity.Property(e => e.評論圖庫編號commentImageId).HasColumnName("評論圖庫編號CommentImage_ID");
 
                 entity.Property(e => e.圖片image)
-                    .IsRequired()
+                    .HasMaxLength(200)
                     .HasColumnName("圖片Image");
 
                 entity.Property(e => e.屏蔽invisible).HasColumnName("屏蔽Invisible");
-
-                entity.Property(e => e.檢舉report).HasColumnName("檢舉Report");
             });
 
             modelBuilder.Entity<購買商品明細receipt>(entity =>
@@ -966,10 +988,6 @@ namespace ServerMDA.Models
                     .HasColumnName("中文標題Title_Cht");
 
                 entity.Property(e => e.劇情大綱plot).HasColumnName("劇情大綱Plot");
-
-                entity.Property(e => e.最後上映日期releasedDate)
-                    .HasColumnType("date")
-                    .HasColumnName("最後上映日期Released_Date");
 
                 entity.Property(e => e.期待度anticipation).HasColumnType("numeric(2, 1)");
 
@@ -1120,7 +1138,7 @@ namespace ServerMDA.Models
                 entity.Property(e => e.圖片編號imageId).HasColumnName("圖片編號Image_ID");
 
                 entity.Property(e => e.圖片image)
-                    .IsRequired()
+                    .HasMaxLength(200)
                     .HasColumnName("圖片Image");
 
                 entity.Property(e => e.屏蔽invisible).HasColumnName("屏蔽Invisible");
@@ -1227,8 +1245,6 @@ namespace ServerMDA.Models
 
                 entity.Property(e => e.期待度anticipation).HasColumnType("numeric(2, 1)");
 
-                entity.Property(e => e.檢舉report).HasColumnName("檢舉Report");
-
                 entity.Property(e => e.發佈時間commentTime)
                     .HasColumnType("smalldatetime")
                     .HasColumnName("發佈時間Comment_Time");
@@ -1252,6 +1268,11 @@ namespace ServerMDA.Models
                     .HasColumnName("評論標題Comment_Title");
 
                 entity.Property(e => e.電影編號movieId).HasColumnName("電影編號Movie_ID");
+
+                entity.HasOne(d => d.公開等級編號public)
+                    .WithMany(p => p.電影評論movieComments)
+                    .HasForeignKey(d => d.公開等級編號publicId)
+                    .HasConstraintName("FK_電影評論MovieComment_公開等級編號Public_ID");
 
                 entity.HasOne(d => d.電影編號movie)
                     .WithMany(p => p.電影評論movieComments)
@@ -1307,9 +1328,9 @@ namespace ServerMDA.Models
                     .HasMaxLength(50)
                     .HasColumnName("電影院名稱Theater_Name");
 
-                entity.Property(e => e.電影院照片imagepath)
+                entity.Property(e => e.電影院照片image)
                     .HasMaxLength(200)
-                    .HasColumnName("電影院照片Imagepath");
+                    .HasColumnName("電影院照片Image");
 
                 entity.Property(e => e.電話phone)
                     .HasMaxLength(10)

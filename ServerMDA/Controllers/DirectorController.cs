@@ -51,7 +51,7 @@ namespace ServerMDA.Controllers
                 if (inDir.photo != null)
                 {
                     string pName = Guid.NewGuid().ToString() + ".jpg";
-                    c.導演照片imagepath = pName;
+                    c.導演照片image = pName;
                     string path = _enviro.WebRootPath + "/images/Director/" + pName;
                     inDir.photo.CopyTo(new FileStream(path, FileMode.Create));
                 }

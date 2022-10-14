@@ -27,8 +27,8 @@ namespace ServerMDA.Models
         public int? 公開等級編號publicId { get; set; }
         public bool? 是否開放討論串oxFloor { get; set; }
         public int 屏蔽invisible { get; set; }
-        public int 檢舉report { get; set; }
 
+        public virtual 公開等級編號publicId 公開等級編號public { get; set; }
         public virtual 電影movie 電影編號movie { get; set; }
         public virtual ICollection<回覆樓數floor> 回覆樓數floors { get; set; }
         public virtual ICollection<標籤明細hashtagsList> 標籤明細hashtagsLists { get; set; }

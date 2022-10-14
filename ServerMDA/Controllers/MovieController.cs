@@ -52,7 +52,6 @@ namespace ServerMDA.Controllers
                     c.英文標題titleEng = inMovie.英文標題titleEng;
                     c.上映年份releaseYear = inMovie.上映年份releaseYear;
                     c.上映日期releaseDate = inMovie.上映日期releaseDate;
-                    c.最後上映日期releasedDate = inMovie.最後上映日期releasedDate;
                     c.片長runtime = inMovie.片長runtime;
                     c.電影分級編號ratingId = inMovie.電影分級編號ratingId;
                     c.評分rate = inMovie.評分rate;

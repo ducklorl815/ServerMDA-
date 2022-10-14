@@ -34,10 +34,10 @@ namespace ServerMDA.ViewModel
             get { return _director.英文名字nameEng; }
             set { _director.英文名字nameEng = value; }
         }
-        public string 導演照片imagepath
+        public string 導演照片image
         {
-            get { return _director.導演照片imagepath; }
-            set { _director.導演照片imagepath = value; }
+            get { return _director.導演照片image; }
+            set { _director.導演照片image = value; }
         }
         public IFormFile photo { get; set; }
     }

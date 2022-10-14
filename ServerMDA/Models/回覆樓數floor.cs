@@ -15,7 +15,6 @@ namespace ServerMDA.Models
         public int? 被按讚次數thumbsUp { get; set; }
         public int? 被倒讚次數thumbsDown { get; set; }
         public int 屏蔽invisible { get; set; }
-        public int 檢舉report { get; set; }
 
         public virtual 電影評論movieComment 評論編號comment { get; set; }
     }

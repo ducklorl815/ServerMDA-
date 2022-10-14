@@ -54,10 +54,10 @@ namespace ServerMDA.ViewModel
             get { return _theater.官方網站url; }
             set { _theater.官方網站url = value; }
         }
-        public string 電影院照片imagepath
+        public string 電影院照片image
         {
-            get { return _theater.電影院照片imagepath; }
-            set { _theater.電影院照片imagepath = value; }
+            get { return _theater.電影院照片image; }
+            set { _theater.電影院照片image = value; }
         }
 
         public IFormFile photo { get; set; }
