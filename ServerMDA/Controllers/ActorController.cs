@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using ServerMDA.Models;
 using ServerMDA.ViewModel;
@@ -66,9 +67,16 @@ namespace ServerMDA.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult Create(演員總表actor p)
+        public ActionResult Create(演員總表actor p, CActorViewModel inActor)
         {
             MDAContext db = new MDAContext();
+
+            string pName = Guid.NewGuid().ToString() + ".jpg";
+            string path = _enviro.WebRootPath + "/images/Actor/" + pName;
+            inActor.photo.CopyTo(new FileStream(path, FileMode.Create));
+
+            p.演員照片image = pName;
+
             db.演員總表actors.Add(p);
             db.SaveChanges();
             return RedirectToAction("List");

@@ -66,22 +66,18 @@ namespace ServerMDA.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult Create(導演總表director p)
+        public ActionResult Create(導演總表director p, CDirectorViewModel inDir)
         {
             MDAContext db = new MDAContext();
+
+            string pName = Guid.NewGuid().ToString() + ".jpg";
+            string path = _enviro.WebRootPath + "/images/Actor/" + pName;
+            inDir.photo.CopyTo(new FileStream(path, FileMode.Create));
+
+            p.導演照片image = pName;
+
             db.導演總表directors.Add(p);
             db.SaveChanges();
-            return RedirectToAction("List");
-        }
-        public ActionResult Delete(int? id)
-        {
-            if (id != null)
-            {
-                MDAContext db = new MDAContext();
-                導演總表director director = db.導演總表directors.FirstOrDefault(p => p.導演編號directorId == id);
-                if (director != null)
-                    return View(director);
-            }
             return RedirectToAction("List");
         }
     }

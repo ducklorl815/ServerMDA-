@@ -189,8 +189,8 @@
             </button>
 
             <!-- Topbar Search -->
-            <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-                <div class="input-group">
+            <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-5 my-2 my-md-0 mw-100 navbar-search">
+                <div class="input-group offset-md-1">
                     <div class="input-group-append">
                         @Html.TextBox("txtkeyword", "", new { @class = "form-control bg-light border-0 small" })
                             <div class="input-group-append">
@@ -371,7 +371,7 @@
 
 
     @await RenderSectionAsync("Scripts", required: false)
-    < !--Bootstrap core JavaScript-->
+    <!--Bootstrap core JavaScript-->
     <script src="~/js/vendor/jquery/jquery.min.js"></script>
     <script src="~/js/vendor/bootstrap/js/bootstrap.min.js"></script>
 

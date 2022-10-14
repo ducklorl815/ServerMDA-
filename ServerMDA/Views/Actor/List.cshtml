@@ -1,20 +1,15 @@
 ﻿@model IEnumerable<ServerMDA.Models.演員總表actor>
 
 @{
-    ViewData["Title"] = "List";
+    ViewData["Title"] = "演員清單";
 }
 
-<h1>List</h1>
+<h2 class="offset-md-1">演員清單</h2>
 
-@using (Html.BeginForm())
-{
-    @:關鍵字 @Html.TextBox("txtkeyword", "", new { @class = "form-control" })
-    <input type="submit" value="查詢" />
-}
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create" class="btn btn-success offset-md-1">新增</a>
 </p>
-<table class="table">
+<table class="table offset-md-1">
     <thead>
         <tr>
             <th>
@@ -45,9 +40,8 @@
                     </div>
                 </td>
                 <td>
-                    <a asp-action="Edit" asp-route-id="@item.演員編號actorsId">Edit</a> |
-                    <a asp-action="Details" asp-route-id="@item.演員編號actorsId">Details</a> |
-                    <a asp-action="Delete" asp-route-id="@item.演員編號actorsId">Delete</a>
+                    <a asp-action="Edit" asp-route-id="@item.演員編號actorsId" class="btn btn-info">修改</a>
+                    @*<a asp-action="Delete" asp-route-id="@item.演員編號actorsId">Delete</a>*@
                 </td>
             </tr>
         }
