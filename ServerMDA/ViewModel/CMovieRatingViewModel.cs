@@ -1,4 +1,5 @@
-﻿using ServerMDA.Models;
+﻿using Microsoft.AspNetCore.Http;
+using ServerMDA.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -38,5 +39,6 @@ namespace ServerMDA.ViewModel
             get { return _Rating.分級圖片ratingImage; }
             set { _Rating.分級圖片ratingImage = value; }
         }
+        public IFormFile photo { get; set; }
     }
 }

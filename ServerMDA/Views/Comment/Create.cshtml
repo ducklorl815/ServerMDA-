@@ -1,0 +1,82 @@
+﻿@model ServerMDA.Models.電影評論movieComment
+
+@{
+    ViewData["Title"] = "新增";
+}
+
+<h4 class="offset-md-1">電影評論</h4>
+
+<div class="row">
+    <div class="col-md-5 offset-md-1">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="會員編號memberId" class="control-label"></label>
+                <input asp-for="會員編號memberId" class="form-control" />
+                <span asp-validation-for="會員編號memberId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="電影編號movieId" class="control-label"></label>
+                <select asp-for="電影編號movieId" class="form-control" asp-items="ViewBag.電影編號movieId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="評分rate" class="control-label"></label>
+                <input asp-for="評分rate" class="form-control" />
+                <span asp-validation-for="評分rate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="期待度anticipation" class="control-label"></label>
+                <input asp-for="期待度anticipation" class="form-control" />
+                <span asp-validation-for="期待度anticipation" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="評論標題commentTitle" class="control-label"></label>
+                <input asp-for="評論標題commentTitle" class="form-control" />
+                <span asp-validation-for="評論標題commentTitle" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="評論內容comments" class="control-label"></label>
+                <input asp-for="評論內容comments" class="form-control" />
+                <span asp-validation-for="評論內容comments" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="發佈時間commentTime" class="control-label"></label>
+                <input asp-for="發佈時間commentTime" class="form-control" />
+                <span asp-validation-for="發佈時間commentTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="觀影日期viewingTime" class="control-label"></label>
+                <input asp-for="觀影日期viewingTime" class="form-control" />
+                <span asp-validation-for="觀影日期viewingTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="觀影方式source" class="control-label"></label>
+                <input asp-for="觀影方式source" class="form-control" />
+                <span asp-validation-for="觀影方式source" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="公開等級編號publicId" class="control-label"></label>
+                <select asp-for="公開等級編號publicId" class="form-control" asp-items="ViewBag.公開等級編號publicId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="是否開放討論串oxFloor" class="control-label"></label>
+                <input asp-for="是否開放討論串oxFloor" class="form-control" />
+                <span asp-validation-for="是否開放討論串oxFloor" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="屏蔽invisible" class="control-label"></label>
+                <input asp-for="屏蔽invisible" class="form-control" />
+                <span asp-validation-for="屏蔽invisible" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="新增" class="btn btn-primary mr-2" />
+                <a asp-action="List" class="btn btn-secondary">回到清單</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

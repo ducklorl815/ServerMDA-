@@ -63,7 +63,7 @@
                     <h6 class="collapse-header text-gray-600">電影細部:</h6>
                     <a class="collapse-item" asp-area="" asp-controller="Director" asp-action="List">導演類</a>
                     <a class="collapse-item" asp-area="" asp-controller="Actor" asp-action="List">演員類</a>
-                    <a class="collapse-item" href="cards.html">電影分級</a>
+                    <a class="collapse-item" asp-area="" asp-controller="MovieRating" asp-action="List">電影分級</a>
                     <a class="collapse-item" href="cards.html">電影語言</a>
                     <a class="collapse-item" href="cards.html">電影代碼</a>
                     <a class="collapse-item" href="cards.html">圖片</a>
@@ -140,7 +140,7 @@
 
         <!-- Nav Item - Charts -->
         <li class="nav-item">
-            <a class="nav-link" asp-area="" asp-controller="電影評論movieComment" asp-action="Index">
+            <a class="nav-link" asp-area="" asp-controller="Comment" asp-action="List">
                 <i class="fas fa-fw fa-commenting"></i>
                 <span>評論系統</span>
             </a>
