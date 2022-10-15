@@ -1,16 +1,14 @@
 ﻿@model ServerMDA.Models.電影movie
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "修改";
 }
 
-<h1>Edit</h1>
+<h4 class="offset-md-1">修改電影編號 : @Model.電影編號movieId</h4>
 
-<h4>電影movie</h4>
-<hr />
 <div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
+    <div class="col-md-5 offset-md-1">
+        <form asp-action="Edit" enctype="multipart/form-data">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="電影編號movieId" />
             <div class="form-group">
@@ -65,19 +63,17 @@
             </div>
             <div class="form-group">
                 <label asp-for="劇情大綱plot" class="control-label"></label>
-                <input asp-for="劇情大綱plot" class="form-control" />
+                <textarea  rows="8" asp-for="劇情大綱plot" class="form-control"></textarea>
                 <span asp-validation-for="劇情大綱plot" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <input type="submit" value="修改" class="btn btn-primary mr-2" />
+                <a asp-action="List" class="btn btn-secondary">回到清單</a>
             </div>
         </form>
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

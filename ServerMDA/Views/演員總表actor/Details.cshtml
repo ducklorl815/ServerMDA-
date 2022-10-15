@@ -1,0 +1,36 @@
+﻿@model ServerMDA.Models.演員總表actor
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>演員總表actor</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.中文名字nameCht)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.中文名字nameCht)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.英文名字nameEng)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.英文名字nameEng)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.演員照片image)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.演員照片image)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.演員編號actorsId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

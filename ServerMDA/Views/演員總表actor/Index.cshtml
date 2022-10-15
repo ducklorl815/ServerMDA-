@@ -1,0 +1,47 @@
+﻿@model IEnumerable<ServerMDA.Models.演員總表actor>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.中文名字nameCht)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.英文名字nameEng)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.演員照片image)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.中文名字nameCht)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.英文名字nameEng)
+            </td>
+            <td>
+                <img src="~/images/Actor/@item.演員照片image" class="img-thumbnail w-25" />
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.演員編號actorsId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.演員編號actorsId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.演員編號actorsId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -82,7 +82,7 @@
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header text-gray-600">影城細節:</h6>
                     <a class="collapse-item" asp-area="" asp-controller="影城mainTheater" asp-action="Index">影城</a>
-                    <a class="collapse-item" asp-area="" asp-controller="電影movie" asp-action="Index">電影院</a>
+                    <a class="collapse-item" asp-area="" asp-controller="Movie" asp-action="List">電影院</a>
                     <a class="collapse-item" href="cards.html">影廳</a>
                     <a class="collapse-item" href="cards.html">場次</a>
                     <a class="collapse-item" href="cards.html">座位資訊</a>
@@ -352,7 +352,7 @@
         </nav>
         <!-- TopBar End -->
         <!-- RenderBody Start -->
-        <div class="container">
+        <div class="container col-12">
             <main role="main" class="pb-3">
                 @RenderBody()
             </main>

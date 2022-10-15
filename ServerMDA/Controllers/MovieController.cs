@@ -17,7 +17,8 @@ namespace ServerMDA.Controllers
             {
                 _enviro = p;
             }
-            public IActionResult List(CKeyWordViewModel model)
+
+        public IActionResult List(CKeyWordViewModel model)
             {
                 MDAContext db = new MDAContext();
                 IEnumerable<電影movie> datas = null;

@@ -1,55 +1,51 @@
 ﻿@model IEnumerable<ServerMDA.Models.導演總表director>
 
 @{
-    ViewData["Title"] = "List";
-}
+    ViewData["Title"] = "導演清單";
 
-<h1>List</h1>
-
-@using (Html.BeginForm())
-{
-    @:關鍵字 @Html.TextBox("txtkeyword", "", new { @class = "form-control" })
-    <input type="submit" value="查詢" />
 }
-<p>
-    <a asp-action="Create">新增產品</a>
-</p>
-<table class="table">
+<h2>導演清單<a asp-action="Create" class="btn btn-warning mb-1  ml-2">新增</a></h2>
+
+
+<table class="table table-striped table-hover col-8">
     <thead>
         <tr>
-            <th>
+            <th class="col-2">
+                @Html.DisplayNameFor(model => model.導演照片image)
+            </th>
+            <th class="col-2">
                 @Html.DisplayNameFor(model => model.中文名字nameCht)
             </th>
-            <th>
+            <th class="col-7">
                 @Html.DisplayNameFor(model => model.英文名字nameEng)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.導演照片image)
+            <th class="col-1">
+
             </th>
         </tr>
     </thead>
     <tbody>
         @foreach (var item in Model)
         {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.中文名字nameCht)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.英文名字nameEng)
-            </td>
-            <td>
-                <div>
-                    <img src="~/images/Director/@item.導演照片image" width="120" />
-                </div>
-                @*@Html.DisplayFor(modelItem => item.Fimage)*@
-            </td>
+            <tr>
+                <td>
+                    <div>
+                        <img src="~/images/Director/@item.導演照片image" width="120" />
+                    </div>
+                    @*@Html.DisplayFor(modelItem => item.Fimage)*@
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.中文名字nameCht)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.英文名字nameEng)
+                </td>
 
-            <td>
-                @Html.ActionLink("修改", "Edit", new { id = item.導演編號directorId })
-                @Html.ActionLink("刪除", "Delete", new { id = item.導演編號directorId })
-            </td>
-        </tr>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.導演編號directorId" class="btn btn-info">修改</a>
+                    @*@Html.ActionLink("刪除", "Delete", new { id = item.導演編號directorId })*@
+                </td>
+            </tr>
         }
     </tbody>
 </table>

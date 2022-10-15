@@ -1,6 +1,8 @@
 ﻿using ServerMDA.Models;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -18,6 +20,7 @@ namespace ServerMDA.ViewModel
         {
             _movie = new 電影movie();  //每做一個就建一個
         }
+
         public int 電影編號movieId
         {
             get { return _movie.電影編號movieId; }
@@ -28,6 +31,7 @@ namespace ServerMDA.ViewModel
             get { return _movie.系列編號seriesId; }
             set { _movie.系列編號seriesId = value; }
         }
+
         public string 中文標題titleCht
         {
             get { return _movie.中文標題titleCht; }

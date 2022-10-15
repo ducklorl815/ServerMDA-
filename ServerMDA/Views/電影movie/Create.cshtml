@@ -1,0 +1,81 @@
+﻿@model ServerMDA.Models.電影movie
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>電影movie</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="系列編號seriesId" class="control-label"></label>
+                <select asp-for="系列編號seriesId" class ="form-control" asp-items="ViewBag.系列編號seriesId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="中文標題titleCht" class="control-label"></label>
+                <input asp-for="中文標題titleCht" class="form-control" />
+                <span asp-validation-for="中文標題titleCht" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="英文標題titleEng" class="control-label"></label>
+                <input asp-for="英文標題titleEng" class="form-control" />
+                <span asp-validation-for="英文標題titleEng" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="上映年份releaseYear" class="control-label"></label>
+                <input asp-for="上映年份releaseYear" class="form-control" />
+                <span asp-validation-for="上映年份releaseYear" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="上映日期releaseDate" class="control-label"></label>
+                <input asp-for="上映日期releaseDate" class="form-control" />
+                <span asp-validation-for="上映日期releaseDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="片長runtime" class="control-label"></label>
+                <input asp-for="片長runtime" class="form-control" />
+                <span asp-validation-for="片長runtime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="電影分級編號ratingId" class="control-label"></label>
+                <select asp-for="電影分級編號ratingId" class ="form-control" asp-items="ViewBag.電影分級編號ratingId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="評分rate" class="control-label"></label>
+                <input asp-for="評分rate" class="form-control" />
+                <span asp-validation-for="評分rate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="期待度anticipation" class="control-label"></label>
+                <input asp-for="期待度anticipation" class="form-control" />
+                <span asp-validation-for="期待度anticipation" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="票房boxOffice" class="control-label"></label>
+                <input asp-for="票房boxOffice" class="form-control" />
+                <span asp-validation-for="票房boxOffice" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="劇情大綱plot" class="control-label"></label>
+                <input asp-for="劇情大綱plot" class="form-control" />
+                <span asp-validation-for="劇情大綱plot" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

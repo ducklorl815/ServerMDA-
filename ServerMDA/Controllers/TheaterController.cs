@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
+
 using ServerMDA.Models;
 using ServerMDA.ViewModel;
 using System;
@@ -18,8 +19,10 @@ namespace ServerMDA.Controllers
         {
             _enviro = p;
         }
+
         public IActionResult List(CKeyWordViewModel model)
         {
+
             MDAContext db = new MDAContext();
             IEnumerable<電影院theater> datas = null;
             if (string.IsNullOrEmpty(model.txtkeyword))

@@ -1,0 +1,87 @@
+﻿@model ServerMDA.Models.電影movie
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Delete</h1>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>電影movie</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.中文標題titleCht)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.中文標題titleCht)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.英文標題titleEng)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.英文標題titleEng)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.上映年份releaseYear)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.上映年份releaseYear)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.上映日期releaseDate)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.上映日期releaseDate)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.片長runtime)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.片長runtime)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.評分rate)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.評分rate)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.期待度anticipation)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.期待度anticipation)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.票房boxOffice)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.票房boxOffice)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.劇情大綱plot)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.劇情大綱plot)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.系列編號series)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.系列編號series.系列名稱seriesName)
+        </dd class>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.電影分級編號rating)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.電影分級編號rating.分級級數ratingLevel)
+        </dd class>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="電影編號movieId" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>
