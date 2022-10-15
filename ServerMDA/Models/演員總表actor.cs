@@ -21,8 +21,6 @@ namespace ServerMDA.Models
         public string 英文名字nameEng { get; set; }
         [DisplayName("照片")]
         public string 演員照片image { get; set; }
-
-        public IFormFile photo { get; set; }
         public virtual ICollection<電影主演cast> 電影主演casts { get; set; }
     }
 }
