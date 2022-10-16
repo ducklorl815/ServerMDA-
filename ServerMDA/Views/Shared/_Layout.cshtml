@@ -24,7 +24,7 @@
 
 
     <!-- sidebar Start -->
-    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion float-left" id="accordionSidebar">
+    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
         <!-- Sidebar - Brand -->
         <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
@@ -130,7 +130,7 @@
             <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">會員明細:</h6>
-                    <a class="collapse-item" asp-area="" asp-controller="會員member" asp-action="Index">會員管理</a>
+                    <a class="collapse-item" asp-area="" asp-controller="Member" asp-action="List">會員管理</a>
                     <a class="collapse-item" href="register.html">會員增刪</a>
                     <a class="collapse-item" href="forgot-password.html">檢舉管理</a>
                     <a class="collapse-item" href="forgot-password.html">片單管理</a>
@@ -181,6 +181,7 @@
     <!-- sidebar End -->
     <div class="divPosition">
         <!-- TopBar Start -->
+
         <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
 
             <!-- Sidebar Toggle (Topbar) -->
@@ -353,7 +354,7 @@
         <!-- TopBar End -->
         <!-- RenderBody Start -->
         <div class="container col-12">
-            <main role="main" class="pb-3">
+            <main role="main" class="pb-3 float-end">
                 @RenderBody()
             </main>
         </div>

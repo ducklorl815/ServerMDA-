@@ -1,0 +1,42 @@
+﻿@model IEnumerable<ServerMDA.Models.電影代碼movieCode>
+
+@{
+    ViewData["Title"] = "新增";
+}
+
+<h1>List</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.語言編號language)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.電影編號movie)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.語言編號language.語言名稱languageName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.電影編號movie.英文標題titleEng)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.電影代碼編號movieCodeId">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.電影代碼編號movieCodeId">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.電影代碼編號movieCodeId">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

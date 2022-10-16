@@ -25,7 +25,7 @@ namespace ServerMDA.Controllers
                 datas = from p in db.電影分級movieRatings
                         select p;
             else
-                datas = db.電影分級movieRatings.Where(p => p.分級說明ratingIllustrate.Contains(model.txtkeyword) || p.分級編號ratingId.ToString() == model.txtkeyword);
+                datas = db.電影分級movieRatings.Where(p => p.分級說明ratingIllustrate.Contains(model.txtkeyword) || p.分級級數ratingLevel.Contains(model.txtkeyword));
 
             return View(datas);
         }

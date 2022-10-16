@@ -17,6 +17,7 @@
     <Folder Include="wwwroot\images\Actor\" />
     <Folder Include="wwwroot\images\Director\" />
     <Folder Include="wwwroot\images\MovieRating\" />
+    <Folder Include="wwwroot\images\Member\" />
     <Folder Include="wwwroot\images\Theater\" />
   </ItemGroup>
 

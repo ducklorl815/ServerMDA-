@@ -4115,7 +4115,8 @@ input[type="button"].btn-block {
 
 .navbar {
     position: relative;
-    display: flex;
+    display: flex !important;
+    /*display: flex;*/
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
@@ -9760,7 +9761,8 @@ a.text-dark:hover, a.text-dark:focus {
     min-width: 992px !important;
   }
   .navbar {
-    display: none;
+    /*display: none;*/
+      align-items: center !important; }
   }
   .badge {
     border: 1px solid #000;
@@ -10154,6 +10156,7 @@ a:focus {
   font-weight: 900;
   content: '\f105';
   font-family: 'Font Awesome 5 Free';
+
 }
 
 .sidebar .nav-item.dropdown.show .dropdown-toggle::after,
@@ -10182,7 +10185,9 @@ a:focus {
 }
 
 .topbar {
-  height: 4.375rem;
+    height: 4.375rem;
+
+
 }
 
 .topbar #sidebarToggleTop {

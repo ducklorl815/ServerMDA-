@@ -1,0 +1,113 @@
+﻿@model IEnumerable<ServerMDA.Models.會員member>
+
+@{
+    ViewData["Title"] = "會員清單";
+}
+
+<link href="~/css/site.css" rel="stylesheet" />
+
+<h2>會員清單<a asp-action="Create" class="btn btn-warning mb-1  ml-2">新增</a></h2>
+
+<table class="table table-striped table-hover tables">
+    <thead>
+        <tr style="white-space:nowrap">
+            <th class="col-2">
+                @Html.DisplayNameFor(model => model.會員電話cellphone)
+            </th>
+            @*<th>
+            @Html.DisplayNameFor(model => model.密碼password)
+        </th>*@
+            <th class="col-1">
+                @Html.DisplayNameFor(model => model.姓氏lName)
+            </th>
+            <th class="col-1">
+                @Html.DisplayNameFor(model => model.名字fName)
+            </th>
+            @*<th>
+            @Html.DisplayNameFor(model => model.暱稱nickName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.生日birthDate)
+        </th>*@
+            <th class="col-3">
+                @Html.DisplayNameFor(model => model.電子信箱email)
+            </th>
+            @*<th>
+            @Html.DisplayNameFor(model => model.地址address)
+        </th>*@
+            <th>
+                @Html.DisplayNameFor(model => model.紅利點數bonus)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.正式會員formal)
+            </th>
+            <th class="col-1">
+                @Html.DisplayNameFor(model => model.會員照片image)
+            </th>
+            <th class="col-1">
+                @Html.DisplayNameFor(model => model.建立時間createdTime)
+            </th>
+            @*<th>
+            @Html.DisplayNameFor(model => model.性別genderNavigation)
+        </th>*@
+            <th class="col-1">
+                @Html.DisplayNameFor(model => model.會員權限permissionNavigation)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr style="white-space:nowrap">
+            <td>
+                @Html.DisplayFor(modelItem => item.會員電話cellphone)
+            </td>
+            @*<td>
+                @Html.DisplayFor(modelItem => item.密碼password)
+            </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.姓氏lName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.名字fName)
+            </td>
+            @*<td>
+                @Html.DisplayFor(modelItem => item.暱稱nickName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.生日birthDate)
+            </td>*@
+            <td class="tables_hidtext">
+                @Html.DisplayFor(modelItem => item.電子信箱email)
+            </td>
+            @*<td>
+                @Html.DisplayFor(modelItem => item.地址address)
+            </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.紅利點數bonus)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.正式會員formal)
+            </td>
+            <td>
+                <div>
+                    <img src="~/images/Member/@item.會員照片image" width="120" />
+                </div>
+            </td>
+            <td class="tables_hidtext">
+                @Html.DisplayFor(modelItem => item.建立時間createdTime)
+            </td>
+            @*<td>
+                @Html.DisplayFor(modelItem => item.性別genderNavigation.性別名稱genderName)
+            </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.會員權限permissionNavigation.權限名稱permissionName)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.會員編號memberId" class="btn btn-info mb-1" style="white-space:nowrap">修改</a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
