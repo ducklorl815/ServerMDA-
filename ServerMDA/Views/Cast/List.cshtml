@@ -1,0 +1,53 @@
+﻿@model IEnumerable<ServerMDA.Models.電影主演cast>
+
+@{
+    ViewData["Title"] = "List";
+}
+
+<h1>List</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.角色名字characterName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.角色說明characterIllustrate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.演員編號actor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.電影編號movie)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.角色名字characterName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.角色說明characterIllustrate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.演員編號actor.英文名字nameEng)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.電影編號movie.英文標題titleEng)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.主演編號maId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.主演編號maId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.主演編號maId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

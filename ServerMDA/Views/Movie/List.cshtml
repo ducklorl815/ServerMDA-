@@ -1,4 +1,6 @@
-﻿@model IEnumerable<ServerMDA.Models.電影movie>
+﻿@using ServerMDA.ViewModel
+@model List<CMovieViewModel>
+
 @{
     ViewData["Title"] = "電影清單";
 }
@@ -9,40 +11,41 @@
     <thead>
         <tr style="white-space:nowrap">
             <th class="col-2">
-                @Html.DisplayNameFor(model => model.中文標題titleCht)
+
+                @Html.DisplayNameFor(model => model.FirstOrDefault().中文標題titleCht)
             </th>
             <th class="col-2">
-                @Html.DisplayNameFor(model => model.英文標題titleEng)
+                @Html.DisplayNameFor(model => model.FirstOrDefault().英文標題titleEng)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.上映年份releaseYear)
+                @Html.DisplayNameFor(model => model.FirstOrDefault().上映年份releaseYear)
             </th>
             <th class="col-1">
-                @Html.DisplayNameFor(model => model.上映日期releaseDate)
+                @Html.DisplayNameFor(model => model.FirstOrDefault().上映日期releaseDate)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.片長runtime)
+                @Html.DisplayNameFor(model => model.FirstOrDefault().片長runtime)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.評分rate)
+                @Html.DisplayNameFor(model => model.FirstOrDefault().評分rate)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.期待度anticipation)
+                @Html.DisplayNameFor(model => model.FirstOrDefault().期待度anticipation)
             </th>
             <th class="col-1">
-                @Html.DisplayNameFor(model => model.票房boxOffice)
+                @Html.DisplayNameFor(model => model.FirstOrDefault().票房boxOffice)
             </th>
             <th class="col-1">
-            @Html.DisplayNameFor(model => model.劇情大綱plot)
-             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.系列編號series)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.電影分級編號rating)
+                @Html.DisplayNameFor(model => model.FirstOrDefault().劇情大綱plot)
             </th>
             <th class="col-1">
-
+                @Html.DisplayNameFor(model => model.FirstOrDefault().系列名稱seriesName)
+            </th>
+            <th class="col-1">
+                @Html.DisplayNameFor(model => model.FirstOrDefault().分級圖片ratingImage)
+            </th>
+            <th class="col-1">
+                指令
             </th>
         </tr>
     </thead>
@@ -50,16 +53,16 @@
         @foreach (var item in Model)
         {
             <tr style="white-space:nowrap">
-            <td class="tables_hidtext">
+                <td class="tables_hidtext">
                     @Html.DisplayFor(modelItem => item.中文標題titleCht)
                 </td>
-            <td class="tables_hidtext">
+                <td class="tables_hidtext">
                     @Html.DisplayFor(modelItem => item.英文標題titleEng)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.上映年份releaseYear)
                 </td>
-            <td class="tables_hidtext">
+                <td class="tables_hidtext">
                     @Html.DisplayFor(modelItem => item.上映日期releaseDate)
                 </td>
                 <td>
@@ -74,14 +77,15 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.票房boxOffice)
                 </td>
-            <td class="tables_hidtext">
+                <td class="tables_hidtext">
                     @Html.DisplayFor(modelItem => item.劇情大綱plot)
                 </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.系列編號series.系列名稱seriesName)
+                <td class="tables_hidtext">
+                    @Html.DisplayFor(modelItem => item.系列名稱seriesName)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.電影分級編號rating.分級圖片ratingImage)
+                    <a src="@Url.Action("Edit","Cast", new {id= item.電影分級編號ratingId })"></a>
+                    <img src="@Url.Action("ShowPhoto","Movie", new {id= item.電影分級編號ratingId })" onclick="SSSSSS" class="img-thumbnail w-50" />
                 </td>
                 <td>
                     <a asp-action="Edit" asp-route-id="@item.電影編號movieId" class="btn btn-info mb-1" style="white-space:nowrap">修改</a>
@@ -90,3 +94,10 @@
         }
     </tbody>
 </table>
+
+@section Scripts{
+    <script>
+
+    </script>
+}
+

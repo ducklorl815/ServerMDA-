@@ -27,7 +27,7 @@ namespace ServerMDA.Models
         public string 中文標題titleCht { get; set; }
         [DisplayName("英文標題")]
         public string 英文標題titleEng { get; set; }
-        [DisplayName("上映年份")]
+        [DisplayName("上映年")]
         public int 上映年份releaseYear { get; set; }
         [DisplayName("上映日期")]
         public DateTime? 上映日期releaseDate { get; set; }

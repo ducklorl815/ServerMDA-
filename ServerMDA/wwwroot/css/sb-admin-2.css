@@ -1501,10 +1501,12 @@ pre code {
 
     .table thead th {
         background-color: #4F4F4F;
-        color: white;
+        color: #4F4F4F; /* white*/
         vertical-align: bottom;
         border-bottom: 2px solid #e3e6f0;
-
+    }
+    .table thead td {
+        color: #4F4F4F; /* white*/
     }
 
 .table tbody + tbody {

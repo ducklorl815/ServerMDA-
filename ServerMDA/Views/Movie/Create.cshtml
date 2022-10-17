@@ -1,4 +1,4 @@
-﻿@model ServerMDA.Models.電影movie
+﻿@model ServerMDA.ViewModel.CMovieViewModel
 
 @{
     ViewData["Title"] = "新增";
@@ -13,7 +13,7 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="系列編號seriesId" class="control-label"></label>
-                <select asp-for="系列編號seriesId" class="form-control" asp-items="ViewBag.系列編號seriesId"></select>
+                <select asp-for="系列編號seriesId" name="系列名稱seriesName" class="form-control" asp-items="ViewBag.系列編號seriesId" id="selectSeriesName"></select>
             </div>
             <div class="form-group">
                 <label asp-for="中文標題titleCht" class="control-label"></label>
@@ -43,7 +43,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="電影分級編號ratingId" class="control-label"></label>
-                <select asp-for="電影分級編號ratingId" class="form-control" asp-items="ViewBag.電影分級編號ratingId"></select>
+                <select asp-for="電影分級編號ratingId" name="分級級數ratingLevel" class="form-control" asp-items="ViewBag.分級級數ratingLevel" id="selectRating"></select>
             </div>
             <div class="form-group">
                 <label asp-for="評分rate" class="control-label"></label>
@@ -75,4 +75,28 @@
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+<script>
+        const selRating = document.querySelector("#selectRating")
+        const selSeries = document.querySelector("#selectSeriesName")
+            async function LoadRatings() {
+                let response = await fetch("@Url.Content("~/Movie/rating")")
+                let datas = await response.json()
+
+                datas.forEach(rating => {
+                const opt = new Option(rating, rating)
+                selRating.options.add(opt)
+            })
+        };
+            async function LoadseriesName() {
+                let response = await fetch("@Url.Content("~/Movie/series")")
+                let datas = await response.json()
+
+                datas.forEach(seriesname => {
+                const opt = new Option(seriesname, seriesname)
+                selSeries.options.add(opt)
+            })
+        };
+    LoadRatings();
+    LoadseriesName();
+</script>
 }

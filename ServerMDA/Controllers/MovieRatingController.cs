@@ -36,5 +36,6 @@ namespace ServerMDA.Controllers
             byte[] context = movieRating.分級圖片ratingImage;
             return File(context, "image/jpeg");
         }
+
     }
 }

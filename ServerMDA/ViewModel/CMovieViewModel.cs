@@ -44,7 +44,7 @@ namespace ServerMDA.ViewModel
             get { return _movie.英文標題titleEng; }
             set { _movie.英文標題titleEng = value; }
         }
-        [DisplayName("上映年份")]
+        [DisplayName("上映年")]
         public int 上映年份releaseYear
         {
             get { return _movie.上映年份releaseYear; }
@@ -68,18 +68,7 @@ namespace ServerMDA.ViewModel
             get { return _movie.電影分級編號ratingId; }
             set { _movie.電影分級編號ratingId = value; }
         }
-        [DisplayName("評分")]
-        public decimal? 評分rate
-        {
-            get { return _movie.評分rate; }
-            set { _movie.評分rate = value; }
-        }
-        [DisplayName("期待度")]
-        public decimal? 期待度anticipation
-        {
-            get { return _movie.期待度anticipation; }
-            set { _movie.期待度anticipation = value; }
-        }
+
         [DisplayName("票房")]
         public string 票房boxOffice
         {
@@ -92,6 +81,29 @@ namespace ServerMDA.ViewModel
             get { return _movie.劇情大綱plot; }
             set { _movie.劇情大綱plot = value; }
         }
+        [DisplayName("評分")]
+        public decimal? 評分rate
+        {
+            get { return _movie.評分rate; }
+            set { _movie.評分rate = value; }
+        }
+        [DisplayName("期待度")]
+        public decimal? 期待度anticipation
+        {
+            get { return _movie.期待度anticipation; }
+            set { _movie.期待度anticipation = value; }
+        }
+        [DisplayName("分級編號")]
+        public int 分級編號ratingId { get; set; }
+        [DisplayName("分級級數")]
+        public string 分級級數ratingLevel { get; set; }
+        [DisplayName("分級說明")]
+        public string 分級說明ratingIllustrate { get;set;}
 
+        [DisplayName("系列名稱")]
+        public string 系列名稱seriesName { get; set; }
+
+        [DisplayName("分級圖片")]
+        public byte[] 分級圖片ratingImage{ get; set; }
     }
 }

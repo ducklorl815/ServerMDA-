@@ -1,4 +1,6 @@
-﻿@model ServerMDA.Models.電影movie
+﻿@using ServerMDA.ViewModel
+@model CMovieViewModel
+@*@model ServerMDA.ViewModel.CMovieViewModel*@
 
 @{
     ViewData["Title"] = "修改";
@@ -13,7 +15,7 @@
             <input type="hidden" asp-for="電影編號movieId" />
             <div class="form-group">
                 <label asp-for="系列編號seriesId" class="control-label"></label>
-                <select asp-for="系列編號seriesId" class="form-control" asp-items="ViewBag.系列編號seriesId"></select>
+                <select asp-for="系列編號seriesId" name="系列名稱seriesName" class="form-control" asp-items="ViewBag.系列編號seriesId" id="selectSeriesName"></select>
                 <span asp-validation-for="系列編號seriesId" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -43,7 +45,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="電影分級編號ratingId" class="control-label"></label>
-                <select asp-for="電影分級編號ratingId" class="form-control" asp-items="ViewBag.電影分級編號ratingId"></select>
+                <select asp-for="電影分級編號ratingId" name="分級級數ratingLevel" class="form-control" asp-items="ViewBag.分級級數ratingLevel" id="selectRating"></select>
                 <span asp-validation-for="電影分級編號ratingId" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -63,7 +65,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="劇情大綱plot" class="control-label"></label>
-                <textarea  rows="8" asp-for="劇情大綱plot" class="form-control"></textarea>
+                <textarea rows="8" asp-for="劇情大綱plot" class="form-control"></textarea>
                 <span asp-validation-for="劇情大綱plot" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -77,4 +79,28 @@
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+<script>
+    const selRating = document.querySelector("#selectRating")
+    const selSeries = document.querySelector("#selectSeriesName")
+            async function LoadRatings() {
+                let response = await fetch("@Url.Content("~/Movie/rating")")
+                let datas = await response.json()
+
+                datas.forEach(rating => {
+                const opt = new Option(rating, rating)
+                selRating.options.add(opt)
+            })
+        };
+            async function LoadseriesName() {
+                let response = await fetch("@Url.Content("~/Movie/series")")
+                let datas = await response.json()
+
+                datas.forEach(seriesname => {
+                const opt = new Option(seriesname, seriesname)
+                selSeries.options.add(opt)
+            })
+        };
+    LoadRatings();
+    LoadseriesName();
+</script>
 }
