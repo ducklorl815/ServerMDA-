@@ -547,16 +547,6 @@ C:\Users\duckl\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\Theat
 C:\Users\duckl\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\Theater\Edit.cshtml.g.cs
 C:\Users\duckl\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\Theater\Create.cshtml.g.cs
 C:\Users\duckl\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\MovieRating\List.cshtml.g.cs
-C:\Users\duckl\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\電影movie\Create.cshtml.g.cs
-C:\Users\duckl\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\電影movie\Delete.cshtml.g.cs
-C:\Users\duckl\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\電影movie\Details.cshtml.g.cs
-C:\Users\duckl\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\電影movie\Edit.cshtml.g.cs
-C:\Users\duckl\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\電影movie\Index.cshtml.g.cs
-C:\Users\duckl\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\演員總表actor\Create.cshtml.g.cs
-C:\Users\duckl\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\演員總表actor\Delete.cshtml.g.cs
-C:\Users\duckl\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\演員總表actor\Details.cshtml.g.cs
-C:\Users\duckl\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\演員總表actor\Edit.cshtml.g.cs
-C:\Users\duckl\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\演員總表actor\Index.cshtml.g.cs
 C:\Users\duckl\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\Comment\List.cshtml.g.cs
 C:\Users\duckl\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\Comment\Edit.cshtml.g.cs
 C:\Users\duckl\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\Comment\Create.cshtml.g.cs
@@ -586,3 +576,5 @@ C:\Users\Student\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\The
 C:\Users\Student\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\Theater\List.cshtml.g.cs
 C:\Users\Student\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\Cast\List.cshtml.g.cs
 C:\Users\Student\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\Cast\Edit.cshtml.g.cs
+C:\Users\duckl\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\Cast\Edit.cshtml.g.cs
+C:\Users\duckl\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\Cast\List.cshtml.g.cs

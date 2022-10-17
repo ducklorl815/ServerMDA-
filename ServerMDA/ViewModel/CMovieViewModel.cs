@@ -19,6 +19,8 @@ namespace ServerMDA.ViewModel
         public CMovieViewModel()
         {
             _movie = new 電影movie();  //每做一個就建一個
+            _cast = new 電影主演cast();  //每做一個就建一個
+            _director = new 導演總表director();  //每做一個就建一個
         }
         [DisplayName("電影編號")]
         public int 電影編號movieId
@@ -93,6 +95,72 @@ namespace ServerMDA.ViewModel
             get { return _movie.期待度anticipation; }
             set { _movie.期待度anticipation = value; }
         }
+        //=======================================================
+        private 電影主演cast _cast;
+        public 電影主演cast cast
+        {
+            get { return _cast; }
+            set { _cast = value; }
+        }
+
+        [DisplayName("主演編號")]
+        public int 主演編號maId
+        {
+            get { return _cast.主演編號maId; }
+            set { _cast.主演編號maId = value; }
+        }
+
+        [DisplayName("演員編號")]
+        public int 演員編號actorId
+        {
+            get { return _cast.演員編號actorId; }
+            set { _cast.演員編號actorId = value; }
+        }
+        [DisplayName("角色名字")]
+        public string 角色名字characterName
+        {
+            get { return _cast.角色名字characterName; }
+            set { _cast.角色名字characterName = value; }
+        }
+        [DisplayName("角色說明")]
+        public string 角色說明characterIllustrate
+        {
+            get { return _cast.角色說明characterIllustrate; }
+            set { _cast.角色說明characterIllustrate = value; }
+        }
+
+        //=======================================================
+        private 導演總表director _director;
+        public 導演總表director director
+        {
+            get { return _director; }
+            set { _director = value; }
+        }
+        [DisplayName("導演編號")]
+        public int 導演編號directorId
+        {
+            get { return _director.導演編號directorId; }
+            set { _director.導演編號directorId = value; }
+        }
+        [DisplayName("中文名")]
+        public string 中文名字nameCht
+        {
+            get { return _director.中文名字nameCht; }
+            set { _director.中文名字nameCht = value; }
+        }
+        [DisplayName("英文名")]
+        public string 英文名字nameEng
+        {
+            get { return _director.英文名字nameEng; }
+            set { _director.英文名字nameEng = value; }
+        }
+        [DisplayName("照片")]
+        public string 導演照片image
+        {
+            get { return _director.導演照片image; }
+            set { _director.導演照片image = value; }
+        }
+        //=======================================================
         [DisplayName("分級編號")]
         public int 分級編號ratingId { get; set; }
         [DisplayName("分級級數")]
