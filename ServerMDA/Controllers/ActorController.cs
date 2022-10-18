@@ -81,5 +81,12 @@ namespace ServerMDA.Controllers
             db.SaveChanges();
             return RedirectToAction("List");
         }
+
+        public IActionResult keywordActors(string keyword)
+        {
+            MDAContext db = new MDAContext();
+            var q = db.演員總表actors.Where(p => p.中文名字nameCht.Contains(keyword) || p.英文名字nameEng.ToLower().Contains(keyword.ToLower())).Select(p=>p.演員編號actorsId + p.中文名字nameCht + p.英文名字nameEng);
+            return Json(q);
+        }
     }
 }

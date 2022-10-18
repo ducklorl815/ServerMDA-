@@ -111,6 +111,11 @@ namespace ServerMDA.Controllers
                 var ratings = _context.電影分級movieRatings.Select(a => a.分級級數ratingLevel).ToList();
                 return Json(ratings);
             }
+            public IActionResult insMovie()
+            {
+                var ratings = _context.電影分級movieRatings.Select(a => a.分級級數ratingLevel).ToList();
+                return Json(ratings);
+            }
     }
     
 }
