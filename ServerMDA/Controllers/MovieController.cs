@@ -101,14 +101,16 @@ namespace ServerMDA.Controllers
                 byte[] context = movieRating.分級圖片ratingImage;
                 return File(context, "image/jpeg");
             }
-            public IActionResult series()
+            public IActionResult series(int id)
             {
-                var series = _context.系列電影movieSeries.Select(a => a.系列名稱seriesName).ToList();
+                var series = _context.系列電影movieSeries.Where(p => p.系列編號seriesId != id).Select(a => a.系列名稱seriesName).ToList();
                 return Json(series);
             }
-            public IActionResult rating()
+            public IActionResult rating(int id)
             {
-                var ratings = _context.電影分級movieRatings.Select(a => a.分級級數ratingLevel).ToList();
+            //c.系列編號seriesId = db.系列電影movieSeries.FirstOrDefault(q => q.系列名稱seriesName == inMovie.系列名稱seriesName).系列編號seriesId;
+            //c.電影分級編號ratingId = db.電影分級movieRatings.FirstOrDefault(q => q.分級級數ratingLevel == inMovie.分級級數ratingLevel).分級編號ratingId;
+            var ratings = _context.電影分級movieRatings.Where(p=>p.分級編號ratingId!=id).Select(a => a.分級級數ratingLevel).ToList();
                 return Json(ratings);
             }
             public IActionResult insMovie()

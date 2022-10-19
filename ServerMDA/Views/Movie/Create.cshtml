@@ -108,11 +108,11 @@
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-    <script>
-        const selRating = document.querySelector("#selectRating")
-        const selSeries = document.querySelector("#selectSeriesName")
+}
+<script>
     //closed.bs.alert
             async function LoadRatings() {
+                let selRating = document.querySelector("#selectRating")
                 let response = await fetch("@Url.Content("~/Movie/rating")")
                 let datas = await response.json()
 
@@ -122,6 +122,7 @@
             })
         };
             async function LoadseriesName() {
+                let selSeries = document.querySelector("#selectSeriesName")
                 let response = await fetch("@Url.Content("~/Movie/series")")
                 let datas = await response.json()
 
@@ -133,58 +134,58 @@
 
     LoadRatings();
     LoadseriesName();
-    </script>
-    @*<script>
-        const inputText = document.querySelector("#autoComplete")
-        const txtActor = document.querySelector("#contentActor")
-        const insActor = document.querySelector("#insertActor")
-        const insList = document.querySelector("#ListClick")
+</script>
+@*<script>
+            const inputText = document.querySelector("#autoComplete")
+            const txtActor = document.querySelector("#contentActor")
+            const insActor = document.querySelector("#insertActor")
+            const insList = document.querySelector("#ListClick")
 
-        const listData = document.querySelector(".modal-body")
-        listData.style.display = "none";
-        inputText.addEventListener("input", async () => {
-            const keyword = inputText.value
-            listData.style.display = "block";
+            const listData = document.querySelector(".modal-body")
+            listData.style.display = "none";
+            inputText.addEventListener("input", async () => {
+                const keyword = inputText.value
+                listData.style.display = "block";
 
-            /*
-                            <div>
-                <button type="button" onclick="read(event)" class="btn outline-secondary">${data}</button>
-                </div>
-             * 
-             * 
-             * 
-             <div class="form-check">
-  <input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate">
-  <label class="form-check-label" for="flexCheckIndeterminate">${data}</label>
-</div>
-             */ 
-
-            let response = await fetch("@Url.Content("~/Actor/keywordActors")"+`?keyword=${keyword}`) ///A/products?keyword=ca
-            let result = await response.json()
-            let htmDatas = result.map(data => {
-                return (
-                    `
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" onclick="read(event)" value="" id="flexCheckIndeterminate">
-                      <label class="form-check-label" for="flexCheckIndeterminate">${data}</label>
+                /*
+                                <div>
+                    <button type="button" onclick="read(event)" class="btn outline-secondary">${data}</button>
                     </div>
-                    `
-                )
+                 *
+                 *
+                 *
+                 <div class="form-check">
+      <input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate">
+      <label class="form-check-label" for="flexCheckIndeterminate">${data}</label>
+    </div>
+                 */
+
+                let response = await fetch("@Url.Content("~/Actor/keywordActors")"+`?keyword=${keyword}`) ///A/products?keyword=ca
+                let result = await response.json()
+                let htmDatas = result.map(data => {
+                    return (
+                        `
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" onclick="read(event)" value="" id="flexCheckIndeterminate">
+                          <label class="form-check-label" for="flexCheckIndeterminate">${data}</label>
+                        </div>
+                        `
+                    )
+                })
+                listData.innerHTML = htmDatas.join("")
             })
-            listData.innerHTML = htmDatas.join("")
-        })
 
-        function read(evt) {
-            //inputText.value = evt.target.textContent
- 
-            insList.value += evt.target.textContent
-            //listData.style.display = "none"
-        }
-        //insActor.addEventListener('click', () => {
-        //    txtActor.innerHTML = `
+            function read(evt) {
+                //inputText.value = evt.target.textContent
+
+                insList.value += evt.target.textContent
+                //listData.style.display = "none"
+            }
+            //insActor.addEventListener('click', () => {
+            //    txtActor.innerHTML = `
 
 
-        //            `
-        //})
-    </script>*@
-}
+            //            `
+            //})
+        </script>*@
+
