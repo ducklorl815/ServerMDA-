@@ -64,7 +64,6 @@ namespace ServerMDA.Controllers
                 電影movie c = db.電影movies.FirstOrDefault(c => c.電影編號movieId == inMovie.電影編號movieId);
                 if (c != null)
                 {
-                    c.系列編號seriesId = inMovie.系列編號seriesId;
                     c.中文標題titleCht = inMovie.中文標題titleCht;
                     c.英文標題titleEng = inMovie.英文標題titleEng;
                     c.上映年份releaseYear = inMovie.上映年份releaseYear;
@@ -74,8 +73,9 @@ namespace ServerMDA.Controllers
                     c.期待度anticipation = inMovie.期待度anticipation;
                     c.票房boxOffice = inMovie.票房boxOffice;
                     c.劇情大綱plot = inMovie.劇情大綱plot;
-                    c.電影分級編號ratingId = db.電影分級movieRatings.FirstOrDefault(p=>p.分級級數ratingLevel== inMovie.分級級數ratingLevel).分級編號ratingId;
-                    db.SaveChanges();
+                    c.系列編號seriesId = db.系列電影movieSeries.FirstOrDefault(q => q.系列名稱seriesName == inMovie.系列名稱seriesName).系列編號seriesId;
+                    c.電影分級編號ratingId = db.電影分級movieRatings.FirstOrDefault(q => q.分級級數ratingLevel == inMovie.分級級數ratingLevel).分級編號ratingId;
+                db.SaveChanges();
                 }
                 return RedirectToAction("List");
             }

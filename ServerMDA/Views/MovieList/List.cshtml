@@ -1,0 +1,112 @@
+﻿@using ServerMDA.ViewModel
+@model List<CMovieViewModel>
+
+@{
+    ViewData["Title"] = "List";
+}
+
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css">
+<h1>List</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table_id">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().中文標題titleCht)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().英文標題titleEng)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().上映年份releaseYear)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().上映日期releaseDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().片長runtime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().評分rate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().期待度anticipation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().票房boxOffice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().劇情大綱plot)
+            </th>
+            <th class="col-1">
+                @Html.DisplayNameFor(model => model.FirstOrDefault().系列名稱seriesName)
+            </th>
+            <th class="col-1">
+                @Html.DisplayNameFor(model => model.FirstOrDefault().分級圖片ratingImage)
+            </th>
+            <th class="col-1">
+                指令
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.中文標題titleCht)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.英文標題titleEng)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.上映年份releaseYear)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.上映日期releaseDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.片長runtime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.評分rate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.期待度anticipation)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.票房boxOffice)
+            </td>
+            <td class="tables_hidtext">
+                @Html.DisplayFor(modelItem => item.劇情大綱plot)
+            </td>
+            <td class="tables_hidtext">
+                @Html.DisplayFor(modelItem => item.劇情大綱plot)
+            </td>
+            <td class="tables_hidtext">
+                @Html.DisplayFor(modelItem => item.系列名稱seriesName)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.電影編號movieId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.電影編號movieId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.電影編號movieId">Delete</a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
+
+@section Scripts{
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#table_id').DataTable();
+        });
+    </script>
+
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
+}

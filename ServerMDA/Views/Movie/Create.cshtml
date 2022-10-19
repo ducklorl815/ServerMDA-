@@ -2,6 +2,7 @@
 
 @{
     ViewData["Title"] = "新增";
+    Layout = null;
 }
 
 
@@ -133,7 +134,7 @@
     LoadRatings();
     LoadseriesName();
     </script>
-    <script>
+    @*<script>
         const inputText = document.querySelector("#autoComplete")
         const txtActor = document.querySelector("#contentActor")
         const insActor = document.querySelector("#insertActor")
@@ -145,25 +146,39 @@
             const keyword = inputText.value
             listData.style.display = "block";
 
-            
+            /*
+                            <div>
+                <button type="button" onclick="read(event)" class="btn outline-secondary">${data}</button>
+                </div>
+             * 
+             * 
+             * 
+             <div class="form-check">
+  <input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate">
+  <label class="form-check-label" for="flexCheckIndeterminate">${data}</label>
+</div>
+             */ 
 
             let response = await fetch("@Url.Content("~/Actor/keywordActors")"+`?keyword=${keyword}`) ///A/products?keyword=ca
             let result = await response.json()
             let htmDatas = result.map(data => {
                 return (
                     `
-                <div>
-                <button type="button" onclick="read(event)" class="btn btn-secondary">${data}</button>
-                </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" onclick="read(event)" value="" id="flexCheckIndeterminate">
+                      <label class="form-check-label" for="flexCheckIndeterminate">${data}</label>
+                    </div>
                     `
                 )
             })
             listData.innerHTML = htmDatas.join("")
         })
+
         function read(evt) {
             //inputText.value = evt.target.textContent
+ 
             insList.value += evt.target.textContent
-            listData.style.display = "none"
+            //listData.style.display = "none"
         }
         //insActor.addEventListener('click', () => {
         //    txtActor.innerHTML = `
@@ -171,5 +186,5 @@
 
         //            `
         //})
-    </script>
+    </script>*@
 }

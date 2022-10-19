@@ -4,18 +4,21 @@
 
 @{
     ViewData["Title"] = "修改";
+    Layout = null;
 }
 
 <h4 class="offset-md-1">修改電影編號 : @Model.電影編號movieId</h4>
 
-<div class="row">
-    <div class="col-md-5 offset-md-1">
+<div class="col-12">
+    <div class="col-md-8 offset-md-1">
         <form asp-action="Edit" enctype="multipart/form-data">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="電影編號movieId" />
             <div class="form-group">
                 <label asp-for="系列編號seriesId" class="control-label"></label>
-                <select asp-for="系列編號seriesId" name="系列名稱seriesName" class="form-control" asp-items="ViewBag.系列編號seriesId" id="selectSeriesName"></select>
+                <select asp-for="系列編號seriesId" name="系列名稱seriesName" class="form-control" asp-items="ViewBag.系列編號seriesId" id="selectSeriesName">
+                    <option selected>@Model.系列名稱seriesName</option>
+                </select>
                 <span asp-validation-for="系列編號seriesId" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -77,24 +80,25 @@
 </div>
 
 
-@section Scripts {
+@section Scripts{
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
 <script>
-    const selRating = document.querySelector("#selectRating")
-    const selSeries = document.querySelector("#selectSeriesName")
-            async function LoadRatings() {
+    async function LoadRatings() {
+                let selRating = document.querySelector("#selectRating")
                 let response = await fetch("@Url.Content("~/Movie/rating")")
                 let datas = await response.json()
-
                 datas.forEach(rating => {
                 const opt = new Option(rating, rating)
                 selRating.options.add(opt)
             })
         };
-            async function LoadseriesName() {
+
+    async function LoadseriesName() {
+
+                let selSeries = document.querySelector("#selectSeriesName")
                 let response = await fetch("@Url.Content("~/Movie/series")")
                 let datas = await response.json()
-
                 datas.forEach(seriesname => {
                 const opt = new Option(seriesname, seriesname)
                 selSeries.options.add(opt)
@@ -103,4 +107,5 @@
     LoadRatings();
     LoadseriesName();
 </script>
-}
+
+
