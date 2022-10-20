@@ -59,6 +59,7 @@ namespace ServerMDA.Models
         public virtual DbSet<電影圖片movieIimagesList> 電影圖片movieIimagesLists { get; set; }
         public virtual DbSet<電影圖片總表movieImage> 電影圖片總表movieImages { get; set; }
         public virtual DbSet<電影導演movieDirector> 電影導演movieDirectors { get; set; }
+        public virtual DbSet<電影排名movieRank> 電影排名movieRanks { get; set; }
         public virtual DbSet<電影片種movieType> 電影片種movieTypes { get; set; }
         public virtual DbSet<電影產地movieOrigin> 電影產地movieOrigins { get; set; }
         public virtual DbSet<電影評論movieComment> 電影評論movieComments { get; set; }
@@ -244,6 +245,10 @@ namespace ServerMDA.Models
 
                 entity.Property(e => e.商品編號productId).HasColumnName("商品編號Product_ID");
 
+                entity.Property(e => e.商品介紹introduce)
+                    .HasMaxLength(200)
+                    .HasColumnName("商品介紹Introduce");
+
                 entity.Property(e => e.商品價格productPrice)
                     .HasColumnType("money")
                     .HasColumnName("商品價格Product_Price");
@@ -253,11 +258,17 @@ namespace ServerMDA.Models
                     .HasMaxLength(50)
                     .HasColumnName("商品名稱Product_Name");
 
-                entity.Property(e => e.商品圖片image)
+                entity.Property(e => e.商品圖片image).HasColumnName("商品圖片Image");
+
+                entity.Property(e => e.商品圖片路徑imagePath)
                     .HasMaxLength(200)
-                    .HasColumnName("商品圖片Image");
+                    .HasColumnName("商品圖片路徑ImagePath");
 
                 entity.Property(e => e.電影院編號theaterId).HasColumnName("電影院編號Theater_ID");
+
+                entity.Property(e => e.類別category)
+                    .HasMaxLength(50)
+                    .HasColumnName("類別Category");
 
                 entity.HasOne(d => d.電影院編號theater)
                     .WithMany(p => p.商品資料products)
@@ -979,9 +990,7 @@ namespace ServerMDA.Models
 
                 entity.Property(e => e.上映年份releaseYear).HasColumnName("上映年份Release_Year");
 
-                entity.Property(e => e.上映日期releaseDate)
-                    .HasColumnType("date")
-                    .HasColumnName("上映日期Release_Date");
+                entity.Property(e => e.上映日期releaseDate).HasColumnName("上映日期Release_Date");
 
                 entity.Property(e => e.中文標題titleCht)
                     .HasMaxLength(50)
@@ -1010,6 +1019,8 @@ namespace ServerMDA.Models
                     .HasColumnName("評分Rate");
 
                 entity.Property(e => e.電影分級編號ratingId).HasColumnName("電影分級編號Rating_ID");
+
+                entity.Property(e => e.預告片trailer).HasColumnName("預告片Trailer");
 
                 entity.HasOne(d => d.系列編號series)
                     .WithMany(p => p.電影movies)
@@ -1141,6 +1152,12 @@ namespace ServerMDA.Models
                     .HasMaxLength(200)
                     .HasColumnName("圖片Image");
 
+                entity.Property(e => e.圖片imageType)
+                    .HasMaxLength(2)
+                    .HasColumnName("圖片ImageType")
+                    .HasDefaultValueSql("('海報')")
+                    .IsFixedLength(true);
+
                 entity.Property(e => e.屏蔽invisible).HasColumnName("屏蔽Invisible");
             });
 
@@ -1168,6 +1185,21 @@ namespace ServerMDA.Models
                     .HasForeignKey(d => d.電影編號movieId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_電影導演MovieDirector_電影Movies");
+            });
+
+            modelBuilder.Entity<電影排名movieRank>(entity =>
+            {
+                entity.HasNoKey();
+
+                entity.ToTable("電影排名MovieRank");
+
+                entity.Property(e => e.排名rank)
+                    .HasMaxLength(10)
+                    .HasColumnName("排名Rank");
+
+                entity.Property(e => e.電影movie)
+                    .HasMaxLength(100)
+                    .HasColumnName("電影Movie");
             });
 
             modelBuilder.Entity<電影片種movieType>(entity =>

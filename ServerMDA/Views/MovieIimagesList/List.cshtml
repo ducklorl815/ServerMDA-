@@ -1,0 +1,77 @@
+﻿@*@model IEnumerable<ServerMDA.Models.電影圖片movieIimagesList>*@
+@using ServerMDA.ViewModel
+@model List<CMovieImagesListViewModel>
+
+@{
+    ViewData["Title"] = "電影清單";
+}
+
+<link href="~/css/bootstrap.min.css" rel="stylesheet" />
+<link href="~/css/datatables/jquery.dataTables.css" rel="stylesheet" />
+<link href="~/css/sb-admin-2.css" rel="stylesheet">
+
+<h2>電影清單<a asp-action="Create" class="btn btn-warning mb-1  ml-2">新增</a></h2>
+
+<table id="myTable" class="table table-striped table-hover ">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().電影編號movieId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().中文標題titleCht)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().電影圖片編號miId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().圖片image)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().圖片imageType)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.電影編號movieId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.中文標題titleCht)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.電影圖片編號miId)
+                </td>
+                <td>
+                    <img src="~/images/MovieImage/@item.圖片image" width="100" />
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.圖片imageType)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.電影圖片編號miId" class="btn btn-info p-1">修改</a>
+                    @*<a asp-action="Delete" asp-route-id="@item.演員編號actorsId">Delete</a>*@
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+<script src="~/js/vendor/jquery/jquery.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $('#myTable').DataTable();
+    });
+</script>
+
+
+@*<script src="~/js/forlayout/bootstrap.min.js"></script>*@
+
+
+<script src="~/js/vendor/datatables/jquery.dataTables.js"></script>

@@ -26,12 +26,12 @@ namespace ServerMDA.Controllers
                 datas = from p in db.會員members
                         select p;
             else
-                datas = db.會員members.Where(p => 
-                p.名字fName.ToLower().Contains(model.txtkeyword.ToLower())|| 
-                p.姓氏lName.ToLower().Contains(model.txtkeyword.ToLower())||
-                p.地址address.ToLower().Contains(model.txtkeyword.ToLower())||
-                p.電子信箱email.ToLower().Contains(model.txtkeyword.ToLower())||
-                p.暱稱nickName.ToLower().Contains(model.txtkeyword.ToLower())||
+                datas = db.會員members.Where(p =>
+                p.名字fName.ToLower().Contains(model.txtkeyword.ToLower()) ||
+                p.姓氏lName.ToLower().Contains(model.txtkeyword.ToLower()) ||
+                p.地址address.ToLower().Contains(model.txtkeyword.ToLower()) ||
+                p.電子信箱email.ToLower().Contains(model.txtkeyword.ToLower()) ||
+                p.暱稱nickName.ToLower().Contains(model.txtkeyword.ToLower()) ||
                 p.生日birthDate.ToString().ToLower().Contains(model.txtkeyword.ToLower()) ||
                 p.建立時間createdTime.ToString().ToLower().Contains(model.txtkeyword.ToLower()) ||
                 p.會員電話cellphone.ToLower().Contains(model.txtkeyword.ToLower()));

@@ -1,0 +1,49 @@
+﻿@model ServerMDA.Models.電影圖片總表movieImage
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>電影圖片總表movieImage</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="圖片編號imageId" />
+            <div class="form-group">
+                <label class="control-label">演員照片</label>
+                <input type="file" name="photo" />
+            </div>
+            <div class="form-group">
+                <label asp-for="圖片image" class="control-label"></label>
+                <input asp-for="圖片image" disabled="disabled" class="form-control" />
+                <span asp-validation-for="圖片image" class="text-danger"></span>
+                <img src="~/images/MovieImage/@Model.圖片image" width="120" />
+            </div>
+            <div class="form-group">
+                <label asp-for="屏蔽invisible" class="control-label"></label>
+                <input asp-for="屏蔽invisible" class="form-control" />
+                <span asp-validation-for="屏蔽invisible" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="圖片imageType" class="control-label"></label>
+                <input asp-for="圖片imageType" class="form-control" />
+                <span asp-validation-for="圖片imageType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -4,12 +4,16 @@
     ViewData["Title"] = "演員清單";
 }
 
+<link href="~/css/bootstrap.min.css" rel="stylesheet" />
+<link href="~/css/datatables/jquery.dataTables.css" rel="stylesheet" />
+<link href="~/css/sb-admin-2.css" rel="stylesheet">
+
 <h2>演員清單<a asp-action="Create" class="btn btn-warning mb-1  ml-2">新增</a></h2>
 
-<table class="table table-striped table-hover col-8">
+<table id="myTable" class="table table-striped table-hover ">
     <thead>
         <tr>
-            <th class="col-2">
+            <th class="col-1">
                 @Html.DisplayNameFor(model => model.演員照片image)
             </th>
             <th class="col-2">
@@ -26,24 +30,38 @@
     <tbody>
         @foreach (var item in Model)
         {
-        <tr>
-
-            <td>
-                <div>
-                    <img src="~/images/Actor/@item.演員照片image" width="120" />
-                </div>
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.中文名字nameCht)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.英文名字nameEng)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.演員編號actorsId" class="btn btn-info p-1">修改</a>
-                @*<a asp-action="Delete" asp-route-id="@item.演員編號actorsId">Delete</a>*@
-            </td>
-        </tr>
+            <tr>
+                <td>
+                    <div>
+                        <img src="~/images/Actor/@item.演員照片image" width="70" />
+                    </div>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.中文名字nameCht)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.英文名字nameEng)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.演員編號actorsId" class="btn btn-info p-1">修改</a>
+                    @*<a asp-action="Delete" asp-route-id="@item.演員編號actorsId">Delete</a>*@
+                </td>
+            </tr>
         }
     </tbody>
 </table>
+
+
+<script src="~/js/vendor/jquery/jquery.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $('#myTable').DataTable();
+    });
+</script>
+
+
+@*<script src="~/js/forlayout/bootstrap.min.js"></script>*@
+
+
+<script src="~/js/vendor/datatables/jquery.dataTables.js"></script>

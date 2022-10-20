@@ -26,7 +26,7 @@ namespace ServerMDA.Controllers
                 datas = from p in db.電影代碼movieCodes
                         select p;
             else
-                datas = db.電影代碼movieCodes.Where(p => p.電影代碼編號movieCodeId.ToString()==model.txtkeyword);
+                datas = db.電影代碼movieCodes.Where(p => p.電影代碼編號movieCodeId.ToString() == model.txtkeyword);
 
             return View(datas);
         }

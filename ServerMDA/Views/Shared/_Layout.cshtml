@@ -65,7 +65,7 @@
                     <a class="collapse-item" asp-area="" asp-controller="Director" asp-action="List">導演類</a>
                     <a class="collapse-item" asp-area="" asp-controller="Actor" asp-action="List">演員類</a>
                     <a class="collapse-item" asp-area="" asp-controller="MovieRating" asp-action="List">電影分級</a>
-                    <a class="collapse-item" href="cards.html">電影語言</a>
+                    <a class="collapse-item" asp-area="" asp-controller="MovieIimagesList" asp-action="List">電影圖片清單</a>
                     <a class="collapse-item" href="cards.html">電影代碼</a>
                     <a class="collapse-item" href="cards.html">圖片</a>
                 </div>
@@ -195,9 +195,9 @@
                 <div class="input-group offset-md-1">
                     <div class="input-group-append">
                         @Html.TextBox("txtkeyword", "", new { @class = "form-control bg-light border-0 small" })
-                            <div class="input-group-append">
-                                <input class="btn btn-primary" type="submit" value="Search"/>
-                            </div>
+                        <div class="input-group-append">
+                            <input class="btn btn-primary" type="submit" value="Search" />
+                        </div>
                     </div>
                 </div>
             </form>
@@ -355,13 +355,13 @@
         <!-- TopBar End -->
         <!-- RenderBody Start -->
         <div class="container col-12">
-            <main role="main" class="pb-3 float-end">
+            <main role="main" class="pb-3">
                 @RenderBody()
             </main>
         </div>
         <!-- RenderBody End -->
         <!-- Footer Start -->
-        <footer class="sticky-footer bg-white float-end">
+        <footer class="sticky-footer bg-white ">
             <div class="container my-auto">
                 <div class="copyright text-center my-auto">
                     <span>Copyright &copy; Your Website 2022</span>
@@ -389,5 +389,7 @@
     <!-- Page level custom scripts -->
     <script src="~/js/chart-area-demo.js"></script>
     <script src="~/js/chart-pie-demo.js"></script>
+
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
 </body>
 </html>

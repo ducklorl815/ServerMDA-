@@ -1,0 +1,42 @@
+﻿@using ServerMDA.ViewModel
+@model CMovieImageViewModel
+
+
+@{
+    ViewData["Title"] = "新增";
+}
+
+<h4 class="offset-md-1">新增電影圖片</h4>
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label class="control-label">圖片image</label><br />
+                <input type="file" name="photo" />
+            </div>
+            <div class="form-group">
+                <label asp-for="圖片imageType" class="control-label"></label>
+                <input asp-for="圖片imageType" class="form-control" />
+                <span asp-validation-for="圖片imageType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="屏蔽invisible" class="control-label"></label>
+                <input asp-for="屏蔽invisible" class="form-control" />
+                <span asp-validation-for="屏蔽invisible" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="新增" class="btn btn-primary mr-2 pr-4 offset-md-10" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

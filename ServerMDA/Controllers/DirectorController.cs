@@ -20,13 +20,13 @@ namespace ServerMDA.Controllers
         }
         public IActionResult List(CKeyWordViewModel model)
         {
-             MDAContext db = new MDAContext();
+            MDAContext db = new MDAContext();
             IEnumerable<導演總表director> datas = null;
             if (string.IsNullOrEmpty(model.txtkeyword))
                 datas = from p in db.導演總表directors
                         select p;
             else
-                datas = db.導演總表directors.Where(p => p.中文名字nameCht.Contains(model.txtkeyword)|| p.英文名字nameEng.ToLower().Contains(model.txtkeyword.ToLower()));
+                datas = db.導演總表directors.Where(p => p.中文名字nameCht.Contains(model.txtkeyword) || p.英文名字nameEng.ToLower().Contains(model.txtkeyword.ToLower()));
 
             return View(datas);
         }

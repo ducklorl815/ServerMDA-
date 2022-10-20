@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 
 #nullable disable
 
@@ -12,11 +11,9 @@ namespace ServerMDA.Models
         {
             場次screenings = new HashSet<場次screening>();
         }
-        [DisplayName("電影代碼編號")]
+
         public int 電影代碼編號movieCodeId { get; set; }
-        [DisplayName("電影編號")]
         public int 電影編號movieId { get; set; }
-        [DisplayName("語言編號")]
         public int 語言編號languageId { get; set; }
 
         public virtual 電影語言movieLanguage 語言編號language { get; set; }

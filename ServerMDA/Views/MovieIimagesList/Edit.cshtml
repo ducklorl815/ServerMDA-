@@ -1,0 +1,109 @@
+﻿@using ServerMDA.ViewModel
+@model CMovieImagesListViewModel
+
+@{
+    ViewData["Title"] = "Edit";
+    //Layout = null;
+}
+
+<h1>Edit</h1>
+
+<h4>電影圖片movieImagesList</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="電影圖片編號miId" />
+            <div class="form-group">
+                <input type="hidden" id="movieId" value="@Model.電影編號movieId" />
+                <label asp-for="電影編號movieId" class="control-label"></label>
+                <select asp-for="電影編號movieId" name="中文標題titleCht" class="form-control" asp-items="ViewBag.電影編號movieId" id="selectMovieId">
+                    <option selected>@Model.中文標題titleCht</option>
+                    @*@{
+                    var g = @Model.中文標題titleCht;
+                    foreach (var i in Model.titleChtList)
+                    {
+                        @if (i != g)
+                        {
+                            <option>@i</option>
+                        }
+                    }
+                }*@
+                </select>
+                <span asp-validation-for="電影編號movieId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">電影圖片</label>
+                <input type="file" name="photo" />
+            </div>
+            <div class="form-group">
+                <label asp-for="圖片image" class="control-label"></label>
+                <input asp-for="圖片image" disabled="disabled" class="form-control" />
+                <span asp-validation-for="圖片image" class="text-danger"></span>
+                <img src="~/images/MovieImage/@Model.圖片image" width="120" />
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
+<script>
+    @*let imglist = document.querySelector("#imglist");
+    let imgval = $('#imgli').val();
+    async function Loadimglit() {
+        let response = await fetch("@Url.Content("~/MovieIimagesList/imglist")" + `?id=${imgval}`)
+        let datas = await response.json()
+        datas.forEach(mov => {
+            const opt = new Image(mov, mov)
+            imglist.options.add(opt)
+        })
+    };
+    document.getElementById("imglist").addEventListener('blur', Loadimglit)*@
+
+
+
+    @*async function LoadselMovs() {
+                let movId = $('#movieId').val();
+                let selMov = document.querySelector("#selectMovieId")
+                let response = await fetch("@Url.Content("~/MovieIimagesList/moving")" + `?id=${movId}`)
+                let datas = await response.json()
+                datas.forEach(mov => {
+                const opt = new Option(mov, mov)
+                selMov.options.add(opt)
+            })
+        };*@
+    @*async function LoadselMovs() {
+                let movId = $('#movieId').val();
+                let selMov = document.querySelector("#selectMovieId")
+                let response = await fetch("@Url.Content("~/MovieIimagesList/moving")" + `?id=${movId}`)
+                let datas = await response.json()
+                datas.forEach(mov => {
+                const opt = new Option(mov, mov)
+                selMov.options.add(opt)
+            })
+        };
+    async function LoadimageName() {
+                let imaId = $('#imageId').val();
+                let selImage = document.querySelector("#selectImageId")
+                let response = await fetch("@Url.Content("~/MovieIimagesList/imageing")" + `?id=${imaId}`)
+                let datas = await response.json()
+                datas.forEach(Image => {
+                const opt = new Option(Image, Image)
+                selImage.options.add(opt)
+            })
+        };
+    LoadselMovs();
+    LoadimageName();*@
+</script>

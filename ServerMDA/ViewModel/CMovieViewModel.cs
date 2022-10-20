@@ -53,13 +53,13 @@ namespace ServerMDA.ViewModel
             set { _movie.上映年份releaseYear = value; }
         }
         [DisplayName("上映日期")]
-        public DateTime? 上映日期releaseDate
+        public string 上映日期releaseDate
         {
             get { return _movie.上映日期releaseDate; }
             set { _movie.上映日期releaseDate = value; }
         }
         [DisplayName("片長")]
-        public int 片長runtime
+        public int? 片長runtime
         {
             get { return _movie.片長runtime; }
             set { _movie.片長runtime = value; }
