@@ -68,6 +68,13 @@ namespace ServerMDA.ViewModel
             get { return _theater.電影院照片image; }
             set { _theater.電影院照片image = value; }
         }
+        //------------影廳
+        public int 影廳編號cinemaId { get; set; }
+        public string 影廳名稱cinemaName { get; set; }
+        //public int 電影院編號theaterId { get; set; }
+        public string 廳種名稱cinemaClsName { get; set; }
+        public string 座位資訊seatInfo { get; set; }
+        public string 影廳照片image { get; set; }
         public IFormFile photo { get; set; }
     }
 }
