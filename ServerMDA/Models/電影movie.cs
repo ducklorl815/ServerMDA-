@@ -25,7 +25,7 @@ namespace ServerMDA.Models
         public string 英文標題titleEng { get; set; }
         public int 上映年份releaseYear { get; set; }
         public string 上映日期releaseDate { get; set; }
-        public int? 片長runtime { get; set; }
+        public int 片長runtime { get; set; }
         public int 電影分級編號ratingId { get; set; }
         public decimal? 評分rate { get; set; }
         public decimal? 期待度anticipation { get; set; }

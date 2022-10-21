@@ -29,24 +29,40 @@ namespace ServerMDA.ViewModel
             get { return _movieImage.圖片image; }
             set { _movieImage.圖片image = value; }
         }
-        public int 屏蔽invisible
+        public string 圖片雲端imageImdb
+        {
+            get { return _movieImage.圖片雲端imageImdb; }
+            set { _movieImage.圖片雲端imageImdb = value; }
+        }
+        public string 圖片類型imageType
+        {
+            get { return _movieImage.圖片類型imageType; }
+            set { _movieImage.圖片類型imageType = value; }
+        }
+        public string 電影名稱movieName
+        {
+            get { return _movieImage.電影名稱movieName; }
+            set { _movieImage.電影名稱movieName = value; }
+        }
+        public int? 屏蔽invisible
         {
             get { return _movieImage.屏蔽invisible; }
             set { _movieImage.屏蔽invisible = value; }
         }
-        public string 圖片imageType
-        {
-            get { return _movieImage.圖片imageType; }
-            set { _movieImage.圖片imageType = value; }
-        }
-
         //---電影圖片movieIimagesList--
         public int 電影圖片編號miId { get; set; }
         public int 電影編號movieId { get; set; }
 
-        //---電影圖片movieIimagesList--
-
-        public IFormFile photo { get; set; }
+        //電影movie
+        //public int 電影編號movieId { get; set; }
+        public string 中文標題titleCht { get; set; }
+        //---photo--
         //public List<IFormFile> photo { get; set; }
+        public IFormFile photo { get; set; }
+
+        //option
+        //電影中文名 (目標為option內的資料內容)
+        public List<string> listImagetype { get; set; }
+        public List<int> listinvisible { get; set; }
     }
 }

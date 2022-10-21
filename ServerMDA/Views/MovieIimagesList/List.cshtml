@@ -28,7 +28,7 @@
                 @Html.DisplayNameFor(model => model.FirstOrDefault().圖片image)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.FirstOrDefault().圖片imageType)
+                @Html.DisplayNameFor(model => model.FirstOrDefault().圖片類型imageType)
             </th>
             <th></th>
         </tr>
@@ -50,7 +50,7 @@
                     <img src="~/images/MovieImage/@item.圖片image" width="100" />
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.圖片imageType)
+                    @Html.DisplayFor(modelItem => item.圖片類型imageType)
                 </td>
                 <td>
                     <a asp-action="Edit" asp-route-id="@item.電影圖片編號miId" class="btn btn-info p-1">修改</a>

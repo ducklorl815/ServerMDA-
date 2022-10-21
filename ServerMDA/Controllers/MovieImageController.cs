@@ -17,6 +17,8 @@ namespace ServerMDA.Controllers
         {
             _enviro = p;
         }
+        List<string> imagetype = new List<string> { "海報", "劇照", "未分類" };
+        List<int> invisible = new List<int> {0, 1 };
         public IActionResult List()
         {
             MDAContext db = new MDAContext();
@@ -26,21 +28,23 @@ namespace ServerMDA.Controllers
             (p => new CMovieImageViewModel
             {
                 movieImage = p,
-                圖片編號imageId = p.圖片編號imageId,
             }).ToList();
             return View(datas);
         }
 
         public ActionResult Edit(int? id)
         {
-            if (id != null)
-            {
-                MDAContext db = new MDAContext();
-                電影圖片總表movieImage movieImage = db.電影圖片總表movieImages.FirstOrDefault(p => p.圖片編號imageId == id);
-                if (movieImage != null)
-                    return View(movieImage);
-            }
-            return RedirectToAction("List");
+            MDAContext db = new MDAContext();
+            CMovieImageViewModel datas = null;
+            datas = db.電影圖片總表movieImages.Where(p => p.圖片編號imageId == id).Select
+                (p => new CMovieImageViewModel
+                {
+                    movieImage = p,
+
+                }).FirstOrDefault();
+            datas.listImagetype = imagetype;
+            datas.listinvisible = invisible;
+            return View(datas);
         }
         [HttpPost]
         public IActionResult Edit(CMovieImageViewModel inImage) //post
@@ -56,7 +60,9 @@ namespace ServerMDA.Controllers
                     string path = _enviro.WebRootPath + "/images/MovieImage/" + pName;
                     inImage.photo.CopyTo(new FileStream(path, FileMode.Create));
                 }
-                c.圖片imageType = inImage.圖片imageType;
+                c.圖片雲端imageImdb = inImage.圖片雲端imageImdb;
+                c.電影名稱movieName = inImage.電影名稱movieName;
+                c.圖片類型imageType = inImage.圖片類型imageType;
                 c.屏蔽invisible = inImage.屏蔽invisible;
                 db.SaveChanges();
             }

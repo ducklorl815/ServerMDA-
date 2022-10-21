@@ -34,6 +34,10 @@ namespace ServerMDA.ViewModel
             get { return _movieIimagesList.圖片編號imageId; }
             set { _movieIimagesList.圖片編號imageId = value; }
         }
+
+
+
+
         //電影中文名
         public List<string> titleChtList { get; set; }
         //圖片編號
@@ -41,9 +45,12 @@ namespace ServerMDA.ViewModel
         //圖片
         public List<string> titleImg { get; set; }
         //電影圖片總表movieImage
+        //public int 圖片編號imageId { get; set; }
         public string 圖片image { get; set; }
-        public int 屏蔽invisible { get; set; }
-        public string 圖片imageType { get; set; }
+        public string 圖片雲端imageImdb { get; set; }
+        public string 圖片類型imageType { get; set; }
+        public string 電影名稱movieName { get; set; }
+        public int? 屏蔽invisible { get; set; }
 
         //電影movie
         public int? 系列編號seriesId { get; set; }

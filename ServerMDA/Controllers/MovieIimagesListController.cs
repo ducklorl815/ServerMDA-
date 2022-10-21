@@ -48,7 +48,7 @@ namespace ServerMDA.Controllers
                     電影編號movieId=p.電影編號movie.電影編號movieId,
                     中文標題titleCht=p.電影編號movie.中文標題titleCht,
                     圖片image=p.圖片編號image.圖片image,
-                    圖片imageType=p.圖片編號image.圖片imageType,
+                    圖片類型imageType=p.圖片編號image.圖片類型imageType,
                 }).FirstOrDefault();
             datas.titleChtList = chi;
             datas.titleImgList = imglist;
@@ -64,6 +64,7 @@ namespace ServerMDA.Controllers
             {
                 c.圖片編號imageId = inList.圖片編號imageId;
                 c.電影編號movieId = inList.電影編號movieId;
+
                 db.SaveChanges();
             }
             return RedirectToAction("List");

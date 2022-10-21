@@ -26,6 +26,7 @@ namespace ServerMDA.Models
         public virtual DbSet<商品資料product> 商品資料products { get; set; }
         public virtual DbSet<回覆樓數floor> 回覆樓數floors { get; set; }
         public virtual DbSet<國家總表country> 國家總表countrys { get; set; }
+        public virtual DbSet<地址address> 地址addresses { get; set; }
         public virtual DbSet<場次screening> 場次screenings { get; set; }
         public virtual DbSet<對象target> 對象targets { get; set; }
         public virtual DbSet<導演總表director> 導演總表directors { get; set; }
@@ -59,12 +60,13 @@ namespace ServerMDA.Models
         public virtual DbSet<電影圖片movieIimagesList> 電影圖片movieIimagesLists { get; set; }
         public virtual DbSet<電影圖片總表movieImage> 電影圖片總表movieImages { get; set; }
         public virtual DbSet<電影導演movieDirector> 電影導演movieDirectors { get; set; }
-        public virtual DbSet<電影排名movieRank> 電影排名movieRanks { get; set; }
+        public virtual DbSet<電影排行movieRank> 電影排行movieRanks { get; set; }
         public virtual DbSet<電影片種movieType> 電影片種movieTypes { get; set; }
         public virtual DbSet<電影產地movieOrigin> 電影產地movieOrigins { get; set; }
         public virtual DbSet<電影評論movieComment> 電影評論movieComments { get; set; }
         public virtual DbSet<電影語言movieLanguage> 電影語言movieLanguages { get; set; }
         public virtual DbSet<電影院theater> 電影院theaters { get; set; }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
@@ -327,6 +329,25 @@ namespace ServerMDA.Models
                     .HasColumnName("國家名稱Country_Name");
 
                 entity.Property(e => e.國旗countryImage).HasColumnName("國旗Country_Image");
+            });
+
+            modelBuilder.Entity<地址address>(entity =>
+            {
+                entity.ToTable("地址Address");
+
+                entity.Property(e => e.Id).ValueGeneratedNever();
+
+                entity.Property(e => e.City)
+                    .HasMaxLength(10)
+                    .HasColumnName("city");
+
+                entity.Property(e => e.Road)
+                    .HasMaxLength(200)
+                    .HasColumnName("road");
+
+                entity.Property(e => e.SiteId)
+                    .HasMaxLength(50)
+                    .HasColumnName("site_id");
             });
 
             modelBuilder.Entity<場次screening>(entity =>
@@ -1150,13 +1171,21 @@ namespace ServerMDA.Models
                     .HasMaxLength(200)
                     .HasColumnName("圖片Image");
 
-                entity.Property(e => e.圖片imageType)
-                    .HasMaxLength(2)
-                    .HasColumnName("圖片ImageType")
-                    .HasDefaultValueSql("('海報')")
+                entity.Property(e => e.圖片雲端imageImdb)
+                    .HasMaxLength(200)
+                    .HasColumnName("圖片雲端ImageIMDB")
+                    .HasDefaultValueSql("((0))");
+
+                entity.Property(e => e.圖片類型imageType)
+                    .HasMaxLength(3)
+                    .HasColumnName("圖片類型ImageType")
                     .IsFixedLength(true);
 
                 entity.Property(e => e.屏蔽invisible).HasColumnName("屏蔽Invisible");
+
+                entity.Property(e => e.電影名稱movieName)
+                    .HasMaxLength(100)
+                    .HasColumnName("電影名稱MovieName");
             });
 
             modelBuilder.Entity<電影導演movieDirector>(entity =>
@@ -1185,19 +1214,21 @@ namespace ServerMDA.Models
                     .HasConstraintName("FK_電影導演MovieDirector_電影Movies");
             });
 
-            modelBuilder.Entity<電影排名movieRank>(entity =>
+            modelBuilder.Entity<電影排行movieRank>(entity =>
             {
-                entity.HasNoKey();
+                entity.HasKey(e => e.排行編號rankId);
 
-                entity.ToTable("電影排名MovieRank");
+                entity.ToTable("電影排行MovieRank");
 
-                entity.Property(e => e.排名rank)
-                    .HasMaxLength(10)
-                    .HasColumnName("排名Rank");
+                entity.Property(e => e.排行編號rankId).HasColumnName("排行編號Rank_ID");
 
                 entity.Property(e => e.電影movie)
                     .HasMaxLength(100)
                     .HasColumnName("電影Movie");
+
+                entity.Property(e => e.電影排名movieRank)
+                    .HasMaxLength(5)
+                    .HasColumnName("電影排名Movie_Rank");
             });
 
             modelBuilder.Entity<電影片種movieType>(entity =>
