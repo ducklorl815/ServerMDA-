@@ -1,120 +1,3 @@
-C:\Users\duckl\source\repos\ServerMDA\ServerMDA\bin\Debug\net5.0\appsettings.Development.json
-C:\Users\duckl\source\repos\ServerMDA\ServerMDA\bin\Debug\net5.0\appsettings.json
-C:\Users\duckl\source\repos\ServerMDA\ServerMDA\bin\Debug\net5.0\ServerMDA.exe
-C:\Users\duckl\source\repos\ServerMDA\ServerMDA\bin\Debug\net5.0\ServerMDA.deps.json
-C:\Users\duckl\source\repos\ServerMDA\ServerMDA\bin\Debug\net5.0\ServerMDA.runtimeconfig.json
-C:\Users\duckl\source\repos\ServerMDA\ServerMDA\bin\Debug\net5.0\ServerMDA.runtimeconfig.dev.json
-C:\Users\duckl\source\repos\ServerMDA\ServerMDA\bin\Debug\net5.0\ServerMDA.dll
-C:\Users\duckl\source\repos\ServerMDA\ServerMDA\bin\Debug\net5.0\ref\ServerMDA.dll
-C:\Users\duckl\source\repos\ServerMDA\ServerMDA\bin\Debug\net5.0\ServerMDA.pdb
-C:\Users\duckl\source\repos\ServerMDA\ServerMDA\bin\Debug\net5.0\ServerMDA.Views.dll
-C:\Users\duckl\source\repos\ServerMDA\ServerMDA\bin\Debug\net5.0\ServerMDA.Views.pdb
-C:\Users\duckl\source\repos\ServerMDA\ServerMDA\obj\Debug\net5.0\ServerMDA.csproj.AssemblyReference.cache
-C:\Users\duckl\source\repos\ServerMDA\ServerMDA\obj\Debug\net5.0\ServerMDA.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\duckl\source\repos\ServerMDA\ServerMDA\obj\Debug\net5.0\ServerMDA.AssemblyInfoInputs.cache
-C:\Users\duckl\source\repos\ServerMDA\ServerMDA\obj\Debug\net5.0\ServerMDA.AssemblyInfo.cs
-C:\Users\duckl\source\repos\ServerMDA\ServerMDA\obj\Debug\net5.0\ServerMDA.csproj.CoreCompileInputs.cache
-C:\Users\duckl\source\repos\ServerMDA\ServerMDA\obj\Debug\net5.0\ServerMDA.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\duckl\source\repos\ServerMDA\ServerMDA\obj\Debug\net5.0\ServerMDA.RazorAssemblyInfo.cache
-C:\Users\duckl\source\repos\ServerMDA\ServerMDA\obj\Debug\net5.0\ServerMDA.RazorAssemblyInfo.cs
-C:\Users\duckl\source\repos\ServerMDA\ServerMDA\obj\Debug\net5.0\staticwebassets\ServerMDA.StaticWebAssets.Manifest.cache
-C:\Users\duckl\source\repos\ServerMDA\ServerMDA\obj\Debug\net5.0\staticwebassets\ServerMDA.StaticWebAssets.xml
-C:\Users\duckl\source\repos\ServerMDA\ServerMDA\obj\Debug\net5.0\scopedcss\bundle\ServerMDA.styles.css
-C:\Users\duckl\source\repos\ServerMDA\ServerMDA\obj\Debug\net5.0\ServerMDA.TagHelpers.input.cache
-C:\Users\duckl\source\repos\ServerMDA\ServerMDA\obj\Debug\net5.0\ServerMDA.TagHelpers.output.cache
-C:\Users\duckl\source\repos\ServerMDA\ServerMDA\obj\Debug\net5.0\ServerMDA.RazorCoreGenerate.cache
-C:\Users\duckl\source\repos\ServerMDA\ServerMDA\obj\Debug\net5.0\Razor\Views\Home\Index.cshtml.g.cs
-C:\Users\duckl\source\repos\ServerMDA\ServerMDA\obj\Debug\net5.0\Razor\Views\Home\Privacy.cshtml.g.cs
-C:\Users\duckl\source\repos\ServerMDA\ServerMDA\obj\Debug\net5.0\Razor\Views\Shared\Error.cshtml.g.cs
-C:\Users\duckl\source\repos\ServerMDA\ServerMDA\obj\Debug\net5.0\Razor\Views\Shared\_Layout.cshtml.g.cs
-C:\Users\duckl\source\repos\ServerMDA\ServerMDA\obj\Debug\net5.0\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
-C:\Users\duckl\source\repos\ServerMDA\ServerMDA\obj\Debug\net5.0\Razor\Views\_ViewImports.cshtml.g.cs
-C:\Users\duckl\source\repos\ServerMDA\ServerMDA\obj\Debug\net5.0\Razor\Views\_ViewStart.cshtml.g.cs
-C:\Users\duckl\source\repos\ServerMDA\ServerMDA\obj\Debug\net5.0\ServerMDA.RazorTargetAssemblyInfo.cache
-C:\Users\duckl\source\repos\ServerMDA\ServerMDA\obj\Debug\net5.0\ServerMDA.RazorTargetAssemblyInfo.cs
-C:\Users\duckl\source\repos\ServerMDA\ServerMDA\obj\Debug\net5.0\ServerMDA.Views.pdb
-C:\Users\duckl\source\repos\ServerMDA\ServerMDA\obj\Debug\net5.0\ServerMDA.dll
-C:\Users\duckl\source\repos\ServerMDA\ServerMDA\obj\Debug\net5.0\ref\ServerMDA.dll
-C:\Users\duckl\source\repos\ServerMDA\ServerMDA\obj\Debug\net5.0\ServerMDA.pdb
-C:\Users\duckl\source\repos\ServerMDA\ServerMDA\obj\Debug\net5.0\ServerMDA.genruntimeconfig.cache
-C:\Users\duckl\source\repos\ServerMDA\ServerMDA\obj\Debug\net5.0\ServerMDA.csproj.CopyComplete
-C:\Users\duckl\source\repos\ServerMDA\ServerMDA\bin\Debug\net5.0\Humanizer.dll
-C:\Users\duckl\source\repos\ServerMDA\ServerMDA\bin\Debug\net5.0\Microsoft.AspNetCore.Razor.Language.dll
-C:\Users\duckl\source\repos\ServerMDA\ServerMDA\bin\Debug\net5.0\Microsoft.Bcl.AsyncInterfaces.dll
-C:\Users\duckl\source\repos\ServerMDA\ServerMDA\bin\Debug\net5.0\Microsoft.CodeAnalysis.dll
-C:\Users\duckl\source\repos\ServerMDA\ServerMDA\bin\Debug\net5.0\Microsoft.CodeAnalysis.CSharp.dll
-C:\Users\duckl\source\repos\ServerMDA\ServerMDA\bin\Debug\net5.0\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
-C:\Users\duckl\source\repos\ServerMDA\ServerMDA\bin\Debug\net5.0\Microsoft.CodeAnalysis.Razor.dll
-C:\Users\duckl\source\repos\ServerMDA\ServerMDA\bin\Debug\net5.0\Microsoft.CodeAnalysis.Workspaces.dll
-C:\Users\duckl\source\repos\ServerMDA\ServerMDA\bin\Debug\net5.0\Microsoft.VisualStudio.Web.CodeGeneration.dll
-C:\Users\duckl\source\repos\ServerMDA\ServerMDA\bin\Debug\net5.0\Microsoft.VisualStudio.Web.CodeGeneration.Contracts.dll
-C:\Users\duckl\source\repos\ServerMDA\ServerMDA\bin\Debug\net5.0\Microsoft.VisualStudio.Web.CodeGeneration.Core.dll
-C:\Users\duckl\source\repos\ServerMDA\ServerMDA\bin\Debug\net5.0\dotnet-aspnet-codegenerator-design.dll
-C:\Users\duckl\source\repos\ServerMDA\ServerMDA\bin\Debug\net5.0\Microsoft.VisualStudio.Web.CodeGeneration.EntityFrameworkCore.dll
-C:\Users\duckl\source\repos\ServerMDA\ServerMDA\bin\Debug\net5.0\Microsoft.VisualStudio.Web.CodeGeneration.Templating.dll
-C:\Users\duckl\source\repos\ServerMDA\ServerMDA\bin\Debug\net5.0\Microsoft.VisualStudio.Web.CodeGeneration.Utils.dll
-C:\Users\duckl\source\repos\ServerMDA\ServerMDA\bin\Debug\net5.0\Microsoft.VisualStudio.Web.CodeGenerators.Mvc.dll
-C:\Users\duckl\source\repos\ServerMDA\ServerMDA\bin\Debug\net5.0\Newtonsoft.Json.dll
-C:\Users\duckl\source\repos\ServerMDA\ServerMDA\bin\Debug\net5.0\System.Composition.AttributedModel.dll
-C:\Users\duckl\source\repos\ServerMDA\ServerMDA\bin\Debug\net5.0\System.Composition.Convention.dll
-C:\Users\duckl\source\repos\ServerMDA\ServerMDA\bin\Debug\net5.0\System.Composition.Hosting.dll
-C:\Users\duckl\source\repos\ServerMDA\ServerMDA\bin\Debug\net5.0\System.Composition.Runtime.dll
-C:\Users\duckl\source\repos\ServerMDA\ServerMDA\bin\Debug\net5.0\System.Composition.TypedParts.dll
-C:\Users\duckl\source\repos\ServerMDA\ServerMDA\bin\Debug\net5.0\cs\Microsoft.CodeAnalysis.resources.dll
-C:\Users\duckl\source\repos\ServerMDA\ServerMDA\bin\Debug\net5.0\de\Microsoft.CodeAnalysis.resources.dll
-C:\Users\duckl\source\repos\ServerMDA\ServerMDA\bin\Debug\net5.0\es\Microsoft.CodeAnalysis.resources.dll
-C:\Users\duckl\source\repos\ServerMDA\ServerMDA\bin\Debug\net5.0\fr\Microsoft.CodeAnalysis.resources.dll
-C:\Users\duckl\source\repos\ServerMDA\ServerMDA\bin\Debug\net5.0\it\Microsoft.CodeAnalysis.resources.dll
-C:\Users\duckl\source\repos\ServerMDA\ServerMDA\bin\Debug\net5.0\ja\Microsoft.CodeAnalysis.resources.dll
-C:\Users\duckl\source\repos\ServerMDA\ServerMDA\bin\Debug\net5.0\ko\Microsoft.CodeAnalysis.resources.dll
-C:\Users\duckl\source\repos\ServerMDA\ServerMDA\bin\Debug\net5.0\pl\Microsoft.CodeAnalysis.resources.dll
-C:\Users\duckl\source\repos\ServerMDA\ServerMDA\bin\Debug\net5.0\pt-BR\Microsoft.CodeAnalysis.resources.dll
-C:\Users\duckl\source\repos\ServerMDA\ServerMDA\bin\Debug\net5.0\ru\Microsoft.CodeAnalysis.resources.dll
-C:\Users\duckl\source\repos\ServerMDA\ServerMDA\bin\Debug\net5.0\tr\Microsoft.CodeAnalysis.resources.dll
-C:\Users\duckl\source\repos\ServerMDA\ServerMDA\bin\Debug\net5.0\zh-Hans\Microsoft.CodeAnalysis.resources.dll
-C:\Users\duckl\source\repos\ServerMDA\ServerMDA\bin\Debug\net5.0\zh-Hant\Microsoft.CodeAnalysis.resources.dll
-C:\Users\duckl\source\repos\ServerMDA\ServerMDA\bin\Debug\net5.0\cs\Microsoft.CodeAnalysis.CSharp.resources.dll
-C:\Users\duckl\source\repos\ServerMDA\ServerMDA\bin\Debug\net5.0\de\Microsoft.CodeAnalysis.CSharp.resources.dll
-C:\Users\duckl\source\repos\ServerMDA\ServerMDA\bin\Debug\net5.0\es\Microsoft.CodeAnalysis.CSharp.resources.dll
-C:\Users\duckl\source\repos\ServerMDA\ServerMDA\bin\Debug\net5.0\fr\Microsoft.CodeAnalysis.CSharp.resources.dll
-C:\Users\duckl\source\repos\ServerMDA\ServerMDA\bin\Debug\net5.0\it\Microsoft.CodeAnalysis.CSharp.resources.dll
-C:\Users\duckl\source\repos\ServerMDA\ServerMDA\bin\Debug\net5.0\ja\Microsoft.CodeAnalysis.CSharp.resources.dll
-C:\Users\duckl\source\repos\ServerMDA\ServerMDA\bin\Debug\net5.0\ko\Microsoft.CodeAnalysis.CSharp.resources.dll
-C:\Users\duckl\source\repos\ServerMDA\ServerMDA\bin\Debug\net5.0\pl\Microsoft.CodeAnalysis.CSharp.resources.dll
-C:\Users\duckl\source\repos\ServerMDA\ServerMDA\bin\Debug\net5.0\pt-BR\Microsoft.CodeAnalysis.CSharp.resources.dll
-C:\Users\duckl\source\repos\ServerMDA\ServerMDA\bin\Debug\net5.0\ru\Microsoft.CodeAnalysis.CSharp.resources.dll
-C:\Users\duckl\source\repos\ServerMDA\ServerMDA\bin\Debug\net5.0\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
-C:\Users\duckl\source\repos\ServerMDA\ServerMDA\bin\Debug\net5.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
-C:\Users\duckl\source\repos\ServerMDA\ServerMDA\bin\Debug\net5.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
-C:\Users\duckl\source\repos\ServerMDA\ServerMDA\bin\Debug\net5.0\cs\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-C:\Users\duckl\source\repos\ServerMDA\ServerMDA\bin\Debug\net5.0\de\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-C:\Users\duckl\source\repos\ServerMDA\ServerMDA\bin\Debug\net5.0\es\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-C:\Users\duckl\source\repos\ServerMDA\ServerMDA\bin\Debug\net5.0\fr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-C:\Users\duckl\source\repos\ServerMDA\ServerMDA\bin\Debug\net5.0\it\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-C:\Users\duckl\source\repos\ServerMDA\ServerMDA\bin\Debug\net5.0\ja\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-C:\Users\duckl\source\repos\ServerMDA\ServerMDA\bin\Debug\net5.0\ko\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-C:\Users\duckl\source\repos\ServerMDA\ServerMDA\bin\Debug\net5.0\pl\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-C:\Users\duckl\source\repos\ServerMDA\ServerMDA\bin\Debug\net5.0\pt-BR\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-C:\Users\duckl\source\repos\ServerMDA\ServerMDA\bin\Debug\net5.0\ru\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-C:\Users\duckl\source\repos\ServerMDA\ServerMDA\bin\Debug\net5.0\tr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-C:\Users\duckl\source\repos\ServerMDA\ServerMDA\bin\Debug\net5.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-C:\Users\duckl\source\repos\ServerMDA\ServerMDA\bin\Debug\net5.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-C:\Users\duckl\source\repos\ServerMDA\ServerMDA\bin\Debug\net5.0\cs\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Users\duckl\source\repos\ServerMDA\ServerMDA\bin\Debug\net5.0\de\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Users\duckl\source\repos\ServerMDA\ServerMDA\bin\Debug\net5.0\es\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Users\duckl\source\repos\ServerMDA\ServerMDA\bin\Debug\net5.0\fr\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Users\duckl\source\repos\ServerMDA\ServerMDA\bin\Debug\net5.0\it\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Users\duckl\source\repos\ServerMDA\ServerMDA\bin\Debug\net5.0\ja\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Users\duckl\source\repos\ServerMDA\ServerMDA\bin\Debug\net5.0\ko\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Users\duckl\source\repos\ServerMDA\ServerMDA\bin\Debug\net5.0\pl\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Users\duckl\source\repos\ServerMDA\ServerMDA\bin\Debug\net5.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Users\duckl\source\repos\ServerMDA\ServerMDA\bin\Debug\net5.0\ru\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Users\duckl\source\repos\ServerMDA\ServerMDA\bin\Debug\net5.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Users\duckl\source\repos\ServerMDA\ServerMDA\bin\Debug\net5.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Users\duckl\source\repos\ServerMDA\ServerMDA\bin\Debug\net5.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Users\duckl\source\repos\ServerMDA\ServerMDA\bin\Debug\net5.0\runtimes\win-arm\lib\net5.0\dotnet-aspnet-codegenerator-design.exe
-C:\Users\duckl\source\repos\ServerMDA\ServerMDA\bin\Debug\net5.0\runtimes\win-arm64\lib\net5.0\dotnet-aspnet-codegenerator-design.exe
-C:\Users\duckl\source\repos\ServerMDA\ServerMDA\obj\Debug\net5.0\Razor\Views\HomePage\List.cshtml.g.cs
 C:\Users\duckl\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\appsettings.Development.json
 C:\Users\duckl\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\appsettings.json
 C:\Users\duckl\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\ServerMDA.exe
@@ -134,6 +17,19 @@ C:\Users\duckl\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\Microsoft.CodeAna
 C:\Users\duckl\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
 C:\Users\duckl\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\Microsoft.CodeAnalysis.Razor.dll
 C:\Users\duckl\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\Microsoft.CodeAnalysis.Workspaces.dll
+C:\Users\duckl\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\Microsoft.Data.SqlClient.dll
+C:\Users\duckl\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.dll
+C:\Users\duckl\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\duckl\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\duckl\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\duckl\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.SqlServer.dll
+C:\Users\duckl\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\duckl\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\Microsoft.Identity.Client.dll
+C:\Users\duckl\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\duckl\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\duckl\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\duckl\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\duckl\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\Microsoft.IdentityModel.Tokens.dll
 C:\Users\duckl\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\Microsoft.VisualStudio.Web.CodeGeneration.dll
 C:\Users\duckl\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\Microsoft.VisualStudio.Web.CodeGeneration.Contracts.dll
 C:\Users\duckl\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\Microsoft.VisualStudio.Web.CodeGeneration.Core.dll
@@ -148,6 +44,11 @@ C:\Users\duckl\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\System.Compositio
 C:\Users\duckl\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\System.Composition.Hosting.dll
 C:\Users\duckl\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\System.Composition.Runtime.dll
 C:\Users\duckl\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\System.Composition.TypedParts.dll
+C:\Users\duckl\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\System.Configuration.ConfigurationManager.dll
+C:\Users\duckl\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\System.Diagnostics.DiagnosticSource.dll
+C:\Users\duckl\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\duckl\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\System.Runtime.Caching.dll
+C:\Users\duckl\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\duckl\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\cs\Microsoft.CodeAnalysis.resources.dll
 C:\Users\duckl\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\de\Microsoft.CodeAnalysis.resources.dll
 C:\Users\duckl\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\es\Microsoft.CodeAnalysis.resources.dll
@@ -200,9 +101,20 @@ C:\Users\duckl\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\ru\Microsoft.Code
 C:\Users\duckl\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\duckl\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\duckl\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\duckl\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\runtimes\unix\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+C:\Users\duckl\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\runtimes\win\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+C:\Users\duckl\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\duckl\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.pdb
+C:\Users\duckl\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\duckl\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.pdb
+C:\Users\duckl\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\duckl\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.pdb
+C:\Users\duckl\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\duckl\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.pdb
 C:\Users\duckl\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\runtimes\win-arm\lib\net5.0\dotnet-aspnet-codegenerator-design.exe
 C:\Users\duckl\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\runtimes\win-arm64\lib\net5.0\dotnet-aspnet-codegenerator-design.exe
-C:\Users\duckl\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\ServerMDA.csproj.AssemblyReference.cache
+C:\Users\duckl\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
+C:\Users\duckl\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\duckl\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\ServerMDA.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\duckl\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\ServerMDA.AssemblyInfoInputs.cache
 C:\Users\duckl\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\ServerMDA.AssemblyInfo.cs
@@ -216,12 +128,48 @@ C:\Users\duckl\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\scopedcss\bundle\
 C:\Users\duckl\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\ServerMDA.TagHelpers.input.cache
 C:\Users\duckl\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\ServerMDA.TagHelpers.output.cache
 C:\Users\duckl\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\ServerMDA.RazorCoreGenerate.cache
+C:\Users\duckl\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\Actor\Create.cshtml.g.cs
+C:\Users\duckl\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\Actor\Edit.cshtml.g.cs
+C:\Users\duckl\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\Actor\List.cshtml.g.cs
+C:\Users\duckl\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\Cast\Edit.cshtml.g.cs
+C:\Users\duckl\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\Cast\List.cshtml.g.cs
+C:\Users\duckl\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\Cinema\List.cshtml.g.cs
+C:\Users\duckl\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\Comment\Create.cshtml.g.cs
+C:\Users\duckl\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\Comment\Edit.cshtml.g.cs
+C:\Users\duckl\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\Comment\List.cshtml.g.cs
+C:\Users\duckl\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\DatatablesController1\List.cshtml.g.cs
+C:\Users\duckl\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\Director\Create.cshtml.g.cs
+C:\Users\duckl\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\Director\Edit.cshtml.g.cs
+C:\Users\duckl\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\Director\List.cshtml.g.cs
 C:\Users\duckl\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\HomePage\List.cshtml.g.cs
 C:\Users\duckl\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\Home\Index.cshtml.g.cs
 C:\Users\duckl\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\Home\Privacy.cshtml.g.cs
+C:\Users\duckl\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\Member\Create.cshtml.g.cs
+C:\Users\duckl\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\Member\Edit.cshtml.g.cs
+C:\Users\duckl\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\Member\List.cshtml.g.cs
+C:\Users\duckl\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\MovieCode\List.cshtml.g.cs
+C:\Users\duckl\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\MovieIimagesList\Create.cshtml.g.cs
+C:\Users\duckl\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\MovieIimagesList\Edit.cshtml.g.cs
+C:\Users\duckl\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\MovieIimagesList\List.cshtml.g.cs
+C:\Users\duckl\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\MovieImage\Create.cshtml.g.cs
+C:\Users\duckl\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\MovieImage\Edit.cshtml.g.cs
+C:\Users\duckl\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\MovieImage\List.cshtml.g.cs
+C:\Users\duckl\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\MovieLanguage\Create.cshtml.g.cs
+C:\Users\duckl\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\MovieLanguage\Edit.cshtml.g.cs
+C:\Users\duckl\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\MovieLanguage\List.cshtml.g.cs
+C:\Users\duckl\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\MovieList\List.cshtml.g.cs
+C:\Users\duckl\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\MovieRating\List.cshtml.g.cs
+C:\Users\duckl\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\Movie\Create.cshtml.g.cs
+C:\Users\duckl\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\Movie\Edit.cshtml.g.cs
+C:\Users\duckl\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\Movie\List.cshtml.g.cs
+C:\Users\duckl\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\Movie\_MovieLayout.cshtml.g.cs
+C:\Users\duckl\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\PBI\PBI.cshtml.g.cs
 C:\Users\duckl\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\Shared\Error.cshtml.g.cs
 C:\Users\duckl\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\Shared\_Layout.cshtml.g.cs
 C:\Users\duckl\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
+C:\Users\duckl\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\Theater\Create.cshtml.g.cs
+C:\Users\duckl\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\Theater\Edit.cshtml.g.cs
+C:\Users\duckl\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\Theater\List.cshtml.g.cs
 C:\Users\duckl\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\_ViewImports.cshtml.g.cs
 C:\Users\duckl\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\_ViewStart.cshtml.g.cs
 C:\Users\duckl\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\ServerMDA.RazorTargetAssemblyInfo.cache
@@ -232,554 +180,4 @@ C:\Users\duckl\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\ServerMDA.dll
 C:\Users\duckl\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\ref\ServerMDA.dll
 C:\Users\duckl\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\ServerMDA.pdb
 C:\Users\duckl\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\ServerMDA.genruntimeconfig.cache
-E:\C#\MSIT143.ServerMDA\ServerMDA\bin\Debug\net5.0\appsettings.Development.json
-E:\C#\MSIT143.ServerMDA\ServerMDA\bin\Debug\net5.0\appsettings.json
-E:\C#\MSIT143.ServerMDA\ServerMDA\bin\Debug\net5.0\ServerMDA.exe
-E:\C#\MSIT143.ServerMDA\ServerMDA\bin\Debug\net5.0\ServerMDA.deps.json
-E:\C#\MSIT143.ServerMDA\ServerMDA\bin\Debug\net5.0\ServerMDA.runtimeconfig.json
-E:\C#\MSIT143.ServerMDA\ServerMDA\bin\Debug\net5.0\ServerMDA.runtimeconfig.dev.json
-E:\C#\MSIT143.ServerMDA\ServerMDA\bin\Debug\net5.0\ServerMDA.dll
-E:\C#\MSIT143.ServerMDA\ServerMDA\bin\Debug\net5.0\ref\ServerMDA.dll
-E:\C#\MSIT143.ServerMDA\ServerMDA\bin\Debug\net5.0\ServerMDA.pdb
-E:\C#\MSIT143.ServerMDA\ServerMDA\bin\Debug\net5.0\ServerMDA.Views.dll
-E:\C#\MSIT143.ServerMDA\ServerMDA\bin\Debug\net5.0\ServerMDA.Views.pdb
-E:\C#\MSIT143.ServerMDA\ServerMDA\bin\Debug\net5.0\Humanizer.dll
-E:\C#\MSIT143.ServerMDA\ServerMDA\bin\Debug\net5.0\Microsoft.AspNetCore.Razor.Language.dll
-E:\C#\MSIT143.ServerMDA\ServerMDA\bin\Debug\net5.0\Microsoft.Bcl.AsyncInterfaces.dll
-E:\C#\MSIT143.ServerMDA\ServerMDA\bin\Debug\net5.0\Microsoft.CodeAnalysis.dll
-E:\C#\MSIT143.ServerMDA\ServerMDA\bin\Debug\net5.0\Microsoft.CodeAnalysis.CSharp.dll
-E:\C#\MSIT143.ServerMDA\ServerMDA\bin\Debug\net5.0\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
-E:\C#\MSIT143.ServerMDA\ServerMDA\bin\Debug\net5.0\Microsoft.CodeAnalysis.Razor.dll
-E:\C#\MSIT143.ServerMDA\ServerMDA\bin\Debug\net5.0\Microsoft.CodeAnalysis.Workspaces.dll
-E:\C#\MSIT143.ServerMDA\ServerMDA\bin\Debug\net5.0\Microsoft.VisualStudio.Web.CodeGeneration.dll
-E:\C#\MSIT143.ServerMDA\ServerMDA\bin\Debug\net5.0\Microsoft.VisualStudio.Web.CodeGeneration.Contracts.dll
-E:\C#\MSIT143.ServerMDA\ServerMDA\bin\Debug\net5.0\Microsoft.VisualStudio.Web.CodeGeneration.Core.dll
-E:\C#\MSIT143.ServerMDA\ServerMDA\bin\Debug\net5.0\dotnet-aspnet-codegenerator-design.dll
-E:\C#\MSIT143.ServerMDA\ServerMDA\bin\Debug\net5.0\Microsoft.VisualStudio.Web.CodeGeneration.EntityFrameworkCore.dll
-E:\C#\MSIT143.ServerMDA\ServerMDA\bin\Debug\net5.0\Microsoft.VisualStudio.Web.CodeGeneration.Templating.dll
-E:\C#\MSIT143.ServerMDA\ServerMDA\bin\Debug\net5.0\Microsoft.VisualStudio.Web.CodeGeneration.Utils.dll
-E:\C#\MSIT143.ServerMDA\ServerMDA\bin\Debug\net5.0\Microsoft.VisualStudio.Web.CodeGenerators.Mvc.dll
-E:\C#\MSIT143.ServerMDA\ServerMDA\bin\Debug\net5.0\Newtonsoft.Json.dll
-E:\C#\MSIT143.ServerMDA\ServerMDA\bin\Debug\net5.0\System.Composition.AttributedModel.dll
-E:\C#\MSIT143.ServerMDA\ServerMDA\bin\Debug\net5.0\System.Composition.Convention.dll
-E:\C#\MSIT143.ServerMDA\ServerMDA\bin\Debug\net5.0\System.Composition.Hosting.dll
-E:\C#\MSIT143.ServerMDA\ServerMDA\bin\Debug\net5.0\System.Composition.Runtime.dll
-E:\C#\MSIT143.ServerMDA\ServerMDA\bin\Debug\net5.0\System.Composition.TypedParts.dll
-E:\C#\MSIT143.ServerMDA\ServerMDA\bin\Debug\net5.0\cs\Microsoft.CodeAnalysis.resources.dll
-E:\C#\MSIT143.ServerMDA\ServerMDA\bin\Debug\net5.0\de\Microsoft.CodeAnalysis.resources.dll
-E:\C#\MSIT143.ServerMDA\ServerMDA\bin\Debug\net5.0\es\Microsoft.CodeAnalysis.resources.dll
-E:\C#\MSIT143.ServerMDA\ServerMDA\bin\Debug\net5.0\fr\Microsoft.CodeAnalysis.resources.dll
-E:\C#\MSIT143.ServerMDA\ServerMDA\bin\Debug\net5.0\it\Microsoft.CodeAnalysis.resources.dll
-E:\C#\MSIT143.ServerMDA\ServerMDA\bin\Debug\net5.0\ja\Microsoft.CodeAnalysis.resources.dll
-E:\C#\MSIT143.ServerMDA\ServerMDA\bin\Debug\net5.0\ko\Microsoft.CodeAnalysis.resources.dll
-E:\C#\MSIT143.ServerMDA\ServerMDA\bin\Debug\net5.0\pl\Microsoft.CodeAnalysis.resources.dll
-E:\C#\MSIT143.ServerMDA\ServerMDA\bin\Debug\net5.0\pt-BR\Microsoft.CodeAnalysis.resources.dll
-E:\C#\MSIT143.ServerMDA\ServerMDA\bin\Debug\net5.0\ru\Microsoft.CodeAnalysis.resources.dll
-E:\C#\MSIT143.ServerMDA\ServerMDA\bin\Debug\net5.0\tr\Microsoft.CodeAnalysis.resources.dll
-E:\C#\MSIT143.ServerMDA\ServerMDA\bin\Debug\net5.0\zh-Hans\Microsoft.CodeAnalysis.resources.dll
-E:\C#\MSIT143.ServerMDA\ServerMDA\bin\Debug\net5.0\zh-Hant\Microsoft.CodeAnalysis.resources.dll
-E:\C#\MSIT143.ServerMDA\ServerMDA\bin\Debug\net5.0\cs\Microsoft.CodeAnalysis.CSharp.resources.dll
-E:\C#\MSIT143.ServerMDA\ServerMDA\bin\Debug\net5.0\de\Microsoft.CodeAnalysis.CSharp.resources.dll
-E:\C#\MSIT143.ServerMDA\ServerMDA\bin\Debug\net5.0\es\Microsoft.CodeAnalysis.CSharp.resources.dll
-E:\C#\MSIT143.ServerMDA\ServerMDA\bin\Debug\net5.0\fr\Microsoft.CodeAnalysis.CSharp.resources.dll
-E:\C#\MSIT143.ServerMDA\ServerMDA\bin\Debug\net5.0\it\Microsoft.CodeAnalysis.CSharp.resources.dll
-E:\C#\MSIT143.ServerMDA\ServerMDA\bin\Debug\net5.0\ja\Microsoft.CodeAnalysis.CSharp.resources.dll
-E:\C#\MSIT143.ServerMDA\ServerMDA\bin\Debug\net5.0\ko\Microsoft.CodeAnalysis.CSharp.resources.dll
-E:\C#\MSIT143.ServerMDA\ServerMDA\bin\Debug\net5.0\pl\Microsoft.CodeAnalysis.CSharp.resources.dll
-E:\C#\MSIT143.ServerMDA\ServerMDA\bin\Debug\net5.0\pt-BR\Microsoft.CodeAnalysis.CSharp.resources.dll
-E:\C#\MSIT143.ServerMDA\ServerMDA\bin\Debug\net5.0\ru\Microsoft.CodeAnalysis.CSharp.resources.dll
-E:\C#\MSIT143.ServerMDA\ServerMDA\bin\Debug\net5.0\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
-E:\C#\MSIT143.ServerMDA\ServerMDA\bin\Debug\net5.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
-E:\C#\MSIT143.ServerMDA\ServerMDA\bin\Debug\net5.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
-E:\C#\MSIT143.ServerMDA\ServerMDA\bin\Debug\net5.0\cs\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-E:\C#\MSIT143.ServerMDA\ServerMDA\bin\Debug\net5.0\de\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-E:\C#\MSIT143.ServerMDA\ServerMDA\bin\Debug\net5.0\es\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-E:\C#\MSIT143.ServerMDA\ServerMDA\bin\Debug\net5.0\fr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-E:\C#\MSIT143.ServerMDA\ServerMDA\bin\Debug\net5.0\it\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-E:\C#\MSIT143.ServerMDA\ServerMDA\bin\Debug\net5.0\ja\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-E:\C#\MSIT143.ServerMDA\ServerMDA\bin\Debug\net5.0\ko\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-E:\C#\MSIT143.ServerMDA\ServerMDA\bin\Debug\net5.0\pl\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-E:\C#\MSIT143.ServerMDA\ServerMDA\bin\Debug\net5.0\pt-BR\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-E:\C#\MSIT143.ServerMDA\ServerMDA\bin\Debug\net5.0\ru\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-E:\C#\MSIT143.ServerMDA\ServerMDA\bin\Debug\net5.0\tr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-E:\C#\MSIT143.ServerMDA\ServerMDA\bin\Debug\net5.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-E:\C#\MSIT143.ServerMDA\ServerMDA\bin\Debug\net5.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-E:\C#\MSIT143.ServerMDA\ServerMDA\bin\Debug\net5.0\cs\Microsoft.CodeAnalysis.Workspaces.resources.dll
-E:\C#\MSIT143.ServerMDA\ServerMDA\bin\Debug\net5.0\de\Microsoft.CodeAnalysis.Workspaces.resources.dll
-E:\C#\MSIT143.ServerMDA\ServerMDA\bin\Debug\net5.0\es\Microsoft.CodeAnalysis.Workspaces.resources.dll
-E:\C#\MSIT143.ServerMDA\ServerMDA\bin\Debug\net5.0\fr\Microsoft.CodeAnalysis.Workspaces.resources.dll
-E:\C#\MSIT143.ServerMDA\ServerMDA\bin\Debug\net5.0\it\Microsoft.CodeAnalysis.Workspaces.resources.dll
-E:\C#\MSIT143.ServerMDA\ServerMDA\bin\Debug\net5.0\ja\Microsoft.CodeAnalysis.Workspaces.resources.dll
-E:\C#\MSIT143.ServerMDA\ServerMDA\bin\Debug\net5.0\ko\Microsoft.CodeAnalysis.Workspaces.resources.dll
-E:\C#\MSIT143.ServerMDA\ServerMDA\bin\Debug\net5.0\pl\Microsoft.CodeAnalysis.Workspaces.resources.dll
-E:\C#\MSIT143.ServerMDA\ServerMDA\bin\Debug\net5.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.resources.dll
-E:\C#\MSIT143.ServerMDA\ServerMDA\bin\Debug\net5.0\ru\Microsoft.CodeAnalysis.Workspaces.resources.dll
-E:\C#\MSIT143.ServerMDA\ServerMDA\bin\Debug\net5.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
-E:\C#\MSIT143.ServerMDA\ServerMDA\bin\Debug\net5.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
-E:\C#\MSIT143.ServerMDA\ServerMDA\bin\Debug\net5.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
-E:\C#\MSIT143.ServerMDA\ServerMDA\bin\Debug\net5.0\runtimes\win-arm\lib\net5.0\dotnet-aspnet-codegenerator-design.exe
-E:\C#\MSIT143.ServerMDA\ServerMDA\bin\Debug\net5.0\runtimes\win-arm64\lib\net5.0\dotnet-aspnet-codegenerator-design.exe
-E:\C#\MSIT143.ServerMDA\ServerMDA\obj\Debug\net5.0\ServerMDA.csproj.AssemblyReference.cache
-E:\C#\MSIT143.ServerMDA\ServerMDA\obj\Debug\net5.0\ServerMDA.GeneratedMSBuildEditorConfig.editorconfig
-E:\C#\MSIT143.ServerMDA\ServerMDA\obj\Debug\net5.0\ServerMDA.AssemblyInfoInputs.cache
-E:\C#\MSIT143.ServerMDA\ServerMDA\obj\Debug\net5.0\ServerMDA.AssemblyInfo.cs
-E:\C#\MSIT143.ServerMDA\ServerMDA\obj\Debug\net5.0\ServerMDA.csproj.CoreCompileInputs.cache
-E:\C#\MSIT143.ServerMDA\ServerMDA\obj\Debug\net5.0\ServerMDA.MvcApplicationPartsAssemblyInfo.cache
-E:\C#\MSIT143.ServerMDA\ServerMDA\obj\Debug\net5.0\ServerMDA.RazorAssemblyInfo.cache
-E:\C#\MSIT143.ServerMDA\ServerMDA\obj\Debug\net5.0\ServerMDA.RazorAssemblyInfo.cs
-E:\C#\MSIT143.ServerMDA\ServerMDA\obj\Debug\net5.0\staticwebassets\ServerMDA.StaticWebAssets.Manifest.cache
-E:\C#\MSIT143.ServerMDA\ServerMDA\obj\Debug\net5.0\staticwebassets\ServerMDA.StaticWebAssets.xml
-E:\C#\MSIT143.ServerMDA\ServerMDA\obj\Debug\net5.0\scopedcss\bundle\ServerMDA.styles.css
-E:\C#\MSIT143.ServerMDA\ServerMDA\obj\Debug\net5.0\ServerMDA.TagHelpers.input.cache
-E:\C#\MSIT143.ServerMDA\ServerMDA\obj\Debug\net5.0\ServerMDA.TagHelpers.output.cache
-E:\C#\MSIT143.ServerMDA\ServerMDA\obj\Debug\net5.0\ServerMDA.RazorCoreGenerate.cache
-E:\C#\MSIT143.ServerMDA\ServerMDA\obj\Debug\net5.0\Razor\Views\HomePage\List.cshtml.g.cs
-E:\C#\MSIT143.ServerMDA\ServerMDA\obj\Debug\net5.0\Razor\Views\Home\Index.cshtml.g.cs
-E:\C#\MSIT143.ServerMDA\ServerMDA\obj\Debug\net5.0\Razor\Views\Home\Privacy.cshtml.g.cs
-E:\C#\MSIT143.ServerMDA\ServerMDA\obj\Debug\net5.0\Razor\Views\Shared\Error.cshtml.g.cs
-E:\C#\MSIT143.ServerMDA\ServerMDA\obj\Debug\net5.0\Razor\Views\Shared\_Layout.cshtml.g.cs
-E:\C#\MSIT143.ServerMDA\ServerMDA\obj\Debug\net5.0\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
-E:\C#\MSIT143.ServerMDA\ServerMDA\obj\Debug\net5.0\Razor\Views\_ViewImports.cshtml.g.cs
-E:\C#\MSIT143.ServerMDA\ServerMDA\obj\Debug\net5.0\Razor\Views\_ViewStart.cshtml.g.cs
-E:\C#\MSIT143.ServerMDA\ServerMDA\obj\Debug\net5.0\ServerMDA.RazorTargetAssemblyInfo.cache
-E:\C#\MSIT143.ServerMDA\ServerMDA\obj\Debug\net5.0\ServerMDA.RazorTargetAssemblyInfo.cs
-E:\C#\MSIT143.ServerMDA\ServerMDA\obj\Debug\net5.0\ServerMDA.Views.pdb
-E:\C#\MSIT143.ServerMDA\ServerMDA\obj\Debug\net5.0\ServerMDA.csproj.CopyComplete
-E:\C#\MSIT143.ServerMDA\ServerMDA\obj\Debug\net5.0\ServerMDA.dll
-E:\C#\MSIT143.ServerMDA\ServerMDA\obj\Debug\net5.0\ref\ServerMDA.dll
-E:\C#\MSIT143.ServerMDA\ServerMDA\obj\Debug\net5.0\ServerMDA.pdb
-E:\C#\MSIT143.ServerMDA\ServerMDA\obj\Debug\net5.0\ServerMDA.genruntimeconfig.cache
-C:\Users\duckl\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\Microsoft.Data.SqlClient.dll
-C:\Users\duckl\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.dll
-C:\Users\duckl\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Abstractions.dll
-C:\Users\duckl\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Design.dll
-C:\Users\duckl\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Relational.dll
-C:\Users\duckl\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.SqlServer.dll
-C:\Users\duckl\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\Microsoft.Extensions.DependencyInjection.dll
-C:\Users\duckl\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\Microsoft.Identity.Client.dll
-C:\Users\duckl\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\Microsoft.IdentityModel.JsonWebTokens.dll
-C:\Users\duckl\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\Microsoft.IdentityModel.Logging.dll
-C:\Users\duckl\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.dll
-C:\Users\duckl\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
-C:\Users\duckl\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\Microsoft.IdentityModel.Tokens.dll
-C:\Users\duckl\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\System.Configuration.ConfigurationManager.dll
-C:\Users\duckl\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\System.Diagnostics.DiagnosticSource.dll
-C:\Users\duckl\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\System.IdentityModel.Tokens.Jwt.dll
-C:\Users\duckl\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\System.Runtime.Caching.dll
-C:\Users\duckl\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\System.Security.Cryptography.ProtectedData.dll
-C:\Users\duckl\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\runtimes\unix\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
-C:\Users\duckl\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\runtimes\win\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
-C:\Users\duckl\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
-C:\Users\duckl\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.pdb
-C:\Users\duckl\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
-C:\Users\duckl\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.pdb
-C:\Users\duckl\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
-C:\Users\duckl\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.pdb
-C:\Users\duckl\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
-C:\Users\duckl\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.pdb
-C:\Users\duckl\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
-C:\Users\duckl\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\appsettings.Development.json
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\appsettings.json
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\ServerMDA.exe
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\ServerMDA.deps.json
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\ServerMDA.runtimeconfig.json
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\ServerMDA.runtimeconfig.dev.json
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\ServerMDA.dll
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\ref\ServerMDA.dll
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\ServerMDA.pdb
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\ServerMDA.Views.dll
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\ServerMDA.Views.pdb
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\Humanizer.dll
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\Microsoft.AspNetCore.Razor.Language.dll
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\Microsoft.Bcl.AsyncInterfaces.dll
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\Microsoft.CodeAnalysis.dll
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\Microsoft.CodeAnalysis.CSharp.dll
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\Microsoft.CodeAnalysis.Razor.dll
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\Microsoft.CodeAnalysis.Workspaces.dll
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\Microsoft.Data.SqlClient.dll
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.dll
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Abstractions.dll
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Design.dll
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Relational.dll
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.SqlServer.dll
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\Microsoft.Extensions.DependencyInjection.dll
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\Microsoft.Identity.Client.dll
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\Microsoft.IdentityModel.JsonWebTokens.dll
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\Microsoft.IdentityModel.Logging.dll
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.dll
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\Microsoft.IdentityModel.Tokens.dll
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\Microsoft.VisualStudio.Web.CodeGeneration.dll
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\Microsoft.VisualStudio.Web.CodeGeneration.Contracts.dll
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\Microsoft.VisualStudio.Web.CodeGeneration.Core.dll
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\dotnet-aspnet-codegenerator-design.dll
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\Microsoft.VisualStudio.Web.CodeGeneration.EntityFrameworkCore.dll
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\Microsoft.VisualStudio.Web.CodeGeneration.Templating.dll
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\Microsoft.VisualStudio.Web.CodeGeneration.Utils.dll
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\Microsoft.VisualStudio.Web.CodeGenerators.Mvc.dll
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\Newtonsoft.Json.dll
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\System.Composition.AttributedModel.dll
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\System.Composition.Convention.dll
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\System.Composition.Hosting.dll
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\System.Composition.Runtime.dll
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\System.Composition.TypedParts.dll
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\System.Configuration.ConfigurationManager.dll
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\System.Diagnostics.DiagnosticSource.dll
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\System.IdentityModel.Tokens.Jwt.dll
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\System.Runtime.Caching.dll
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\System.Security.Cryptography.ProtectedData.dll
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\cs\Microsoft.CodeAnalysis.resources.dll
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\de\Microsoft.CodeAnalysis.resources.dll
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\es\Microsoft.CodeAnalysis.resources.dll
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\fr\Microsoft.CodeAnalysis.resources.dll
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\it\Microsoft.CodeAnalysis.resources.dll
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\ja\Microsoft.CodeAnalysis.resources.dll
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\ko\Microsoft.CodeAnalysis.resources.dll
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\pl\Microsoft.CodeAnalysis.resources.dll
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\pt-BR\Microsoft.CodeAnalysis.resources.dll
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\ru\Microsoft.CodeAnalysis.resources.dll
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\tr\Microsoft.CodeAnalysis.resources.dll
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\zh-Hans\Microsoft.CodeAnalysis.resources.dll
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\zh-Hant\Microsoft.CodeAnalysis.resources.dll
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\cs\Microsoft.CodeAnalysis.CSharp.resources.dll
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\de\Microsoft.CodeAnalysis.CSharp.resources.dll
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\es\Microsoft.CodeAnalysis.CSharp.resources.dll
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\fr\Microsoft.CodeAnalysis.CSharp.resources.dll
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\it\Microsoft.CodeAnalysis.CSharp.resources.dll
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\ja\Microsoft.CodeAnalysis.CSharp.resources.dll
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\ko\Microsoft.CodeAnalysis.CSharp.resources.dll
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\pl\Microsoft.CodeAnalysis.CSharp.resources.dll
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\pt-BR\Microsoft.CodeAnalysis.CSharp.resources.dll
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\ru\Microsoft.CodeAnalysis.CSharp.resources.dll
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\cs\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\de\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\es\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\fr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\it\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\ja\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\ko\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\pl\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\pt-BR\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\ru\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\tr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\cs\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\de\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\es\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\fr\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\it\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\ja\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\ko\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\pl\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\ru\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\runtimes\unix\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\runtimes\win\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.pdb
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.pdb
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.pdb
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.pdb
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\runtimes\win-arm\lib\net5.0\dotnet-aspnet-codegenerator-design.exe
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\runtimes\win-arm64\lib\net5.0\dotnet-aspnet-codegenerator-design.exe
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\ServerMDA.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\ServerMDA.AssemblyInfoInputs.cache
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\ServerMDA.AssemblyInfo.cs
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\ServerMDA.csproj.CoreCompileInputs.cache
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\ServerMDA.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\ServerMDA.RazorAssemblyInfo.cache
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\ServerMDA.RazorAssemblyInfo.cs
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\staticwebassets\ServerMDA.StaticWebAssets.Manifest.cache
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\staticwebassets\ServerMDA.StaticWebAssets.xml
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\scopedcss\bundle\ServerMDA.styles.css
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\ServerMDA.TagHelpers.input.cache
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\ServerMDA.TagHelpers.output.cache
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\ServerMDA.RazorCoreGenerate.cache
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\HomePage\List.cshtml.g.cs
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\Home\Index.cshtml.g.cs
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\Home\Privacy.cshtml.g.cs
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\Shared\Error.cshtml.g.cs
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\Shared\_Layout.cshtml.g.cs
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\_ViewImports.cshtml.g.cs
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\_ViewStart.cshtml.g.cs
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\ServerMDA.RazorTargetAssemblyInfo.cache
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\ServerMDA.RazorTargetAssemblyInfo.cs
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\ServerMDA.Views.pdb
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\ServerMDA.csproj.CopyComplete
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\ServerMDA.dll
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\ref\ServerMDA.dll
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\ServerMDA.pdb
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\ServerMDA.genruntimeconfig.cache
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\PBI\PBI.cshtml.g.cs
-C:\Users\duckl\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\PBI\PBI.cshtml.g.cs
-C:\Users\duckl\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\Director\List.cshtml.g.cs
-C:\Users\duckl\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\Director\Edit.cshtml.g.cs
-C:\Users\duckl\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\Director\Create.cshtml.g.cs
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\Director\Create.cshtml.g.cs
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\Director\Edit.cshtml.g.cs
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\Director\List.cshtml.g.cs
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\Actor\List.cshtml.g.cs
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\Actor\Edit.cshtml.g.cs
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\Actor\Create.cshtml.g.cs
-C:\Users\duckl\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\Actor\Create.cshtml.g.cs
-C:\Users\duckl\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\Actor\Edit.cshtml.g.cs
-C:\Users\duckl\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\Actor\List.cshtml.g.cs
-C:\Users\duckl\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\Movie\List.cshtml.g.cs
-C:\Users\duckl\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\Movie\Create.cshtml.g.cs
-C:\Users\duckl\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\Movie\Edit.cshtml.g.cs
-C:\Users\duckl\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\Theater\List.cshtml.g.cs
-C:\Users\duckl\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\Theater\Edit.cshtml.g.cs
-C:\Users\duckl\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\Theater\Create.cshtml.g.cs
-C:\Users\duckl\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\MovieRating\List.cshtml.g.cs
-C:\Users\duckl\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\Comment\List.cshtml.g.cs
-C:\Users\duckl\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\Comment\Edit.cshtml.g.cs
-C:\Users\duckl\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\Comment\Create.cshtml.g.cs
-C:\Users\duckl\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\MovieLanguage\List.cshtml.g.cs
-C:\Users\duckl\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\MovieLanguage\Edit.cshtml.g.cs
-C:\Users\duckl\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\MovieLanguage\Create.cshtml.g.cs
-C:\Users\duckl\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\MovieCode\List.cshtml.g.cs
-C:\Users\duckl\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\Member\Edit.cshtml.g.cs
-C:\Users\duckl\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\Member\List.cshtml.g.cs
-C:\Users\duckl\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\Member\Create.cshtml.g.cs
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\Comment\Create.cshtml.g.cs
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\Comment\Edit.cshtml.g.cs
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\Comment\List.cshtml.g.cs
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\Member\Create.cshtml.g.cs
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\Member\Edit.cshtml.g.cs
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\Member\List.cshtml.g.cs
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\MovieCode\List.cshtml.g.cs
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\MovieLanguage\Create.cshtml.g.cs
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\MovieLanguage\Edit.cshtml.g.cs
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\MovieLanguage\List.cshtml.g.cs
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\MovieRating\List.cshtml.g.cs
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\Movie\Create.cshtml.g.cs
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\Movie\Edit.cshtml.g.cs
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\Movie\List.cshtml.g.cs
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\Theater\Create.cshtml.g.cs
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\Theater\Edit.cshtml.g.cs
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\Theater\List.cshtml.g.cs
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\Cast\List.cshtml.g.cs
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\Cast\Edit.cshtml.g.cs
-C:\Users\duckl\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\Cast\Edit.cshtml.g.cs
-C:\Users\duckl\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\Cast\List.cshtml.g.cs
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\MovieList\List.cshtml.g.cs
-C:\Users\duckl\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\MovieList\List.cshtml.g.cs
-C:\Users\duckl\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\Movie\_MovieLayout.cshtml.g.cs
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\Movie\_MovieLayout.cshtml.g.cs
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\DatatablesController1\List.cshtml.g.cs
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\MovieImage\List.cshtml.g.cs
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\MovieImage\Create.cshtml.g.cs
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\MovieImage\Edit.cshtml.g.cs
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\MovieIimagesList\List.cshtml.g.cs
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\MovieIimagesList\Edit.cshtml.g.cs
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\ServerMDA.csprojAssemblyReference.cache
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\MovieIimagesList\Create.cshtml.g.cs
-C:\Users\duckl\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\DatatablesController1\List.cshtml.g.cs
-C:\Users\duckl\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\MovieIimagesList\Create.cshtml.g.cs
-C:\Users\duckl\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\MovieIimagesList\Edit.cshtml.g.cs
-C:\Users\duckl\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\MovieIimagesList\List.cshtml.g.cs
-C:\Users\duckl\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\MovieImage\Create.cshtml.g.cs
-C:\Users\duckl\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\MovieImage\Edit.cshtml.g.cs
-C:\Users\duckl\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\MovieImage\List.cshtml.g.cs
-C:\Users\duckl\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\Cinema\List.cshtml.g.cs
-<<<<<<< HEAD
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\obj\Debug\net5.0\ServerMDA.csproj.AssemblyReference.cache
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\obj\Debug\net5.0\ServerMDA.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\obj\Debug\net5.0\ServerMDA.AssemblyInfoInputs.cache
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\obj\Debug\net5.0\ServerMDA.AssemblyInfo.cs
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\obj\Debug\net5.0\ServerMDA.csproj.CoreCompileInputs.cache
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\obj\Debug\net5.0\ServerMDA.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\obj\Debug\net5.0\ServerMDA.RazorAssemblyInfo.cache
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\obj\Debug\net5.0\ServerMDA.RazorAssemblyInfo.cs
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\obj\Debug\net5.0\ServerMDA.dll
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\obj\Debug\net5.0\ref\ServerMDA.dll
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\obj\Debug\net5.0\ServerMDA.pdb
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\bin\Debug\net5.0\appsettings.Development.json
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\bin\Debug\net5.0\appsettings.json
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\bin\Debug\net5.0\ServerMDA.exe
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\bin\Debug\net5.0\ServerMDA.deps.json
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\bin\Debug\net5.0\ServerMDA.runtimeconfig.json
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\bin\Debug\net5.0\ServerMDA.runtimeconfig.dev.json
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\bin\Debug\net5.0\ServerMDA.dll
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\bin\Debug\net5.0\ref\ServerMDA.dll
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\bin\Debug\net5.0\ServerMDA.pdb
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\bin\Debug\net5.0\ServerMDA.Views.dll
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\bin\Debug\net5.0\ServerMDA.Views.pdb
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\bin\Debug\net5.0\Humanizer.dll
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\bin\Debug\net5.0\Microsoft.AspNetCore.Razor.Language.dll
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\bin\Debug\net5.0\Microsoft.Bcl.AsyncInterfaces.dll
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\bin\Debug\net5.0\Microsoft.CodeAnalysis.dll
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\bin\Debug\net5.0\Microsoft.CodeAnalysis.CSharp.dll
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\bin\Debug\net5.0\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\bin\Debug\net5.0\Microsoft.CodeAnalysis.Razor.dll
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\bin\Debug\net5.0\Microsoft.CodeAnalysis.Workspaces.dll
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\bin\Debug\net5.0\Microsoft.Data.SqlClient.dll
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.dll
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Abstractions.dll
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Design.dll
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Relational.dll
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.SqlServer.dll
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\bin\Debug\net5.0\Microsoft.Extensions.DependencyInjection.dll
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\bin\Debug\net5.0\Microsoft.Identity.Client.dll
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\bin\Debug\net5.0\Microsoft.IdentityModel.JsonWebTokens.dll
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\bin\Debug\net5.0\Microsoft.IdentityModel.Logging.dll
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.dll
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\bin\Debug\net5.0\Microsoft.IdentityModel.Tokens.dll
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\bin\Debug\net5.0\Microsoft.VisualStudio.Web.CodeGeneration.dll
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\bin\Debug\net5.0\Microsoft.VisualStudio.Web.CodeGeneration.Contracts.dll
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\bin\Debug\net5.0\Microsoft.VisualStudio.Web.CodeGeneration.Core.dll
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\bin\Debug\net5.0\dotnet-aspnet-codegenerator-design.dll
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\bin\Debug\net5.0\Microsoft.VisualStudio.Web.CodeGeneration.EntityFrameworkCore.dll
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\bin\Debug\net5.0\Microsoft.VisualStudio.Web.CodeGeneration.Templating.dll
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\bin\Debug\net5.0\Microsoft.VisualStudio.Web.CodeGeneration.Utils.dll
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\bin\Debug\net5.0\Microsoft.VisualStudio.Web.CodeGenerators.Mvc.dll
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\bin\Debug\net5.0\Newtonsoft.Json.dll
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\bin\Debug\net5.0\System.Composition.AttributedModel.dll
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\bin\Debug\net5.0\System.Composition.Convention.dll
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\bin\Debug\net5.0\System.Composition.Hosting.dll
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\bin\Debug\net5.0\System.Composition.Runtime.dll
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\bin\Debug\net5.0\System.Composition.TypedParts.dll
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\bin\Debug\net5.0\System.Configuration.ConfigurationManager.dll
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\bin\Debug\net5.0\System.Diagnostics.DiagnosticSource.dll
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\bin\Debug\net5.0\System.IdentityModel.Tokens.Jwt.dll
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\bin\Debug\net5.0\System.Runtime.Caching.dll
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\bin\Debug\net5.0\System.Security.Cryptography.ProtectedData.dll
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\bin\Debug\net5.0\cs\Microsoft.CodeAnalysis.resources.dll
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\bin\Debug\net5.0\de\Microsoft.CodeAnalysis.resources.dll
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\bin\Debug\net5.0\es\Microsoft.CodeAnalysis.resources.dll
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\bin\Debug\net5.0\fr\Microsoft.CodeAnalysis.resources.dll
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\bin\Debug\net5.0\it\Microsoft.CodeAnalysis.resources.dll
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\bin\Debug\net5.0\ja\Microsoft.CodeAnalysis.resources.dll
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\bin\Debug\net5.0\ko\Microsoft.CodeAnalysis.resources.dll
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\bin\Debug\net5.0\pl\Microsoft.CodeAnalysis.resources.dll
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\bin\Debug\net5.0\pt-BR\Microsoft.CodeAnalysis.resources.dll
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\bin\Debug\net5.0\ru\Microsoft.CodeAnalysis.resources.dll
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\bin\Debug\net5.0\tr\Microsoft.CodeAnalysis.resources.dll
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\bin\Debug\net5.0\zh-Hans\Microsoft.CodeAnalysis.resources.dll
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\bin\Debug\net5.0\zh-Hant\Microsoft.CodeAnalysis.resources.dll
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\bin\Debug\net5.0\cs\Microsoft.CodeAnalysis.CSharp.resources.dll
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\bin\Debug\net5.0\de\Microsoft.CodeAnalysis.CSharp.resources.dll
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\bin\Debug\net5.0\es\Microsoft.CodeAnalysis.CSharp.resources.dll
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\bin\Debug\net5.0\fr\Microsoft.CodeAnalysis.CSharp.resources.dll
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\bin\Debug\net5.0\it\Microsoft.CodeAnalysis.CSharp.resources.dll
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\bin\Debug\net5.0\ja\Microsoft.CodeAnalysis.CSharp.resources.dll
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\bin\Debug\net5.0\ko\Microsoft.CodeAnalysis.CSharp.resources.dll
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\bin\Debug\net5.0\pl\Microsoft.CodeAnalysis.CSharp.resources.dll
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\bin\Debug\net5.0\pt-BR\Microsoft.CodeAnalysis.CSharp.resources.dll
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\bin\Debug\net5.0\ru\Microsoft.CodeAnalysis.CSharp.resources.dll
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\bin\Debug\net5.0\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\bin\Debug\net5.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\bin\Debug\net5.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\bin\Debug\net5.0\cs\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\bin\Debug\net5.0\de\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\bin\Debug\net5.0\es\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\bin\Debug\net5.0\fr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\bin\Debug\net5.0\it\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\bin\Debug\net5.0\ja\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\bin\Debug\net5.0\ko\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\bin\Debug\net5.0\pl\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\bin\Debug\net5.0\pt-BR\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\bin\Debug\net5.0\ru\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\bin\Debug\net5.0\tr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\bin\Debug\net5.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\bin\Debug\net5.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\bin\Debug\net5.0\cs\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\bin\Debug\net5.0\de\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\bin\Debug\net5.0\es\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\bin\Debug\net5.0\fr\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\bin\Debug\net5.0\it\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\bin\Debug\net5.0\ja\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\bin\Debug\net5.0\ko\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\bin\Debug\net5.0\pl\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\bin\Debug\net5.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\bin\Debug\net5.0\ru\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\bin\Debug\net5.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\bin\Debug\net5.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\bin\Debug\net5.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\bin\Debug\net5.0\runtimes\unix\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\bin\Debug\net5.0\runtimes\win\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\bin\Debug\net5.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\bin\Debug\net5.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.pdb
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\bin\Debug\net5.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\bin\Debug\net5.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.pdb
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\bin\Debug\net5.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\bin\Debug\net5.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.pdb
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\bin\Debug\net5.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\bin\Debug\net5.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.pdb
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\bin\Debug\net5.0\runtimes\win-arm\lib\net5.0\dotnet-aspnet-codegenerator-design.exe
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\bin\Debug\net5.0\runtimes\win-arm64\lib\net5.0\dotnet-aspnet-codegenerator-design.exe
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\bin\Debug\net5.0\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\bin\Debug\net5.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\obj\Debug\net5.0\staticwebassets\ServerMDA.StaticWebAssets.Manifest.cache
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\obj\Debug\net5.0\staticwebassets\ServerMDA.StaticWebAssets.xml
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\obj\Debug\net5.0\scopedcss\bundle\ServerMDA.styles.css
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\obj\Debug\net5.0\ServerMDA.TagHelpers.input.cache
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\obj\Debug\net5.0\ServerMDA.TagHelpers.output.cache
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\obj\Debug\net5.0\ServerMDA.RazorCoreGenerate.cache
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\obj\Debug\net5.0\Razor\Views\Actor\Create.cshtml.g.cs
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\obj\Debug\net5.0\Razor\Views\Actor\Edit.cshtml.g.cs
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\obj\Debug\net5.0\Razor\Views\Actor\List.cshtml.g.cs
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\obj\Debug\net5.0\Razor\Views\Cast\Edit.cshtml.g.cs
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\obj\Debug\net5.0\Razor\Views\Cast\List.cshtml.g.cs
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\obj\Debug\net5.0\Razor\Views\Cinema\List.cshtml.g.cs
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\obj\Debug\net5.0\Razor\Views\Comment\Create.cshtml.g.cs
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\obj\Debug\net5.0\Razor\Views\Comment\Edit.cshtml.g.cs
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\obj\Debug\net5.0\Razor\Views\Comment\List.cshtml.g.cs
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\obj\Debug\net5.0\Razor\Views\DatatablesController1\List.cshtml.g.cs
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\obj\Debug\net5.0\Razor\Views\Director\Create.cshtml.g.cs
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\obj\Debug\net5.0\Razor\Views\Director\Edit.cshtml.g.cs
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\obj\Debug\net5.0\Razor\Views\Director\List.cshtml.g.cs
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\obj\Debug\net5.0\Razor\Views\HomePage\List.cshtml.g.cs
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\obj\Debug\net5.0\Razor\Views\Home\Index.cshtml.g.cs
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\obj\Debug\net5.0\Razor\Views\Home\Privacy.cshtml.g.cs
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\obj\Debug\net5.0\Razor\Views\Member\Create.cshtml.g.cs
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\obj\Debug\net5.0\Razor\Views\Member\Edit.cshtml.g.cs
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\obj\Debug\net5.0\Razor\Views\Member\List.cshtml.g.cs
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\obj\Debug\net5.0\Razor\Views\MovieCode\List.cshtml.g.cs
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\obj\Debug\net5.0\Razor\Views\MovieIimagesList\Create.cshtml.g.cs
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\obj\Debug\net5.0\Razor\Views\MovieIimagesList\Edit.cshtml.g.cs
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\obj\Debug\net5.0\Razor\Views\MovieIimagesList\List.cshtml.g.cs
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\obj\Debug\net5.0\Razor\Views\MovieImage\Create.cshtml.g.cs
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\obj\Debug\net5.0\Razor\Views\MovieImage\Edit.cshtml.g.cs
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\obj\Debug\net5.0\Razor\Views\MovieImage\List.cshtml.g.cs
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\obj\Debug\net5.0\Razor\Views\MovieLanguage\Create.cshtml.g.cs
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\obj\Debug\net5.0\Razor\Views\MovieLanguage\Edit.cshtml.g.cs
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\obj\Debug\net5.0\Razor\Views\MovieLanguage\List.cshtml.g.cs
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\obj\Debug\net5.0\Razor\Views\MovieList\List.cshtml.g.cs
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\obj\Debug\net5.0\Razor\Views\MovieRating\List.cshtml.g.cs
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\obj\Debug\net5.0\Razor\Views\Movie\Create.cshtml.g.cs
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\obj\Debug\net5.0\Razor\Views\Movie\Edit.cshtml.g.cs
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\obj\Debug\net5.0\Razor\Views\Movie\List.cshtml.g.cs
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\obj\Debug\net5.0\Razor\Views\Movie\_MovieLayout.cshtml.g.cs
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\obj\Debug\net5.0\Razor\Views\PBI\PBI.cshtml.g.cs
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\obj\Debug\net5.0\Razor\Views\Shared\Error.cshtml.g.cs
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\obj\Debug\net5.0\Razor\Views\Shared\_Layout.cshtml.g.cs
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\obj\Debug\net5.0\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\obj\Debug\net5.0\Razor\Views\Theater\Create.cshtml.g.cs
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\obj\Debug\net5.0\Razor\Views\Theater\Edit.cshtml.g.cs
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\obj\Debug\net5.0\Razor\Views\Theater\List.cshtml.g.cs
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\obj\Debug\net5.0\Razor\Views\_ViewImports.cshtml.g.cs
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\obj\Debug\net5.0\Razor\Views\_ViewStart.cshtml.g.cs
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\obj\Debug\net5.0\ServerMDA.RazorTargetAssemblyInfo.cache
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\obj\Debug\net5.0\ServerMDA.RazorTargetAssemblyInfo.cs
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\obj\Debug\net5.0\ServerMDA.Views.pdb
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\obj\Debug\net5.0\ServerMDA.csproj.CopyComplete
-C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\obj\Debug\net5.0\ServerMDA.genruntimeconfig.cache
-=======
->>>>>>> origin/main
+C:\Users\duckl\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\ServerMDA.csproj.AssemblyReference.cache

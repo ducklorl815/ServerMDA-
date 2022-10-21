@@ -1,19 +1,6 @@
 {
   "format": 1,
   "restore": {
-<<<<<<< HEAD
-    "C:\\Users\\duckl\\Documents\\ServerMDA- - 複製\\ServerMDA\\ServerMDA.csproj": {}
-  },
-  "projects": {
-    "C:\\Users\\duckl\\Documents\\ServerMDA- - 複製\\ServerMDA\\ServerMDA.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "C:\\Users\\duckl\\Documents\\ServerMDA- - 複製\\ServerMDA\\ServerMDA.csproj",
-        "projectName": "ServerMDA",
-        "projectPath": "C:\\Users\\duckl\\Documents\\ServerMDA- - 複製\\ServerMDA\\ServerMDA.csproj",
-        "packagesPath": "C:\\Users\\duckl\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\duckl\\Documents\\ServerMDA- - 複製\\ServerMDA\\obj\\",
-=======
     "C:\\Users\\duckl\\Documents\\ServerMDA-\\ServerMDA\\ServerMDA.csproj": {}
   },
   "projects": {
@@ -25,7 +12,6 @@
         "projectPath": "C:\\Users\\duckl\\Documents\\ServerMDA-\\ServerMDA\\ServerMDA.csproj",
         "packagesPath": "C:\\Users\\duckl\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\duckl\\Documents\\ServerMDA-\\ServerMDA\\obj\\",
->>>>>>> origin/main
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
