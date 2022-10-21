@@ -1,8 +1,14 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "VqD0vsDKKvdZVTyJx4mZDuc39T38dR4RBZMcrKyC4W/aBk1AFsabL4UOimg/jjpXGF+ybKolzR4L1Y+zVV7g/A==",
   "success": true,
   "projectFilePath": "C:\\Users\\duckl\\Documents\\ServerMDA- - 複製\\ServerMDA\\ServerMDA.csproj",
+=======
+  "dgSpecHash": "i5i8ogqNUqOIlHp9ozepWBTtPcFKxz7BCWWMVwl4hZi1VYzrZCzeQoYg4JZ8Za6OUCASdhd/xUqvjfouKY+7Iw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\duckl\\Documents\\ServerMDA-\\ServerMDA\\ServerMDA.csproj",
+>>>>>>> origin/main
   "expectedPackageFiles": [
     "C:\\Users\\duckl\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\duckl\\.nuget\\packages\\microsoft.aspnetcore.html.abstractions\\2.2.0\\microsoft.aspnetcore.html.abstractions.2.2.0.nupkg.sha512",

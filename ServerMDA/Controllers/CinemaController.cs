@@ -59,7 +59,11 @@ namespace ServerMDA.Controllers
                 c.廳種名稱cinemaClsName = inCinema.廳種名稱cinemaClsName;
                 c.座位資訊seatInfo = inCinema.座位資訊seatInfo;
                 c.影廳照片image = inCinema.影廳照片image;
+<<<<<<< HEAD
                 c.電影院編號theaterId = db.電影院theaters.FirstOrDefault(q => q.電影院名稱theaterName == inCinema.電影院名稱theaterName).電影院編號theaterId;
+=======
+                c.電影院編號theaterId = db.系列電影movieSeries.FirstOrDefault(q => q.系列名稱seriesName == inCinema.系列名稱seriesName).系列編號seriesId;
+>>>>>>> origin/main
           
                 db.SaveChanges();
             }

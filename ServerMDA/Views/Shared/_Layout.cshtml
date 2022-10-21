@@ -28,7 +28,7 @@
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
         <!-- Sidebar - Brand -->
-        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="https://localhost:44345/">
             <img class="img-thumbnail w-25" src="~/images/LOGO.png" />
             <div class="sidebar-brand-text mx-2">MDA</div>
         </a>
@@ -61,6 +61,7 @@
             </a>
             <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
+<<<<<<< HEAD
                     <h6 class="collapse-header text-gray-600">電影管理:</h6>
                     <a class="collapse-item" href="cards.html">電影</a>@**下面的項目應該都要合併在同一個頁面管理*@
                     <a class="collapse-item" asp-area="" asp-controller="MovieIimagesList" asp-action="List">電影海報、劇照</a>
@@ -70,6 +71,11 @@
                     <a class="collapse-item" asp-area="" asp-controller="MovieRating" asp-action="List">電影分級</a>
                     <a class="collapse-item" asp-area="" asp-controller="Director" asp-action="List">導演</a>
                     <a class="collapse-item" asp-area="" asp-controller="Actor" asp-action="List">演員</a>
+=======
+                    <a class="collapse-item" asp-area="" asp-controller="Movie" asp-action="List">電影院</a>
+                    <a class="collapse-item" asp-area="" asp-controller="Director" asp-action="List">導演類</a>
+                    <a class="collapse-item" asp-area="" asp-controller="Actor" asp-action="List">演員類</a>
+>>>>>>> origin/main
                 </div>
             </div>
         </li>
@@ -83,6 +89,7 @@
             </a>
             <div id="collapseKwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
+<<<<<<< HEAD
                     <h6 class="collapse-header text-gray-600">影城管理:</h6>
                     <a class="collapse-item" asp-area="" asp-controller="影城mainTheater" asp-action="Index">影城</a>
                     <a class="collapse-item" asp-area="" asp-controller="Movie" asp-action="List">影院</a>
@@ -93,6 +100,12 @@
                     <h6 class="collapse-header text-gray-600">商店管理:</h6>
                     <a class="collapse-item" asp-area="" asp-controller="商品資料product" asp-action="Index">影城商店</a>
                     <a class="collapse-item" asp-area="" asp-controller="商品資料product" asp-action="Index">影城商品</a>
+=======
+                    <a class="collapse-item" asp-area="" asp-controller="影城mainTheater" asp-action="Index">影城</a>
+                    @*<a class="collapse-item" href="cards.html">影廳</a>
+                    <a class="collapse-item" href="cards.html">場次</a>
+                    <a class="collapse-item" href="cards.html">座位資訊</a>*@
+>>>>>>> origin/main
                 </div>
             </div>
         </li>
@@ -107,8 +120,17 @@
             <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
                  data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
+<<<<<<< HEAD
                     <div class="collapse-divider"></div>
                     <h6 class="collapse-header text-gray-600">票券管理:</h6>
+=======
+                    @*<h6 class="collapse-header text-gray-600">商品系統:</h6>*@
+                    <a class="collapse-item" asp-area="" asp-controller="商品資料product" asp-action="Index">商品</a>
+                    @*<h6 class="collapse-header text-gray-600">票種系統:</h6>*@
+                    <a class="collapse-item" asp-area="" asp-controller="票種ticketType" asp-action="Index">票種</a>
+                    <div class="collapse-divider"></div>
+                    @*<h6 class="collapse-header text-gray-600">點數系統:</h6>*@
+>>>>>>> origin/main
                     <a class="collapse-item" asp-area="" asp-controller="優惠總表coupon" asp-action="Index">優惠券總表</a>
                     <a class="collapse-item" href="blank.html">會員優惠券</a>
                 </div>
@@ -132,8 +154,14 @@
             </a>
             <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
+<<<<<<< HEAD
                     <h6 class="collapse-header">會員管理:</h6>
                     <a class="collapse-item" asp-area="" asp-controller="Member" asp-action="List">會員資訊</a>
+=======
+                    <a class="collapse-item" asp-area="" asp-controller="Member" asp-action="List">會員管理</a>
+                    <a class="collapse-item" href="register.html">會員增刪</a>
+                    <a class="collapse-item" href="forgot-password.html">檢舉管理</a>
+>>>>>>> origin/main
                     <a class="collapse-item" href="forgot-password.html">片單管理</a>
                     <a class="collapse-item" href="forgot-password.html">追蹤管理</a>
                     <a class="collapse-item" href="forgot-password.html">權限管理</a>

@@ -597,6 +597,7 @@ C:\Users\duckl\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\Movie
 C:\Users\duckl\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\MovieImage\Edit.cshtml.g.cs
 C:\Users\duckl\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\MovieImage\List.cshtml.g.cs
 C:\Users\duckl\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\Cinema\List.cshtml.g.cs
+<<<<<<< HEAD
 C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\obj\Debug\net5.0\ServerMDA.csproj.AssemblyReference.cache
 C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\obj\Debug\net5.0\ServerMDA.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\obj\Debug\net5.0\ServerMDA.AssemblyInfoInputs.cache
@@ -780,3 +781,5 @@ C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\obj\Debug\net5.0\ServerMD
 C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\obj\Debug\net5.0\ServerMDA.Views.pdb
 C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\obj\Debug\net5.0\ServerMDA.csproj.CopyComplete
 C:\Users\duckl\Documents\ServerMDA- - 複製\ServerMDA\obj\Debug\net5.0\ServerMDA.genruntimeconfig.cache
+=======
+>>>>>>> origin/main
