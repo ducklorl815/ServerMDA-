@@ -20,16 +20,16 @@ namespace ServerMDA.Controllers
             _enviro = p;
         }
 
-        public IActionResult List(CKeyWordViewModel model)
+        public IActionResult List()
         {
-
             MDAContext db = new MDAContext();
-            IEnumerable<電影院theater> datas = null;
-            if (string.IsNullOrEmpty(model.txtkeyword))
-                datas = from p in db.電影院theaters
-                        select p;
-            else
-                datas = db.電影院theaters.Where(p => p.電影院名稱theaterName.Contains(model.txtkeyword) || p.地址address.Contains(model.txtkeyword));
+            List<CTheaterViewModel> datas = null;
+                datas = db.電影院theaters.Select
+                (p => new CTheaterViewModel
+                {
+                    theater = p,
+                    影廳名稱cinemaName = p.影城編號mainTheater.影城名稱mainTheaterName
+                }).ToList();
 
             return View(datas);
         }

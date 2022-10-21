@@ -76,8 +76,8 @@ body {
 }
 
 .tables_hidtext {
-    overflow: hidden;
-    text-overflow: ellipsis;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
     /*display: -webkit-box;*/
     /*-webkit-line-clamp: 2;*/ /*限制元素顯示文字行數*/
     /*-webkit-box-orient: vertical;*/ /*垂直排列*/
