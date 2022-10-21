@@ -4,6 +4,7 @@ using ServerMDA.Models;
 using ServerMDA.ViewModel;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -53,12 +54,18 @@ namespace ServerMDA.Controllers
             影廳cinema c = db.影廳cinemas.FirstOrDefault(c => c.影廳編號cinemaId == inCinema.影廳編號cinemaId);
             if (c != null)
             {
+                if (inCinema.photo != null)
+                {
+                    string pName = Guid.NewGuid().ToString() + ".jpg";
+                    c.影廳照片image = pName;
+                    string path = _enviro.WebRootPath + "/images/Cinema/" + pName;
+                    inCinema.photo.CopyTo(new FileStream(path, FileMode.Create));
+                }
                 c.影廳編號cinemaId = inCinema.影廳編號cinemaId;
                 c.影廳名稱cinemaName = inCinema.影廳名稱cinemaName;
                 c.電影院編號theaterId = inCinema.電影院編號theaterId;
                 c.廳種名稱cinemaClsName = inCinema.廳種名稱cinemaClsName;
                 c.座位資訊seatInfo = inCinema.座位資訊seatInfo;
-                c.影廳照片image = inCinema.影廳照片image;
                 c.電影院編號theaterId = db.電影院theaters.FirstOrDefault(q => q.電影院名稱theaterName == inCinema.電影院名稱theaterName).電影院編號theaterId;
 
           
@@ -71,39 +78,20 @@ namespace ServerMDA.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult Create(CMovieViewModel p)
+        public ActionResult Create(CCinemaViewModel p)
         {
             MDAContext db = new MDAContext();
-            電影movie m = new 電影movie();
-            m = p.movie;
-            m.系列編號seriesId = db.系列電影movieSeries.FirstOrDefault(q => q.系列名稱seriesName == p.系列名稱seriesName).系列編號seriesId;
-            m.電影分級編號ratingId = db.電影分級movieRatings.FirstOrDefault(q => q.分級級數ratingLevel == p.分級級數ratingLevel).分級編號ratingId;
-            db.電影movies.Add(m);
+            影廳cinema m = new 影廳cinema();
+            m = p.cinema;
+            m.電影院編號theaterId = db.電影院theaters.FirstOrDefault(q => q.電影院名稱theaterName == p.電影院名稱theaterName).電影院編號theaterId;
+            db.影廳cinemas.Add(m);
             db.SaveChanges();
             return RedirectToAction("List");
         }
-        public FileResult ShowPhoto(int id)
-        {
-            電影分級movieRating movieRating = _context.電影分級movieRatings.Find(id);
-            byte[] context = movieRating.分級圖片ratingImage;
-            return File(context, "image/jpeg");
-        }
         public IActionResult series(int id)
         {
-            var series = _context.系列電影movieSeries.Where(p => p.系列編號seriesId != id).Select(a => a.系列名稱seriesName).ToList();
+            var series = _context.電影院theaters.Where(p => p.電影院編號theaterId != id).Select(a => a.電影院名稱theaterName).ToList();
             return Json(series);
-        }
-        public IActionResult rating(int id)
-        {
-            //c.系列編號seriesId = db.系列電影movieSeries.FirstOrDefault(q => q.系列名稱seriesName == inCinema.系列名稱seriesName).系列編號seriesId;
-            //c.電影分級編號ratingId = db.電影分級movieRatings.FirstOrDefault(q => q.分級級數ratingLevel == inCinema.分級級數ratingLevel).分級編號ratingId;
-            var ratings = _context.電影分級movieRatings.Where(p => p.分級編號ratingId != id).Select(a => a.分級級數ratingLevel).ToList();
-            return Json(ratings);
-        }
-        public IActionResult insMovie()
-        {
-            var ratings = _context.電影分級movieRatings.Select(a => a.分級級數ratingLevel).ToList();
-            return Json(ratings);
         }
     }
 }

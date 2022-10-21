@@ -21,15 +21,15 @@
                 <select asp-for="電影編號movieId" name="中文標題titleCht" class="form-control" asp-items="ViewBag.電影編號movieId" id="selectMovieId">
                     <option selected>@Model.中文標題titleCht</option>
                     @*@{
-                    var g = @Model.中文標題titleCht;
-                    foreach (var i in Model.titleChtList)
-                    {
-                        @if (i != g)
+                        var g = @Model.中文標題titleCht;
+                        foreach (var i in Model.titleChtList)
                         {
+                            @if (i != g)
+                            {
                             <option>@i</option>
-                        }
-                    }
-                }*@
+                                }
+                            }
+                        }*@
                 </select>
                 <span asp-validation-for="電影編號movieId" class="text-danger"></span>
             </div>

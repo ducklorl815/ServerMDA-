@@ -1,0 +1,70 @@
+﻿@using ServerMDA.ViewModel
+@model CMovieOriginViewModel
+
+@{
+    ViewData["Title"] = "修改";
+    Layout = null;
+}
+
+
+<div class="row">
+    <div class="col-md-6 offset-md-3">
+        <h4>修改電影產地 : @Model.電影產地編號mcId</h4>
+        <form asp-action="Edit" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="電影產地編號mcId" />
+            <div class="form-group">
+                <input type="hidden" id="FirstRepetID" value="@Model.電影編號movieId" />
+                <label asp-for="電影編號movieId" class="control-label"></label>
+                <select asp-for="電影編號movieId" name="中文標題titleCht" class="form-control" asp-items="ViewBag.電影編號movieId" id="FirstName">
+                    <option>@Model.中文標題titleCht</option>
+                </select>
+                <span asp-validation-for="電影編號movieId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="hidden" id="SecRepetID" value="@Model.國家編號countryId" />
+                <label asp-for="國家名稱countryName" class="control-label"></label>
+                <img src="@Url.Action("ShowPhoto","MovieOrigin", new {id= @Model.國家編號countryId })" class="img-fluid w-25" />
+                <select asp-for="國家編號countryId" name="國家名稱countryName" class="form-control" asp-items="ViewBag.國家編號countryId" id="SecName">
+                    <option>@Model.國家名稱countryName</option>
+                </select>
+                <span asp-validation-for="國家編號countryId" class="text-danger"></span>
+            </div>
+            <div class="form-group ">
+                <input type="submit" value="修改" class="btn btn-primary mr-2" />
+                <a asp-action="List" class="btn btn-secondary">回到清單</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
+<script>
+    async function LoadFirst() {
+                let FirstRepetID = $('#FirstRepetID').val();
+                let FirstName = document.querySelector("#FirstName")
+                let response = await fetch("@Url.Content("~/MovieOrigin/FirstAjax")" + `?id=${FirstRepetID}`)
+                let datas = await response.json()
+                datas.forEach(first => {
+                const opt = new Option(first, first)
+                FirstName.options.add(opt)
+            })
+        };
+
+    async function LoadSecond() {
+                let SecRepetID = $('#SecRepetID').val();
+                let SecName = document.querySelector("#SecName")
+                let response = await fetch("@Url.Content("~/MovieOrigin/SecondAjax")" + `?id=${SecRepetID}`)
+                let datas = await response.json()
+                datas.forEach(second => {
+                const opt = new Option(second, second)
+                SecName.options.add(opt)
+            })
+        };
+    LoadFirst();
+    LoadSecond();
+</script>
