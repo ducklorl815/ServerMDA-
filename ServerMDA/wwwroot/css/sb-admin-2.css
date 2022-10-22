@@ -4115,7 +4115,7 @@ input[type="button"].btn-block {
     margin-left:14rem; /*6.5*/
 }
 
-.navbar {
+.navbar { /*header尺寸*/
     position: relative;
     display: flex !important;
     /*display: flex;*/
@@ -4123,6 +4123,8 @@ input[type="button"].btn-block {
     align-items: center;
     justify-content: space-between;
     padding: 0.5rem 1rem;
+    width:100%+224px; /*寬度*/
+    margin-left:-224px;/*定位*/
 }
 
 .navbar .container,
@@ -10341,10 +10343,11 @@ a:focus {
 }
 
 .sidebar {
-    position: fixed;
+    position: fixed; /*側欄sidebar固定*/
     left: 0;
     width: 6.5rem;
     min-height: 100vh;
+    z-index: 999;
 }
 
 .sidebar .nav-item {
@@ -11289,9 +11292,11 @@ form.user .btn-user {
   animation: noise-anim-2 3s infinite linear alternate-reverse;
 }
 
-footer.sticky-footer {
+footer.sticky-footer { /*footer尺寸*/
   padding: 2rem 0;
   flex-shrink: 0;
+  width:100%+224px;/*寬度*/
+  margin-left:-224px;/*定位*/
 }
 
 footer.sticky-footer .copyright {
@@ -11300,5 +11305,5 @@ footer.sticky-footer .copyright {
 }
 
 body.sidebar-toggled footer.sticky-footer {
-  width: 100%;
+  /*width: 100%;*/
 }

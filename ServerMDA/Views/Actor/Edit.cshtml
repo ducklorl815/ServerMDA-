@@ -5,6 +5,13 @@
     Layout = null;
 }
 
+@section Styles{
+    <style>
+        .divEmpty{
+            margin:300px;
+        }
+    </style>
+}
 
 
 
@@ -26,12 +33,15 @@
                 <input asp-for="英文名字nameEng" class="form-control" />
                 <span asp-validation-for="英文名字nameEng" class="text-danger"></span>
             </div>
-            <div class="pb-xxl-5 mb-xxl-5">
+            @*<div class="pb-xxl-5 mb-xxl-5">
 
+            </div>*@
+            <div class="divEmpty">
+                <br/><br /><br /><br /><br /><br /><br />
             </div>
             <div class="form-group">
-                <label class="control-label">演員照片</label>
-                <input type="file" name="photo" />
+                @*<label class="control-label">演員照片</label>*@
+                <input id="filePhoto" type="file" name="photo" style="margin: 15px 0 0 330px; position: fixed; z-index: 999;" />
             </div>
             <div class="form-group ">
                 <input type="submit" value="修改" class="btn btn-primary mr-2" />
@@ -40,14 +50,14 @@
         </form>
     </div>
 
-    <div class="col-md-4">
+    <div class="col-md-6">
         <form asp-action="Edit" enctype="multipart/form-data">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
             <div class="form-group">
                 <label asp-for="演員照片image" class="control-label"></label>
                 <img src="~/images/Actor/@Model.演員照片image" width="300" />
-                <input asp-for="演員照片image" disabled="disabled" class="form-control" />
+                @*<input asp-for="演員照片image" disabled="disabled" class="form-control" />*@
                 <span asp-validation-for="演員照片image" class="text-danger"></span>
             </div>
 

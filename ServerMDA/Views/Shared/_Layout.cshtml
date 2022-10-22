@@ -8,7 +8,7 @@
     <meta name="author" content="">
 
     <title>M.D.A.後台系統</title>
-
+    
     <script src="https://kit.fontawesome.com/c6052fa518.js" crossorigin="anonymous"></script>
     @* <link href="~/css/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">*@
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
@@ -29,8 +29,9 @@
 
         <!-- Sidebar - Brand -->
         <a class="sidebar-brand d-flex align-items-center justify-content-center" href="https://localhost:44345/">
-            <img class="img-thumbnail w-25" src="~/images/LOGO.png" />
-            <div class="sidebar-brand-text mx-2">MDA</div>
+            <img id="logo1" src="~/images/MDA_LOGO.png" style="height:40px;position:fixed" />
+            <img id="logo2" src="~/images/MDA_LOGO.png" style="height:25px" />
+            @*<div class="sidebar-brand-text mx-2">MDA</div>*@
         </a>
 
         <!-- Divider -->
@@ -198,8 +199,9 @@
 
         <!-- Sidebar Toggler (Sidebar) -->
         <div class="text-center d-none d-md-inline">
-            <button class="rounded-circle border-0" id="sidebarToggle"></button>
+            <button class="rounded-circle border-0" id="sidebarToggle" onclick="sidebarToggle"></button>
         </div>
+       
 
         <!-- Sidebar Message -->
         @*<div class="sidebar-card d-none d-lg-flex">
@@ -420,6 +422,14 @@
     <script src="~/js/chart-area-demo.js"></script>
     <script src="~/js/chart-pie-demo.js"></script>
 
+    <script src="/jquery/jquery-1.11.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#sidebarToggle").click(function () {
+                $("#logo1").toggle();
+            });
+        });
+    </script>
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
 </body>
 </html>
