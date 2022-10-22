@@ -1,0 +1,91 @@
+﻿@model ServerMDA.ViewModel.CMovieViewModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>電影movie</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.中文標題titleCht)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.中文標題titleCht)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.英文標題titleEng)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.英文標題titleEng)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.上映年份releaseYear)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.上映年份releaseYear)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.上映日期releaseDate)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.上映日期releaseDate)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.片長runtime)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.片長runtime)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.評分rate)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.評分rate)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.期待度anticipation)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.期待度anticipation)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.票房boxOffice)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.票房boxOffice)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.劇情大綱plot)
+        </dt>
+        <dd class = "col-sm-10">
+            <textarea class="col-12 " rows="8">@Html.DisplayFor(model => model.劇情大綱plot)</textarea>
+            
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.預告片trailer)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.預告片trailer)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.系列編號seriesId)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.系列名稱seriesName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.分級級數ratingLevel)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.分級級數ratingLevel)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.電影編號movieId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

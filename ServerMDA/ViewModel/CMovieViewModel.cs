@@ -95,6 +95,12 @@ namespace ServerMDA.ViewModel
             get { return _movie.期待度anticipation; }
             set { _movie.期待度anticipation = value; }
         }
+        public string 預告片trailer
+        {
+            get { return _movie.預告片trailer; }
+            set { _movie.預告片trailer = value; }
+        }
+
         //=======================================================
         private 電影主演cast _cast;
         public 電影主演cast cast

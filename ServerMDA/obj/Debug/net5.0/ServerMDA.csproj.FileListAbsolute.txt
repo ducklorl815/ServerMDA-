@@ -187,3 +187,5 @@ C:\Users\duckl\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\Movie
 C:\Users\duckl\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\MovieOrigin\Create.cshtml.g.cs
 C:\Users\duckl\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\MovieType\List.cshtml.g.cs
 C:\Users\duckl\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\ServerMDA.csproj.AssemblyReference.cache
+C:\Users\duckl\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\Movie\detail.cshtml.g.cs
+C:\Users\duckl\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\Movie\Details.cshtml.g.cs
