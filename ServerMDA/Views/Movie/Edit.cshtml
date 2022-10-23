@@ -8,19 +8,12 @@
 }
 
 <h4 class="offset-md-1">修改電影編號 : @Model.電影編號movieId</h4>
-<div class="row">
+<div class="row" >
     <div class="col-md-4 offset-md-1">
         <form asp-action="Edit" enctype="multipart/form-data">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="電影編號movieId" />
-            <div class="form-group">
-                <input type="hidden" id="seriesId" value="@Model.系列編號seriesId" />
-                <label asp-for="系列編號seriesId" class="control-label"></label>
-                <select asp-for="系列編號seriesId" name="系列名稱seriesName" class="form-control" asp-items="ViewBag.系列編號seriesId" id="selectSeriesName">
-                    <option selected>@Model.系列名稱seriesName</option>
-                </select>
-                <span asp-validation-for="系列編號seriesId" class="text-danger"></span>
-            </div>
+
             <div class="form-group">
                 <label asp-for="中文標題titleCht" class="control-label"></label>
                 <input asp-for="中文標題titleCht" class="form-control" />
@@ -31,61 +24,87 @@
                 <input asp-for="英文標題titleEng" class="form-control" />
                 <span asp-validation-for="英文標題titleEng" class="text-danger"></span>
             </div>
-            <div class="form-group">
+
+            <div class="form-group d-flex flex-row">
+                <div class=" col-6 p-1">
+                    <input type="hidden" id="seriesId" value="@Model.系列編號seriesId" />
+                    <label asp-for="系列編號seriesId" class="control-label flex-column"></label>
+                    <select asp-for="系列編號seriesId" name="系列名稱seriesName" class="form-control" asp-items="ViewBag.系列編號seriesId" id="selectSeriesName">
+                        <option selected>@Model.系列名稱seriesName</option>
+                    </select>
+                    <span asp-validation-for="系列編號seriesId" class="text-danger"></span>
+                </div>
+                <div class="col-6 p-1">
+                    <input type="hidden" id="ratingId" value="@Model.電影分級編號ratingId" />
+                    <label asp-for="電影分級編號ratingId" class="control-label flex-column"></label>
+                    <select asp-for="電影分級編號ratingId" name="分級級數ratingLevel" class="form-control" asp-items="ViewBag.分級級數ratingLevel" id="selectRating"></select>
+                    <span asp-validation-for="電影分級編號ratingId" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="d-flex flex-row">
+                <div class="form-group col-6 p-1">
+                    <label asp-for="片長runtime" class="control-label"></label>
+                    <input asp-for="片長runtime" class="form-control" />
+                    <span asp-validation-for="片長runtime" class="text-danger"></span>
+                </div>
+                <div class="form-group col-6 p-1">
+                    <label asp-for="票房boxOffice" class="control-label"></label>
+                    <input asp-for="票房boxOffice" class="form-control" />
+                    <span asp-validation-for="票房boxOffice" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="d-flex flex-row">
+                <div class="form-group col-6 p-1">
+                    <label asp-for="評分rate" class="control-label"></label>
+                    <input asp-for="評分rate" class="form-control" />
+                    <span asp-validation-for="評分rate" class="text-danger"></span>
+                </div>
+                <div class="form-group col-6 p-1">
+                    <label asp-for="期待度anticipation" class="control-label"></label>
+                    <input asp-for="期待度anticipation" class="form-control" />
+                    <span asp-validation-for="期待度anticipation" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="d-flex flex-row">
+                <div class="form-group p-1">
+                    <a asp-action="List" class="btn btn-secondary">回到清單</a>
+                </div>
+                <div class="form-group p-1">
+                    <input type="submit" value="修改" class="btn btn-primary" />
+                </div>
+            </div>
+        </form>
+    </div>
+    @*//中間================================================*@
+
+    @*//中間================================================*@
+    @*//右邊================================================*@
+    <div class="col-md-6">
+
+        <div class="d-flex flex-row">
+            <div class="form-group p-1 col-6">
                 <label asp-for="上映年份releaseYear" class="control-label"></label>
                 <input asp-for="上映年份releaseYear" class="form-control" />
                 <span asp-validation-for="上映年份releaseYear" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group p-1 col-6">
                 <label asp-for="上映日期releaseDate" class="control-label"></label>
                 <input asp-for="上映日期releaseDate" class="form-control" />
                 <span asp-validation-for="上映日期releaseDate" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="片長runtime" class="control-label"></label>
-                <input asp-for="片長runtime" class="form-control" />
-                <span asp-validation-for="片長runtime" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <a asp-action="List" class="btn btn-secondary">回到清單</a>
-            </div>
-        </form>
-    </div>
-    @*//右邊================================================*@
-    <div class="col-md-6">
+        </div>
+
         <form asp-action="Edit" enctype="multipart/form-data">
             <div class="form-group">
-                <input type="hidden" id="ratingId" value="@Model.電影分級編號ratingId" />
-                <label asp-for="電影分級編號ratingId" class="control-label"></label>
-                <select asp-for="電影分級編號ratingId" name="分級級數ratingLevel" class="form-control" asp-items="ViewBag.分級級數ratingLevel" id="selectRating"></select>
-                <span asp-validation-for="電影分級編號ratingId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="評分rate" class="control-label"></label>
-                <input asp-for="評分rate" class="form-control" />
-                <span asp-validation-for="評分rate" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="期待度anticipation" class="control-label"></label>
-                <input asp-for="期待度anticipation" class="form-control" />
-                <span asp-validation-for="期待度anticipation" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="票房boxOffice" class="control-label"></label>
-                <input asp-for="票房boxOffice" class="form-control" />
-                <span asp-validation-for="票房boxOffice" class="text-danger"></span>
-            </div>
-            <div class="form-group">
                 <label asp-for="劇情大綱plot" class="control-label"></label>
-                <textarea rows="5" asp-for="劇情大綱plot" class="form-control"></textarea>
+                <textarea rows="13" asp-for="劇情大綱plot" class="form-control"></textarea>
                 <span asp-validation-for="劇情大綱plot" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <input type="submit" value="修改" class="btn btn-primary mr-2 pr-4 offset-md-10" />
-            </div>
+
         </form>
     </div>
     @*//右邊================================================*@
+
 </div>
 
 

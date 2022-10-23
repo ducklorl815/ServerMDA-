@@ -19,6 +19,16 @@ namespace ServerMDA.Controllers
             _context = context;
         }
         private readonly MDAContext _context;
+        public IActionResult sortList(int id)
+        {
+            MDAContext db = new MDAContext();
+            IEnumerable<電影主演cast> datas = null;
+                datas = from p in db.電影主演casts
+                        where p.電影編號movieId== id
+                        select p;
+
+            return View(datas);
+        }
         public ActionResult Edit(int? id)
         {
             MDAContext db = new MDAContext();

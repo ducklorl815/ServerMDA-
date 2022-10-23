@@ -29,7 +29,7 @@ namespace ServerMDA.Models
         public int 電影分級編號ratingId { get; set; }
         public decimal? 評分rate { get; set; }
         public decimal? 期待度anticipation { get; set; }
-        public string 票房boxOffice { get; set; }
+        public double? 票房boxOffice { get; set; }
         public string 劇情大綱plot { get; set; }
         public string 預告片trailer { get; set; }
 

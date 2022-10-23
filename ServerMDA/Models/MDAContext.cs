@@ -1021,9 +1021,7 @@ namespace ServerMDA.Models
 
                 entity.Property(e => e.片長runtime).HasColumnName("片長Runtime");
 
-                entity.Property(e => e.票房boxOffice)
-                    .HasMaxLength(50)
-                    .HasColumnName("票房BoxOffice");
+                entity.Property(e => e.票房boxOffice).HasColumnName("票房BoxOffice");
 
                 entity.Property(e => e.系列編號seriesId).HasColumnName("系列編號Series_ID");
 

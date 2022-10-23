@@ -8,7 +8,14 @@
     <meta name="author" content="">
 
     <title>M.D.A.後台系統</title>
-    
+    <style>
+        /*.backgroundcolor {
+            background: #262626;*/ /* fallback for old browsers */
+            /*background: -webkit-linear-gradient(to right, #b6fbff, #262626);*/ /* Chrome 10-25, Safari 5.1-6 */
+            /*background: linear-gradient(to right,#000000,#000000,#ffffff,#ffffff);*/ /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        /*}*/
+    </style>
+    <link href="~/css/bootstrap-5.2.2/bootstrap.min.css" rel="stylesheet" />
     <script src="https://kit.fontawesome.com/c6052fa518.js" crossorigin="anonymous"></script>
     @* <link href="~/css/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">*@
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
@@ -215,7 +222,7 @@
     <div class="divPosition">
         <!-- TopBar Start -->
 
-        <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+        <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow backgroundcolor">
 
             <!-- Sidebar Toggle (Topbar) -->
             <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
@@ -224,14 +231,14 @@
 
             <!-- Topbar Search -->
             <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-5 my-2 my-md-0 mw-100 navbar-search">
-                <div class="input-group offset-md-1">
+                @*<div class="input-group offset-md-1">
                     <div class="input-group-append">
                         @Html.TextBox("txtkeyword", "", new { @class = "form-control bg-light border-0 small" })
                         <div class="input-group-append">
                             <input class="btn btn-primary" type="submit" value="Search" />
                         </div>
                     </div>
-                </div>
+                </div>*@
             </form>
 
             <!-- Topbar Navbar -->
@@ -431,5 +438,6 @@
         });
     </script>
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
+    <script src="~/js/bootstrap-5.2.2/bootstrap.bundle.min.js"></script>
 </body>
 </html>

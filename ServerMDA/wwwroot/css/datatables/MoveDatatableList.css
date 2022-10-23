@@ -1,0 +1,9 @@
+﻿@charset "UTF-8";
+#myTable_length label { /*show位置*/
+    margin-left: 200px !important;
+}
+
+.MovieList { /*電影清單位置*/
+    position: fixed;
+    z-index: 999;
+}

@@ -79,21 +79,7 @@ namespace ServerMDA.Controllers
             }
             return RedirectToAction("List");
         }
-        public ActionResult Details(int? id)
-        {
-            MDAContext db = new MDAContext();
-            CMovieViewModel datas = null;
-            datas = db.電影movies.Where(p => p.電影編號movieId == id).Select
-                (p => new CMovieViewModel
-                {
-                    movie = p,
-                    分級圖片ratingImage = p.電影分級編號rating.分級圖片ratingImage,
-                    分級說明ratingIllustrate = p.電影分級編號rating.分級說明ratingIllustrate,
-                    系列名稱seriesName = p.系列編號series.系列名稱seriesName,
-                    分級級數ratingLevel=p.電影分級編號rating.分級級數ratingLevel,
-                }).FirstOrDefault();
-            return View(datas);
-        }
+
         public ActionResult Create()
         {
             return View();
@@ -132,6 +118,33 @@ namespace ServerMDA.Controllers
         {
             var ratings = _context.電影分級movieRatings.Select(a => a.分級級數ratingLevel).ToList();
             return Json(ratings);
+        }
+        public IActionResult actorlist(int id)
+        {
+            MDAContext db = new MDAContext();
+            //List<CMovieViewModel> actorlist = null;
+            var actorlist = db.電影主演casts.Where(p => p.電影編號movieId == 1).Select
+            (p => new CMovieViewModel
+            {
+                中文名字nameCht =p.演員編號actor.中文名字nameCht,
+            }).ToList();
+
+            return Json(actorlist);
+        }
+        public ActionResult Details(int? id)
+        {
+            MDAContext db = new MDAContext();
+            CMovieViewModel datas = null;
+            datas = db.電影movies.Where(p => p.電影編號movieId == id).Select
+                (p => new CMovieViewModel
+                {
+                    movie = p,
+                    分級圖片ratingImage = p.電影分級編號rating.分級圖片ratingImage,
+                    分級說明ratingIllustrate = p.電影分級編號rating.分級說明ratingIllustrate,
+                    系列名稱seriesName = p.系列編號series.系列名稱seriesName,
+                    分級級數ratingLevel = p.電影分級編號rating.分級級數ratingLevel,
+                }).FirstOrDefault();
+            return View(datas);
         }
     }
 
