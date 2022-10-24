@@ -1,0 +1,34 @@
+﻿.btn-yuka {
+    color: #fff;
+    background-color: #ff6ba3;
+    border-color: #ff6ba3
+}
+
+    .btn-yuka:hover {
+        color: #fff;
+        background-color: #ffbae0;
+        border-color: #ff9ec9
+    }
+
+    .btn-yuka.focus, .btn-yuka:focus {
+        color: #fff;
+        background-color: #ffbae0;
+        border-color: #ff9ec9;
+        box-shadow: 0 0 0 .2rem rgba(38, 143, 255, .5)
+    }
+
+    .btn-yuka.disabled, .btn-yuka:disabled {
+        color: #fff;
+        background-color: #ff6ba3;
+        border-color: #ff6ba3
+    }
+
+    .btn-yuka:not(:disabled):not(.disabled).active, .btn-yuka:not(:disabled):not(.disabled):active, .show > .btn-yuka.dropdown-toggle {
+        color: #fff;
+        background-color: #ff9ec9;
+        border-color: #ff9ec9
+    }
+
+        .btn-yuka:not(:disabled):not(.disabled).active:focus, .btn-yuka:not(:disabled):not(.disabled):active:focus, .show > .btn-yuka.dropdown-toggle:focus {
+            box-shadow: 0 0 0 .2rem rgba(38, 143, 255, .5)
+        }

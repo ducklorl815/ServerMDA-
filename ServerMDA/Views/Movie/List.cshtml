@@ -30,9 +30,11 @@
 <link href="~/css/datatables/jquery.dataTables.css" rel="stylesheet" />
 @*<link href="~/css/sb-admin-2.css" rel="stylesheet">*@
 <link href="~/css/site.css" rel="stylesheet" />
+<link href="~/css/bootstrap-5.2.2/YukabtnEdit.css" rel="stylesheet" />
 
-
-<h3 class="MovieList">電影清單 <a class="btn btn-info mb-1" onclick="showmodal('@Url.Action("Create","Movie",Context.Request.Scheme)',null)">新增</a></h3>
+<h3 class="MovieList">電影清單 
+    <a class="btn btn-success mb-1" onclick="showmodal('@Url.Action("Create", "Movie", Context.Request.Scheme)',null)">新增</a>
+    </h3>
 
 <div>
     <table id="myTable" class="table tables display compact hover col-12">
@@ -47,9 +49,9 @@
                 <th class="col-2">
                     @Html.DisplayNameFor(model => model.FirstOrDefault().英文標題titleEng)
                 </th>
-                <th class="col-1">
+                @*<th class="col-1">
                     @Html.DisplayNameFor(model => model.FirstOrDefault().上映年份releaseYear)
-                </th>
+                </th>*@
                 <th class="col-2">
                     @Html.DisplayNameFor(model => model.FirstOrDefault().上映日期releaseDate)
                 </th>
@@ -62,19 +64,19 @@
                 <th class="col-1">
                     @Html.DisplayNameFor(model => model.FirstOrDefault().期待度anticipation)
                 </th>
-                <th class="col-1">
+                <th style="width:75px">
                     @Html.DisplayNameFor(model => model.FirstOrDefault().票房boxOffice)
                 </th>
-                <th class="col-1">
+                @*<th class="col-1">
                     @Html.DisplayNameFor(model => model.FirstOrDefault().劇情大綱plot)
-                </th>
+                </th>*@
                 <th class="col-1">
                     @Html.DisplayNameFor(model => model.FirstOrDefault().系列名稱seriesName)
                 </th>
                 <th class="col-1">
                     @Html.DisplayNameFor(model => model.FirstOrDefault().分級圖片ratingImage)
                 </th>
-                <th class="col-2">
+                <th style="width:90px">
                     指令
                 </th>
             </tr>
@@ -93,9 +95,9 @@
                     <td class="tables_hidtext">
                         @Html.DisplayFor(modelItem => item.英文標題titleEng)
                     </td>
-                    <td class="tables_hidtext">
+                    @*<td class="tables_hidtext">
                         @Html.DisplayFor(modelItem => item.上映年份releaseYear)
-                    </td>
+                    </td>*@
                     <td class="tables_hidtext">
                         @Html.DisplayFor(modelItem => item.上映日期releaseDate)
                     </td>
@@ -111,9 +113,9 @@
                     <td class="tables_hidtext">
                         @Html.DisplayFor(modelItem => item.票房boxOffice)
                     </td>
-                    <td class="tables_hidtext">
+                    @*<td class="tables_hidtext">
                         @Html.DisplayFor(modelItem => item.劇情大綱plot)
-                    </td>
+                    </td>*@
                     <td class="tables_hidtext">
                         @Html.DisplayFor(modelItem => item.系列名稱seriesName)
                     </td>
@@ -122,8 +124,8 @@
                         <img src="@Url.Action("ShowPhoto","Movie", new {id= item.電影分級編號ratingId })" class="img-fluid w-75" />
                     </td>
                     <td>
-                        <a class="btn btn-secondary mb-1" input="color" id="btn" onclick="showmodal('@Url.Action("Edit","Movie",new {id=@item.電影編號movieId},Context.Request.Scheme)',null)">修改</a>
-                        <a class="btn btn-success mb-1" id="btn" onclick="showmodal('@Url.Action("Details","Movie",new {id=@item.電影編號movieId},Context.Request.Scheme)',null)">細節</a>
+                        <a class="btn btn-yuka mb-1" input="color" id="btn" onclick="showmodal('@Url.Action("Edit","Movie",new {id=@item.電影編號movieId},Context.Request.Scheme)',null)">修改</a>
+                        <a class="btn btn-info mb-1" id="btn" onclick="showmodal('@Url.Action("Details","Movie",new {id=@item.電影編號movieId},Context.Request.Scheme)',null)">細節</a>
                         @*<a asp-action="Edit" asp-route-id="@item.電影編號movieId" class="btn btn-info mb-1" style="white-space:nowrap">修改</a>*@
                     </td>
                 </tr>
@@ -137,6 +139,20 @@
         <div class="modal-content">
             @*<div class="modal-header">*@
                 @*<span type="button" id="btnClose" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></span>*@
+            @*</div>*@
+            <div class="modal-body col-12 ">
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="sortstaticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            @*<div class="modal-header">*@
+            @*<span type="button" id="btnClose" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></span>*@
             @*</div>*@
             <div class="modal-body col-12 ">
 
@@ -170,6 +186,7 @@
 
 
 <script>
+
     showmodal = (url, title) => {
         $.ajax({
             type: "GET",
@@ -179,9 +196,7 @@
                 $("#newstaticBackdrop .modal-title").html(title);
                 $("#newstaticBackdrop").modal('show');
             },
-
         })
     }
-
 </script>
 <script src="~/js/vendor/datatables/jquery.dataTables.js"></script>

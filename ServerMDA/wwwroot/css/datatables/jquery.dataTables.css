@@ -278,6 +278,7 @@ table.dataTable tfoot td {
 table.dataTable tbody tr {
   background-color: transparent;
 }
+//tr的顏色 預設 白色
 table.dataTable tbody tr.selected > * {
   box-shadow: inset 0 0 0 9999px rgba(13, 110, 253, 0.9);
   color: white;

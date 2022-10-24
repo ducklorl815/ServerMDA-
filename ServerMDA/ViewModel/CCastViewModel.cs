@@ -1,4 +1,5 @@
-﻿using ServerMDA.Models;
+﻿using Microsoft.AspNetCore.Http;
+using ServerMDA.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -49,5 +50,21 @@ namespace ServerMDA.ViewModel
             get { return _cast.角色說明characterIllustrate; }
             set { _cast.角色說明characterIllustrate = value; }
         }
+        //演員總表actor
+        public int 演員編號actorsId { get; set; }
+        [DisplayName("中文名")]
+        public string 中文名字nameCht { get; set; }
+        [DisplayName("英文名")]
+        public string 英文名字nameEng { get; set; }
+        [DisplayName("演員照片")]
+        public string 演員照片image { get; set; }
+
+        //電影movie
+        public string 中文標題titleCht { get; set; }
+        //public virtual 演員總表actor 演員編號actor { get; set; }
+        //public virtual 電影movie 電影編號movie { get; set; }
+
+        //圖片
+        public IFormFile photo { get; set; }
     }
 }

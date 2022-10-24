@@ -22,10 +22,16 @@ namespace ServerMDA.Controllers
         public IActionResult sortList(int id)
         {
             MDAContext db = new MDAContext();
-            IEnumerable<電影主演cast> datas = null;
-                datas = from p in db.電影主演casts
-                        where p.電影編號movieId== id
-                        select p;
+            List<CCastViewModel> datas = null;
+            datas = db.電影主演casts.Where(p=>p.電影編號movieId==id).Select
+            (p => new CCastViewModel
+            {
+                cast = p,
+                中文名字nameCht=p.演員編號actor.中文名字nameCht,
+                演員照片image = p.演員編號actor.演員照片image,
+                英文名字nameEng=p.演員編號actor.英文名字nameEng,
+                中文標題titleCht=p.電影編號movie.中文標題titleCht,
+            }).ToList();
 
             return View(datas);
         }

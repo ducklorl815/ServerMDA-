@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using ServerMDA.Models;
 using ServerMDA.ViewModel;
 using System;
@@ -20,32 +22,27 @@ namespace ServerMDA.Controllers
         }
         private readonly MDAContext _context;
 
-        public IActionResult List(CKeyWordViewModel model)
+        public IActionResult List()
         {
             MDAContext db = new MDAContext();
             List<CMovieViewModel> datas = null;
-            if (string.IsNullOrEmpty(model.txtkeyword))
-                datas = db.電影movies.Select
-                (p => new CMovieViewModel
-                {
-                    movie = p,
-                    分級圖片ratingImage = p.電影分級編號rating.分級圖片ratingImage,
-                    系列名稱seriesName = p.系列編號series.系列名稱seriesName,
-                }).ToList();
+            datas = db.電影movies.Select
+            (p => new CMovieViewModel
+            {
 
-            else
-                datas = db.電影movies.Where(p => p.中文標題titleCht.Contains(model.txtkeyword) || p.英文標題titleEng.ToLower().Contains(model.txtkeyword.ToLower())).Select
-                (p => new CMovieViewModel
-                {
-                    movie = p,
-                    分級圖片ratingImage = p.電影分級編號rating.分級圖片ratingImage
-                }).ToList();
+                movie = p,
+                分級圖片ratingImage = p.電影分級編號rating.分級圖片ratingImage,
+                系列名稱seriesName = p.系列編號series.系列名稱seriesName,
+            }).ToList();
+            
             return View(datas);
         }
         public ActionResult Edit(int? id)
         {
             MDAContext db = new MDAContext();
             CMovieViewModel datas = null;
+            var rating = db.電影分級movieRatings.Select(p => p.分級級數ratingLevel).ToList();
+            var series = db.系列電影movieSeries.Select(p => p.系列名稱seriesName).ToList();
             datas = db.電影movies.Where(p => p.電影編號movieId == id).Select
                 (p => new CMovieViewModel
                 {
@@ -53,8 +50,11 @@ namespace ServerMDA.Controllers
                     分級圖片ratingImage = p.電影分級編號rating.分級圖片ratingImage,
                     分級說明ratingIllustrate = p.電影分級編號rating.分級說明ratingIllustrate,
                     系列名稱seriesName = p.系列編號series.系列名稱seriesName,
+                    分級級數ratingLevel=p.電影分級編號rating.分級級數ratingLevel,
 
                 }).FirstOrDefault();
+            datas.listrating = rating;
+            datas.listseries = series;
             return View(datas);
         }
         [HttpPost]
@@ -123,7 +123,7 @@ namespace ServerMDA.Controllers
         {
             MDAContext db = new MDAContext();
             //List<CMovieViewModel> actorlist = null;
-            var actorlist = db.電影主演casts.Where(p => p.電影編號movieId == 1).Select
+            var actorlist = db.電影主演casts.Where(p => p.電影編號movieId == id).Select
             (p => new CMovieViewModel
             {
                 中文名字nameCht =p.演員編號actor.中文名字nameCht,
@@ -146,6 +146,16 @@ namespace ServerMDA.Controllers
                 }).FirstOrDefault();
             return View(datas);
         }
+
+
+        //todo Session
+        //public IActionResult AS(string jsonString) 
+        //{
+        //    HttpContext.Session.SetString(CDictionary.SK_PURCHASED_PRODUCT, jsonString);
+        //    string jsonAll = HttpContext.Session.GetString(CDictionary.SK_PURCHASED_PRODUCT);
+        //    var result = JsonSerializer.Deserialize<CDictionary>(jsonAll);
+        //    return View();
+        //}
     }
 
 }

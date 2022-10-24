@@ -30,6 +30,7 @@ namespace ServerMDA
                 options.UseSqlServer(Configuration.GetConnectionString("MDAConnection"));
             });
             services.AddControllersWithViews();
+            services.AddSession();
 
         }
 
@@ -51,6 +52,7 @@ namespace ServerMDA
 
             app.UseRouting();
 
+            app.UseSession();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

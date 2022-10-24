@@ -69,7 +69,7 @@ namespace ServerMDA.ViewModel
             set { _movie.電影分級編號ratingId = value; }
         }
 
-        [DisplayName("票房")]
+        [DisplayName("票房(億美元)")]
         public double? 票房boxOffice
         {
             get { return _movie.票房boxOffice; }
@@ -143,5 +143,9 @@ namespace ServerMDA.ViewModel
 
         [DisplayName("分級圖片")]
         public byte[] 分級圖片ratingImage{ get; set; }
+
+        //OPTION
+        public List<string> listrating { get; set; }
+        public List<string> listseries { get; set; }
     }
 }
