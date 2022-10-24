@@ -100,8 +100,8 @@
                     <a class="collapse-item" href="cards.html">座位資訊</a>
                     <a class="collapse-item" asp-area="" asp-controller="票種ticketType" asp-action="Index">票種、票價</a>
                     <h6 class="collapse-header text-gray-600">商店管理:</h6>
-                    <a class="collapse-item" asp-area="" asp-controller="商品資料product" asp-action="Index">影城商店</a>
-                    <a class="collapse-item" asp-area="" asp-controller="商品資料product" asp-action="Index">影城商品</a>
+                    <a class="dropdown-item" asp-area="" asp-controller="product" asp-action="ProductList">影城商店</a>
+                    <a class="dropdown-item" asp-area="" asp-controller="product" asp-action="ProductList">影城商品</a>
                 </div>
             </div>
         </li>
@@ -186,20 +186,23 @@
             </div>
         </li>
 
+
         <!-- Nav Item - Charts -->
         <li class="nav-item">
-            <a class="nav-link" asp-area="" asp-controller="PBI" asp-action="PBI">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages4"
+               aria-expanded="true" aria-controls="collapsePages4">
                 <i class="fas fa-fw fa-chart-area"></i>
-                <span>報表</span>
+                <span>報表:</span>
             </a>
-        </li>
+            <div id="collapsePages4" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">報表:</h6>
+                    <a class="collapse-item" asp-area="" asp-controller="PBI" asp-action="PBI">PBI</a>
+                    <a class="collapse-item" asp-area="" asp-controller="product" asp-action="ProductChartSample">商品上架統計表</a>
+                    <a class="collapse-item" asp-area="" asp-controller="product" asp-action="ProductChartTwo">商品銷售數量統計表</a>
+                </div>
+            </div>
 
-        <!-- Nav Item - Tables -->
-        <li class="nav-item">
-            <a class="nav-link" href="tables.html">
-                <i class="fas fa-fw fa-table"></i>
-                <span>Tables</span>
-            </a>
         </li>
 
         <!-- Divider -->
@@ -209,14 +212,14 @@
         <div class="text-center d-none d-md-inline">
             <button class="rounded-circle border-0" id="sidebarToggle" onclick="sidebarToggle"></button>
         </div>
-       
+
 
         <!-- Sidebar Message -->
         @*<div class="sidebar-card d-none d-lg-flex">
-                <img class="sidebar-card-illustration mb-2" src="img/undraw_rocket.svg" alt="...">
-                <p class="text-center mb-2"><strong>SB Admin Pro</strong> is packed with premium features, components, and more!</p>
-                <a class="btn btn-success btn-sm" href="https://startbootstrap.com/theme/sb-admin-pro">Upgrade to Pro!</a>
-            </div>*@
+            <img class="sidebar-card-illustration mb-2" src="img/undraw_rocket.svg" alt="...">
+            <p class="text-center mb-2"><strong>SB Admin Pro</strong> is packed with premium features, components, and more!</p>
+            <a class="btn btn-success btn-sm" href="https://startbootstrap.com/theme/sb-admin-pro">Upgrade to Pro!</a>
+        </div>*@
 
     </ul>
     <!-- sidebar End -->

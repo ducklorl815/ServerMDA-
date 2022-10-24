@@ -1,0 +1,191 @@
+﻿@model IEnumerable<ServerMDA.Models.電影院theater>
+@*@model WenPrj.Models.電影院theater*@
+
+
+@{
+    ViewData["Title"] = "ProductChartTwo";
+    Layout = "~/Views/Shared/_ChartLayout.cshtml";
+}
+<div style="display:block;height:20px;"></div>
+<h4>電影院商品銷售數量統計表</h4>
+
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-default">電影院名稱:</span>
+                <input type="text" id="theatername" name="theatername" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+            </div>
+            <div style="display:block;height:20px;"></div>
+            <div>
+                <select id="select1" class="form-select">
+                    <option>請選擇您要查詢的電影院</option>
+                    @{
+                        for (var item = 0; item < Model.Count(); item++)
+                        {
+                            <option id="op+@item" class="myclass">@Model.ToList()[item].電影院名稱theaterName</option>
+                        }
+                    }
+                </select>
+            </div>
+        </div>
+    </div>
+</div>
+<div style="display:block;height:40px;"></div>
+<div  class="container">
+    <div class="card bg-white text-dark" style="width:40rem;">
+        <div class="card-body">
+            <h4 class="card-title">電影院商品銷售數量統計表</h4>
+            <p class="card-text">x:商品名稱，y:數量</p>
+            <form id="form1" runat="server">
+                <div style="width: 100%;">
+                    <canvas id="myChart"></canvas>
+                </div>
+                <div id="myToolTip" style="position:absolute">
+                    <p></p>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div style="display:block;height:40px;"></div>
+@section Scripts{
+    <script>
+        var ctx = document.getElementById('myChart')       
+        const selects = document.querySelectorAll(".myclass")
+        const theatername = document.getElementById("theatername")
+        const S = document.getElementById("select1")       
+       
+        S.addEventListener("change", async () => {
+            //console.log(S.options[S.selectedIndex].value)
+            let intheater = S.options[S.selectedIndex].value
+            theatername.value = intheater
+
+            let mytheater = S.options[S.selectedIndex].value
+            console.log(mytheater)
+            let response = await fetch("@Url.Content("~/product/saleChart")" + `?theatername=${mytheater}`)
+            let datas = await response.json()
+            //console.log(response)
+            console.log(datas)
+            //0:{ 電影院: { … }, 商品名稱: 'Pizza', 數量: 2 }
+            let arrT = new Array()
+            let arrC = new Array()
+            for (let i = 0, max = datas.length; i < max; i++) {
+                let mydata = datas[i].商品名稱
+                console.log(datas[i].商品名稱)
+                let mycount = datas[i].數量               
+                arrT.push(mydata)
+                arrC.push(mycount)
+            }
+            var myChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: arrT,
+                    //labels: [datas[0]['商品名稱'], datas[1]['商品名稱'],datas[2]['商品名稱']],                    
+                    //document.getElementById("theaterName").value.split(","),
+                    //labels: theaterName.value.splite(","),
+                    datasets: [{
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 0.2)',
+                            'rgba(54, 162, 235, 0.2)',
+                            'rgba(255, 206, 86, 0.2)'
+                        ],
+                        borderColor: [
+                            'rgba(255,99,132,1)',
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(255, 206, 86, 1)',
+                            'rgba(75, 192, 192, 1)'
+                        ],
+                        borderWidth: 1,
+                        label: '數量',
+                        data: arrC
+                        //data: [datas[0]['數量'],datas[1]['數量'],datas[2]['數量']]
+                        //label: myqty
+                    }]
+                },
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero: true,
+                                responsive: true //符合響應式
+                            }
+                        }]
+                    }
+                }
+            });
+
+        })
+        
+
+
+        //const form = document.querySelector("body")
+        //console.log(document.getElementById(`op+${S.selectedIndex}`))
+        //console.log(selects.options[index].value)
+        //form.addEventListener("load", () => {
+          
+        //})
+
+        // const xhr = new XMLHttpRequest()
+        //console.log(selects.options[index].value)
+        //function myScript()
+        //{
+        //    console.log(document.getElementById(`op+${S.selectedIndex}`))
+        //    theatername.value = document.getElementById(`op+${S.selectedIndex}`).textContent;
+        //    let mytheater = theatername.value
+        //    console.log(mytheater)
+        //}
+        //for (let c of selects) {
+        //    c.addEventListener("click", function (event) {
+
+        //        let TheaterName = this.value;
+        //        selected.textContent = TheaterName;
+        //    })
+        //}
+        //xhr.addEventListener("load", () => {
+        //    const data = JSON.parse(xhr.responseText)
+        //    console.log(data)
+            //console.log(data[0]['商品名稱'])
+
+            //var myChart = new Chart(ctx, {
+            //    type: 'bar',
+            //    data: {
+            //        labels: [data[0]['商品名稱'], data[1]['商品名稱'], data[2]['商品名稱']],
+            //        //document.getElementById("theaterName").value.split(","),
+            //        //labels: theaterName.value.splite(","),
+            //        datasets: [{
+            //            backgroundColor: [
+            //                'rgba(255, 99, 132, 0.2)',
+            //                'rgba(54, 162, 235, 0.2)',
+            //                'rgba(255, 206, 86, 0.2)'
+            //            ],
+            //            borderColor: [
+            //                'rgba(255,99,132,1)',
+            //                'rgba(54, 162, 235, 1)',
+            //                'rgba(255, 206, 86, 1)',
+            //                'rgba(75, 192, 192, 1)'
+            //            ],
+            //            borderWidth: 1,
+            //            label: '數量',
+            //            data: [data[0]['數量'], data[1]['數量'], data[2]['數量']]
+            //        }]
+            //    },
+            //    options: {
+            //        scales: {
+            //            yAxes: [{
+            //                ticks: {
+            //                    beginAtZero: true,
+            //                    responsive: true //符合響應式
+            //                }
+            //            }]
+            //        }
+            //    }
+            //});
+
+        //})
+
+       // xhr.open("GET", `saleChart?theatername=${theatername}`)
+       //xhr.send()
+
+    </script>
+}

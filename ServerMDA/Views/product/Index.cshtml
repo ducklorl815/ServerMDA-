@@ -1,0 +1,168 @@
+﻿@model ServerMDA.ViewModel.WenViewModel.CMyListPrd
+
+@{
+    ViewData["Title"] = "ProductList";
+    Layout = "~/Views/Shared/_ChartLayout.cshtml";
+}
+
+<style>
+    .Deletebtn {
+
+    }
+</style>
+
+@*<p>@Model.產品列表.First().電影院名稱theaterName</p>*@
+<div style="display:block;height:20px;"></div>
+<h1>產品清單</h1>
+
+<p>
+    @*<a asp-action="ProductCreate">新增上架產品</a>*@
+    @*@Html.ActionLink("新增產品", "ProductCreate", "product", null, new { @class = "btn btn-success" })*@
+    <a asp-action="ProductCreate" class="btn btn-success"><i class="fa-solid fa-sign-hanging"></i>&nbsp;新增產品</a>
+</p>
+<div class="container">
+    <div class="row justify-content-end">
+        <div class="col-3"></div>
+        <div class="col-3">
+            <div class="input-group mb-12">
+                <span class="input-group-text" id="inputGroup-sizing-default">一頁幾筆</span>
+                <input type="text" name="tx" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+            </div>
+        </div>
+        <div class="col-auto">
+            <button type="button" class="btn btn-outline-success">上一頁</button>
+        </div>
+        <div class="col-auto">
+            <button type="button" class="btn btn-outline-success">下一頁</button>
+        </div>
+    </div>
+
+    <div style="display:block;height:40px;"></div>
+
+    <div class="row">
+        <div class="col-12">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th class="ml-2">
+                            序號
+                        </th>
+                        <th style="width:150px">
+                            圖片
+                        </th>
+                        <th class="ml-2">
+                            商品名稱
+                        </th>
+                        <th class="ml-2">
+                            商品價格
+                        </th>
+                        <th class="ml-2">
+                            商品描述
+                        </th>
+                        <th class="ml-2">
+                            類別
+                        </th>
+                        <th class="ml-2">
+                            電影院名稱
+                        </th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @* <p>@Model.產品列表.First().電影院名稱theaterName</p>*@
+
+                    @{ int count = 0;
+                        foreach (var item in Model.產品列表)
+                        {
+                            count++;
+                            <tr data="@item.商品編號productId">
+                                <td>
+                                    @count
+                                </td>
+                                <td>
+                                    <img class="w-75" src="~/images/@item.商品圖片路徑imagePath" />
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.商品名稱productName)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.商品價格productPrice)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.商品介紹introduce)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.類別category)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.電影院名稱theaterName)
+                                </td>
+                                <td>
+                                    <a asp-action="ProductEdit" asp-route-id="@item.商品編號productId" class="btn btn-dark "><i class="fa-regular fa-pen-to-square"></i></a>
+                                </td>
+                                <td>
+                                    <a asp-action="ProductDelete" asp-route-id="@item.商品編號productId" class="btn btn-dark Deletebtn" data-toggle="modal" data-target="#myModel"><i class="fa-regular fa-trash-can"></i></a>
+                                    @*<input type="hidden" value="@item.商品編號productId" />*@
+                                    @* <button class="btn btn-dark" asp-action="ProductDelete" asp-route-id="@item.商品編號productId" data-toggle="modal" data-target="#myModel"><i class="fa-regular fa-trash-can"></i></button>*@
+
+                                </td>
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+
+            <div class="modal fade text-dark" id="myModel" data-backdrop="static">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4>您好，要移除商品嗎?</h4>
+                            <button class="close" data-dismiss="modal">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                            <p>親愛的顧客您好，確定要移除，此商品嗎?</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-default" data-dismiss="modal">關閉</button>
+                            <form method="post" action="product/ProductDelete" enctype="text/plain">
+                                <input type="hidden" value="" id="inputdelete" name="inputdelete"/>
+                                <button id="mycurrentId" type="submit" class="btn btn-warning" data-dismiss="modal">移除</button>
+                            </form>
+             
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+<div style="display:block;height:40px;"></div>
+
+@section Scripts
+{
+    <script>
+        let deletebtns = document.getElementsByClassName('Deletebtn')
+        let deleteID = document.querySelector('#inputdelete')
+        for (let item of deletebtns) {
+            item.addEventListener('click', function () {
+                //console.log('click')
+                console.log($(event.currentTarget).parents('tr')[0].getAttribute('data'))
+                deleteID.value = $(event.currentTarget).parents('tr')[0].getAttribute('data')                
+
+            })
+        }
+        
+
+        let myId = document.getElementById('myId')
+        console.log(myId)
+        //myId.addEventListener('click', function () {
+        //    console.log(myId)
+        //    //let index = select1.selectedIndex
+        //}
+
+
+    </script>
+}
