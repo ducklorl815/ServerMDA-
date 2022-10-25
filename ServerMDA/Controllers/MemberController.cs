@@ -18,36 +18,39 @@ namespace ServerMDA.Controllers
         {
             _enviro = p;
         }
-        public IActionResult List(CKeyWordViewModel model)
+        public IActionResult List()
         {
             MDAContext db = new MDAContext();
-            IEnumerable<會員member> datas = null;
-            if (string.IsNullOrEmpty(model.txtkeyword))
-                datas = from p in db.會員members
-                        select p;
-            else
-                datas = db.會員members.Where(p =>
-                p.名字fName.ToLower().Contains(model.txtkeyword.ToLower()) ||
-                p.姓氏lName.ToLower().Contains(model.txtkeyword.ToLower()) ||
-                p.地址address.ToLower().Contains(model.txtkeyword.ToLower()) ||
-                p.電子信箱email.ToLower().Contains(model.txtkeyword.ToLower()) ||
-                p.暱稱nickName.ToLower().Contains(model.txtkeyword.ToLower()) ||
-                p.生日birthDate.ToString().ToLower().Contains(model.txtkeyword.ToLower()) ||
-                p.建立時間createdTime.ToString().ToLower().Contains(model.txtkeyword.ToLower()) ||
-                p.會員電話cellphone.ToLower().Contains(model.txtkeyword.ToLower()));
+            List<CMemberViewModel> datas = null;
+            datas = db.會員members.Select
+            (p => new CMemberViewModel
+            {
+                member = p,
+                性別名稱genderName = p.性別genderNavigation.性別名稱genderName,
+                權限名稱permissionName = p.會員權限permissionNavigation.權限名稱permissionName,
+            }).ToList();
 
             return View(datas);
         }
         public ActionResult Edit(int? id)
         {
-            if (id != null)
-            {
-                MDAContext db = new MDAContext();
-                會員member member = db.會員members.FirstOrDefault(p => p.會員編號memberId == id);
-                if (member != null)
-                    return View(member);
-            }
-            return RedirectToAction("List");
+            MDAContext db = new MDAContext();
+            CMemberViewModel datas = null;
+            var gender = db.性別genders.Select(p => p.性別名稱genderName).ToList();
+            var permission = db.會員權限permissions.Select(p => p.權限名稱permissionName).ToList();
+            var addresses = db.地址addresses.Select(p => p.City).Distinct().ToList();
+            datas = db.會員members.Where(p => p.會員編號memberId == id).Select
+                (p => new CMemberViewModel
+                {
+                    member = p,
+                    性別名稱genderName = p.性別genderNavigation.性別名稱genderName,
+                    權限名稱permissionName = p.會員權限permissionNavigation.權限名稱permissionName,
+
+                }).FirstOrDefault();
+            datas.ListGender = gender;
+            datas.ListPermission = permission;
+            datas.ListAddresses = addresses;
+            return View(datas);
         }
         [HttpPost]
         public IActionResult Edit(CMemberViewModel inMem) //post
@@ -76,6 +79,9 @@ namespace ServerMDA.Controllers
                 c.正式會員formal = inMem.正式會員formal;
                 c.會員權限permission = inMem.會員權限permission;
                 c.建立時間createdTime = inMem.建立時間createdTime;
+                c.性別gender = db.性別genders.FirstOrDefault(p => p.性別名稱genderName == inMem.性別名稱genderName).性別gender1;
+                c.會員權限permission = db.會員權限permissions.FirstOrDefault(p => p.權限名稱permissionName == inMem.權限名稱permissionName).會員權限permission1;
+
                 db.SaveChanges();
             }
             return RedirectToAction("List");

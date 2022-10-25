@@ -1,113 +1,135 @@
-﻿@model IEnumerable<ServerMDA.Models.會員member>
+﻿@using ServerMDA.ViewModel
+@model List<CMemberViewModel>
 
 @{
     ViewData["Title"] = "會員清單";
 }
 
+<link href="~/css/bootstrap-5.2.2/bootstrap.min.css" rel="stylesheet" />
+<link href="~/css/datatables/jquery.dataTables.css" rel="stylesheet" />
 <link href="~/css/site.css" rel="stylesheet" />
+<link href="~/css/bootstrap-5.2.2/YukabtnEdit.css" rel="stylesheet" />
 
-<h2>會員清單<a asp-action="Create" class="btn btn-warning mb-1  ml-2">新增</a></h2>
+<h3 class="MovieList">
+    會員清單
+    <a class="btn btn-success mb-1" onclick="showmodal('@Url.Action("Create", "Member", Context.Request.Scheme)',null)">新增</a>
+</h3>
 
-<table class="table table-striped table-hover tables">
-    <thead>
-        <tr style="white-space:nowrap">
-            <th class="col-2">
-                @Html.DisplayNameFor(model => model.會員電話cellphone)
-            </th>
-            @*<th>
-            @Html.DisplayNameFor(model => model.密碼password)
-        </th>*@
-            <th class="col-1">
-                @Html.DisplayNameFor(model => model.姓氏lName)
-            </th>
-            <th class="col-1">
-                @Html.DisplayNameFor(model => model.名字fName)
-            </th>
-            @*<th>
-            @Html.DisplayNameFor(model => model.暱稱nickName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.生日birthDate)
-        </th>*@
-            <th class="col-3">
-                @Html.DisplayNameFor(model => model.電子信箱email)
-            </th>
-            @*<th>
-            @Html.DisplayNameFor(model => model.地址address)
-        </th>*@
-            <th>
-                @Html.DisplayNameFor(model => model.紅利點數bonus)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.正式會員formal)
-            </th>
-            <th class="col-1">
-                @Html.DisplayNameFor(model => model.會員照片image)
-            </th>
-            <th class="col-1">
-                @Html.DisplayNameFor(model => model.建立時間createdTime)
-            </th>
-            @*<th>
-            @Html.DisplayNameFor(model => model.性別genderNavigation)
-        </th>*@
-            <th class="col-1">
-                @Html.DisplayNameFor(model => model.會員權限permissionNavigation)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
-        <tr style="white-space:nowrap">
-            <td>
-                @Html.DisplayFor(modelItem => item.會員電話cellphone)
-            </td>
-            @*<td>
-                @Html.DisplayFor(modelItem => item.密碼password)
-            </td>*@
-            <td>
-                @Html.DisplayFor(modelItem => item.姓氏lName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.名字fName)
-            </td>
-            @*<td>
-                @Html.DisplayFor(modelItem => item.暱稱nickName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.生日birthDate)
-            </td>*@
-            <td class="tables_hidtext">
-                @Html.DisplayFor(modelItem => item.電子信箱email)
-            </td>
-            @*<td>
-                @Html.DisplayFor(modelItem => item.地址address)
-            </td>*@
-            <td>
-                @Html.DisplayFor(modelItem => item.紅利點數bonus)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.正式會員formal)
-            </td>
-            <td>
-                <div>
-                    <img src="~/images/Member/@item.會員照片image" width="120" />
-                </div>
-            </td>
-            <td class="tables_hidtext">
-                @Html.DisplayFor(modelItem => item.建立時間createdTime)
-            </td>
-            @*<td>
-                @Html.DisplayFor(modelItem => item.性別genderNavigation.性別名稱genderName)
-            </td>*@
-            <td>
-                @Html.DisplayFor(modelItem => item.會員權限permissionNavigation.權限名稱permissionName)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.會員編號memberId" class="btn btn-info mb-1" style="white-space:nowrap">修改</a>
-            </td>
-        </tr>
-        }
-    </tbody>
-</table>
+<div>
+    <table id="myTable" class="table tables display compact hover col-12">
+        <thead>
+            <tr style="white-space:nowrap">
+                <th style="width:5px">
+                    ID
+                </th>
+                <th class="col-1">
+                    姓名
+                </th>
+                <th class="col-1">
+                    @Html.DisplayNameFor(model => model.FirstOrDefault().會員電話cellphone)
+                </th>
+
+                <th class="col-2">
+                    @Html.DisplayNameFor(model => model.FirstOrDefault().電子信箱email)
+                </th>
+
+                <th class="col-1">
+                    @Html.DisplayNameFor(model => model.FirstOrDefault().會員照片image)
+                </th>
+                <th class="col-1">
+                    @Html.DisplayNameFor(model => model.FirstOrDefault().性別名稱genderName)
+                </th>
+                <th class="col-1">
+                    @Html.DisplayNameFor(model => model.FirstOrDefault().權限名稱permissionName)
+                </th>
+                <th class="col-1">
+                    @Html.DisplayNameFor(model => model.FirstOrDefault().正式會員formal)
+                </th>
+                <th style="width:100px">
+                    指令
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr style="white-space:nowrap">
+                    <th>
+                        @Html.DisplayFor(modelItem => item.會員編號memberId)
+                    </th>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.姓氏lName)@Html.DisplayFor(modelItem => item.名字fName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.會員電話cellphone)
+                    </td>
+
+                    <td class="tables_hidtext">
+                        @Html.DisplayFor(modelItem => item.電子信箱email)
+                    </td>
+                    <td>
+                        <div>
+                            <img src="~/images/Member/@item.會員照片image" width="100" />
+                        </div>
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.性別名稱genderName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.權限名稱permissionName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.正式會員formal)
+                    </td>
+                    <td>
+                        <a class="btn btn-yuka " id="btn" onclick="showmodal('@Url.Action("Edit","Member",new {id=@item.會員編號memberId},Context.Request.Scheme)',null)">修改</a>
+                        <a class="btn btn-info " id="btn" onclick="showmodal('@Url.Action("Details","Member",new {id=@item.會員編號memberId},Context.Request.Scheme)',null)">細節</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<div class="modal fade" id="newstaticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-body col-12 ">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="sortstaticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-body col-12 ">
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="~/js/bootstrap-5.2.2/bootstrap.bundle.min.js"></script>
+<script src="~/js/vendor/jquery/jquery.min.js"></script>
+<script src="~/js/vendor/datatables/Datatable_transCht.js"></script>
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
+
+
+<script>
+
+    showmodal = (url, title) => {
+        $.ajax({
+            type: "GET",
+            url: url,
+            success: function (res) {
+                $("#newstaticBackdrop .modal-body").html(res);
+                $("#newstaticBackdrop .modal-title").html(title);
+                $("#newstaticBackdrop").modal('show');
+            },
+        })
+    }
+</script>
+
+<script src="~/js/vendor/datatables/jquery.dataTables.js"></script>

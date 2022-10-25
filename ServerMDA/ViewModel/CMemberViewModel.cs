@@ -111,5 +111,24 @@ namespace ServerMDA.ViewModel
             set { _member.建立時間createdTime = value; }
         }
         public IFormFile photo { get; set; }
+
+        //public virtual 性別gender 性別genderNavigation { get; set; }
+        public int 性別gender1 { get; set; }
+        [DisplayName("性別")]
+        public string 性別名稱genderName { get; set; }
+
+        //public virtual 會員權限permission 會員權限permissionNavigation { get; set; }
+        [DisplayName("會員權限")]
+        public int 會員權限permission1 { get; set; }
+        [DisplayName("權限")]
+
+        public string 權限名稱permissionName { get; set; }
+
+        //List
+        //性別名稱genderName
+        //權限名稱permissionName
+        public List<string> ListGender { get; set; }
+        public List<string> ListPermission { get; set; }
+        public List<string> ListAddresses { get; set; }
     }
 }
