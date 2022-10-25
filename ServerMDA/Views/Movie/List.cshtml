@@ -121,7 +121,7 @@
                     </td>
                     <td>
                         <a src="@Url.Action("Edit","Cast", new {id= item.電影分級編號ratingId })"></a>
-                        <img src="@Url.Action("ShowPhoto","Movie", new {id= item.電影分級編號ratingId })" class="img-fluid w-75" />
+                        <img src="@Url.Action("ShowPhoto","Movie", new {id= item.電影分級編號ratingId })" class="img-fluid w-50" />
                     </td>
                     <td>
                         <a class="btn btn-yuka mb-1" input="color" id="btn" onclick="showmodal('@Url.Action("Edit","Movie",new {id=@item.電影編號movieId},Context.Request.Scheme)',null)">修改</a>
@@ -135,7 +135,7 @@
 </div>
 
 <div class="modal fade" id="newstaticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog modal-xl">
+    <div class="modal-dialog modal-lg">
         <div class="modal-content">
             @*<div class="modal-header">*@
                 @*<span type="button" id="btnClose" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></span>*@
@@ -149,7 +149,7 @@
 </div>
 
 <div class="modal fade" id="sortstaticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog modal-xl">
+    <div class="modal-dialog modal-lg">
         <div class="modal-content">
             @*<div class="modal-header">*@
             @*<span type="button" id="btnClose" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></span>*@

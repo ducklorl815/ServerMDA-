@@ -10,16 +10,18 @@ namespace ServerMDA.ViewModel
 {
     public class CCastViewModel
     {
+        public CCastViewModel()
+        {
+            _cast = new 電影主演cast();  //每做一個就建一個
+        }
+
         private 電影主演cast _cast;
         public 電影主演cast cast
         {
             get { return _cast; }
             set { _cast = value; }
         }
-        public CCastViewModel()
-        {
-            _cast = new 電影主演cast();  //每做一個就建一個
-        }
+
         [DisplayName("主演編號")]
         public int 主演編號maId
         {
@@ -66,5 +68,10 @@ namespace ServerMDA.ViewModel
 
         //圖片
         public IFormFile photo { get; set; }
+
+        //電影中文名 (目標為option內的資料內容)
+        public List<string> titleNameList { get; set; }
+
+  
     }
 }

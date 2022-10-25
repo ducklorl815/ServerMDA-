@@ -36,9 +36,9 @@ namespace ServerMDA.Controllers
             if (id != null)
             {
                 MDAContext db = new MDAContext();
-                演員總表actor director = db.演員總表actors.FirstOrDefault(p => p.演員編號actorsId == id);
-                if (director != null)
-                    return View(director);
+                演員總表actor actor = db.演員總表actors.FirstOrDefault(p => p.演員編號actorsId == id);
+                if (actor != null)
+                    return View(actor);
             }
             return RedirectToAction("List");
         }
@@ -79,6 +79,17 @@ namespace ServerMDA.Controllers
 
             db.演員總表actors.Add(p);
             db.SaveChanges();
+            return RedirectToAction("List");
+        }
+        public ActionResult Details(int? id)
+        {
+            if (id != null)
+            {
+                MDAContext db = new MDAContext();
+                演員總表actor Detail = db.演員總表actors.FirstOrDefault(p => p.演員編號actorsId == id);
+                if (Detail != null)
+                    return View(Detail);
+            }
             return RedirectToAction("List");
         }
 

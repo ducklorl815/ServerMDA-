@@ -1,0 +1,44 @@
+﻿@model ServerMDA.Models.演員總表actor
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = null;
+}
+
+<link href="~/css/bootstrap-5.2.2/bootstrap.min.css" rel="stylesheet" />
+<link href="~/css/bootstrap-5.2.2/YukabtnEdit.css" rel="stylesheet" />
+<link href="~/css/site.css" rel="stylesheet" />
+
+<div>
+    <dl class="row">
+        <dt class="col-sm-4">
+            @Html.DisplayNameFor(model => model.中文名字nameCht)
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.中文名字nameCht)
+        </dd>
+        <dt class="col-sm-4">
+            @Html.DisplayNameFor(model => model.英文名字nameEng)
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.英文名字nameEng)
+        </dd>
+        <dt class="col-sm-4">
+            @Html.DisplayNameFor(model => model.演員照片image)
+        </dt>
+        <dd class="col-sm-8">
+            <div>
+                <img src="~/images/Actor/@Model.演員照片image" width="300" />
+            </div>
+        </dd>
+    </dl>
+</div>
+<div>
+    <a class="btn btn-yuka mb-1" id="btn" onclick="showmodal('@Url.Action("Edit","Actor",new {id=Model.演員編號actorsId},Context.Request.Scheme)',null)">修改</a>
+    <button type="button" class="btn btn-secondary mb-1" data-bs-dismiss="modal" aria-label="Close">回到清單</button>
+
+    @*//todo session*@
+    @*<a class="btn btn-info mb-1" id="btn" onclick="showmodal('@Url.Action("sortList","Cast",new {id=Model.電影編號movieId},Context.Request.Scheme)',null)">返回演員清單</a>*@
+</div>
+
+<script src="~/js/bootstrap-5.2.2/bootstrap.bundle.min.js"></script>

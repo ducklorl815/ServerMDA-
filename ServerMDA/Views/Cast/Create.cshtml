@@ -1,0 +1,76 @@
+﻿@model ServerMDA.ViewModel.CCastViewModel
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = null;
+}
+
+<link href="~/css/bootstrap-5.2.2/bootstrap.min.css" rel="stylesheet" />
+<link href="~/css/bootstrap-5.2.2/YukabtnEdit.css" rel="stylesheet" />
+<link href="~/css/site.css" rel="stylesheet" />
+
+<div class="row">
+    <div>
+        <form asp-action="Create">
+            <h4 class="control-label offset-1">@Model.中文標題titleCht</h4>
+            <br />
+            <div class="d-flex flex-row">
+                <div class="col-4 offset-1">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="電影編號movieId" disabled="disabled" class="control-label"></label>
+                        <select asp-for="電影編號movieId" class="form-control" asp-items="ViewBag.電影編號movieId">
+                            <option selected>@Model.電影編號movieId</option>
+                        </select>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label asp-for="演員編號actorId" class="control-label"></label>
+                        <select asp-for="演員編號actorId" name="中文名字nameCht" class="form-control" asp-items="ViewBag.演員編號actorId">
+                            <option selected>@Model.中文名字nameCht</option>
+                            @{
+                                var g = @Model.中文名字nameCht;
+                                foreach (var i in Model.titleNameList)
+                                {
+                                    @if (i != g)
+                                    {
+                                        <option>@i</option>
+
+                                    }
+                                }
+                            }
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="角色名字characterName" class="control-label"></label>
+                        <input asp-for="角色名字characterName" value="" class="form-control" />
+                        <span asp-validation-for="角色名字characterName" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="submit" value="新增角色" class="btn btn-success mb-1 mr-1" />
+                        <button type="button" class="btn btn-secondary mb-1" data-bs-dismiss="modal" aria-label="Close">回到清單</button>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="form-group">
+                        <label asp-for="角色說明characterIllustrate" class="control-label"></label>
+                        <textarea rows="10" asp-for="角色說明characterIllustrate" class="form-control" ></textarea>
+                        <span asp-validation-for="角色說明characterIllustrate" class="text-danger"></span>
+                    </div>
+
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
+<script src="~/js/bootstrap-5.2.2/bootstrap.min.js"></script>
+<script src="~/js/bootstrap-5.2.2/bootstrap.bundle.js"></script>

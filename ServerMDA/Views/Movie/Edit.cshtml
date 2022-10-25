@@ -7,11 +7,11 @@
     Layout = null;
 }
 
-<h4 class="offset-md-1">修改電影編號 : @Model.電影編號movieId</h4>
+<h4 class="">修改電影編號 : @Model.電影編號movieId</h4>
 <div class="row">
     <form asp-action="Edit" enctype="multipart/form-data">
         <div class="d-flex flex-row">
-            <div class="col-md-4 offset-md-1">
+            <div class="col-md-6">
 
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                 <input type="hidden" asp-for="電影編號movieId" />

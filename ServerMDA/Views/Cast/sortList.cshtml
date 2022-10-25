@@ -14,8 +14,6 @@
 
 </style>
 
-
-
 <link href="~/css/bootstrap-5.2.2/bootstrap.min.css" rel="stylesheet" />
 <link href="~/css/site.css" rel="stylesheet" />
 <link href="~/css/bootstrap-5.2.2/YukabtnEdit.css" rel="stylesheet" />
@@ -23,7 +21,7 @@
 @*<h3 class="MovieList">主演清單 <a class="btn btn-info mb-1" onclick="showmodal('@Url.Action("Create","Cast",Context.Request.Scheme)',null)">新增</a></h3>*@
 <h5 class="MovieList">
         @Html.DisplayFor(modelItem => Model[1].中文標題titleCht)
-    <a class="btn btn-success mb-1" id="btn" onclick="showmodal('@Url.Action("Create","Cast",Context.Request.Scheme)',null)',null)">新增</a>
+    <a class="btn btn-success mb-1" id="btn" onclick="showmodal('@Url.Action("Create","Cast",new {id=Model[1].電影編號movieId},Context.Request.Scheme)',null)">新增</a>
     <button type="button" class="btn btn-secondary mb-1" data-bs-dismiss="modal" aria-label="Close">回到清單</button>
 </h5>
 
@@ -34,10 +32,10 @@
                 <th class="col-1">
                     ID
                 </th>
-                <th class="col-2">
+                <th class="col-3">
                     @Html.DisplayNameFor(model => model.FirstOrDefault().角色名字characterName)
                 </th>
-                <th class="col-1">
+                <th style="width:120px">
                     @Html.DisplayNameFor(model => model.FirstOrDefault().演員照片image)
                 </th>
                 <th class="col-2">
@@ -46,7 +44,7 @@
                 <th class="col-3">
                     @Html.DisplayNameFor(model => model.FirstOrDefault().英文名字nameEng)
                 </th>
-                <th class="col-1">
+                <th class="col-3">
                     指令
                 </th>
             </tr>
@@ -63,7 +61,7 @@
                 </td>
                 <td>
                     <div>
-                        <img src="~/images/Actor/@item.演員照片image" class="img-fluid w-75" />
+                        <img src="~/images/Actor/@item.演員照片image" style="width:100px" />
                     </div>
                 </td>
                 <td>
