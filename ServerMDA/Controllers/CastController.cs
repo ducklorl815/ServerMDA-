@@ -102,6 +102,38 @@ namespace ServerMDA.Controllers
             return RedirectToAction("List", "Movie", null);
         }
 
+        public ActionResult CreateDir(int? id)
+        {
+            if (id != null)
+            {
+                MDAContext db = new MDAContext();
+                CMovieDirectorViewModel datas = null;
+                var nameCht = db.導演總表directors.Select(p => p.中文名字nameCht).ToList();
 
+                datas = db.電影導演movieDirectors.Where(p => p.電影編號movieId == id).Select
+                (p => new CMovieDirectorViewModel
+                {
+                    director = p,
+                    中文名字nameCht = p.導演編號director.中文名字nameCht,
+                    中文標題titleCht = p.電影編號movie.中文標題titleCht,
+                }).FirstOrDefault();
+
+                datas.titleNameList = nameCht;
+                return View(datas);
+            }
+            return View();
+        }
+        [HttpPost]
+        public ActionResult CreateDir(CMovieDirectorViewModel p)
+        {
+            MDAContext db = new MDAContext();
+            電影導演movieDirector m = new 電影導演movieDirector();
+            m = p.director;
+            m.導演編號directorId = db.導演總表directors.FirstOrDefault(q => q.中文名字nameCht == p.中文名字nameCht).導演編號directorId;
+            //m.電影分級編號ratingId = db.電影分級movieRatings.FirstOrDefault(q => q.分級級數ratingLevel == p.分級級數ratingLevel).分級編號ratingId;
+            db.電影導演movieDirectors.Add(m);
+            db.SaveChanges();
+            return RedirectToAction("List", "Movie", null);
+        }
     }
 }

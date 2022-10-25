@@ -80,5 +80,16 @@ namespace ServerMDA.Controllers
             db.SaveChanges();
             return RedirectToAction("List");
         }
+        public ActionResult Details(int? id)
+        {
+            if (id != null)
+            {
+                MDAContext db = new MDAContext();
+                導演總表director Detail = db.導演總表directors.FirstOrDefault(p => p.導演編號directorId == id);
+                if (Detail != null)
+                    return View(Detail);
+            }
+            return RedirectToAction("List");
+        }
     }
 }

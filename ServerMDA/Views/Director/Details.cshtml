@@ -1,0 +1,41 @@
+﻿@model ServerMDA.Models.導演總表director
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = null;
+}
+<link href="~/css/bootstrap-5.2.2/bootstrap.min.css" rel="stylesheet" />
+<link href="~/css/bootstrap-5.2.2/YukabtnEdit.css" rel="stylesheet" />
+<link href="~/css/site.css" rel="stylesheet" />
+
+<div>
+
+    <dl class="row">
+        <dt class="col-sm-4">
+            @Html.DisplayNameFor(model => model.中文名字nameCht)
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.中文名字nameCht)
+        </dd>
+        <dt class="col-sm-4">
+            @Html.DisplayNameFor(model => model.英文名字nameEng)
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.英文名字nameEng)
+        </dd>
+        <dt class="col-sm-4">
+            @Html.DisplayNameFor(model => model.導演照片image)
+        </dt>
+        <dd class="col-sm-8">
+            <div>
+                <img src="~/images/Director/@Model.導演照片image" width="300" />
+            </div>
+        </dd>
+    </dl>
+</div>
+<div>
+    <a class="btn btn-yuka mb-1" id="btn" onclick="showmodal('@Url.Action("Edit","Director",new {id=Model.導演編號directorId},Context.Request.Scheme)',null)">修改</a>
+    <button type="button" class="btn btn-secondary mb-1" data-bs-dismiss="modal" aria-label="Close">回到清單</button>
+</div>
+
+<script src="~/js/bootstrap-5.2.2/bootstrap.bundle.min.js"></script>

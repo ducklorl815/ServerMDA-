@@ -17,8 +17,8 @@
 <link href="~/css/bootstrap-5.2.2/YukabtnEdit.css" rel="stylesheet" />
 
 <h5 class="MovieList">
-    @Html.DisplayFor(modelItem => Model[1].中文標題titleCht)
-    <a class="btn btn-success mb-1" id="btn" onclick="showmodal('@Url.Action("Create","Cast",new {id=Model[1].電影編號movieId},Context.Request.Scheme)',null)">新增</a>
+    @Html.DisplayFor(modelItem => Model[0].中文標題titleCht)
+    <a class="btn btn-success mb-1" id="btn" onclick="showmodal('@Url.Action("CreateDir","Cast",new {id=Model[0].電影編號movieId},Context.Request.Scheme)',null)">新增</a>
     <button type="button" class="btn btn-secondary mb-1" data-bs-dismiss="modal" aria-label="Close">回到清單</button>
 </h5>
 
@@ -46,26 +46,26 @@
         <tbody>
             @foreach (var item in Model)
             {
-            <tr>
-                <th>
-                    @Html.DisplayFor(modelItem => item.導演編號directorId)
-                </th>
-                <td>
-                    <div>
-                        <img src="~/images/Director/@item.導演照片image" style="width:100px" />
-                    </div>
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.中文名字nameCht)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.英文名字nameEng)
-                </td>
-                <td>
-                    <a class="btn btn-yuka mb-1" id="btn" onclick="showmodal('@Url.Action("Edit","Actor",new {id=@item.導演編號directorId},Context.Request.Scheme)',null)">修改</a>
-                    <a class="btn btn-info mb-1" id="btn" onclick="showmodal('@Url.Action("Details","Actor",new {id=@item.導演編號directorId},Context.Request.Scheme)',null)">細節</a>
-                </td>
-            </tr>
+                <tr>
+                    <th>
+                        @Html.DisplayFor(modelItem => item.導演編號directorId)
+                    </th>
+                    <td>
+                        <div>
+                            <img src="~/images/Director/@item.導演照片image" style="width:100px" />
+                        </div>
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.中文名字nameCht)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.英文名字nameEng)
+                    </td>
+                    <td>
+                        <a class="btn btn-yuka mb-1" id="btn" onclick="showmodal('@Url.Action("Edit","Director",new {id=@item.導演編號directorId},Context.Request.Scheme)',null)">修改</a>
+                        <a class="btn btn-info mb-1" id="btn" onclick="showmodal('@Url.Action("Details","Director",new {id=@item.導演編號directorId},Context.Request.Scheme)',null)">細節</a>
+                    </td>
+                </tr>
             }
         </tbody>
     </table>

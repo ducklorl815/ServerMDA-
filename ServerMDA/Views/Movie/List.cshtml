@@ -76,7 +76,7 @@
                 <th class="col-1">
                     @Html.DisplayNameFor(model => model.FirstOrDefault().分級圖片ratingImage)
                 </th>
-                <th style="width:90px">
+                <th style="width:100px">
                     指令
                 </th>
             </tr>
@@ -124,8 +124,8 @@
                         <img src="@Url.Action("ShowPhoto","Movie", new {id= item.電影分級編號ratingId })" class="img-fluid w-50" />
                     </td>
                     <td>
-                        <a class="btn btn-yuka mb-1" input="color" id="btn" onclick="showmodal('@Url.Action("Edit","Movie",new {id=@item.電影編號movieId},Context.Request.Scheme)',null)">修改</a>
-                        <a class="btn btn-info mb-1" id="btn" onclick="showmodal('@Url.Action("Details","Movie",new {id=@item.電影編號movieId},Context.Request.Scheme)',null)">細節</a>
+                        <a class="btn btn-yuka " id="btn" onclick="showmodal('@Url.Action("Edit","Movie",new {id=@item.電影編號movieId},Context.Request.Scheme)',null)">修改</a>
+                        <a class="btn btn-info " id="btn" onclick="showmodal('@Url.Action("Details","Movie",new {id=@item.電影編號movieId},Context.Request.Scheme)',null)">細節</a>
                         @*<a asp-action="Edit" asp-route-id="@item.電影編號movieId" class="btn btn-info mb-1" style="white-space:nowrap">修改</a>*@
                     </td>
                 </tr>
