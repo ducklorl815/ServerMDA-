@@ -23,13 +23,16 @@ namespace ServerMDA.Controllers
         public IActionResult List()
         {
             MDAContext db = new MDAContext();
+            db.影城mainTheaters.ToList();
+            db.電影院theaters.ToList();
+            db.影廳cinemas.ToList();
             List<CTheaterViewModel> datas = null;
-                datas = db.電影院theaters.Select
-                (p => new CTheaterViewModel
-                {
-                    theater = p,
-                    影廳名稱cinemaName = p.影城編號mainTheater.影城名稱mainTheaterName
-                }).ToList();
+            datas = db.電影院theaters.Select
+            (p => new CTheaterViewModel
+            {
+                theater = p,
+                影廳名稱cinemaName = p.影城編號mainTheater.影城名稱mainTheaterName
+            }).ToList();
 
             return View(datas);
         }
@@ -60,7 +63,7 @@ namespace ServerMDA.Controllers
                 }
 
                 c.電影院名稱theaterName = intheater.電影院名稱theaterName;
-                c.影城編號mainTheaterId = intheater.影城編號mainTheaterId;
+                //c.影城編號mainTheaterId = intheater.影城編號mainTheaterId;
                 c.營業時間businessHours = intheater.營業時間businessHours;
                 c.電話phone = intheater.電話phone;
                 c.地址address = intheater.地址address;
