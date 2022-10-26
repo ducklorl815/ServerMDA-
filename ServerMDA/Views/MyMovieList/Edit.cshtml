@@ -1,0 +1,72 @@
+﻿@using ServerMDA.ViewModel
+@model CMyMovieListViewModel
+@{
+    ViewData["Title"] = "修改";
+    Layout = null;
+}
+
+<style>
+    .divEmpty {
+        margin: 150px;
+    }
+</style>
+
+<link href="~/css/bootstrap-5.2.2/bootstrap.min.css" rel="stylesheet" />
+<link href="~/css/bootstrap-5.2.2/YukabtnEdit.css" rel="stylesheet" />
+<link href="~/css/site.css" rel="stylesheet" />
+
+
+<div class="row">
+    <div class="col-md-7 offset-2">
+        <h4>修改片單</h4>
+        <form asp-action="Edit" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="我的片單myMovieListId" />
+            <div class="form-group">
+                <label class="control-label">會員編號 : @Model.會員編號memberId</label>
+                <select asp-for="會員編號memberId" class="form-control" disabled="disabled" asp-items="ViewBag.會員編號memberId">
+                    <option selected>@Model.姓氏lName@Model.名字fName</option>
+                </select>
+                <span asp-validation-for="會員編號memberId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="片單總表編號movieListId" class="form-label"></label>
+                <input type="text"  class="form-control"  list="appNamelist" />
+                <datalist id="appNamelist" asp-for="片單總表編號movieListId" name="片單總表名稱listName">
+                    <option selected>@Model.片單總表名稱listName</option>
+
+                </datalist>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="電影編號movieId" class="form-label"></label>
+                <input type="text" class="form-control" list="chtlist" />
+                <datalist id="chtlist" asp-for="電影編號movieId" name="中文標題titleCht">
+                    <option selected>@Model.中文標題titleCht</option>
+                    @{
+                        var g = @Model.中文標題titleCht;
+                        foreach (var i in Model.titleCht中文標題)
+                        {
+                            @if (i != g)
+                            {
+                                <option>@i</option>
+
+                            }
+                        }
+                    }
+                </datalist>
+            </div>
+            <div class="form-group">
+                <button type="button" class="btn btn-secondary mb-1 mr-3" data-bs-dismiss="modal" aria-label="Close">回到清單</button>
+                <input type="submit" value="確認修改" class="btn btn-yuka mb-1 mr-3" />
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+<script src="~/js/bootstrap-5.2.2/bootstrap.min.js"></script>
+<script src="~/js/bootstrap-5.2.2/bootstrap.bundle.js"></script>

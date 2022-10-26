@@ -1,0 +1,136 @@
+﻿@using ServerMDA.ViewModel
+@model List<CMyFollowListViewModel>
+
+@{
+    ViewData["Title"] = "追蹤清單";
+}
+
+<link href="~/css/bootstrap-5.2.2/bootstrap.min.css" rel="stylesheet" />
+<link href="~/css/datatables/jquery.dataTables.css" rel="stylesheet" />
+<link href="~/css/site.css" rel="stylesheet" />
+<link href="~/css/bootstrap-5.2.2/YukabtnEdit.css" rel="stylesheet" />
+
+<h3 class="MovieList">
+    新增追蹤清單
+    <a class="btn btn-success mb-1" onclick="showmodal('@Url.Action("Create", "MyFollowList", Context.Request.Scheme)',null)">新增</a>
+</h3>
+
+<div>
+    <table id="myTable" class="table tables display compact hover col-12">
+        <thead>
+            <tr>
+                <th style="width:10px">
+                    ID
+                </th>
+                <th class="col-1">
+                    姓名
+                </th>
+                <th class="col-1">
+                    會員電話
+                </th>
+                <th class="col-1">
+                    @Html.DisplayNameFor(model => model.FirstOrDefault().追讚倒名稱actionTypeName)
+                </th>
+                <th style="width:50px">
+                    對象ID
+                </th>
+                <th class="col-5">
+                    @Html.DisplayNameFor(model => model.FirstOrDefault().檢舉理由reportReason)
+                </th>
+                <th class="col-1">
+                    @Html.DisplayNameFor(model => model.FirstOrDefault().處理狀態status)
+                </th>
+                <th class="col-2">
+                    @Html.DisplayNameFor(model => model.FirstOrDefault().對象名稱targetName)
+                </th>
+
+
+                <th class="col-2">
+                    指令
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.會員編號memberId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.姓氏lName)@Html.DisplayFor(modelItem => item.名字fName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.會員電話cellphone)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.追讚倒名稱actionTypeName)
+                </td>
+                <td>
+                    @*@Html.DisplayFor(modelItem => item.連接編號connectId)*@
+                    <button id="btn" class="border-0 bg-transparent w-100 h-100" onclick="showmodal('@Url.Action("Edit","Member",new {id=@item.連接編號connectId},Context.Request.Scheme)',null)">@item.連接編號connectId</button>
+                    @* <a id="btn" onclick="showmodal('@Url.Action("Edit","Member",new {id=@item.連接編號connectId},Context.Request.Scheme)',null)">@item.連接編號connectId</a>*@
+                </td>
+                <td>
+                    @*@Html.DisplayFor(modelItem => item.檢舉理由reportReason)*@
+                    <button id="btn" class="border-0 bg-transparent w-100 h-100" onclick="showmodal('@Url.Action("Edit","Member",new {id=@item.連接編號connectId},Context.Request.Scheme)',null)">@Html.DisplayFor(modelItem => item.處理狀態status)</button>
+                </td>
+                <td>
+                    @*@Html.DisplayFor(modelItem => item.處理狀態status)*@
+                    <button id="btn" class="border-0 bg-transparent w-100 h-100" onclick="showmodal('@Url.Action("Edit","Member",new {id=@item.連接編號connectId},Context.Request.Scheme)',null)">@Html.DisplayFor(modelItem => item.處理狀態status)</button>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.對象名稱targetName)
+                </td>
+
+                <td>
+                    <a class="btn btn-yuka " id="btn" onclick="showmodal('@Url.Action("Edit","MyFollowList",new {id=@item.會員編號memberId},Context.Request.Scheme)',null)">修改</a>
+                    @*<a class="btn btn-info " id="btn" onclick="showmodal('@Url.Action("Details","MyFollowList",new {id=@item.會員編號memberId},Context.Request.Scheme)',null)">細節</a>*@
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+
+    <div class="modal fade" id="newstaticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-body col-12 ">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="sortstaticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-body col-12 ">
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    <script src="~/js/bootstrap-5.2.2/bootstrap.bundle.min.js"></script>
+    <script src="~/js/vendor/jquery/jquery.min.js"></script>
+    <script src="~/js/vendor/datatables/Datatable_transCht.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
+
+
+    <script>
+
+        showmodal = (url, title) => {
+            $.ajax({
+                type: "GET",
+                url: url,
+                success: function (res) {
+                    $("#newstaticBackdrop .modal-body").html(res);
+                    $("#newstaticBackdrop .modal-title").html(title);
+                    $("#newstaticBackdrop").modal('show');
+                },
+            })
+        }
+    </script>
+
+    <script src="~/js/vendor/datatables/jquery.dataTables.js"></script>

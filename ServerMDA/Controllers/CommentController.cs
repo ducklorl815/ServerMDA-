@@ -17,15 +17,21 @@ namespace ServerMDA.Controllers
         {
             _enviro = p;
         }
-        public IActionResult List(CKeyWordViewModel model)
+        public IActionResult List()
         {
             MDAContext db = new MDAContext();
-            IEnumerable<電影評論movieComment> datas = null;
-            if (string.IsNullOrEmpty(model.txtkeyword))
-                datas = from p in db.電影評論movieComments
-                        select p;
-            else
-                datas = db.電影評論movieComments.Where(p => p.評論內容comments.ToLower().Contains(model.txtkeyword.ToLower()) || p.評論標題commentTitle.ToLower().Contains(model.txtkeyword.ToLower()));
+            List<CCommentViewModel> datas = null;
+            datas = db.電影評論movieComments.Select
+            (p => new CCommentViewModel
+            {
+                comment = p,
+                會員電話cellphone = p.會員編號member.會員電話cellphone,
+                姓氏lName = p.會員編號member.姓氏lName,
+                名字fName = p.會員編號member.名字fName,
+                中文標題titleCht = p.電影編號movie.中文標題titleCht,
+                英文標題titleEng = p.電影編號movie.英文標題titleEng,
+                公開等級public=p.公開等級編號public.公開等級public,
+            }).ToList();
 
             return View(datas);
         }

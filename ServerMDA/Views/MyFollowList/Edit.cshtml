@@ -1,0 +1,62 @@
+﻿@using ServerMDA.ViewModel
+@model CMyFollowListViewModel
+
+@{
+    ViewData["Title"] = "修改";
+    Layout = null;
+}
+
+<link href="~/css/bootstrap-5.2.2/bootstrap.min.css" rel="stylesheet" />
+<link href="~/css/bootstrap-5.2.2/YukabtnEdit.css" rel="stylesheet" />
+<link href="~/css/site.css" rel="stylesheet" />
+
+<h4 class="">修改會員編號 : @Model.會員編號memberId 追蹤清單</h4>
+<div class="row">
+    <div class="col-md-12">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="我的追蹤清單編號cfId" />
+            <div class="form-group">
+                <label asp-for="會員編號memberId" class="control-label"></label>
+                <select asp-for="會員編號memberId" class="form-control" asp-items="ViewBag.會員編號memberId"></select>
+                <span asp-validation-for="會員編號memberId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="對象targetId" class="control-label"></label>
+                <select asp-for="對象targetId" class="form-control" asp-items="ViewBag.對象targetId"></select>
+                <span asp-validation-for="對象targetId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="追讚倒編號actionTypeId" class="control-label"></label>
+                <select asp-for="追讚倒編號actionTypeId" class="form-control" asp-items="ViewBag.追讚倒編號actionTypeId"></select>
+                <span asp-validation-for="追讚倒編號actionTypeId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="連接編號connectId" class="control-label"></label>
+                <input asp-for="連接編號connectId" class="form-control" />
+                <span asp-validation-for="連接編號connectId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="檢舉理由reportReason" class="control-label"></label>
+                <input asp-for="檢舉理由reportReason" class="form-control" />
+                <span asp-validation-for="檢舉理由reportReason" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="處理狀態status" class="control-label"></label>
+                <input asp-for="處理狀態status" class="form-control" />
+                <span asp-validation-for="處理狀態status" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="確認修改" class="btn btn-yuka mr-1" />
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" aria-label="Close">回到清單</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+<script src="~/js/bootstrap-5.2.2/bootstrap.min.js"></script>
+<script src="~/js/bootstrap-5.2.2/bootstrap.bundle.js"></script>

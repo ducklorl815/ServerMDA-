@@ -1,97 +1,134 @@
-﻿@model IEnumerable<ServerMDA.Models.電影評論movieComment>
+﻿@using ServerMDA.ViewModel
+@model List<CCommentViewModel>
 
 @{
     ViewData["Title"] = "電影評論";
 }
+<link href="~/css/bootstrap-5.2.2/bootstrap.min.css" rel="stylesheet" />
+<link href="~/css/datatables/jquery.dataTables.css" rel="stylesheet" />
 <link href="~/css/site.css" rel="stylesheet" />
+<link href="~/css/bootstrap-5.2.2/YukabtnEdit.css" rel="stylesheet" />
 
-<h2>電影評論<a asp-action="Create" class="btn btn-warning mb-1  ml-2">新增</a></h2>
-<table class="table table-striped table-hover tables">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.會員編號memberId)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.評分rate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.期待度anticipation)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.評論標題commentTitle)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.評論內容comments)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.發佈時間commentTime)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.觀影日期viewingTime)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.觀影方式source)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.是否開放討論串oxFloor)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.屏蔽invisible)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.公開等級編號public)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.電影編號movie)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
-        <tr style="white-space:nowrap">
-            <td>
-                @Html.DisplayFor(modelItem => item.會員編號memberId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.評分rate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.期待度anticipation)
-            </td>
-            <td class="tables_hidtext">
-                @Html.DisplayFor(modelItem => item.評論標題commentTitle)
-            </td>
-            <td class="tables_hidtext">
-                @Html.DisplayFor(modelItem => item.評論內容comments)
-            </td>
-            <td class="tables_hidtext">
-                @Html.DisplayFor(modelItem => item.發佈時間commentTime)
-            </td>
-            <td class="tables_hidtext">
-                @Html.DisplayFor(modelItem => item.觀影日期viewingTime)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.觀影方式source)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.是否開放討論串oxFloor)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.屏蔽invisible)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.公開等級編號public.公開等級public)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.電影編號movie.英文標題titleEng)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.電影編號movieId" class="btn btn-info mb-1" style="white-space:nowrap">修改</a>
-            </td>
-        </tr>
-        }
-    </tbody>
-</table>
+<h3 class="MovieList">
+    電影評論
+    <a class="btn btn-success mb-1" onclick="showmodal('@Url.Action("Create", "Comment", Context.Request.Scheme)',null)">新增</a>
+</h3>
+<div>
+    <table id="myTable" class="table tables display compact hover col-12">
+        <thead>
+            <tr>
+                <th style="width:50px">
+                    會員ID
+                </th>
+                <th class="col-2">
+                    @Html.DisplayNameFor(model => model.FirstOrDefault().中文標題titleCht)
+                </th>
+                <th class="col-1">
+                    @Html.DisplayNameFor(model => model.FirstOrDefault().評論標題commentTitle)
+                </th>
+                <th class="col-2">
+                    @Html.DisplayNameFor(model => model.FirstOrDefault().評論內容comments)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FirstOrDefault().評分rate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FirstOrDefault().發佈時間commentTime)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FirstOrDefault().屏蔽invisible)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FirstOrDefault().公開等級public)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FirstOrDefault().是否開放討論串oxFloor)
+                </th>
+                <th>
+                    指令
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+            <tr style="white-space:nowrap">
+                <td>
+                    @Html.DisplayFor(modelItem => item.會員編號memberId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.中文標題titleCht)
+                </td>
+                <td class="tables_hidtext">
+                    @Html.DisplayFor(modelItem => item.評論標題commentTitle)
+                </td>
+                <td class="tables_hidtext">
+                    @Html.DisplayFor(modelItem => item.評論內容comments)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.評分rate)
+                </td>
+                <td class="tables_hidtext">
+                    @Html.DisplayFor(modelItem => item.發佈時間commentTime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.屏蔽invisible)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.公開等級public)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.是否開放討論串oxFloor)
+                </td>
+                <td>
+                    <a class="btn btn-yuka " id="btn" onclick="showmodal('@Url.Action("Edit","Comment",new {id=@item.電影編號movieId},Context.Request.Scheme)',null)">修改</a>
+                    <a class="btn btn-info " id="btn" onclick="showmodal('@Url.Action("Details","Comment",new {id=@item.電影編號movieId},Context.Request.Scheme)',null)">細節</a>
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<div class="modal fade" id="newstaticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-body col-12 ">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="sortstaticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-body col-12 ">
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="~/js/bootstrap-5.2.2/bootstrap.bundle.min.js"></script>
+<script src="~/js/vendor/jquery/jquery.min.js"></script>
+<script src="~/js/vendor/datatables/Datatable_transCht.js"></script>
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
+
+
+<script>
+
+    showmodal = (url, title) => {
+        $.ajax({
+            type: "GET",
+            url: url,
+            success: function (res) {
+                $("#newstaticBackdrop .modal-body").html(res);
+                $("#newstaticBackdrop .modal-title").html(title);
+                $("#newstaticBackdrop").modal('show');
+            },
+        })
+    }
+</script>
+
+<script src="~/js/vendor/datatables/jquery.dataTables.js"></script>

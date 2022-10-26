@@ -67,5 +67,8 @@ namespace ServerMDA.ViewModel
         public string 中文標題titleCht { get; set; }
         [DisplayName("英文名")]
         public string 英文標題titleEng { get; set; }
+
+
+        public List<string> titleCht中文標題 { get; set; }
     }
 }

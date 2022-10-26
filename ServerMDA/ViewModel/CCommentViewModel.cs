@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -62,12 +63,14 @@ namespace ServerMDA.ViewModel
             set { _comment.評論內容comments = value; }
         }
         [DisplayName("發佈時間")]
+        [DisplayFormat(DataFormatString = "{0:yyyy/MM/dd}")]
         public DateTime 發佈時間commentTime
         {
             get { return _comment.發佈時間commentTime; }
             set { _comment.發佈時間commentTime = value; }
         }
         [DisplayName("觀影日期")]
+        [DisplayFormat(DataFormatString = "{0:yyyy/MM/dd}")]
         public DateTime? 觀影日期viewingTime
         {
             get { return _comment.觀影日期viewingTime; }
@@ -85,7 +88,7 @@ namespace ServerMDA.ViewModel
             get { return _comment.公開等級編號publicId; }
             set { _comment.公開等級編號publicId = value; }
         }
-        [DisplayName("是否開放")]
+        [DisplayName("開放留言")]
         public bool? 是否開放討論串oxFloor
         {
             get { return _comment.是否開放討論串oxFloor; }
@@ -97,5 +100,28 @@ namespace ServerMDA.ViewModel
             get { return _comment.屏蔽invisible; }
             set { _comment.屏蔽invisible = value; }
         }
+
+        public virtual 公開等級編號publicId 公開等級編號public { get; set; }
+        //public int 公開等級編號publicId { get; set; }
+        [DisplayName("公開等級")]
+        public string 公開等級public { get; set; }
+
+        //public virtual 會員member 會員編號member { get; set; }
+        [DisplayName("會員電話")]
+        public string 會員電話cellphone { get; set; }
+        [DisplayName("姓")]
+        public string 姓氏lName { get; set; }
+        [DisplayName("名")]
+        public string 名字fName { get; set; }
+        [DisplayName("對象姓氏")]
+        public string 對象姓氏lName { get; set; }
+        [DisplayName("對象名字")]
+        public string 對象名字fName { get; set; }
+
+        //public virtual 電影movie 電影編號movie { get; set; }
+        [DisplayName("中文名")]
+        public string 中文標題titleCht { get; set; }
+        [DisplayName("英文名")]
+        public string 英文標題titleEng { get; set; }
     }
 }
