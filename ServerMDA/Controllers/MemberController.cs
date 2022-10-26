@@ -43,7 +43,6 @@ namespace ServerMDA.Controllers
                 (p => new CMemberViewModel
                 {
                     member = p,
-
                     性別名稱genderName = p.性別genderNavigation.性別名稱genderName,
                     權限名稱permissionName = p.會員權限permissionNavigation.權限名稱permissionName,
 

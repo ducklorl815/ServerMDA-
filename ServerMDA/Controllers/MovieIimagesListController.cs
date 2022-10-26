@@ -41,7 +41,7 @@ namespace ServerMDA.Controllers
             var imglist = db.電影圖片總表movieImages.Select(i => i.圖片編號imageId).ToList();
             var img = db.電影圖片總表movieImages.Select(i => i.圖片image).ToList();
             CMovieImagesListViewModel datas = null;
-            datas = db.電影圖片movieIimagesLists.Where(p => p.電影圖片編號miId == id).Select
+            datas = db.電影圖片movieIimagesLists.Where(p => p.電影編號movieId == id).Select
                 (p => new CMovieImagesListViewModel
                 {
                     movieIimagesList = p,
@@ -60,8 +60,16 @@ namespace ServerMDA.Controllers
         {
             MDAContext db = new MDAContext();
             電影圖片movieIimagesList c = db.電影圖片movieIimagesLists.FirstOrDefault(c => c.電影圖片編號miId == inList.電影圖片編號miId);
+            電影圖片總表movieImage d = db.電影圖片總表movieImages.FirstOrDefault(c => c.圖片編號imageId == inList.電影圖片編號miId);
             if (c != null)
             {
+                if (inList.photo != null)
+                {
+                    string pName = Guid.NewGuid().ToString() + ".jpg";
+                    d.圖片image = pName;
+                    string path = _enviro.WebRootPath + "/images/MovieImage/" + pName;
+                    inList.photo.CopyTo(new FileStream(path, FileMode.Create));
+                }
                 c.圖片編號imageId = inList.圖片編號imageId;
                 c.電影編號movieId = inList.電影編號movieId;
 
@@ -107,5 +115,21 @@ namespace ServerMDA.Controllers
             var imglist = _context.電影圖片總表movieImages.Where(p => p.圖片編號imageId == id).Select(a => a.圖片image);
             return Json(imglist);
         }
+        public ActionResult Details(int? id)
+        {
+            MDAContext db = new MDAContext();
+            CMovieImagesListViewModel datas = null;
+            datas = db.電影圖片movieIimagesLists.Where(p => p.電影編號movieId == id).Select
+                (p => new CMovieImagesListViewModel
+                {
+                    movieIimagesList = p,
+                    中文標題titleCht = p.電影編號movie.中文標題titleCht,
+                    英文標題titleEng= p.電影編號movie.英文標題titleEng,
+                    圖片image = p.圖片編號image.圖片image,
+
+                }).FirstOrDefault();
+            return View(datas);
+        }
+
     }
 }

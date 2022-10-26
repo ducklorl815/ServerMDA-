@@ -26,9 +26,46 @@
     .btn-yuka:not(:disabled):not(.disabled).active, .btn-yuka:not(:disabled):not(.disabled):active, .show > .btn-yuka.dropdown-toggle {
         color: #fff;
         background-color: #ff9ec9;
-        border-color: #ff9ec9
+        border-color: #ff9ec9;
     }
 
         .btn-yuka:not(:disabled):not(.disabled).active:focus, .btn-yuka:not(:disabled):not(.disabled):active:focus, .show > .btn-yuka.dropdown-toggle:focus {
             box-shadow: 0 0 0 .2rem rgba(38, 143, 255, .5)
         }
+
+
+.btn-duck {
+    color: #fff;
+    background-color: #336666;
+    border-color: #336666
+}
+
+    .btn-duck:hover {
+        color: #fff;
+        background-color: #6FB7B7;
+        border-color: #6FB7B7
+    }
+
+    .btn-duck.focus, .btn-duck:focus {
+        color: #fff;
+        background-color: #336666;
+        border-color: #ffbae0;
+        box-shadow: 0 0 0 .2rem rgba(38, 143, 255, .5)
+    }
+
+.btn-duck.disabled, .btn-duck:disabled {
+    color: #fff;
+    background-color: #6FB7B7;
+    border-color: #6FB7B7
+}
+
+    .btn-duck:not(:disabled):not(.disabled).active, .btn-duck:not(:disabled):not(.disabled):active, .show > .btn-duck.dropdown-toggle {
+        color: #fff;
+        background-color: #336666;
+        border-color: #336666
+    }
+
+        .btn-duck:not(:disabled):not(.disabled).active:focus, .btn-duck:not(:disabled):not(.disabled):active:focus, .show > .btn-duck.dropdown-toggle:focus {
+            box-shadow: 0 0 0 .2rem rgba(38, 143, 255, .5)
+        }
+
