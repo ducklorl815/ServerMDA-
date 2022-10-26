@@ -1,0 +1,103 @@
+﻿@model ServerMDA.ViewModel.CMemberViewModel
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = null;
+}
+
+<link href="~/css/bootstrap-5.2.2/bootstrap.min.css" rel="stylesheet" />
+<link href="~/css/site.css" rel="stylesheet" />
+<link href="~/css/bootstrap-5.2.2/YukabtnEdit.css" rel="stylesheet" />
+
+<div>
+    <dl class="row">
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.會員電話cellphone)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.會員電話cellphone)
+        </dd>
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.密碼password)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.密碼password)
+        </dd>
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.姓氏lName)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.姓氏lName)
+        </dd>
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.名字fName)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.名字fName)
+        </dd>
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.暱稱nickName)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.暱稱nickName)
+        </dd>
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.生日birthDate)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.生日birthDate)
+        </dd>
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.電子信箱email)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.電子信箱email)
+        </dd>
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.地址address)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.地址address)
+        </dd>
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.紅利點數bonus)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.紅利點數bonus)
+        </dd>
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.正式會員formal)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.正式會員formal)
+        </dd>
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.會員照片image)
+        </dt>
+        <dd class="col-sm-9">
+           <img src="~/images/Member/@Model.會員照片image" style="height:265px"/>
+        </dd>
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.建立時間createdTime)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.建立時間createdTime)
+        </dd>
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.性別名稱genderName)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.性別名稱genderName)
+        </dd>
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.權限名稱permissionName)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.權限名稱permissionName)
+        </dd>
+    </dl>
+</div>
+<div>
+    <button type="button" class="btn btn-secondary mb-1" data-bs-dismiss="modal" aria-label="Close">回到清單</button>
+    <a class="btn btn-yuka mb-1" input="color" id="btn" onclick="showmodal('@Url.Action("Edit","Member",new {id=Model.會員編號memberId},Context.Request.Scheme)',null)">修改會員內容</a>
+</div>

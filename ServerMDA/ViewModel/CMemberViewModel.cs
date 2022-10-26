@@ -130,5 +130,34 @@ namespace ServerMDA.ViewModel
         public List<string> ListGender { get; set; }
         public List<string> ListPermission { get; set; }
         public List<string> ListAddresses { get; set; }
+
+
+        //public virtual ICollection<優惠明細couponList> 優惠明細couponLists { get; set; }
+        //public int 會員編號memberId { get; set; }
+        //public int 我的片單myMovieListId { get; set; } <<我的片單myMovieList
+        //public int 片單總表編號movieListId { get; set; } <<我的片單myMovieList
+        //public int 電影編號movieId { get; set; } <<我的片單myMovieList
+
+        //public virtual ICollection<我的片單myMovieList> 我的片單myMovieLists { get; set; }
+        //public int 會員編號memberId { get; set; }
+        public int 我的片單myMovieListId { get; set; }
+        public int 片單總表編號movieListId { get; set; }
+        public int 電影編號movieId { get; set; }
+
+        //public virtual ICollection<我的追蹤清單myFollowList> 我的追蹤清單myFollowLists { get; set; }
+        //public int 會員編號memberId { get; set; }
+        public int 我的追蹤清單編號cfId { get; set; }
+        public int 對象targetId { get; set; }
+        public int 追讚倒編號actionTypeId { get; set; }
+        public int 連接編號connectId { get; set; }
+        public string 檢舉理由reportReason { get; set; }
+        public int? 處理狀態status { get; set; }
+
+        //public virtual ICollection<訂單總表order> 訂單總表orders { get; set; }
+        //public int 會員編號memberId { get; set; }
+        public int 訂單編號orderId { get; set; }
+        public DateTime 訂單時間orderTime { get; set; }
+        public int 場次編號screeningId { get; set; }
+        public int 訂單狀態編號orderStatusId { get; set; }
     }
 }

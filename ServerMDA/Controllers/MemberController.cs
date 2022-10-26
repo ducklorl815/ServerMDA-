@@ -43,6 +43,7 @@ namespace ServerMDA.Controllers
                 (p => new CMemberViewModel
                 {
                     member = p,
+
                     性別名稱genderName = p.性別genderNavigation.性別名稱genderName,
                     權限名稱permissionName = p.會員權限permissionNavigation.權限名稱permissionName,
 
@@ -104,6 +105,19 @@ namespace ServerMDA.Controllers
             db.會員members.Add(p);
             db.SaveChanges();
             return RedirectToAction("List");
+        }
+        public ActionResult Details(int? id)
+        {
+            MDAContext db = new MDAContext();
+            CMemberViewModel datas = null;
+            datas = db.會員members.Where(p => p.會員編號memberId == id).Select
+                (p => new CMemberViewModel
+                {
+                    member = p,
+                    性別名稱genderName = p.性別genderNavigation.性別名稱genderName,
+                    權限名稱permissionName = p.會員權限permissionNavigation.權限名稱permissionName,
+                }).FirstOrDefault();
+            return View(datas);
         }
     }
 }
