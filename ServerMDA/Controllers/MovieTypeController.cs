@@ -28,7 +28,7 @@ namespace ServerMDA.Controllers
             (p => new CMovieTypeViewModel
             {
                 movieType = p,
-                次片種名稱typeName=p.片種編號type.次片種名稱typeName,
+                片種名稱totalTypeName=p.片種編號type.片種名稱totalTypeName,
                 中文標題titleCht = p.電影編號movie.中文標題titleCht,
             }).ToList();
 

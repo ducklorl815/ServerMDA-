@@ -126,7 +126,7 @@ namespace ServerMDA.Controllers
             var actorlist = db.電影主演casts.Where(p => p.電影編號movieId == id).Select
             (p => new CMovieViewModel
             {
-                中文名字nameCht =p.演員編號actor.中文名字nameCht,
+                中文名字nameCht =p.演員編號actor.演員中文名字nameCht,
             }).ToList();
 
             return Json(actorlist);

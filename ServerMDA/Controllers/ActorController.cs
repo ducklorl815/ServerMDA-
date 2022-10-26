@@ -27,7 +27,7 @@ namespace ServerMDA.Controllers
                 datas = from p in db.演員總表actors
                         select p;
             else
-                datas = db.演員總表actors.Where(p => p.中文名字nameCht.Contains(model.txtkeyword) || p.英文名字nameEng.ToLower().Contains(model.txtkeyword.ToLower()));
+                datas = db.演員總表actors.Where(p => p.演員中文名字nameCht.Contains(model.txtkeyword) || p.演員英文名字nameEng.ToLower().Contains(model.txtkeyword.ToLower()));
 
             return View(datas);
         }
@@ -56,8 +56,8 @@ namespace ServerMDA.Controllers
                     string path = _enviro.WebRootPath + "/images/Actor/" + pName;
                     inActor.photo.CopyTo(new FileStream(path, FileMode.Create));
                 }
-                c.中文名字nameCht = inActor.中文名字nameCht;
-                c.英文名字nameEng = inActor.英文名字nameEng;
+                c.演員中文名字nameCht = inActor.中文名字nameCht;
+                c.演員英文名字nameEng = inActor.英文名字nameEng;
                 db.SaveChanges();
             }
             return RedirectToAction("List");
@@ -96,7 +96,7 @@ namespace ServerMDA.Controllers
         public IActionResult keywordActors(string keyword)
         {
             MDAContext db = new MDAContext();
-            var q = db.演員總表actors.Where(p => p.中文名字nameCht.Contains(keyword) || p.英文名字nameEng.ToLower().Contains(keyword.ToLower())).Select(p => p.演員編號actorsId + p.中文名字nameCht + p.英文名字nameEng);
+            var q = db.演員總表actors.Where(p => p.演員中文名字nameCht.Contains(keyword) || p.演員英文名字nameEng.ToLower().Contains(keyword.ToLower())).Select(p => p.演員編號actorsId + p.演員中文名字nameCht + p.演員英文名字nameEng);
             return Json(q);
         }
     }

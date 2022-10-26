@@ -26,7 +26,7 @@ namespace ServerMDA.Controllers
                 datas = from p in db.導演總表directors
                         select p;
             else
-                datas = db.導演總表directors.Where(p => p.中文名字nameCht.Contains(model.txtkeyword) || p.英文名字nameEng.ToLower().Contains(model.txtkeyword.ToLower()));
+                datas = db.導演總表directors.Where(p => p.導演中文名字nameCht.Contains(model.txtkeyword) || p.導演英文名字nameEng.ToLower().Contains(model.txtkeyword.ToLower()));
 
             return View(datas);
         }
@@ -55,8 +55,8 @@ namespace ServerMDA.Controllers
                     string path = _enviro.WebRootPath + "/images/Director/" + pName;
                     inDir.photo.CopyTo(new FileStream(path, FileMode.Create));
                 }
-                c.中文名字nameCht = inDir.中文名字nameCht;
-                c.英文名字nameEng = inDir.英文名字nameEng;
+                c.導演中文名字nameCht = inDir.中文名字nameCht;
+                c.導演英文名字nameEng = inDir.英文名字nameEng;
                 db.SaveChanges();
             }
             return RedirectToAction("List");

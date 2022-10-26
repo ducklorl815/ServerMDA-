@@ -51,7 +51,7 @@ namespace ServerMDA.ViewModel
             set { _movie.上映年份releaseYear = value; }
         }
         [DisplayName("上映日期")]
-        public string 上映日期releaseDate
+        public DateTime? 上映日期releaseDate
         {
             get { return _movie.上映日期releaseDate; }
             set { _movie.上映日期releaseDate = value; }
@@ -63,7 +63,7 @@ namespace ServerMDA.ViewModel
             set { _movie.片長runtime = value; }
         }
         [DisplayName("電影分級")]
-        public int 電影分級編號ratingId
+        public int? 電影分級編號ratingId
         {
             get { return _movie.電影分級編號ratingId; }
             set { _movie.電影分級編號ratingId = value; }
@@ -143,6 +143,11 @@ namespace ServerMDA.ViewModel
 
         [DisplayName("分級圖片")]
         public byte[] 分級圖片ratingImage{ get; set; }
+
+        //=======================================================
+        public int 電影圖片編號miId { get; set; }
+        //public int 電影編號movieId { get; set; }
+        public int 圖片編號imageId { get; set; }
 
         //OPTION
         public List<string> listrating { get; set; }

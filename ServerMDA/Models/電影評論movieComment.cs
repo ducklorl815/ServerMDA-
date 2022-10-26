@@ -29,6 +29,7 @@ namespace ServerMDA.Models
         public int 屏蔽invisible { get; set; }
 
         public virtual 公開等級編號publicId 公開等級編號public { get; set; }
+        public virtual 會員member 會員編號member { get; set; }
         public virtual 電影movie 電影編號movie { get; set; }
         public virtual ICollection<回覆樓數floor> 回覆樓數floors { get; set; }
         public virtual ICollection<標籤明細hashtagsList> 標籤明細hashtagsLists { get; set; }

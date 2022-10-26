@@ -35,15 +35,17 @@ namespace ServerMDA.ViewModel
             get { return _movieType.片種編號typeId; }
             set { _movieType.片種編號typeId = value; }
         }
-        //次片種總表type
+        //public virtual 片種總表totalType 片種編號type { get; set; }
         public int 片種編號totalTypeId { get; set; }
-        public int 次片種編號typeId { get; set; }
-        public string 次片種名稱typeName { get; set; }
+        public string 片種名稱totalTypeName { get; set; }
 
         //電影movie
         //public int 電影編號movieId { get; set; }
         public string 中文標題titleCht { get; set; }
         public string 英文標題titleEng { get; set; }
+
+        public virtual 片種總表totalType 片種編號type { get; set; }
+        public virtual 電影movie 電影編號movie { get; set; }
 
     }
 }

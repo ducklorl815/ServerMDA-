@@ -30,14 +30,14 @@ namespace ServerMDA.ViewModel
         [DisplayName("中文名")]
         public string 中文名字nameCht
         {
-            get { return _actor.中文名字nameCht; }
-            set { _actor.中文名字nameCht = value; }
+            get { return _actor.演員中文名字nameCht; }
+            set { _actor.演員中文名字nameCht = value; }
         }
         [DisplayName("英文名")]
         public string 英文名字nameEng
         {
-            get { return _actor.英文名字nameEng; }
-            set { _actor.英文名字nameEng = value; }
+            get { return _actor.演員英文名字nameEng; }
+            set { _actor.演員英文名字nameEng = value; }
         }
         [DisplayName("照片")]
         public string 演員照片image

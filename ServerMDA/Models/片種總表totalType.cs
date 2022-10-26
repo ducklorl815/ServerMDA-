@@ -9,12 +9,12 @@ namespace ServerMDA.Models
     {
         public 片種總表totalType()
         {
-            次片種總表types = new HashSet<次片種總表type>();
+            電影片種movieTypes = new HashSet<電影片種movieType>();
         }
 
         public int 片種編號totalTypeId { get; set; }
         public string 片種名稱totalTypeName { get; set; }
 
-        public virtual ICollection<次片種總表type> 次片種總表types { get; set; }
+        public virtual ICollection<電影片種movieType> 電影片種movieTypes { get; set; }
     }
 }

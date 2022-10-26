@@ -13,6 +13,7 @@ namespace ServerMDA.Models
             我的片單myMovieLists = new HashSet<我的片單myMovieList>();
             我的追蹤清單myFollowLists = new HashSet<我的追蹤清單myFollowList>();
             訂單總表orders = new HashSet<訂單總表order>();
+            電影評論movieComments = new HashSet<電影評論movieComment>();
         }
 
         public int 會員編號memberId { get; set; }
@@ -37,5 +38,6 @@ namespace ServerMDA.Models
         public virtual ICollection<我的片單myMovieList> 我的片單myMovieLists { get; set; }
         public virtual ICollection<我的追蹤清單myFollowList> 我的追蹤清單myFollowLists { get; set; }
         public virtual ICollection<訂單總表order> 訂單總表orders { get; set; }
+        public virtual ICollection<電影評論movieComment> 電影評論movieComments { get; set; }
     }
 }

@@ -18,10 +18,10 @@
                     @Html.DisplayNameFor(model => model.演員照片image)
                 </th>
                 <th class="col-2">
-                    @Html.DisplayNameFor(model => model.中文名字nameCht)
+                    @Html.DisplayNameFor(model => model.演員中文名字nameCht)
                 </th>
                 <th class="col-7">
-                    @Html.DisplayNameFor(model => model.英文名字nameEng)
+                    @Html.DisplayNameFor(model => model.演員英文名字nameEng)
                 </th>
                 <th class="col-1">
 
@@ -38,10 +38,10 @@
                         </div>
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.中文名字nameCht)
+                        @Html.DisplayFor(modelItem => item.演員中文名字nameCht)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.英文名字nameEng)
+                        @Html.DisplayFor(modelItem => item.演員英文名字nameEng)
                     </td>
                     <td>
                         <a class="btn btn-info mb-1" id="btn" onclick="showmodal('@Url.Action("Edit","Actor",new {id=@item.演員編號actorsId},Context.Request.Scheme)',null)">修改</a>
