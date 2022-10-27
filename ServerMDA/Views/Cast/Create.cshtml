@@ -26,9 +26,8 @@
 
 
                     <div class="form-group">
-                        <label asp-for="演員編號actorId" class="form-label"></label>
-                        <input type="text" class="form-control" list="appNamelist"/>
-                        <datalist asp-for="演員編號actorId" name="中文名字nameCht" id="appNamelist" asp-items="ViewBag.演員編號actorId">
+                        <label asp-for="演員編號actorId" class="control-label"></label>
+                        <select asp-for="演員編號actorId" name="演員中文名字nameCht" class="form-control" asp-items="ViewBag.演員編號actorId">
                             <option selected>@Model.演員中文名字nameCht</option>
                             @{
                                 var g = @Model.演員中文名字nameCht;
@@ -41,7 +40,7 @@
                                     }
                                 }
                             }
-                        </datalist>
+                        </select>
                     </div>
 
                     <div class="form-group">

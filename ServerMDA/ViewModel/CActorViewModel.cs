@@ -19,7 +19,6 @@ namespace ServerMDA.ViewModel
         public CActorViewModel()
         {
             _actor = new 演員總表actor();  //每做一個就建一個
-            _cast = new 電影主演cast();
         }
         [DisplayName("演員編號")]
         public int 演員編號actorsId
@@ -49,38 +48,21 @@ namespace ServerMDA.ViewModel
         public IFormFile photo { get; set; }
 
         //=======================================================
-        private 電影主演cast _cast;
-        public 電影主演cast cast
-        {
-            get { return _cast; }
-            set { _cast = value; }
-        }
+
+        public 電影主演cast cast { get; set; }
 
         [DisplayName("主演編號")]
-        public int 主演編號maId
-        {
-            get { return _cast.主演編號maId; }
-            set { _cast.主演編號maId = value; }
-        }
+        public int 主演編號maId { get; set; }
 
         [DisplayName("演員編號")]
-        public int 演員編號actorId
-        {
-            get { return _cast.演員編號actorId; }
-            set { _cast.演員編號actorId = value; }
-        }
+        public int 演員編號actorId { get; set; }
+
         [DisplayName("角色名字")]
-        public string 角色名字characterName
-        {
-            get { return _cast.角色名字characterName; }
-            set { _cast.角色名字characterName = value; }
-        }
+        public string 角色名字characterName { get; set; }
+
         [DisplayName("角色說明")]
-        public string 角色說明characterIllustrate
-        {
-            get { return _cast.角色說明characterIllustrate; }
-            set { _cast.角色說明characterIllustrate = value; }
-        }
+        public string 角色說明characterIllustrate { get; set; }
+
 
         //=======================================================
     }
