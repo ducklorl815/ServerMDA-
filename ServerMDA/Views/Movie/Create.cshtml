@@ -1,4 +1,5 @@
-﻿@model ServerMDA.ViewModel.CMovieViewModel
+﻿@using ServerMDA.ViewModel
+@model CMovieViewModel
 
 @{
     ViewData["Title"] = "新增";
@@ -6,98 +7,100 @@
 }
 
 
-@*<div class="nav-item col-md-5 offset-md-1 mb-2">
-        <input type="button" value="新增演員" id="insertActor" class="btn btn-primary mr-2" data-toggle="modal" data-target="#exampleModal" />
-    </div>*@
+<link href="~/css/bootstrap.min.css" rel="stylesheet" />
+<link href="~/css/datatables/jquery.dataTables.css" rel="stylesheet" />
+<link href="~/css/sb-admin-2.css" rel="stylesheet">
+<link href="~/css/site.css" rel="stylesheet" />
 
 <h4 class="offset-md-1">新增電影</h4>
+
 <div class="row">
-    <div class="col-md-4 offset-md-1">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="系列編號seriesId" class="control-label"></label>
-                <select asp-for="系列編號seriesId" name="系列名稱seriesName" class="form-control" asp-items="ViewBag.系列編號seriesId" id="selectDemoName">
-                    @{
-                        var g = @Model.系列名稱seriesName;
-                        foreach (var i in Model.listseries)
-                        {
-                            @if (i != g)
-                            {
-                                <option>@i</option>
-
+    <form asp-action="Create">
+        <div class="col-md-12">
+            <div class="d-flex flex-row">
+                <div class="col-6">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="系列編號seriesId" class="control-label"></label>
+                        <select asp-for="系列編號seriesId" name="系列名稱seriesName" class="form-control" asp-items="ViewBag.系列編號seriesId" id="selectDemoName">
+                            @{
+                                var g = @Model.系列名稱seriesName;
+                                foreach (var i in Model.listseries)
+                                {
+                                    @if (i != g)
+                                    {
+                                        <option>@i</option>
+                                    }
+                                }
                             }
-                        }
-                    }
-                </select>
-                </select>
-            </div>
-            <div class="form-group">
-                <label asp-for="中文標題titleCht" class="control-label"></label>
-                <input asp-for="中文標題titleCht" value="" class="form-control" id="titleCh" />
-                <span asp-validation-for="中文標題titleCht" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="英文標題titleEng" class="control-label"></label>
-                <input asp-for="英文標題titleEng" value="" class="form-control" id="titleEn" />
-                <span asp-validation-for="英文標題titleEng" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="上映年份releaseYear" class="control-label"></label>
-                <input asp-for="上映年份releaseYear" value="" class="form-control" id="year" />
-                <span asp-validation-for="上映年份releaseYear" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="上映日期releaseDate" class="control-label"></label>
-                <input asp-for="上映日期releaseDate" value="" class="form-control" id="date" />
-                <span asp-validation-for="上映日期releaseDate" class="text-danger"></span>
-            </div>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="中文標題titleCht" class="control-label"></label>
+                        <input asp-for="中文標題titleCht" value="" class="form-control" id="titleCh" />
+                        <span asp-validation-for="中文標題titleCht" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="英文標題titleEng" class="control-label"></label>
+                        <input asp-for="英文標題titleEng" value="" class="form-control" id="titleEn" />
+                        <span asp-validation-for="英文標題titleEng" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="上映年份releaseYear" class="control-label"></label>
+                        <input asp-for="上映年份releaseYear" value="" class="form-control" id="year" />
+                        <span asp-validation-for="上映年份releaseYear" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="上映日期releaseDate" class="control-label"></label>
+                        <input asp-for="上映日期releaseDate" value="" class="form-control" id="date" />
+                        <span asp-validation-for="上映日期releaseDate" class="text-danger"></span>
+                    </div>
 
-            <div class="form-group">
-                <label asp-for="片長runtime" class="control-label"></label>
-                <input asp-for="片長runtime" value="" class="form-control" id="runtime" />
-                <span asp-validation-for="片長runtime" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" aria-label="Close">回到清單</button>
-                <button type="button" class="btn btn-secondary" aria-label="Close" id="demo">Demo</button>
-                @*<a asp-action="List" class="btn btn-secondary">回到清單</a>*@
-            </div>
-        </form>
-    </div>
-    @*//右邊================================================*@
-    <div class="col-md-6">
-        <form asp-action="Create">
-            <div class="form-group">
-                <label asp-for="電影分級編號ratingId" class="control-label"></label>
-                <select asp-for="電影分級編號ratingId" name="分級級數ratingLevel" class="form-control" asp-items="ViewBag.分級級數ratingLevel" id="selectRating"></select>
-            </div>
-            <div class="form-group">
-                <label asp-for="評分rate" class="control-label"></label>
-                <input id="rate" asp-for="評分rate" value="" class="form-control" />
-                <span asp-validation-for="評分rate" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="期待度anticipation" class="control-label"></label>
-                <input asp-for="期待度anticipation" value="" class="form-control" id="anti" />
-                <span asp-validation-for="期待度anticipation" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="票房boxOffice" class="control-label"></label>
-                <input asp-for="票房boxOffice" value="" class="form-control" id="box" />
-                <span asp-validation-for="票房boxOffice" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="劇情大綱plot" class="control-label"></label>
-                <textarea rows="5" class="form-control" id="plot"></textarea>
+                    <div class="form-group">
+                        <label asp-for="片長runtime" class="control-label"></label>
+                        <input asp-for="片長runtime" value="" class="form-control" id="runtime" />
+                        <span asp-validation-for="片長runtime" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" aria-label="Close">回到清單</button>
+                        <button type="button" class="btn btn-secondary" aria-label="Close" id="demo">Demo</button>
+                    </div>
 
+                </div>
+                <div class="col-6">
+                    <div class="form-group">
+                        <label asp-for="電影分級編號ratingId" class="control-label"></label>
+                        <select asp-for="電影分級編號ratingId" name="分級級數ratingLevel" class="form-control" asp-items="ViewBag.分級級數ratingLevel" id="selectRating"></select>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="評分rate" class="control-label"></label>
+                        <input id="rate" asp-for="評分rate" value="" class="form-control" />
+                        <span asp-validation-for="評分rate" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="期待度anticipation" class="control-label"></label>
+                        <input asp-for="期待度anticipation" value="" class="form-control" id="anti" />
+                        <span asp-validation-for="期待度anticipation" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="票房boxOffice" class="control-label"></label>
+                        <input asp-for="票房boxOffice" value="" class="form-control" id="box" />
+                        <span asp-validation-for="票房boxOffice" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="劇情大綱plot" class="control-label"></label>
+                        <textarea rows="5" asp-for="劇情大綱plot" class="form-control" id="plot"></textarea>
+                        <span asp-validation-for="劇情大綱plot" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="新增電影" class="btn btn-success mr-2 pr-4 offset-md-8" />
+                    </div>
+                </div>
             </div>
-            <div class="form-group">
-                <input type="submit" value="新增" class="btn btn-success mr-2 pr-4 offset-md-10" />
-            </div>
-        </form>
-    </div>
-    @*//右邊================================================*@
+        </div>
+
+    </form>
+
 </div>
 <!-- Modal -->
 @*<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -192,3 +195,5 @@
 </script>
 
 
+
+<script src="~/js/vendor/datatables/jquery.dataTables.js"></script>

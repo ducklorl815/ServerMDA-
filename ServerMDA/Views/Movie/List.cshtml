@@ -7,26 +7,10 @@
 }
 @section Styles{
     <style>
-            /*#myTable_length label {*//*show位置*/
-                /*margin-left: 200px !important;
-            }
-
-            #MovieList {*//*電影清單位置*/
-                /*position:fixed;
-                z-index: 999;
-            }*/
-/*        #btnClose {
-            right: 400px;
-            position: fixed;
-            z-index: 999
-        }*/
         </style>
 }
 <link href="~/css/bootstrap-5.2.2/bootstrap.min.css" rel="stylesheet" />
-@*<link href="~/css/datatables/MoveDatatableList.css" rel="stylesheet" />*@
-@*<link href="~/css/bootstrap.min.css" rel="stylesheet" />*@
 <link href="~/css/datatables/jquery.dataTables.css" rel="stylesheet" />
-@*<link href="~/css/sb-admin-2.css" rel="stylesheet">*@
 <link href="~/css/site.css" rel="stylesheet" />
 <link href="~/css/bootstrap-5.2.2/YukabtnEdit.css" rel="stylesheet" />
 
@@ -48,8 +32,8 @@
                     @Html.DisplayNameFor(model => model.FirstOrDefault().英文標題titleEng)
                 </th>
                 @*<th class="col-1">
-                    @Html.DisplayNameFor(model => model.FirstOrDefault().上映年份releaseYear)
-                </th>*@
+                        @Html.DisplayNameFor(model => model.FirstOrDefault().上映年份releaseYear)
+                    </th>*@
                 <th class="col-2">
                     @Html.DisplayNameFor(model => model.FirstOrDefault().上映日期releaseDate)
                 </th>
@@ -66,8 +50,8 @@
                     @Html.DisplayNameFor(model => model.FirstOrDefault().票房boxOffice)
                 </th>
                 @*<th class="col-1">
-                    @Html.DisplayNameFor(model => model.FirstOrDefault().劇情大綱plot)
-                </th>*@
+                        @Html.DisplayNameFor(model => model.FirstOrDefault().劇情大綱plot)
+                    </th>*@
                 <th class="col-1">
                     @Html.DisplayNameFor(model => model.FirstOrDefault().系列名稱seriesName)
                 </th>
@@ -94,8 +78,8 @@
                         @Html.DisplayFor(modelItem => item.英文標題titleEng)
                     </td>
                     @*<td class="tables_hidtext">
-                        @Html.DisplayFor(modelItem => item.上映年份releaseYear)
-                    </td>*@
+                            @Html.DisplayFor(modelItem => item.上映年份releaseYear)
+                        </td>*@
                     <td class="tables_hidtext">
                         @Html.DisplayFor(modelItem => item.上映日期releaseDate)
                     </td>
@@ -112,8 +96,8 @@
                         @Html.DisplayFor(modelItem => item.票房boxOffice)
                     </td>
                     @*<td class="tables_hidtext">
-                        @Html.DisplayFor(modelItem => item.劇情大綱plot)
-                    </td>*@
+                            @Html.DisplayFor(modelItem => item.劇情大綱plot)
+                        </td>*@
                     <td class="tables_hidtext">
                         @Html.DisplayFor(modelItem => item.系列名稱seriesName)
                     </td>
@@ -138,7 +122,7 @@
             @*<div class="modal-header">*@
                 @*<span type="button" id="btnClose" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></span>*@
             @*</div>*@
-            <div class="modal-body col-12 ">
+            <div class="modal-body">
 
 
             </div>
@@ -152,7 +136,7 @@
             @*<div class="modal-header">*@
             @*<span type="button" id="btnClose" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></span>*@
             @*</div>*@
-            <div class="modal-body col-12 ">
+            <div class="modal-body">
 
 
             </div>

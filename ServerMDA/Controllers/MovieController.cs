@@ -81,7 +81,7 @@ namespace ServerMDA.Controllers
         }
 
         public ActionResult Create()
-        {
+        {           
             MDAContext db = new MDAContext();
             CMovieViewModel datas = null;
             var rating = db.電影分級movieRatings.Select(p => p.分級級數ratingLevel).ToList();

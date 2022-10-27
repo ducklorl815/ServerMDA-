@@ -47,15 +47,13 @@
                 <span asp-validation-for="電影院照片image" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="新增" class="btn btn-success mr-2" />
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" aria-label="Close">回到清單</button>
             </div>
         </form>
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
