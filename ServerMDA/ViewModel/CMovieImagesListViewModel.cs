@@ -3,6 +3,7 @@ using ServerMDA.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -63,6 +64,7 @@ namespace ServerMDA.ViewModel
         public string 中文標題titleCht { get; set; }
         public string 英文標題titleEng { get; set; }
         public int 上映年份releaseYear { get; set; }
+        [DisplayFormat(DataFormatString = "{0:yyyy/MM/dd}")]
         public string 上映日期releaseDate { get; set; }
         public int? 片長runtime { get; set; }
         public int 電影分級編號ratingId { get; set; }

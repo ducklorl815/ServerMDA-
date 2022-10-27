@@ -7,7 +7,6 @@
 
 <style>
     .Deletebtn {
-
     }
 </style>
 
@@ -21,25 +20,31 @@
     <a asp-action="ProductCreate" class="btn btn-success"><i class="fa-solid fa-sign-hanging"></i>&nbsp;新增產品</a>
 </p>
 <div class="container">
-    <div class="row justify-content-end">
-        <div class="col-3"></div>
-        <div class="col-3">
-            <div class="input-group mb-12">
-                <span class="input-group-text" id="inputGroup-sizing-default">一頁幾筆</span>
-                <input type="text" name="tx" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+    @*action="~/product/ProductList"*@
+    <form name="mypagInfo" method="get" action="~/product/Pag" enctype="text/plain" id="pagInfo">
+        <div class="row justify-content-end">
+            <div class="col-2"></div>
+            <div class="col-4">               
+                <div class="input-group mb-12">
+                    <span>目前筆數:@Model.產品列表.Count&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                    <span class="input-group-text" id="inputGroup-sizing-default">一頁幾筆</span>
+                    <input id="mytx" name="mytx" type="hidden" />
+                    <input id="tx" type="text" name="tx" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                </div>
+            </div>
+            @*<div class="col-auto">
+                <button id="pre" type="submit" class="btn btn-outline-success">上一頁</button>
+
+            </div>*@
+            <div class="col-auto">
+                <button id="next" type="submit" class="btn btn-outline-success">顯示筆數</button>
             </div>
         </div>
-        <div class="col-auto">
-            <button type="button" class="btn btn-outline-success">上一頁</button>
-        </div>
-        <div class="col-auto">
-            <button type="button" class="btn btn-outline-success">下一頁</button>
-        </div>
-    </div>
+    </form>
 
     <div style="display:block;height:40px;"></div>
 
-    <div class="row">
+    <div class="row" id="ttable">
         <div class="col-12">
             <table class="table table-hover">
                 <thead>
@@ -73,12 +78,14 @@
                     @* <p>@Model.產品列表.First().電影院名稱theaterName</p>*@
 
                     @{ int count = 0;
+                       
                         foreach (var item in Model.產品列表)
                         {
                             count++;
                             <tr data="@item.商品編號productId">
                                 <td>
                                     @count
+                                    
                                 </td>
                                 <td>
                                     <img class="w-75" src="~/images/WenProduct/@item.商品圖片路徑imagePath" />
@@ -102,18 +109,18 @@
                                     <a asp-action="ProductEdit" asp-route-id="@item.商品編號productId" class="btn btn-dark "><i class="fa-regular fa-pen-to-square"></i></a>
                                 </td>
                                 <td>
-                                   @* asp-action="ProductDelete" asp-route-id="@item.商品編號productId"*@
+                                    @* asp-action="ProductDelete" asp-route-id="@item.商品編號productId"*@
                                     <a asp-action="ProductDelete" asp-route-id="@item.商品編號productId" class="btn btn-dark Deletebtn text-white" data-toggle="modal" data-target="#myModel"><i class="fa-regular fa-trash-can"></i></a>
                                     @*<input type="hidden" value="@item.商品編號productId" />*@
                                     @* <button class="btn btn-dark" asp-action="ProductDelete" asp-route-id="@item.商品編號productId" data-toggle="modal" data-target="#myModel"><i class="fa-regular fa-trash-can"></i></button>*@
-
+                                    
                                 </td>
-                            </tr>
-                        }
+                            </tr>                           
+                            }
                     }
                 </tbody>
             </table>
-
+         
             <div class="modal fade text-dark" id="myModel" data-backdrop="static">
                 <div class="modal-dialog">
                     <div class="modal-content">
@@ -126,12 +133,8 @@
                         </div>
                         <div class="modal-footer">
                             <button class="btn btn-default" data-dismiss="modal">關閉</button>
-                            <form name="DelInfo" method="post" action="~product/ProductDelete" enctype="text/plain">
-                                <input type="hidden" value="" id="inputdelete" name="testid"/>
-                                <input type="hidden" id="myid" name="inputdelete" />
-                                <button id=" mycurrentId" type="submit" class="btn btn-warning" data-dismiss="modal">移除</button>
-                            </form>
-             
+                            @*<a id=" mycurrentId"><i class="fa-regular fa-trash-can"></i></a>*@
+                            <button id="D" type="submit" class="btn btn-warning" data-dismiss="modal">移除</button>
                         </div>
                     </div>
                 </div>
@@ -143,63 +146,56 @@
 </div>
 <div style="display:block;height:40px;"></div>
 
+<form name="DelInfo" method="get" action="~/product/ProductDelete" enctype="text/plain" id="Deleteform">
+    <input type="hidden" id="inputdelete" name="Inprod" />
+</form>
+
 @section Scripts
 {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
     <script>
-        let deletebtns = document.getElementsByClassName('Deletebtn')
-        let deleteID = document.querySelector('#inputdelete')
-        let id = document.querySelector('#myid')
-        const divMessage = document.querySelector("#div1")
-        let btn = document.querySelector('#mycurrentId')
+        let deletebtns = document.getElementsByClassName('Deletebtn')//自動長出的刪除鍵
+        let deleteID = document.querySelector('#inputdelete')//隱藏欄位，放要刪除的產品id號碼
+        let D = document.querySelector('#D')//出現要刪除的方塊，「移除」的按鈕
+        let inputdelete = document.querySelector('#inputdelete')//隱藏欄位，放要刪除的產品id號碼,設定value
 
+        let pre = document.getElementById("pre")
+        let next = document.getElementById("next")
+        let tx = document.getElementById("tx")
+        let mytx = document.getElementById("mytx")
+        //let ttable = $("#ttable");
+
+        next.addEventListener("click", evt => {
+            evt.preventDefault()
+            console.log('click')
+            mytx.value = tx.value
+            //mytx.setAttribute('value', mytx);
+            console.log(mytx)
+            $('#pagInfo').submit();
+            
+            @*var url = "@Url.Content("~/product/pag")"
+            var n = `?n=${parseInt(tx.value)}`
+            ttable.empty();
+            ttable.load(url + n)*@
+        })
+
+        //delete-----------------------
         for (let item of deletebtns) {
-            item.addEventListener('click', function () {
-                //console.log('click')
-                console.log($(event.currentTarget).parents('tr')[0].getAttribute('data'))
-                deleteID.value = $(event.currentTarget).parents('tr')[0].getAttribute('data')
-                id = $(event.currentTarget).parents('tr')[0].getAttribute('data')
+            item.addEventListener('click', evt => {
+                evt.preventDefault();
+
+                deleteID = $(event.currentTarget).parents('tr')[0].getAttribute('data');
+                inputdelete.setAttribute('value', deleteID);
+                D.addEventListener('click', evt => {
+                    $('#Deleteform').submit();//form 的id
+
+                })
+
+
             })
+
         }
-        //btn.addEventListener('click', function () {
-        //    console.log(click)
-        //})
-
-        //btn.addEventListener("click", evt => {
-        //    evt.preventDefault() //預設行為停止掉
-        //    console.log(click)
-        //    const formData = new FormData(document.DelInfo);//將userInfo表單中的資料放到formData變數中
-
-        //    //Fetch 將資料送到Server端
-        //    //fetch(document.userInfo.action, {
-        //    //    method: "POST",
-        //    //    body: formData
-        //    //}).then(response => response.text())
-        //    //    .then(data => divMessage.textContent = data)
-        //})
-
-        //let deletebtns = document.getElementsByClassName('.Deletebtn')
-        //let deleteID = document.querySelector('#inputdelete')
-        ////let finaldelBtn = document.querySelector('#mycurrentId"')
-        ////let inputdelete
-
-        //for (let item of deletebtns) {
-        //    item.addEventListener('click', async function () {
-        //        console.log('click')
-        //        console.log($(event.currentTarget).parents('tr')[0].getAttribute('data'))
-        //        deleteID.value = $(event.currentTarget).parents('tr')[0].getAttribute('data')
-        //        //inputdelete= deleteID.value
-
-
-        //    })
-        //}
-         //finaldelBtn.addEventListener("click", evt => {
-                    //evt.preventDefault()
-             //let response = await fetch("@*@Url.Content("~/product/ProductDelete")*@" + `?inputdelete=${inputdelete}`)
-                    //let datas = await response.json()
-                    //console.log(datas)
-                //})
-
-     
 
     </script>
 }
+

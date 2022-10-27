@@ -3,6 +3,7 @@ using ServerMDA.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -57,6 +58,8 @@ namespace ServerMDA.ViewModel
             set { _member.暱稱nickName = value; }
         }
         [DisplayName("生日")]
+        [DisplayFormat(DataFormatString = "{0:yyyy/MM/dd}")]
+
         public DateTime? 生日birthDate
         {
             get { return _member.生日birthDate; }
@@ -105,6 +108,8 @@ namespace ServerMDA.ViewModel
             set { _member.會員照片image = value; }
         }
         [DisplayName("建立時間")]
+        [DisplayFormat(DataFormatString = "{0:yyyy/MM/dd}")]
+
         public DateTime 建立時間createdTime
         {
             get { return _member.建立時間createdTime; }

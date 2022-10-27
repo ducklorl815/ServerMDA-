@@ -44,7 +44,7 @@
                 <th>
                     @Html.DisplayNameFor(model => model.FirstOrDefault().是否開放討論串oxFloor)
                 </th>
-                <th>
+                <th class="col-2">
                     指令
                 </th>
             </tr>
@@ -81,7 +81,7 @@
                     @Html.DisplayFor(modelItem => item.是否開放討論串oxFloor)
                 </td>
                 <td>
-                    <a class="btn btn-yuka " id="btn" onclick="showmodal('@Url.Action("Edit","Comment",new {id=@item.電影編號movieId},Context.Request.Scheme)',null)">修改</a>
+                    <a class="btn btn-yuka" id="btn" onclick="showmodal('@Url.Action("Edit","Comment",new {id=@item.電影編號movieId},Context.Request.Scheme)',null)">修改</a>
                     <a class="btn btn-info " id="btn" onclick="showmodal('@Url.Action("Details","Comment",new {id=@item.電影編號movieId},Context.Request.Scheme)',null)">細節</a>
                 </td>
             </tr>

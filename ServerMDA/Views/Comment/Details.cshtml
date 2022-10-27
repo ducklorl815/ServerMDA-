@@ -1,0 +1,93 @@
+﻿@using ServerMDA.ViewModel
+@model CCommentViewModel
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = null;
+}
+
+<link href="~/css/bootstrap-5.2.2/bootstrap.min.css" rel="stylesheet" />
+<link href="~/css/site.css" rel="stylesheet" />
+<link href="~/css/bootstrap-5.2.2/YukabtnEdit.css" rel="stylesheet" />
+
+<div>
+    <h5>會員編號: <@Model.會員編號memberId> @Model.姓氏lName@Model.名字fName 對於 <@Model.中文標題titleCht> 的電影評論</h5>
+    <dl class="row">
+        <dt class="col-sm-4">
+            @Html.DisplayNameFor(model => model.評分rate)
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.評分rate)
+        </dd>
+        <dt class="col-sm-4">
+            @Html.DisplayNameFor(model => model.期待度anticipation)
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.期待度anticipation)
+        </dd>
+        <dt class="col-sm-4">
+            @Html.DisplayNameFor(model => model.評論標題commentTitle)
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.評論標題commentTitle)
+        </dd>
+        <dt class="col-sm-4">
+            @Html.DisplayNameFor(model => model.評論內容comments)
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.評論內容comments)
+        </dd>
+        <dt class="col-sm-4">
+            @Html.DisplayNameFor(model => model.發佈時間commentTime)
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.發佈時間commentTime)
+        </dd>
+        <dt class="col-sm-4">
+            @Html.DisplayNameFor(model => model.觀影日期viewingTime)
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.觀影日期viewingTime)
+        </dd>
+        <dt class="col-sm-4">
+            @Html.DisplayNameFor(model => model.觀影方式source)
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.觀影方式source)
+        </dd>
+        <dt class="col-sm-4">
+            @Html.DisplayNameFor(model => model.是否開放討論串oxFloor)
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.是否開放討論串oxFloor)
+        </dd>
+        <dt class="col-sm-4">
+            @Html.DisplayNameFor(model => model.屏蔽invisible)
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.屏蔽invisible)
+        </dd>
+        <dt class="col-sm-4">
+            @Html.DisplayNameFor(model => model.公開等級public)
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.公開等級public)
+        </dd>
+        <dt class="col-sm-4">
+            @Html.DisplayNameFor(model => model.會員編號memberId)
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.會員電話cellphone)
+        </dd>
+        <dt class="col-sm-4">
+            @Html.DisplayNameFor(model => model.中文標題titleCht)
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.中文標題titleCht)
+        </dd>
+    </dl>
+</div>
+<div>
+    <button type="button" class="btn btn-secondary mb-1" data-bs-dismiss="modal" aria-label="Close">回到清單</button>
+    <a class="btn btn-yuka mb-1" input="color" id="btn" onclick="showmodal('@Url.Action("Edit","Comment",new {id=Model.電影編號movieId},Context.Request.Scheme)',null)">修改評論內容</a>
+</div>

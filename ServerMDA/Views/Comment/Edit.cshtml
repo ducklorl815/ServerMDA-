@@ -1,4 +1,5 @@
-﻿@model ServerMDA.Models.電影評論movieComment
+﻿@using ServerMDA.ViewModel
+@model CCommentViewModel
 
 @{
     ViewData["Title"] = "修改";
@@ -21,7 +22,9 @@
                     </div>
                     <div class="form-group">
                         <label asp-for="電影編號movieId" class="control-label"></label>
-                        <select asp-for="電影編號movieId" class="form-control" asp-items="ViewBag.電影編號movieId"></select>
+                        <select asp-for="電影編號movieId"  name="中文標題titleCht" class="form-control" asp-items="ViewBag.電影編號movieId">
+                            <option selected>@Model.中文標題titleCht</option>
+                        </select>
                         <span asp-validation-for="電影編號movieId" class="text-danger"></span>
                     </div>
                     <div class="d-flex flex-row">
@@ -43,7 +46,9 @@
                     </div>
                     <div class="form-group">
                         <label asp-for="公開等級編號publicId" class="control-label"></label>
-                        <select asp-for="公開等級編號publicId" class="form-control" asp-items="ViewBag.公開等級編號publicId"></select>
+                        <select asp-for="公開等級編號publicId" name="公開等級public" class="form-control" asp-items="ViewBag.公開等級編號publicId">
+                            <option selected>@Model.公開等級public</option>
+                        </select>
                         <span asp-validation-for="公開等級編號publicId" class="text-danger"></span>
                     </div>
                     <div class="d-flex flex-row">
@@ -86,7 +91,7 @@
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" aria-label="Close">回到清單</button>
                     </div>
                 </div>
-                </div>
+            </div>
         </form>
     </div>
 </div>

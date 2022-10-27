@@ -1,68 +1,82 @@
-﻿@model ServerMDA.Models.電影院theater
+﻿@using ServerMDA.ViewModel
+@model CTheaterViewModel
 
 @{
     ViewData["Title"] = "修改";
+    Layout = null;
 }
 
-<h1>Edit</h1>
+<link href="~/css/bootstrap-5.2.2/bootstrap.min.css" rel="stylesheet" />
+<link href="~/css/bootstrap-5.2.2/YukabtnEdit.css" rel="stylesheet" />
+<link href="~/css/site.css" rel="stylesheet" />
 
-<h4>電影院theater</h4>
-<hr />
+<h4 class="">修改編號 : @Model.電影院編號theaterId 電影院</h4>
 <div class="row">
-    <div class="col-md-4">
+    <div class="">
         <form asp-action="Edit" enctype="multipart/form-data">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="電影院編號theaterId" />
-            <div class="form-group">
-                <label asp-for="電影院名稱theaterName" class="control-label"></label>
-                <input asp-for="電影院名稱theaterName" class="form-control" />
-                <span asp-validation-for="電影院名稱theaterName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="影城編號mainTheaterId" class="control-label"></label>
-                <select asp-for="影城編號mainTheaterId" class="form-control" asp-items="ViewBag.影城編號mainTheaterId"></select>
-                <span asp-validation-for="影城編號mainTheaterId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="營業時間businessHours" class="control-label"></label>
-                <input asp-for="營業時間businessHours" class="form-control" />
-                <span asp-validation-for="營業時間businessHours" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="電話phone" class="control-label"></label>
-                <input asp-for="電話phone" class="form-control" />
-                <span asp-validation-for="電話phone" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="地址address" class="control-label"></label>
-                <input asp-for="地址address" class="form-control" />
-                <span asp-validation-for="地址address" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="官方網站url" class="control-label"></label>
-                <input asp-for="官方網站url" class="form-control" />
-                <span asp-validation-for="官方網站url" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label class="control-label">電影院照片</label>
-                <input type="file" name="photo" />
-            </div>
-            <div class="form-group">
-                <label asp-for="電影院照片image" class="control-label"></label>
-                <input asp-for="電影院照片image" class="form-control" />
-                <span asp-validation-for="電影院照片image" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+            <div class="d-flex flex-row">
+                <div class="col-4">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" asp-for="電影院編號theaterId" />
+                    <div class="form-group">
+                        <label asp-for="電影院名稱theaterName" class="control-label"></label>
+                        <input asp-for="電影院名稱theaterName" class="form-control" />
+                        <span asp-validation-for="電影院名稱theaterName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="影城編號mainTheaterId" class="control-label"></label>
+                        <select asp-for="影城編號mainTheaterId" class="form-control" asp-items="ViewBag.影城編號mainTheaterId">
+                            <option selected>@Model.影城編號mainTheaterId</option>
+                        </select>
+                        <span asp-validation-for="影城編號mainTheaterId" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="營業時間businessHours" class="control-label"></label>
+                        <input asp-for="營業時間businessHours" class="form-control" />
+                        <span asp-validation-for="營業時間businessHours" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="電話phone" class="control-label"></label>
+                        <input asp-for="電話phone" class="form-control" />
+                        <span asp-validation-for="電話phone" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="地址address" class="control-label"></label>
+                        <input asp-for="地址address" class="form-control" />
+                        <span asp-validation-for="地址address" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="官方網站url" class="control-label"></label>
+                        <input asp-for="官方網站url" class="form-control" />
+                        <span asp-validation-for="官方網站url" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="確認修改" class="btn btn-yuka mr-1" />
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" aria-label="Close">回到清單</button>
+                    </div>
+                </div>
+                <div class="col-8">
+                    <div class="form-group">
+                        <label class="control-label ">電影院照片</label>
+                        <br />
+                        <img src="~/images/Theater/@Model.電影院照片image" style="width:300px" />
+                        @*<input asp-for="演員照片image" disabled="disabled" class="form-control" />*@
+                        <span asp-validation-for="電影院照片image" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">電影院照片</label>
+                        <input type="file" name="photo" />
+                    </div>
+                </div>
+
             </div>
         </form>
     </div>
 </div>
 
-<div>
-    <a asp-action="List">回到清單</a>
-</div>
-
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
+
+<script src="~/js/bootstrap-5.2.2/bootstrap.min.js"></script>
+<script src="~/js/bootstrap-5.2.2/bootstrap.bundle.js"></script>

@@ -34,12 +34,12 @@ namespace ServerMDA.Controllers
             get { return _count; }
             set { _count = value; }
         }
-       public IActionResult ProductSearchKeyword()
+        public IActionResult ProductSearchKeyword()
         {
-            return View();   
+            return View();
         }
         public IActionResult testItem()
-        {           
+        {
             var query = from m in _context.電影院theaters
                         from p in m.商品資料products
                         group p by p.電影院編號theater.電影院名稱theaterName into g
@@ -60,37 +60,38 @@ namespace ServerMDA.Controllers
                             p.電影院編號theater.電影院名稱theaterName.Contains(keyword)
                        )
                 .Select(p => new
-                     {
-                        p.電影院編號theater.電影院名稱theaterName,
-                        p.商品名稱productName,
-                        p.商品價格productPrice,
-                        p.商品介紹introduce,
-                        p.類別category,
-                        p.商品圖片路徑imagePath
-                     });
+                {
+                    p.電影院編號theater.電影院名稱theaterName,
+                    p.商品名稱productName,
+                    p.商品價格productPrice,
+                    p.商品介紹introduce,
+                    p.類別category,
+                    p.商品圖片路徑imagePath
+                });
             return Json(product);
         }
-        public IActionResult ProductList()
+        public IActionResult ProductList(CMyListPrd cp)
         {
             //model WenPrj.ViewModel.CMyListPrd
+            if (cp.產品列表 == null)  
+            {
+                cp = new CMyListPrd();
+                cp.產品列表 = (from c in _context.商品資料products
+                           orderby c.商品編號productId descending
+                           select new 產品格式
+                           {
+                               商品編號productId = c.商品編號productId,
+                               商品名稱productName = c.商品名稱productName,
+                               商品價格productPrice = c.商品價格productPrice,
+                               商品圖片路徑imagePath = c.商品圖片路徑imagePath,
+                               商品介紹introduce = c.商品介紹introduce,
+                               類別category = c.類別category,
+                               電影院名稱theaterName = c.電影院編號theater.電影院名稱theaterName
 
-            CMyListPrd cp = new CMyListPrd();
-            cp.產品列表 = (from c in _context.商品資料products
-                       orderby c.商品編號productId descending                      
-                       select new 產品格式
-                       {
-                           商品編號productId=c.商品編號productId,
-                           商品名稱productName = c.商品名稱productName,
-                           商品價格productPrice = c.商品價格productPrice,
-                           商品圖片路徑imagePath = c.商品圖片路徑imagePath,
-                           商品介紹introduce = c.商品介紹introduce,
-                           類別category = c.類別category,
-                           電影院名稱theaterName = c.電影院編號theater.電影院名稱theaterName
-
-                       }).ToList();
-           // var q=cp.產品列表.First();
-            
-           return View(cp);
+                           }).ToList();//.Take(5).ToList();
+                                       // var q=cp.產品列表.First();
+            }
+            return View(cp);
 
             //int tx = 5;
             //count = 1;
@@ -105,14 +106,49 @@ namespace ServerMDA.Controllers
             //var query = from a in cp.產品列表.Take(count * tx).Skip((count - 1) * tx)
             //         select a;
             //dataGridView2.DataSource = q2.ToList();
-           
-           // return View(q);
+
+            // return View(q);
         }
-        public IActionResult ProductDelete(CProd Inprod)
+
+        
+
+        public IActionResult Pag(/*CMyListPrd mytx,*/int mytx)
+        {
+            //int count = 0;
+            //if (Session["COUNT"] != null)
+            //    count = (int)Session["COUNT"];
+            //count++;
+            //Session["COUNT"] = count;q           
+            // count++;
+
+            CMyListPrd cp = new CMyListPrd();            
+            cp.產品列表 = (from c in _context.商品資料products
+                       orderby c.商品編號productId descending
+                       select new 產品格式
+                       {
+                           商品編號productId = c.商品編號productId,
+                           商品名稱productName = c.商品名稱productName,
+                           商品價格productPrice = c.商品價格productPrice,
+                           商品圖片路徑imagePath = c.商品圖片路徑imagePath,
+                           商品介紹introduce = c.商品介紹introduce,
+                           類別category = c.類別category,
+                           電影院名稱theaterName = c.電影院編號theater.電影院名稱theaterName,
+
+
+                       }).Skip(mytx - mytx).Take(mytx).ToList();//.Take(mytx).ToList();
+            cp.產品列表.Count();
+            //var query = from a in _context.商品資料products.Take(count * tx).Skip((count - 1) * tx)
+            //            select a;
+            //return Json(query);
+            //return View(cp);
+            return View("ProductList",cp);
+        }
+      [HttpGet]
+        public IActionResult ProductDelete(int? Inprod)
         {
             if (Inprod != null)
             {
-                商品資料product prod = _context.商品資料products.FirstOrDefault(p => p.商品編號productId == Inprod.inputdelete);
+                商品資料product prod = _context.商品資料products.FirstOrDefault(p => p.商品編號productId == Inprod);
                 if (prod != null)
                 {
                     _context.商品資料products.Remove(prod);

@@ -22,6 +22,7 @@ namespace ServerMDA.Controllers
         }
         private readonly MDAContext _context;
 
+        
         public IActionResult List()
         {
             MDAContext db = new MDAContext();
@@ -29,7 +30,6 @@ namespace ServerMDA.Controllers
             datas = db.電影movies.Select
             (p => new CMovieViewModel
             {
-
                 movie = p,
                 分級圖片ratingImage = p.電影分級編號rating.分級圖片ratingImage,
                 系列名稱seriesName = p.系列編號series.系列名稱seriesName,
@@ -82,7 +82,24 @@ namespace ServerMDA.Controllers
 
         public ActionResult Create()
         {
-            return View();
+            MDAContext db = new MDAContext();
+            CMovieViewModel datas = null;
+            var rating = db.電影分級movieRatings.Select(p => p.分級級數ratingLevel).ToList();
+            var series = db.系列電影movieSeries.Select(p => p.系列名稱seriesName).ToList();
+            datas = db.電影movies.Select
+                (p => new CMovieViewModel
+                {
+                    movie = p,
+                    分級圖片ratingImage = p.電影分級編號rating.分級圖片ratingImage,
+                    分級說明ratingIllustrate = p.電影分級編號rating.分級說明ratingIllustrate,
+                    系列名稱seriesName = p.系列編號series.系列名稱seriesName,
+                    分級級數ratingLevel = p.電影分級編號rating.分級級數ratingLevel,
+                }).FirstOrDefault();
+            datas.listrating = rating;
+            datas.listseries = series;
+            return View(datas);
+
+
         }
         [HttpPost]
         public ActionResult Create(CMovieViewModel p)
@@ -93,6 +110,7 @@ namespace ServerMDA.Controllers
             m.系列編號seriesId = db.系列電影movieSeries.FirstOrDefault(q => q.系列名稱seriesName == p.系列名稱seriesName).系列編號seriesId;
             m.電影分級編號ratingId = db.電影分級movieRatings.FirstOrDefault(q => q.分級級數ratingLevel == p.分級級數ratingLevel).分級編號ratingId;
             db.電影movies.Add(m);
+
             db.SaveChanges();
             return RedirectToAction("List");
         }

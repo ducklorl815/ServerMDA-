@@ -17,36 +17,50 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="系列編號seriesId" class="control-label"></label>
-                <select asp-for="系列編號seriesId" name="系列名稱seriesName" class="form-control" asp-items="ViewBag.系列編號seriesId" id="selectSeriesName"></select>
+                <select asp-for="系列編號seriesId" name="系列名稱seriesName" class="form-control" asp-items="ViewBag.系列編號seriesId" id="selectDemoName">
+                    @{
+                        var g = @Model.系列名稱seriesName;
+                        foreach (var i in Model.listseries)
+                        {
+                            @if (i != g)
+                            {
+                                <option>@i</option>
+
+                            }
+                        }
+                    }
+                </select>
+                </select>
             </div>
             <div class="form-group">
                 <label asp-for="中文標題titleCht" class="control-label"></label>
-                <input asp-for="中文標題titleCht" class="form-control" />
+                <input asp-for="中文標題titleCht" value="" class="form-control" id="titleCh" />
                 <span asp-validation-for="中文標題titleCht" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="英文標題titleEng" class="control-label"></label>
-                <input asp-for="英文標題titleEng" class="form-control" />
+                <input asp-for="英文標題titleEng" value="" class="form-control" id="titleEn" />
                 <span asp-validation-for="英文標題titleEng" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="上映年份releaseYear" class="control-label"></label>
-                <input asp-for="上映年份releaseYear" class="form-control" />
+                <input asp-for="上映年份releaseYear" value="" class="form-control" id="year" />
                 <span asp-validation-for="上映年份releaseYear" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="上映日期releaseDate" class="control-label"></label>
-                <input asp-for="上映日期releaseDate" class="form-control" />
+                <input asp-for="上映日期releaseDate" value="" class="form-control" id="date" />
                 <span asp-validation-for="上映日期releaseDate" class="text-danger"></span>
             </div>
 
             <div class="form-group">
                 <label asp-for="片長runtime" class="control-label"></label>
-                <input asp-for="片長runtime" class="form-control" />
+                <input asp-for="片長runtime" value="" class="form-control" id="runtime" />
                 <span asp-validation-for="片長runtime" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" aria-label="Close">回到清單</button>
+                <button type="button" class="btn btn-secondary" aria-label="Close" id="demo">Demo</button>
                 @*<a asp-action="List" class="btn btn-secondary">回到清單</a>*@
             </div>
         </form>
@@ -60,23 +74,23 @@
             </div>
             <div class="form-group">
                 <label asp-for="評分rate" class="control-label"></label>
-                <input asp-for="評分rate" class="form-control" />
+                <input id="rate" asp-for="評分rate" value="" class="form-control" />
                 <span asp-validation-for="評分rate" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="期待度anticipation" class="control-label"></label>
-                <input asp-for="期待度anticipation" class="form-control" />
+                <input asp-for="期待度anticipation" value="" class="form-control" id="anti" />
                 <span asp-validation-for="期待度anticipation" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="票房boxOffice" class="control-label"></label>
-                <input asp-for="票房boxOffice" class="form-control" />
+                <input asp-for="票房boxOffice" value="" class="form-control" id="box" />
                 <span asp-validation-for="票房boxOffice" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="劇情大綱plot" class="control-label"></label>
-                <textarea rows="5" asp-for="劇情大綱plot" class="form-control"></textarea>
-                <span asp-validation-for="劇情大綱plot" class="text-danger"></span>
+                <textarea rows="5" class="form-control" id="plot"></textarea>
+
             </div>
             <div class="form-group">
                 <input type="submit" value="新增" class="btn btn-success mr-2 pr-4 offset-md-10" />
@@ -114,7 +128,43 @@
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+
 }
+
+<script>
+    const demo = document.querySelector("#demo");
+
+    const selectSeriesName = document.querySelector("#selectDemoName");
+    const titleCh = document.querySelector("#titleCh");
+    const titleEn = document.querySelector("#titleEn");
+    const year = document.querySelector("#year");
+    const date = document.querySelector("#date");
+    const runtime = document.querySelector("#runtime");
+
+    const selectRating = document.querySelector("#selectRating");
+    const rate = document.querySelector("#rate");
+    const anti = document.querySelector("#anti");
+    const box = document.querySelector("#box");
+    const plot = document.querySelector("#plot");
+
+    demo.addEventListener("click", () => {
+        selectSeriesName.selectedIndex = 0;
+        titleCh.value = "媽的多重宇宙";
+        titleEn.value = "Everything Everywhere All at Once";
+        year.value = 2022;
+        date.value = "2022-04-22T10:00";
+        runtime.value = 140;
+
+        selectRating.selectedIndex = 3;
+        rate.value = 4.5;
+        anti.value = 3.5;
+        box.value = 1.007;
+        plot.value = "《媽的多重宇宙》由楊紫瓊主演，故事描述一位移民家庭的中年婦女秀蓮，以洗衣店的收入維持生計，遭逢繁雜稅務、婚姻危機、母女疏離，意外發現自己所處的世界只是萬千與眾宇宙中的其中一環，丈夫突然自稱來自α宇宙，並不是秀蓮認知中那個有些懦弱、成不了大器的男人，並說明宇宙間有一個「極大的惡」的存在，而秀蓮就是她所尋找的「救世主」。而α宇宙的秀蓮，發明了可以讓意識在宇宙間流竄的技術——「宇宙搖」，使秀蓮可以習得不同宇宙的秀蓮技術，其中有武打巨星秀蓮、廚師秀蓮、京劇盲人秀蓮、熱狗手指秀蓮等等，並也得知人生發生的每一個變故，都可能延伸出不同的走向，進而成為另一個宇宙。";
+    })
+
+</script>
+
 <script>
             async function LoadRatings() {
                 let selRating = document.querySelector("#selectRating")
@@ -141,58 +191,4 @@
     LoadseriesName();
 </script>
 
-@*<script>
-    //closed.bs.alert
-            const inputText = document.querySelector("#autoComplete")
-            const txtActor = document.querySelector("#contentActor")
-            const insActor = document.querySelector("#insertActor")
-            const insList = document.querySelector("#ListClick")
-
-            const listData = document.querySelector(".modal-body")
-            listData.style.display = "none";
-            inputText.addEventListener("input", async () => {
-                const keyword = inputText.value
-                listData.style.display = "block";
-
-                /*
-                                <div>
-                    <button type="button" onclick="read(event)" class="btn outline-secondary">${data}</button>
-                    </div>
-                 *
-                 *
-                 *
-                 <div class="form-check">
-      <input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate">
-      <label class="form-check-label" for="flexCheckIndeterminate">${data}</label>
-    </div>
-                 */
-
-                let response = await fetch("@Url.Content("~/Actor/keywordActors")"+`?keyword=${keyword}`) ///A/products?keyword=ca
-                let result = await response.json()
-                let htmDatas = result.map(data => {
-                    return (
-                        `
-                        <div class="form-check">
-                          <input class="form-check-input" type="checkbox" onclick="read(event)" value="" id="flexCheckIndeterminate">
-                          <label class="form-check-label" for="flexCheckIndeterminate">${data}</label>
-                        </div>
-                        `
-                    )
-                })
-                listData.innerHTML = htmDatas.join("")
-            })
-
-            function read(evt) {
-                //inputText.value = evt.target.textContent
-
-                insList.value += evt.target.textContent
-                //listData.style.display = "none"
-            }
-            //insActor.addEventListener('click', () => {
-            //    txtActor.innerHTML = `
-
-
-            //            `
-            //})
-        </script>*@
 

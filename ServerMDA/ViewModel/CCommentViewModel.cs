@@ -101,7 +101,7 @@ namespace ServerMDA.ViewModel
             set { _comment.屏蔽invisible = value; }
         }
 
-        public virtual 公開等級編號publicId 公開等級編號public { get; set; }
+        //public virtual 公開等級編號publicId 公開等級編號public { get; set; }
         //public int 公開等級編號publicId { get; set; }
         [DisplayName("公開等級")]
         public string 公開等級public { get; set; }

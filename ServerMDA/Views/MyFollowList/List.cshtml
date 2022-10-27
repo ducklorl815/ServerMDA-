@@ -73,7 +73,7 @@
                 </td>
                 <td>
                     @*@Html.DisplayFor(modelItem => item.檢舉理由reportReason)*@
-                    <button id="btn" class="border-0 bg-transparent w-100 h-100" onclick="showmodal('@Url.Action("Edit","Member",new {id=@item.連接編號connectId},Context.Request.Scheme)',null)">@Html.DisplayFor(modelItem => item.處理狀態status)</button>
+                    <button id="btn" class="border-0 bg-transparent w-100 h-100" onclick="showmodal('@Url.Action("Edit","Member",new {id=@item.連接編號connectId},Context.Request.Scheme)',null)">@Html.DisplayFor(modelItem => item.檢舉理由reportReason)</button>
                 </td>
                 <td>
                     @*@Html.DisplayFor(modelItem => item.處理狀態status)*@

@@ -38,14 +38,15 @@ namespace ServerMDA.Controllers
         }
         public ActionResult Edit(int? id)
         {
-            if (id != null)
+            MDAContext db = new MDAContext();
+            CTheaterViewModel datas = null;
+            datas = db.電影院theaters.Where(p=>p.電影院編號theaterId==id).Select
+            (p => new CTheaterViewModel
             {
-                MDAContext db = new MDAContext();
-                電影院theater theater = db.電影院theaters.FirstOrDefault(p => p.電影院編號theaterId == id);
-                if (theater != null)
-                    return View(theater);
-            }
-            return RedirectToAction("List");
+              theater = p,
+            }).FirstOrDefault();
+
+            return View(datas);
         }
         [HttpPost]
         public IActionResult Edit(CTheaterViewModel intheater) //post

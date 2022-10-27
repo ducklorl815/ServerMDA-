@@ -71,7 +71,17 @@ namespace ServerMDA.Controllers
 
         public ActionResult Create()
         {
-            return View();
+            MDAContext db = new MDAContext();
+            CMovieImageViewModel datas = null;
+            datas = db.電影圖片總表movieImages.Select
+                (p => new CMovieImageViewModel
+                {
+                    movieImage = p,
+
+                }).FirstOrDefault();
+            datas.listImagetype = imagetype;
+            datas.listinvisible = invisible;
+            return View(datas);
         }
 
         [HttpPost]

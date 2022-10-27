@@ -14,70 +14,87 @@
 <link href="~/css/sb-admin-2.css" rel="stylesheet">
 <link href="~/css/site.css" rel="stylesheet" />
 
-<h3 class="MovieList">電影清單 <a class="btn btn-info mb-1" onclick="showmodal('@Url.Action("Create","movieIimagesList",Context.Request.Scheme)',null)">新增</a></h3>
+<h3>電影清單<a class="btn btn-success mb-1" onclick="showmodal('@Url.Action("Create", "MovieIimagesList", Context.Request.Scheme)',null)">新增</a></h3>
 
-<table id="myTable" class="table table-striped table-hover ">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.FirstOrDefault().電影編號movieId)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.FirstOrDefault().中文標題titleCht)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.FirstOrDefault().電影圖片編號miId)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.FirstOrDefault().圖片image)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.FirstOrDefault().圖片類型imageType)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
+<div>
+    <table id="myTable" class="table tables display compact hover col-12">
+        <thead>
             <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.電影編號movieId)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.中文標題titleCht)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.電影圖片編號miId)
-                </td>
-                <td>
-                    <img src="~/images/MovieImage/@item.圖片image" width="100" />
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.圖片類型imageType)
-                </td>
-                <td>
-                    <a asp-action="Edit" asp-route-id="@item.電影圖片編號miId" class="btn btn-info p-1">修改</a>
-                    @*<a asp-action="Delete" asp-route-id="@item.演員編號actorsId">Delete</a>*@
-                </td>
+                <th>
+                    @Html.DisplayNameFor(model => model.FirstOrDefault().電影編號movieId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FirstOrDefault().中文標題titleCht)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FirstOrDefault().電影圖片編號miId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FirstOrDefault().圖片image)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FirstOrDefault().圖片類型imageType)
+                </th>
+                <th></th>
             </tr>
-        }
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.電影編號movieId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.中文標題titleCht)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.電影圖片編號miId)
+                    </td>
+                    <td>
+                        <img src="~/images/MovieImage/@item.圖片image" width="100" />
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.圖片類型imageType)
+                    </td>
+                    <td>
+                        <a class="btn btn-yuka " id="btn" onclick="showmodal('@Url.Action("Edit","MyFollowList",new {id=@item.電影圖片編號miId},Context.Request.Scheme)',null)">修改</a>
+                        @*<a asp-action="Delete" asp-route-id="@item.演員編號actorsId">Delete</a>*@
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+< <div class="modal fade" id="newstaticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-body col-12 ">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="sortstaticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-body col-12 ">
 
 
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<script src="~/js/bootstrap-5.2.2/bootstrap.bundle.min.js"></script>
 <script src="~/js/vendor/jquery/jquery.min.js"></script>
-
-<script>
-    $(document).ready(function () {
-        $('#myTable').DataTable();
-    });
-</script>
-
+<script src="~/js/vendor/datatables/Datatable_transCht.js"></script>
 <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
 
 
 <script>
+
     showmodal = (url, title) => {
         $.ajax({
             type: "GET",
@@ -86,8 +103,9 @@
                 $("#newstaticBackdrop .modal-body").html(res);
                 $("#newstaticBackdrop .modal-title").html(title);
                 $("#newstaticBackdrop").modal('show');
-            }
+            },
         })
     }
 </script>
+
 <script src="~/js/vendor/datatables/jquery.dataTables.js"></script>

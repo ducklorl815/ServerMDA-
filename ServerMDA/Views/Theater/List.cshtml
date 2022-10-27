@@ -2,44 +2,51 @@
 @model List<CTheaterViewModel>
 
 @{
-    ViewData["Title"] = "List";
+    ViewData["Title"] = "電影評論";
 }
 
-<h1>電影院清單</h1>
+<link href="~/css/bootstrap-5.2.2/bootstrap.min.css" rel="stylesheet" />
+<link href="~/css/datatables/jquery.dataTables.css" rel="stylesheet" />
+<link href="~/css/site.css" rel="stylesheet" />
+<link href="~/css/bootstrap-5.2.2/YukabtnEdit.css" rel="stylesheet" />
 
-<p>
-    <a class="btn btn-primary" asp-action="Create">新增</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                電影院名稱
-            </th>
-            <th>
-                營業時間
-            </th>
-            <th>
-                電話
-            </th>
-            <th>
-                地址
-            </th>
-            <th>
-                官方網站
-            </th>
-            <th>
-                電影院照片
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model[0].影城編號mainTheaterId)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
+<h3 class="MovieList">
+    新增戲院
+    <a class="btn btn-success mb-1" onclick="showmodal('@Url.Action("Create", "Theater", Context.Request.Scheme)',null)">新增</a>
+</h3>
+<div>
+    <table id="myTable" class="table tables display compact hover col-12">
+        <thead>
+            <tr>
+                <th class="col-1">
+                    電影院名稱
+                </th>
+                <th class="col-1">
+                    營業時間
+                </th>
+                <th>
+                    電話
+                </th>
+                <th class="col-2">
+                    地址
+                </th>
+                <th>
+                    官方網站
+                </th>
+                <th class="col-1">
+                    電影院照片
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model[0].影城編號mainTheaterId)
+                </th>
+                <th>
+                    指令
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
             <tr>
                 <td>
                     @Html.DisplayFor(modelItem => item.電影院名稱theaterName)
@@ -50,10 +57,10 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.電話phone)
                 </td>
-                <td>
+                <td class="tables_hidtext">
                     @Html.DisplayFor(modelItem => item.地址address)
                 </td>
-                <td>
+                <td class="tables_hidtext">
                     @Html.DisplayFor(modelItem => item.官方網站url)
                 </td>
                 <td>
@@ -65,18 +72,41 @@
                     @Html.DisplayFor(modelItem => item.影城編號mainTheaterId)
                 </td>
                 <td>
-                    @*<a class="btn btn-yuka" id="btn" asp-action="Edit" asp-route-id="@item.電影院編號theaterId">修改</a>
-
-                        <a class="btn btn-yuka" id="btn" asp-action="Delete" asp-route-id="@item.電影院編號theaterId">刪除</a>*@
-                    @Html.ActionLink("修改", "Edit", "Theater", new { id = item.電影院編號theaterId }, new { @class = "btn btn-success" })
-                    @*@Html.ActionLink("刪除", "刪除資料", "Theater", new { id = item.電影院編號theaterId },
-                        new { onclick = "return confirm('確定要刪除嗎')", @class = "btn btn-danger" })*@
-
+                    <a class="btn btn-yuka" id="btn" onclick="showmodal('@Url.Action("Edit","Theater",new {id=@item.電影院編號theaterId},Context.Request.Scheme)',null)">修改</a>
+                    <a class="btn btn-info " id="btn" onclick="showmodal('@Url.Action("Details","Theater",new {id=@item.電影院編號theaterId},Context.Request.Scheme)',null)">細節</a>
                 </td>
             </tr>
-        }
-    </tbody>
-</table>
+            }
+        </tbody>
+    </table>
+</div>
+
+<div class="modal fade" id="newstaticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-body col-12 ">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="sortstaticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-body col-12 ">
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="~/js/bootstrap-5.2.2/bootstrap.bundle.min.js"></script>
+<script src="~/js/vendor/jquery/jquery.min.js"></script>
+<script src="~/js/vendor/datatables/Datatable_transCht.js"></script>
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
+
+
 <script>
 
     showmodal = (url, title) => {
@@ -91,3 +121,5 @@
         })
     }
 </script>
+
+<script src="~/js/vendor/datatables/jquery.dataTables.js"></script>

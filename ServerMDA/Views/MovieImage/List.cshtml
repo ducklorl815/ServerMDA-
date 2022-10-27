@@ -10,13 +10,16 @@
 @section Styles{
 
 }
-@*<link href="~/css/datatables/MoveDatatableList.css" rel="stylesheet" />*@
-<link href="~/css/bootstrap.min.css" rel="stylesheet" />
-<link href="~/css/datatables/jquery.dataTables.css" rel="stylesheet" />
-<link href="~/css/sb-admin-2.css" rel="stylesheet">
-<link href="~/css/site.css" rel="stylesheet" />
 
-<h3 class="MovieList">電影圖片清單 <a class="btn btn-info mb-1" onclick="showmodal('@Url.Action("Create","MovieImage",Context.Request.Scheme)',null)">新增</a></h3>
+<link href="~/css/bootstrap-5.2.2/bootstrap.min.css" rel="stylesheet" />
+<link href="~/css/datatables/jquery.dataTables.css" rel="stylesheet" />
+<link href="~/css/site.css" rel="stylesheet" />
+<link href="~/css/bootstrap-5.2.2/YukabtnEdit.css" rel="stylesheet" />
+
+<h3 class="MovieList">
+    電影圖片清單
+    <a class="btn btn-success mb-1" onclick="showmodal('@Url.Action("Create", "MovieImage", Context.Request.Scheme)',null)">新增</a>
+</h3>
 <div>
     <table id="myTable" class="table table-striped tables table-hover ">
         <thead>
@@ -63,21 +66,26 @@
                         @Html.DisplayFor(modelItem => item.屏蔽invisible)
                     </td>
                     <td>
-                        <a class="btn btn-info mb-1" id="btn" onclick="showmodal('@Url.Action("Edit","MovieImage",new {id=@item.圖片編號imageId},Context.Request.Scheme)',null)">修改</a>
+                        <a class="btn btn-yuka " id="btn" onclick="showmodal('@Url.Action("Edit","MovieImage",new {id=@item.圖片編號imageId},Context.Request.Scheme)',null)">修改</a>
                     </td>
                 </tr>
             }
         </tbody>
     </table>
 </div>
-<div class="modal fade" id="newstaticBackdrop" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="newstaticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
-            <div class="modal-title">
-
-
+            <div class="modal-body col-12 ">
             </div>
-            <div class="modal-body">
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="sortstaticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-body col-12 ">
 
 
             </div>
@@ -85,14 +93,14 @@
     </div>
 </div>
 
+<script src="~/js/bootstrap-5.2.2/bootstrap.bundle.min.js"></script>
 <script src="~/js/vendor/jquery/jquery.min.js"></script>
+<script src="~/js/vendor/datatables/Datatable_transCht.js"></script>
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
+
 
 <script>
-    $(document).ready(function () {
-        $('#myTable').DataTable();
-    });
-</script>
-<script>
+
     showmodal = (url, title) => {
         $.ajax({
             type: "GET",
@@ -101,7 +109,7 @@
                 $("#newstaticBackdrop .modal-body").html(res);
                 $("#newstaticBackdrop .modal-title").html(title);
                 $("#newstaticBackdrop").modal('show');
-            }
+            },
         })
     }
 </script>

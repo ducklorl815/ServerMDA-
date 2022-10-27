@@ -51,6 +51,7 @@ namespace ServerMDA.ViewModel
             set { _movie.上映年份releaseYear = value; }
         }
         [DisplayName("上映日期")]
+        [DisplayFormat(DataFormatString = "{0:yyyy/MM/dd}")]
         public DateTime? 上映日期releaseDate
         {
             get { return _movie.上映日期releaseDate; }
