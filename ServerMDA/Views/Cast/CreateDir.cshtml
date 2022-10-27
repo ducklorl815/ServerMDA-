@@ -30,7 +30,7 @@
                     <select asp-for="導演編號directorId" class="form-control" asp-items="ViewBag.導演編號directorId">
                         <option ></option>
                         @{
-                            var g = @Model.中文名字nameCht;
+                            var g = @Model.導演中文名字nameCht;
                             foreach (var i in Model.titleNameList)
                             {
                                 @if (i != g)

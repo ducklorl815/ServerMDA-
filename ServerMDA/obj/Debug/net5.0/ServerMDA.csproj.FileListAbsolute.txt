@@ -621,3 +621,4 @@ C:\Users\Student\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\pro
 C:\Users\Student\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\product\ProductSearchKeyword.cshtml.g.cs
 C:\Users\Student\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\Shared\_ChartLayout.cshtml.g.cs
 C:\Users\Student\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\Comment\Details.cshtml.g.cs
+C:\Users\Student\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\ServerMDA.csprojAssemblyReference.cache

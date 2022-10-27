@@ -55,9 +55,9 @@ namespace ServerMDA.ViewModel
         //演員總表actor
         public int 演員編號actorsId { get; set; }
         [DisplayName("中文名")]
-        public string 中文名字nameCht { get; set; }
+        public string 演員中文名字nameCht { get; set; }
         [DisplayName("英文名")]
-        public string 英文名字nameEng { get; set; }
+        public string 演員英文名字nameEng { get; set; }
         [DisplayName("演員照片")]
         public string 演員照片image { get; set; }
 

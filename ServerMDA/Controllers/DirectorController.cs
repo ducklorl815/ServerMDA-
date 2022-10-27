@@ -55,8 +55,8 @@ namespace ServerMDA.Controllers
                     string path = _enviro.WebRootPath + "/images/Director/" + pName;
                     inDir.photo.CopyTo(new FileStream(path, FileMode.Create));
                 }
-                c.導演中文名字nameCht = inDir.中文名字nameCht;
-                c.導演英文名字nameEng = inDir.英文名字nameEng;
+                c.導演中文名字nameCht = inDir.導演中文名字nameCht;
+                c.導演英文名字nameEng = inDir.導演英文名字nameEng;
                 db.SaveChanges();
             }
             return RedirectToAction("List");

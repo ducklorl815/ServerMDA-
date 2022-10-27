@@ -41,8 +41,8 @@ namespace ServerMDA.ViewModel
         //public virtual 導演總表director 導演編號director { get; set; }
 
         //public int 導演編號directorId { get; set; }
-        public string 中文名字nameCht { get; set; } 
-        public string 英文名字nameEng { get; set; } 
+        public string 導演中文名字nameCht { get; set; } 
+        public string 導演英文名字nameEng { get; set; } 
         public string 導演照片image { get; set; }
 
 

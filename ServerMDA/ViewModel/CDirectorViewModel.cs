@@ -27,13 +27,13 @@ namespace ServerMDA.ViewModel
             set { _director.導演編號directorId = value; }
         }
         [DisplayName("中文名")]
-        public string 中文名字nameCht
+        public string 導演中文名字nameCht
         {
             get { return _director.導演中文名字nameCht; }
             set { _director.導演中文名字nameCht = value; }
         }
         [DisplayName("英文名")]
-        public string 英文名字nameEng
+        public string 導演英文名字nameEng
         {
             get { return _director.導演英文名字nameEng; }
             set { _director.導演英文名字nameEng = value; }
