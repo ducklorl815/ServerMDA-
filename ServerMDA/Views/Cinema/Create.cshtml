@@ -11,35 +11,71 @@
 <h4 class="offset-md-1">新增影廳</h4>
 <div class="row">
     <div class="col-md-6 offset-md-1">
-        <form asp-action="Create">
+        <form asp-action="Create" enctype="multipart/form-data">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="影廳名稱cinemaName" class="control-label"></label>
-                <input asp-for="影廳名稱cinemaName" class="form-control" />
+                <input asp-for="影廳名稱cinemaName" value="" class="form-control" />
                 <span asp-validation-for="影廳名稱cinemaName" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="電影院編號theaterId" class="control-label"></label>
-                <select asp-for="電影院編號theaterId" class="form-control" name="電影院名稱theaterName" asp-items="ViewBag.電影院編號theaterId" id="selectSeriesName"></select>
+                <select asp-for="電影院編號theaterId" class="form-control" name="電影院名稱theaterName" asp-items="ViewBag.電影院編號theaterId">
+                    <option></option>
+                    @{
+                        var q = @Model.電影院名稱theaterName;
+                        foreach (var p in Model.ListTheater)
+                        {
+                            @if (p != q)
+                            {
+                                <option>@p</option>
+
+                            }
+                        }
+                    }
+                </select>
             </div>
             <div class="form-group">
                 <label asp-for="廳種名稱cinemaClsName" class="control-label"></label>
-                <input asp-for="廳種名稱cinemaClsName" class="form-control" />
-                <span asp-validation-for="廳種名稱cinemaClsName" class="text-danger"></span>
+                <select class="form-control" name="廳種名稱cinemaClsName" asp-items="ViewBag.廳種名稱cinemaClsName">
+                    <option></option>
+                    @{
+                        var k = @Model.廳種名稱cinemaClsName;
+                        foreach (var j in Model.ListClsName)
+                        {
+                            @if (j != k)
+                            {
+                                <option>@j</option>
+
+                            }
+                        }
+                    }
+                </select>
             </div>
             <div class="form-group">
                 <label asp-for="座位資訊seatInfo" class="control-label"></label>
-                <input asp-for="座位資訊seatInfo" class="form-control" />
-                <span asp-validation-for="座位資訊seatInfo" class="text-danger"></span>
+                <select class="form-control" name="座位資訊seatInfo" asp-items="ViewBag.座位資訊seatInfo">
+                    <option></option>
+                    @{
+                        var m = @Model.座位資訊seatInfo;
+                        foreach (var l in Model.ListSeat)
+                        {
+                            @if (l != m)
+                            {
+                                <option>@l</option>
+
+                            }
+                        }
+                    }
+                </select>
             </div>
             <div class="form-group">
-                <label asp-for="影廳照片image" class="control-label"></label>
-                <input asp-for="影廳照片image" class="form-control" />
-                <span asp-validation-for="影廳照片image" class="text-danger"></span>
+                <label class="control-label">影廳照片</label><br />
+                <input type="file" name="photo" />
             </div>
             <div class="form-group">
-                <input type="submit" value="新增" class="btn btn-primary mr-2" />
-                <a asp-action="List" class="btn btn-secondary">回到清單</a>
+                <input type="submit" value="新增" class="btn btn-success mr-2" />
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" aria-label="Close">回到清單</button>
             </div>
         </form>
     </div>

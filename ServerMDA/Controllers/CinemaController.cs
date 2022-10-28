@@ -14,10 +14,9 @@ namespace ServerMDA.Controllers
     {
         private IWebHostEnvironment _enviro;
 
-        public CinemaController(IWebHostEnvironment p, MDAContext context)
+        public CinemaController(IWebHostEnvironment p)
         {
             _enviro = p;
-            _context = context;
         }
         private readonly MDAContext _context;
 
@@ -81,16 +80,35 @@ namespace ServerMDA.Controllers
         }
         public ActionResult Create()
         {
-            return View();
+            MDAContext db = new MDAContext();
+            CCinemaViewModel datas = null;
+            datas = db.影廳cinemas.Select
+            (p => new CCinemaViewModel
+            {
+               cinema = p,
+               電影院名稱theaterName = p.電影院編號theater.電影院名稱theaterName,
+            }).FirstOrDefault();
+            var clsName = db.影廳cinemas.Select(p => p.廳種名稱cinemaClsName).Distinct().ToList();
+            var theater = db.電影院theaters.Select(p => p.電影院名稱theaterName).ToList();
+            var seat = db.影廳cinemas.Select(p => p.座位資訊seatInfo).ToList();
+            datas.ListTheater = theater;
+            datas.ListClsName = clsName;
+            datas.ListSeat = seat;
+            return View(datas);
         }
         [HttpPost]
-        public ActionResult Create(CCinemaViewModel p)
+        public ActionResult Create(影廳cinema p, CCinemaViewModel inCinema)
         {
             MDAContext db = new MDAContext();
-            影廳cinema m = new 影廳cinema();
-            m = p.cinema;
-            m.電影院編號theaterId = db.電影院theaters.FirstOrDefault(q => q.電影院名稱theaterName == p.電影院名稱theaterName).電影院編號theaterId;
-            db.影廳cinemas.Add(m);
+
+            string pName = Guid.NewGuid().ToString() + ".jpg";
+            string path = _enviro.WebRootPath + "/images/Theater/" + pName;
+            inCinema.photo.CopyTo(new FileStream(path, FileMode.Create));
+
+            p.影廳照片image = pName;
+            p.電影院編號theaterId = db.電影院theaters.FirstOrDefault(q => q.電影院名稱theaterName == inCinema.電影院名稱theaterName).電影院編號theaterId;
+
+            db.影廳cinemas.Add(p);
             db.SaveChanges();
             return RedirectToAction("List");
         }

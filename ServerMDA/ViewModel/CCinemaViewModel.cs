@@ -64,5 +64,6 @@ namespace ServerMDA.ViewModel
 
         public List<string> ListTheater { get; set; }
         public List<string> ListClsName { get; set; }
+        public List<string> ListSeat { get; set; }
     }
 }
