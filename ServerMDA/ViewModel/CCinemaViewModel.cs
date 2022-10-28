@@ -61,5 +61,8 @@ namespace ServerMDA.ViewModel
         public string 地址address { get; set; }
         public string 官方網站url { get; set; }
         public string 電影院照片image { get; set; }
+
+        public List<string> ListTheater { get; set; }
+        public List<string> ListClsName { get; set; }
     }
 }

@@ -1,0 +1,122 @@
+﻿@using ServerMDA.ViewModel
+@model List<CCouponViewModel>
+
+@{
+    ViewData["Title"] = "優惠明細";
+}
+
+<link href="~/css/bootstrap-5.2.2/bootstrap.min.css" rel="stylesheet" />
+<link href="~/css/datatables/jquery.dataTables.css" rel="stylesheet" />
+<link href="~/css/site.css" rel="stylesheet" />
+<link href="~/css/bootstrap-5.2.2/YukabtnEdit.css" rel="stylesheet" />
+
+<h3 class="MovieList">
+    優惠明細
+    <a class="btn btn-success mb-1" onclick="showmodal('@Url.Action("Create", "Coupon", Context.Request.Scheme)',null)">新增</a>
+</h3>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                ID
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().優惠編號couponId)
+            </th>
+            <th>
+                使用於訂單
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().會員編號memberId)
+            </th>
+            <th>
+                姓名
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().會員電話cellphone)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().是否使用優惠oxCouponUsing)
+            </th>
+            <th>
+                指令
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.優惠明細編號couponListId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.優惠代碼couponCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.訂單編號orderId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.會員編號memberId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.姓氏lName)@Html.DisplayFor(modelItem => item.名字fName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.會員電話cellphone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.是否使用優惠oxCouponUsing)
+            </td>
+            <td>
+                <a class="btn btn-yuka" id="btn" onclick="showmodal('@Url.Action("Edit","Coupon",new {id=@item.會員編號memberId},Context.Request.Scheme)',null)">修改</a>
+                <a class="btn btn-info " id="btn" onclick="showmodal('@Url.Action("Details","Coupon",new {id=@item.會員編號memberId},Context.Request.Scheme)',null)">細節</a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
+
+<div class="modal fade" id="newstaticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-body col-12 ">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="sortstaticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-body col-12 ">
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="~/js/bootstrap-5.2.2/bootstrap.bundle.min.js"></script>
+<script src="~/js/vendor/jquery/jquery.min.js"></script>
+<script src="~/js/vendor/datatables/Datatable_transCht.js"></script>
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
+
+
+<script>
+
+    showmodal = (url, title) => {
+        $.ajax({
+            type: "GET",
+            url: url,
+            success: function (res) {
+                $("#newstaticBackdrop .modal-body").html(res);
+                $("#newstaticBackdrop .modal-title").html(title);
+                $("#newstaticBackdrop").modal('show');
+            },
+        })
+    }
+</script>
+
+<script src="~/js/vendor/datatables/jquery.dataTables.js"></script>

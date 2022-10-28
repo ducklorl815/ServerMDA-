@@ -2,85 +2,94 @@
 @model CCinemaViewModel
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "修改";
     Layout = null;
 }
 
+<link href="~/css/bootstrap-5.2.2/bootstrap.min.css" rel="stylesheet" />
+<link href="~/css/bootstrap-5.2.2/YukabtnEdit.css" rel="stylesheet" />
+<link href="~/css/site.css" rel="stylesheet" />
+
 
 <div class="row">
-    <div class="col-md-5 offset-md-1">
-        <h4>修改影廳編號 : @Model.影廳編號cinemaId</h4>
-        <form asp-action="Edit" enctype="multipart/form-data">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="影廳編號cinemaId" />
-            <div class="form-group">
-                <label asp-for="影廳名稱cinemaName" class="control-label"></label>
-                <input asp-for="影廳名稱cinemaName" class="form-control" />
-                <span asp-validation-for="影廳名稱cinemaName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="hidden" id="seriesId" value="@Model.電影院編號theaterId" />
-                <label asp-for="電影院編號theaterId" class="control-label"></label>
-                <select asp-for="電影院編號theaterId" name="電影院名稱theaterName" class="form-control" asp-items="ViewBag.電影院編號theaterId" id="selectSeriesName">
-                    <option selected>@Model.電影院名稱theaterName</option>
-                </select>
-                <span asp-validation-for="電影院編號theaterId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="廳種名稱cinemaClsName" class="control-label"></label>
-                <input asp-for="廳種名稱cinemaClsName" class="form-control" />
-                <span asp-validation-for="廳種名稱cinemaClsName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="座位資訊seatInfo" class="control-label"></label>
-                <textarea rows="3" asp-for="座位資訊seatInfo" class="form-control col-12"></textarea>
-                <span asp-validation-for="座位資訊seatInfo" class="text-danger"></span>
-            </div>
+    <form asp-action="Edit" enctype="multipart/form-data">
+        <div class="d-flex flex-row">
+            <div class="col-md-5">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="影廳編號cinemaId" />
+                <div class="form-group">
+                    <label asp-for="影廳名稱cinemaName" class="control-label"></label>
+                    <input asp-for="影廳名稱cinemaName" class="form-control" />
+                    <span asp-validation-for="影廳名稱cinemaName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="電影院編號theaterId" class="control-label"></label>
+                    <select asp-for="電影院編號theaterId" name="電影院名稱theaterName" class="form-control" asp-items="ViewBag.電影院編號theaterId">
+                        <option selected>@Model.電影院名稱theaterName</option>
+                        @{
+                            var q = @Model.電影院名稱theaterName;
+                            foreach (var p in Model.ListTheater)
+                            {
+                                @if (p != q)
+                                {
+                                    <option>@p</option>
 
-        </form>
-    </div>
+                                }
+                            }
+                        }
+                    </select>
+                    <span asp-validation-for="電影院編號theaterId" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="廳種名稱cinemaClsName" class="control-label"></label>
+                    <select asp-for="廳種名稱cinemaClsName" class="form-control" asp-items="ViewBag.廳種名稱cinemaClsName">
+                        <option selected>@Model.廳種名稱cinemaClsName</option>
+                        @{
+                            var k = @Model.廳種名稱cinemaClsName;
+                            foreach (var j in Model.ListClsName)
+                            {
+                                @if (j != k)
+                                {
+                                    <option>@j</option>
 
-    @*//---------------------------------------*@
-
-    <div class="col-md-5">
-        <form asp-action="Edit" enctype="multipart/form-data">
-            <div class="form-group">
-
-                <label asp-for="影廳照片image" class="control-label"></label>
-                <img src="~/images/Cinema/@Model.影廳照片image" width="500" />
-                <input asp-for="影廳照片image" disabled="disabled" class="form-control" />
-                <span asp-validation-for="影廳照片image" class="text-danger"></span>
+                                }
+                            }
+                        }
+                    </select>
+                    <span asp-validation-for="廳種名稱cinemaClsName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="座位資訊seatInfo" class="control-label"></label>
+                    <input asp-for="座位資訊seatInfo" class="form-control" />
+                    <span asp-validation-for="座位資訊seatInfo" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="確認修改" class="btn btn-yuka mr-1" />
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" aria-label="Close">回到清單</button>
+                </div>
             </div>
-            <div class="form-group" >
-                <label class="control-label">影廳照片</label>
-                <input type="file" name="photo" />
-                <span>
-                    <input type="submit" value="修改" class="btn btn-primary mr-2" />
-                    <a asp-action="List" class="btn btn-secondary">回到清單</a>
-                </span>
-
+            <div class="col-md-6">
+                <h4 class="">修改影廳 編號 : @Model.影廳編號cinemaId</h4>
+                <div class="form-group">
+                    <label asp-for="影廳照片image" class="control-label"></label>
+                    <br />
+                    @*<input asp-for="影廳照片image" class="form-control" />*@
+                    <img src="~/images/Cinema/@Model.影廳照片image" height="267" />
+                    <span asp-validation-for="影廳照片image" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    @*<label class="control-label">影廳照片image</label>*@
+                    <input type="file" name="photo" />
+                </div>
             </div>
-            <div class="form-group ">
-
-            </div>
-        </form>
-    </div>
+        </div>
+    </form>
 </div>
+
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
 
-<script>
-        async function LoadseriesName() {
-                let seriesId = $('#seriesId').val();
-                let selSeries = document.querySelector("#selectSeriesName")
-                let response = await fetch("@Url.Content("~/Cinema/series")" + `?id=${seriesId}`)
-                let datas = await response.json()
-                datas.forEach(seriesname => {
-                const opt = new Option(seriesname, seriesname)
-                selSeries.options.add(opt)
-            })
-    };
-    LoadseriesName()
-</script>
+<script src="~/js/bootstrap-5.2.2/bootstrap.min.js"></script>
+<script src="~/js/bootstrap-5.2.2/bootstrap.bundle.js"></script>

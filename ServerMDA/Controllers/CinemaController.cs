@@ -38,6 +38,10 @@ namespace ServerMDA.Controllers
         {
             MDAContext db = new MDAContext();
             CCinemaViewModel datas = null;
+
+            var theater = db.電影院theaters.Select(p => p.電影院名稱theaterName).ToList();
+            var clsName = db.影廳cinemas.Select(p => p.廳種名稱cinemaClsName).Distinct().ToList();
+
             datas = db.影廳cinemas.Where(p => p.影廳編號cinemaId == id).Select
                 (p => new CCinemaViewModel
                 {
@@ -45,6 +49,8 @@ namespace ServerMDA.Controllers
                     電影院名稱theaterName = p.電影院編號theater.電影院名稱theaterName,
 
                 }).FirstOrDefault();
+            datas.ListTheater = theater;
+            datas.ListClsName = clsName;
             return View(datas);
         }
         [HttpPost]

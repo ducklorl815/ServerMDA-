@@ -1,0 +1,61 @@
+﻿@using ServerMDA.ViewModel
+@model List<COrdersViewModel>
+
+@{
+    ViewData["Title"] = "訂單總表";
+}
+
+<link href="~/css/bootstrap-5.2.2/bootstrap.min.css" rel="stylesheet" />
+<link href="~/css/datatables/jquery.dataTables.css" rel="stylesheet" />
+<link href="~/css/site.css" rel="stylesheet" />
+<link href="~/css/bootstrap-5.2.2/YukabtnEdit.css" rel="stylesheet" />
+
+
+<h3 class="MovieList">
+    訂單總表
+    <a class="btn btn-success mb-1" onclick="showmodal('@Url.Action("Create", "Orders", Context.Request.Scheme)',null)">新增</a>
+</h3>
+<div>
+    <table id="myTable" class="table tables display compact hover col-12">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.FirstOrDefault().訂單時間orderTime)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FirstOrDefault().場次編號screeningId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FirstOrDefault().會員編號memberId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FirstOrDefault().訂單狀態編號orderStatusId)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.訂單時間orderTime)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.放映開始時間playTime)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.會員編號memberId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.訂單狀態編號orderStatusId)
+                    </td>
+                    <td>
+                        <a class="btn btn-yuka" id="btn" onclick="showmodal('@Url.Action("Edit","Orders",new {id=@item.訂單編號orderId},Context.Request.Scheme)',null)">修改</a>
+                        <a class="btn btn-info " id="btn" onclick="showmodal('@Url.Action("Details","Orders",new {id=@item.訂單編號orderId},Context.Request.Scheme)',null)">細節</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
