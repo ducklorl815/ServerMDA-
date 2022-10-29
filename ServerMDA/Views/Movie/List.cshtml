@@ -3,16 +3,13 @@
 
 @{
     ViewData["Title"] = "電影清單";
-
 }
+
 @section Styles{
     <style>
-        </style>
+    </style>
 }
-<link href="~/css/bootstrap-5.2.2/bootstrap.min.css" rel="stylesheet" />
-<link href="~/css/datatables/jquery.dataTables.css" rel="stylesheet" />
-<link href="~/css/site.css" rel="stylesheet" />
-<link href="~/css/bootstrap-5.2.2/YukabtnEdit.css" rel="stylesheet" />
+
 
 <h3 class="MovieList">電影清單 
     <a class="btn btn-success mb-1" onclick="showmodal('@Url.Action("Create", "Movie", Context.Request.Scheme)',null)">新增</a>
@@ -107,7 +104,7 @@
                     </td>
                     <td>
                         <a class="btn btn-yuka " id="btn" onclick="showmodal('@Url.Action("Edit","Movie",new {id=@item.電影編號movieId},Context.Request.Scheme)',null)">修改</a>
-                        <a class="btn btn-info " id="btn" onclick="showmodal('@Url.Action("Details","Movie",new {id=@item.電影編號movieId},Context.Request.Scheme)',null)">細節</a>
+                        <a class="btn btn-details " id="btn" onclick="showmodal('@Url.Action("Details","Movie",new {id=@item.電影編號movieId},Context.Request.Scheme)',null)">細節</a>
                         @*<a asp-action="Edit" asp-route-id="@item.電影編號movieId" class="btn btn-info mb-1" style="white-space:nowrap">修改</a>*@
                     </td>
                 </tr>
@@ -160,12 +157,10 @@
 </div>-->
 
 
-
 <script src="~/js/bootstrap-5.2.2/bootstrap.bundle.min.js"></script>
 <script src="~/js/vendor/jquery/jquery.min.js"></script>
 <script src="~/js/vendor/datatables/Datatable_transCht.js"></script>
 <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
-
 
 <script>
 
@@ -181,4 +176,3 @@
         })
     }
 </script>
-<script src="~/js/vendor/datatables/jquery.dataTables.js"></script>

@@ -98,8 +98,6 @@ namespace ServerMDA.Controllers
             datas.listrating = rating;
             datas.listseries = series;
             return View(datas);
-
-
         }
         [HttpPost]
         public ActionResult Create(CMovieViewModel p)

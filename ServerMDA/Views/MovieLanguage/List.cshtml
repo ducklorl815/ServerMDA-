@@ -1,16 +1,16 @@
-﻿@model IEnumerable<ServerMDA.Models.電影語言movieLanguage>
+﻿@using ServerMDA.ViewModel
+@model List<CMovieLanguageViewModel>
 
 @{
     ViewData["Title"] = "電影語言";
 }
 
-
-<h2>電影語言<a asp-action="Create" class="btn btn-warning mb-1  ml-2">新增</a></h2>
+<h3>電影語言<a asp-action="Create" class="btn btn-success mb-1  ml-2">新增</a></h3>
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.語言名稱languageName)
+                @Html.DisplayNameFor(model => model.FirstOrDefault().語言名稱languageName)
             </th>
             <th></th>
         </tr>
@@ -18,14 +18,16 @@
     <tbody>
         @foreach (var item in Model)
         {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.語言名稱languageName)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.語言編號languageId" class="btn btn-info mb-1" style="white-space:nowrap">修改</a>
-            </td>
-        </tr>
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.語言名稱languageName)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.語言編號languageId" class="btn btn-yuka mb-1" style="white-space:nowrap">修改</a>
+                </td>
+            </tr>
         }
     </tbody>
 </table>
+
+

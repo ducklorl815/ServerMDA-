@@ -19,68 +19,69 @@
 <link href="~/css/bootstrap-5.2.2/YukabtnEdit.css" rel="stylesheet" />
 
 @*<h3 class="MovieList">主演清單 <a class="btn btn-info mb-1" onclick="showmodal('@Url.Action("Create","Cast",Context.Request.Scheme)',null)">新增</a></h3>*@
-<h5 class="MovieList">
+<h5 class="MovieList" style="float:left">
         @Html.DisplayFor(modelItem => Model[0].中文標題titleCht)
+</h5>
+<div style="float:right; margin-bottom:5px">
     <a class="btn btn-success mb-1" id="btn" onclick="showmodal('@Url.Action("Create","Cast",new {id=Model[0].電影編號movieId},Context.Request.Scheme)',null)">新增</a>
     <button type="button" class="btn btn-secondary mb-1" data-bs-dismiss="modal" aria-label="Close">回到清單</button>
-</h5>
-
-<div>
-    <table id="myTableSort" class="table table-striped table-hover tables col-12">
-        <thead>
-            <tr>
-                <th class="col-1">
-                    ID
-                </th>
-                <th class="col-3">
-                    @Html.DisplayNameFor(model => model.FirstOrDefault().角色名字characterName)
-                </th>
-                <th style="width:120px">
-                    @Html.DisplayNameFor(model => model.FirstOrDefault().演員照片image)
-                </th>
-                <th class="col-2">
-                    @Html.DisplayNameFor(model => model.FirstOrDefault().演員中文名字nameCht)
-                </th>
-                <th class="col-3">
-                    @Html.DisplayNameFor(model => model.FirstOrDefault().演員英文名字nameEng)
-                </th>
-                <th class="col-3">
-                    指令
-                </th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model)
-            {
-            <tr>
-                <th>
-                    @Html.DisplayFor(modelItem => item.演員編號actorId)
-                </th>
-                <td>
-                    @Html.DisplayFor(modelItem => item.角色名字characterName)
-                </td>
-                <td>
-                    <div>
-                        <img src="~/images/Actor/@item.演員照片image" style="width:100px" />
-                    </div>
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.演員中文名字nameCht)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.演員英文名字nameEng)
-                </td>
-
-                <td>
-                    <a class="btn btn-yuka mb-1" id="btn" onclick="showmodal('@Url.Action("Edit","Actor",new {id=@item.演員編號actorId},Context.Request.Scheme)',null)">修改</a>
-                    <a class="btn btn-info mb-1" id="btn" onclick="showmodal('@Url.Action("Details","Actor",new {id=@item.演員編號actorId},Context.Request.Scheme)',null)">細節</a>
-                </td>
-            </tr>
-            }
-        </tbody>
-    </table>
 </div>
+    <div>
+        <table id="myTableSort" class="table table-striped table-hover tables col-12">
+            <thead>
+                <tr>
+                    <th class="col-1">
+                        ID
+                    </th>
+                    <th class="col-3">
+                        @Html.DisplayNameFor(model => model.FirstOrDefault().角色名字characterName)
+                    </th>
+                    <th style="width:120px">
+                        @Html.DisplayNameFor(model => model.FirstOrDefault().演員照片image)
+                    </th>
+                    <th class="col-2">
+                        @Html.DisplayNameFor(model => model.FirstOrDefault().演員中文名字nameCht)
+                    </th>
+                    <th class="col-3">
+                        @Html.DisplayNameFor(model => model.FirstOrDefault().演員英文名字nameEng)
+                    </th>
+                    <th class="col-3">
+                        指令
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <th>
+                            @Html.DisplayFor(modelItem => item.演員編號actorId)
+                        </th>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.角色名字characterName)
+                        </td>
+                        <td>
+                            <div>
+                                <img src="~/images/Actor/@item.演員照片image" style="width:100px" />
+                            </div>
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.演員中文名字nameCht)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.演員英文名字nameEng)
+                        </td>
 
-<script src="~/js/bootstrap-5.2.2/bootstrap.bundle.min.js"></script>
-<script src="~/js/vendor/jquery/jquery.min.js"></script>
+                        <td>
+                            <a class="btn btn-yuka mb-1" id="btn" onclick="showmodal('@Url.Action("Edit","Actor",new {id=@item.演員編號actorId},Context.Request.Scheme)',null)">修改</a>
+                            <a class="btn btn-details mb-1" id="btn" onclick="showmodal('@Url.Action("Details","Actor",new {id=@item.演員編號actorId},Context.Request.Scheme)',null)">細節</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <script src="~/js/bootstrap-5.2.2/bootstrap.bundle.min.js"></script>
+    <script src="~/js/vendor/jquery/jquery.min.js"></script>
 

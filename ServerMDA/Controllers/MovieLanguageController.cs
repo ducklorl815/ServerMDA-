@@ -21,26 +21,40 @@ namespace ServerMDA.Controllers
         public IActionResult List(CKeyWordViewModel model)
         {
             MDAContext db = new MDAContext();
-            IEnumerable<電影語言movieLanguage> datas = null;
+            List<CMovieLanguageViewModel> datas = null;
             if (string.IsNullOrEmpty(model.txtkeyword))
-                datas = from p in db.電影語言movieLanguages
-                        select p;
+                datas = db.電影語言movieLanguages.Select
+                    (p => new CMovieLanguageViewModel
+                    {
+                        movieLanguage = p,
+                    }).ToList();
             else
-                datas = db.電影語言movieLanguages.Where(p => p.語言名稱languageName.Contains(model.txtkeyword));
-
+                datas = db.電影語言movieLanguages.Where(p => p.語言名稱languageName.Contains(model.txtkeyword)).Select
+                    (p => new CMovieLanguageViewModel
+                    {
+                        movieLanguage = p,
+                    }).ToList();
             return View(datas);
         }
+
         public ActionResult Edit(int? id)
         {
             if (id != null)
             {
                 MDAContext db = new MDAContext();
-                電影語言movieLanguage language = db.電影語言movieLanguages.FirstOrDefault(p => p.語言編號languageId == id);
-                if (language != null)
-                    return View(language);
+                CMovieLanguageViewModel datas = null;
+                datas = db.電影語言movieLanguages.Where(p => p.語言編號languageId == id).Select
+                (p => new CMovieLanguageViewModel
+                {
+                    movieLanguage = p,
+
+                }).FirstOrDefault();
+                if (datas != null)
+                    return View(datas);
             }
             return RedirectToAction("List");
         }
+
         [HttpPost]
         public IActionResult Edit(CMovieLanguageViewModel inLanguage) //post
         {
@@ -53,15 +67,26 @@ namespace ServerMDA.Controllers
             }
             return RedirectToAction("List");
         }
+
         public ActionResult Create()
         {
-            return View();
+            MDAContext db = new MDAContext();
+            CMovieLanguageViewModel datas = null;
+            datas = db.電影語言movieLanguages.Select
+                   (p => new CMovieLanguageViewModel
+                   {
+                       movieLanguage = p,
+                   }).FirstOrDefault();
+            return View(datas);
         }
+
         [HttpPost]
-        public ActionResult Create(電影movie p)
+        public ActionResult Create(CMovieLanguageViewModel p)
         {
             MDAContext db = new MDAContext();
-            db.電影movies.Add(p);
+            電影語言movieLanguage m = new 電影語言movieLanguage();
+            m = p.movieLanguage;
+            db.電影語言movieLanguages.Add(m);
             db.SaveChanges();
             return RedirectToAction("List");
         }

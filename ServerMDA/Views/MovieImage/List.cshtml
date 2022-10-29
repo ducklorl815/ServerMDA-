@@ -3,18 +3,12 @@
 @model List<CMovieImageViewModel>
 
 @{
-
     ViewData["Title"] = "電影圖片清單";
 }
 
 @section Styles{
 
 }
-
-<link href="~/css/bootstrap-5.2.2/bootstrap.min.css" rel="stylesheet" />
-<link href="~/css/datatables/jquery.dataTables.css" rel="stylesheet" />
-<link href="~/css/site.css" rel="stylesheet" />
-<link href="~/css/bootstrap-5.2.2/YukabtnEdit.css" rel="stylesheet" />
 
 <h3 class="MovieList">
     電影圖片清單
@@ -66,7 +60,7 @@
                         @Html.DisplayFor(modelItem => item.屏蔽invisible)
                     </td>
                     <td>
-                        <a class="btn btn-yuka " id="btn" onclick="showmodal('@Url.Action("Edit","MovieImage",new {id=@item.圖片編號imageId},Context.Request.Scheme)',null)">修改</a>
+                        <a class="btn btn btn-yuka mb-1" id="btn" onclick="showmodal('@Url.Action("Edit","MovieImage",new {id=@item.圖片編號imageId},Context.Request.Scheme)',null)">修改</a>
                     </td>
                 </tr>
             }
@@ -98,7 +92,6 @@
 <script src="~/js/vendor/datatables/Datatable_transCht.js"></script>
 <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
 
-
 <script>
 
     showmodal = (url, title) => {
@@ -113,5 +106,3 @@
         })
     }
 </script>
-
-<script src="~/js/vendor/datatables/jquery.dataTables.js"></script>

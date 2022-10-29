@@ -2,6 +2,7 @@
 using ServerMDA.Models;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -19,31 +20,37 @@ namespace ServerMDA.ViewModel
         {
             _movieImage = new 電影圖片總表movieImage();  //每做一個就建一個
         }
+        
         public int 圖片編號imageId
         {
             get { return _movieImage.圖片編號imageId; }
             set { _movieImage.圖片編號imageId = value; }
         }
+        [DisplayName("電影海報")]
         public string 圖片image
         {
             get { return _movieImage.圖片image; }
             set { _movieImage.圖片image = value; }
         }
+        [DisplayName("雲端圖片")]
         public string 圖片雲端imageImdb
         {
             get { return _movieImage.圖片雲端imageImdb; }
             set { _movieImage.圖片雲端imageImdb = value; }
         }
+        [DisplayName("圖片類型")]
         public string 圖片類型imageType
         {
             get { return _movieImage.圖片類型imageType; }
             set { _movieImage.圖片類型imageType = value; }
         }
+        [DisplayName("電影名稱")]
         public string 電影名稱movieName
         {
             get { return _movieImage.電影名稱movieName; }
             set { _movieImage.電影名稱movieName = value; }
         }
+        [DisplayName("屏蔽")]
         public int? 屏蔽invisible
         {
             get { return _movieImage.屏蔽invisible; }

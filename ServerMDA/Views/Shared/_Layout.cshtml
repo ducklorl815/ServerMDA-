@@ -1,38 +1,33 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html lang="zh-hant-TW">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
+    <meta charset="UTF-8">
     <title>M.D.A.後台系統</title>
-    <link href="~/css/bootstrap-5.2.2/YukabtnEdit.css" rel="stylesheet" />
-    <style>
-        /*.backgroundcolor {
-            background: #262626;*/ /* fallback for old browsers */
-            /*background: -webkit-linear-gradient(to right, #b6fbff, #262626);*/ /* Chrome 10-25, Safari 5.1-6 */
-            /*background: linear-gradient(to right,#000000,#000000,#ffffff,#ffffff);*/ /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-        /*}*/
-    </style>
-    <link href="~/css/bootstrap-5.2.2/bootstrap.min.css" rel="stylesheet" />
-    <script src="https://kit.fontawesome.com/c6052fa518.js" crossorigin="anonymous"></script>
-    @* <link href="~/css/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">*@
-    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-          rel="stylesheet">
-    <!-- Custom styles for this template-->
+    <meta name="author" content="MSIT143 01陳苡錚 06王婷薇 11廖家毅 13李沛軒 16洪暐婷 18游曉雯 20鄭凱" />
+    <meta name="keywords" content="M.D.A.觀享時刻,M.D.A.,MDA,觀享時刻,電影訂票,電影評論,訂票,評論,電影,電視劇,影集,動畫,動畫電影" />
+    <meta name="date" content="2022/06/15" />
+    <meta name="description" content="M.D.A.為 Movie, Drama, Anime 的縮寫。擁有全台最方便快速的電影訂票系統，提供最完整的電影、電視劇、動畫資訊以及討論平台。" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
+    <!-- #region Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    @* <link href="~/css/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">*@
+    <script src="https://kit.fontawesome.com/c6052fa518.js" crossorigin="anonymous"></script>
+    <!-- #endregion Google Font -->
+    <!-- #region Css Styles -->
     <link href="~/css/sb-admin-2.css" rel="stylesheet">
-    <title>@ViewData["Title"] - ServerMDA</title>
+    <link href="~/css/bootstrap-5.2.2/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/css/datatables/jquery.dataTables.css" rel="stylesheet" />
+    <link href="~/css/site.css" rel="stylesheet" />
+    <link href="~/css/bootstrap-5.2.2/YukabtnEdit.css" rel="stylesheet" />
+    <!-- #endregion Css Styles -->
+
     @await RenderSectionAsync("Styles", required: false)
 </head>
 
-
 <body>
-
-
-    <!-- sidebar Start -->
+    <!-- #region sidebar Start 側欄 -->
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion overflow-scroll" id="accordionSidebar">
 
         <!-- Sidebar - Brand -->
@@ -56,12 +51,10 @@
         <!-- Divider -->
         <hr class="sidebar-divider">
 
-        <!-- Heading -->
-        <div class="sidebar-heading text-white">
-            電影院資料庫
-        </div>
+        <!-- #region Heading 大分類-電影院資料庫 -->
+        <div class="sidebar-heading text-white"> 電影院資料庫</div>
 
-        <!-- Nav Item - Pages Collapse Menu -->
+        <!-- Nav Item 小分類-電影 -->
         <li class="nav-item">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
                aria-expanded="true" aria-controls="collapseTwo">
@@ -71,7 +64,7 @@
             <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header text-gray-600">電影管理:</h6>
-                    <a class="collapse-item" asp-area="" asp-controller="Movie" asp-action="List">電影</a>@**下面的項目應該都要合併在同一個頁面管理*@
+                    <a class="collapse-item" asp-area="" asp-controller="Movie" asp-action="List">電影</a>
                     <a class="collapse-item" asp-area="" asp-controller="MovieImage" asp-action="List">電影海報、劇照</a>
                     <a class="collapse-item" asp-area="" asp-controller="MovieOrigin" asp-action="List">電影產地</a>
                     <a class="collapse-item" asp-area="" asp-controller="MovieLanguage" asp-action="List">電影語言</a>
@@ -82,15 +75,13 @@
                 </div>
             </div>
         </li>
-
-        <!-- Nav Item - Utilities Collapse Menu -->
+        <!-- Nav Item 小分類-影城 -->
         <li class="nav-item">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseKwo"
                aria-expanded="true" aria-controls="collapseKwo">
                 <i class="fas fa-fw fa fa-github-alt"></i>
                 <span>影城</span>
             </a>
-
             <div id="collapseKwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header text-gray-600">影城管理:</h6>
@@ -102,7 +93,7 @@
                 </div>
             </div>
         </li>
-
+        <!-- Nav Item 小分類-商店 -->
         <li class="nav-item">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseProduct"
                aria-expanded="true" aria-controls="collapseProduct">
@@ -114,14 +105,12 @@
                 <div class="bg-white py-2 collapse-inner rounded">
                     <div class="collapse-divider"></div>
                     <h6 class="collapse-header text-gray-600">商店管理:</h6>
-
                     <a class="collapse-item" asp-area="" asp-controller="product" asp-action="ProductList">影城商店</a>
                     <a class="collapse-item" asp-area="" asp-controller="product" asp-action="ProductList">影城商品</a>
                 </div>
             </div>
         </li>
-
-        <!-- Nav Item - Utilities Collapse Menu /*fa-wrench*/ -->
+        <!-- Nav Item 小分類-活動/票券 -->
         <li class="nav-item">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
                aria-expanded="true" aria-controls="collapseUtilities">
@@ -138,15 +127,15 @@
                 </div>
             </div>
         </li>
+
         <!-- Divider -->
         <hr class="sidebar-divider" />
 
-        <!-- Heading -->
-        <div class="sidebar-heading text-white">
-            會員專區
-        </div>
+        <!-- #endregion Heading 大分類-電影院資料庫 -->
+        <!-- #region Heading 大分類-會員專區 -->
+        <div class="sidebar-heading text-white"> 會員專區</div>
 
-        <!-- Nav Item - Pages Collapse Menu -->
+        <!-- Nav Item 小分類-會員管理系統 -->
         <li class="nav-item">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
                aria-expanded="true" aria-controls="collapsePages">
@@ -164,8 +153,7 @@
                 </div>
             </div>
         </li>
-
-        <!-- Nav Item - Charts -->
+        <!-- Nav Item 小分類-評論管理系統 -->
         <li class="nav-item">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages2"
                aria-expanded="true" aria-controls="collapsePages2">
@@ -181,8 +169,7 @@
                 </div>
             </div>
         </li>
-
-        <!-- Nav Item - Charts -->
+        <!-- Nav Item 小分類-客服管理系統 -->
         <li class="nav-item">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages3"
                aria-expanded="true" aria-controls="collapsePages3">
@@ -199,9 +186,7 @@
                 </div>
             </div>
         </li>
-
-
-        <!-- Nav Item - Charts -->
+        <!-- Nav Item 小分類-報表 -->
         <li class="nav-item">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages4"
                aria-expanded="true" aria-controls="collapsePages4">
@@ -216,29 +201,29 @@
                     <a class="collapse-item" asp-area="" asp-controller="product" asp-action="ProductChartTwo">商品銷售數量統計表</a>
                 </div>
             </div>
-
         </li>
 
         <!-- Divider -->
         <hr class="sidebar-divider d-none d-md-block">
 
+        <!-- #endregion Heading 大分類-會員專區 -->
         <!-- Sidebar Toggler (Sidebar) -->
         <div class="text-center d-none d-md-inline">
             <button class="rounded-circle border-0" id="sidebarToggle" onclick="sidebarToggle"></button>
         </div>
 
-
         <!-- Sidebar Message -->
         @*<div class="sidebar-card d-none d-lg-flex">
-            <img class="sidebar-card-illustration mb-2" src="img/undraw_rocket.svg" alt="...">
-            <p class="text-center mb-2"><strong>SB Admin Pro</strong> is packed with premium features, components, and more!</p>
-            <a class="btn btn-success btn-sm" href="https://startbootstrap.com/theme/sb-admin-pro">Upgrade to Pro!</a>
-        </div>*@
+                <img class="sidebar-card-illustration mb-2" src="img/undraw_rocket.svg" alt="...">
+                <p class="text-center mb-2"><strong>SB Admin Pro</strong> is packed with premium features, components, and more!</p>
+                <a class="btn btn-success btn-sm" href="https://startbootstrap.com/theme/sb-admin-pro">Upgrade to Pro!</a>
+            </div>*@
 
     </ul>
-    <!-- sidebar End -->
+    <!-- #endregion sidebar End 側欄 -->
+
     <div class="divPosition">
-        <!-- TopBar Start -->
+        <!-- #region TopBar Start 頂部欄位 -->
 
         <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow backgroundcolor">
 
@@ -250,13 +235,13 @@
             <!-- Topbar Search -->
             <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-5 my-2 my-md-0 mw-100 navbar-search">
                 @*<div class="input-group offset-md-1">
-                    <div class="input-group-append">
-                        @Html.TextBox("txtkeyword", "", new { @class = "form-control bg-light border-0 small" })
                         <div class="input-group-append">
-                            <input class="btn btn-primary" type="submit" value="Search" />
+                            @Html.TextBox("txtkeyword", "", new { @class = "form-control bg-light border-0 small" })
+                            <div class="input-group-append">
+                                <input class="btn btn-primary" type="submit" value="Search" />
+                            </div>
                         </div>
-                    </div>
-                </div>*@
+                    </div>*@
             </form>
 
             <!-- Topbar Navbar -->
@@ -282,14 +267,14 @@
                     </div>
                 </li>
 
-                <!-- Nav Item - Alerts -->
+                <!-- #region Nav Item - Alerts 狀態中心 -->
                 <li class="nav-item dropdown no-arrow mx-1">
                     <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="fas fa-bell fa-fw"></i>
-                        <!-- Counter - Alerts -->
+                        <!-- Counter - Alerts 狀態通知數量 -->
                         <span class="badge badge-danger badge-counter">3+</span>
                     </a>
-                    <!-- Dropdown - Alerts -->
+                    <!-- Dropdown - Alerts 狀態中心內文 -->
                     <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="alertsDropdown">
                         <h6 class="dropdown-header">狀態中心</h6>
                         <a class="dropdown-item d-flex align-items-center" href="#">
@@ -328,15 +313,15 @@
                         <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
                     </div>
                 </li>
-
-                <!-- Nav Item - Messages -->
+                <!-- #endregion Nav Item - Alerts 狀態中心 -->
+                <!-- #region Nav Item - Messages 訊息中心 -->
                 <li class="nav-item dropdown no-arrow mx-1">
                     <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="fas fa-envelope fa-fw"></i>
-                        <!-- Counter - Messages -->
+                        <!-- Counter - Messages 訊息通知數量 -->
                         <span class="badge badge-danger badge-counter">7</span>
                     </a>
-                    <!-- Dropdown - Messages -->
+                    <!-- Dropdown - Messages 訊息中心內文 -->
                     <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="messagesDropdown">
                         <h6 class="dropdown-header">訊息中心</h6>
                         <a class="dropdown-item d-flex align-items-center" href="#">
@@ -390,10 +375,11 @@
                         <a class="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>
                     </div>
                 </li>
+                <!-- #endregion Nav Item - Messages 訊息中心 -->
 
                 <div class="topbar-divider d-none d-sm-block"></div>
 
-                <!-- Nav Item - User Information -->
+                <!-- #region Nav Item - User Information 登入狀態 -->
                 <li class="nav-item dropdown no-arrow">
                     <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <span class="mr-2 d-none d-lg-inline text-gray-600 small">Administrator</span>
@@ -407,17 +393,19 @@
                         <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal"><i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>登出</a>
                     </div>
                 </li>
+                <!-- #endregion Nav Item - User Information 登入狀態 -->
+
             </ul>
         </nav>
-        <!-- TopBar End -->
-        <!-- RenderBody Start -->
+        <!-- #endregion TopBar End 頂部欄位 -->
+        <!-- #region RenderBody Start -->
         <div class="container col-12">
             <main role="main" class="pb-3">
                 @RenderBody()
             </main>
         </div>
-        <!-- RenderBody End -->
-        <!-- Footer Start -->
+        <!-- #endregion RenderBody End -->
+        <!-- #region Footer Start -->
         <footer class="sticky-footer bg-white ">
             <div class="container my-auto">
                 <div class="copyright text-center my-auto">
@@ -425,11 +413,12 @@
                 </div>
             </div>
         </footer>
-        <!-- Footer End -->
+        <!-- #endregion Footer End -->
+
     </div>
 
-
     @await RenderSectionAsync("Scripts", required: false)
+
     <!--Bootstrap core JavaScript-->
     <script src="~/js/vendor/jquery/jquery.min.js"></script>
     <script src="~/js/vendor/bootstrap/js/bootstrap.min.js"></script>
@@ -457,5 +446,12 @@
     </script>
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
     <script src="~/js/bootstrap-5.2.2/bootstrap.bundle.min.js"></script>
+
+    <!-- #region JS樣式 -->
+    <script src="~/js/vendor/datatables/jquery.dataTables.js"></script>
+    <!-- #endregion JS樣式 -->
+
+
+
 </body>
 </html>
