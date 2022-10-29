@@ -1,54 +1,75 @@
-﻿@model ServerMDA.Models.電影院theater
+﻿@using ServerMDA.ViewModel
+@model CTheaterViewModel
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "新增";
+    Layout = null;
 }
 
-<h1>Create</h1>
+<link href="~/css/bootstrap-5.2.2/bootstrap.min.css" rel="stylesheet" />
+<link href="~/css/bootstrap-5.2.2/YukabtnEdit.css" rel="stylesheet" />
+<link href="~/css/site.css" rel="stylesheet" />
 
-<h4>電影院theater</h4>
-<hr />
+<h4 class="offset-1">新增電影院</h4>
 <div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="電影院名稱theaterName" class="control-label"></label>
-                <input asp-for="電影院名稱theaterName" class="form-control" />
-                <span asp-validation-for="電影院名稱theaterName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="影城編號mainTheaterId" class="control-label"></label>
-                <select asp-for="影城編號mainTheaterId" class ="form-control" asp-items="ViewBag.影城編號mainTheaterId"></select>
-            </div>
-            <div class="form-group">
-                <label asp-for="營業時間businessHours" class="control-label"></label>
-                <input asp-for="營業時間businessHours" class="form-control" />
-                <span asp-validation-for="營業時間businessHours" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="電話phone" class="control-label"></label>
-                <input asp-for="電話phone" class="form-control" />
-                <span asp-validation-for="電話phone" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="地址address" class="control-label"></label>
-                <input asp-for="地址address" class="form-control" />
-                <span asp-validation-for="地址address" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="官方網站url" class="control-label"></label>
-                <input asp-for="官方網站url" class="form-control" />
-                <span asp-validation-for="官方網站url" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="電影院照片image" class="control-label"></label>
-                <input asp-for="電影院照片image" class="form-control" />
-                <span asp-validation-for="電影院照片image" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="新增" class="btn btn-success mr-2" />
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" aria-label="Close">回到清單</button>
+    <div>
+        <form asp-action="Create" enctype="multipart/form-data">
+            <div class="d-flex flex-row">
+                <div class="col-5 offset-1">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="電影院名稱theaterName" class="control-label"></label>
+                        <input asp-for="電影院名稱theaterName" value="" class="form-control" />
+                        <span asp-validation-for="電影院名稱theaterName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="影城編號mainTheaterId" class="control-label"></label>
+                        <select asp-for="影城編號mainTheaterId" name="影城名稱mainTheaterName" class="form-control" asp-items="ViewBag.影城編號mainTheaterId">
+                            <option></option>
+                            @{ 
+                                var q = Model.影城名稱mainTheaterName;
+                                foreach (var p in Model.titleTheater)
+                                {
+                                    if (p != q) 
+                                    { 
+                                        <option>@p</option>
+                                    }
+                                }
+
+                            }
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="營業時間businessHours" class="control-label"></label>
+                        <input asp-for="營業時間businessHours" value="" class="form-control" />
+                        <span asp-validation-for="營業時間businessHours" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="電話phone" class="control-label"></label>
+                        <input asp-for="電話phone" value="" class="form-control" />
+                        <span asp-validation-for="電話phone" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="地址address" class="control-label"></label>
+                        <input asp-for="地址address" value="" class="form-control" />
+                        <span asp-validation-for="地址address" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="官方網站url" class="control-label"></label>
+                        <input asp-for="官方網站url" value="" class="form-control" />
+                        <span asp-validation-for="官方網站url" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="新增電影院" class="btn btn-success mr-2" />
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" aria-label="Close">回到清單</button>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="form-group">
+                        <label class="control-label">電影院照片</label><br />
+                        <input type="file" name="photo" />
+                    </div>
+                </div>
             </div>
         </form>
     </div>

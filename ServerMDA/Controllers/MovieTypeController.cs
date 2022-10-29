@@ -45,7 +45,7 @@ namespace ServerMDA.Controllers
                 {
                     movieType = p,
                     //todo 沒辦法修改到第二個
-                    //片種名稱totalTypeName = p.片種編號type.片種名稱totalTypeName,
+                    片種名稱totalTypeName = p.片種編號type.片種名稱totalTypeName,
                     中文標題titleCht = p.電影編號movie.中文標題titleCht,
 
                 }).FirstOrDefault();

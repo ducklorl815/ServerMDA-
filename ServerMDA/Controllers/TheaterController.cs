@@ -75,12 +75,30 @@ namespace ServerMDA.Controllers
         }
         public ActionResult Create()
         {
-            return View();
+            MDAContext db = new MDAContext();
+            CTheaterViewModel datas = null;
+            var theater = db.影城mainTheaters.Select(p => p.影城名稱mainTheaterName).ToList();
+            datas = db.電影院theaters.Select
+            (p => new CTheaterViewModel
+            {
+                    theater = p,
+                    影城名稱mainTheaterName = p.影城編號mainTheater.影城名稱mainTheaterName,
+
+            }).FirstOrDefault();
+            datas.titleTheater = theater;
+            return View(datas);
         }
         [HttpPost]
-        public ActionResult Create(電影院theater p)
+        public ActionResult Create(電影院theater p, CTheaterViewModel intheater)
         {
             MDAContext db = new MDAContext();
+
+            string pName = Guid.NewGuid().ToString() + ".jpg";
+            string path = _enviro.WebRootPath + "/images/Theater/" + pName;
+            intheater.photo.CopyTo(new FileStream(path, FileMode.Create));
+
+            p.影城編號mainTheaterId = db.影城mainTheaters.FirstOrDefault(p => p.影城名稱mainTheaterName == intheater.影城名稱mainTheaterName).影城編號mainTheaterId;
+            p.電影院照片image = pName;
             db.電影院theaters.Add(p);
             db.SaveChanges();
             return RedirectToAction("List");

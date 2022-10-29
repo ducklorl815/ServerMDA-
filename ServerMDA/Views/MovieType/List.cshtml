@@ -18,7 +18,7 @@
 <table id="myTable" class="table tables display compact hover col-12">
     <thead>
         <tr>
-            <th>
+            <th class="col-1">
                 ID
             </th>
             <th>
@@ -28,7 +28,9 @@
                 @Html.DisplayNameFor(model => model.FirstOrDefault().片種名稱totalTypeName)
             </th>
 
-            <th></th>
+            <th class="col-1">
+                指令
+            </th>
         </tr>
     </thead>
     <tbody>
@@ -46,7 +48,7 @@
             </td>
 
             <td>
-                <a class="btn btn-yuka " id="btn" onclick="showmodal('@Url.Action("Edit","MovieType",new {id=@item.電影編號movieId},Context.Request.Scheme)',null)">修改</a>
+                <a class="btn btn-yuka " id="btn" onclick="showmodal('@Url.Action("Edit","MovieType",new {id=@item.電影片種編號mtId},Context.Request.Scheme)',null)">修改</a>
                 @*<a class="btn btn-info " id="btn" onclick="showmodal('@Url.Action("Details","Member",new {id=@item.會員編號memberId},Context.Request.Scheme)',null)">細節</a>*@
             </td>
         </tr>

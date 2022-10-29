@@ -76,5 +76,9 @@ namespace ServerMDA.ViewModel
         public string 座位資訊seatInfo { get; set; }
         public string 影廳照片image { get; set; }
         public IFormFile photo { get; set; }
+        public List<string> titleTheater { get; set; }
+
+        //public int 影城編號mainTheaterId { get; set; }
+        public string 影城名稱mainTheaterName { get; set; }
     }
 }

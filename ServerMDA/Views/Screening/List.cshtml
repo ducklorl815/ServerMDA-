@@ -1,0 +1,55 @@
+﻿@using ServerMDA.ViewModel
+@model List<CScreeningViewModel>
+
+@{
+    ViewData["Title"] = "List";
+}
+
+<h1>List</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().放映日期playDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().放映開始時間playTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().影廳編號cinema)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().電影代碼movieCodeNavigation)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.放映日期playDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.放映開始時間playTime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.影廳編號cinema.座位資訊seatInfo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.電影代碼movieCodeNavigation.電影代碼編號movieCodeId)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.場次編號screeningId">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.場次編號screeningId">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.場次編號screeningId">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using ServerMDA.Models;
+using ServerMDA.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,9 +10,18 @@ namespace ServerMDA.Controllers
 {
     public class ScreeningController : Controller
     {
-        public IActionResult Index()
+        public IActionResult List()
         {
-            return View();
+            MDAContext db = new MDAContext();
+            List<CScreeningViewModel> datas = null;
+            datas = db.場次screenings.Select
+            (p => new CScreeningViewModel
+            {
+                screening = p,
+
+            }).ToList();
+
+            return View(datas);
         }
     }
 }
