@@ -74,11 +74,9 @@ namespace ServerMDA.Controllers
         public ActionResult Create(CMovieTypeViewModel inType)
         {
             MDAContext db = new MDAContext();
-            電影片種movieType c = new 電影片種movieType();
-            c = inType.movieType;
-            c.片種編號typeId = db.片種總表totalTypes.FirstOrDefault(q => q.片種名稱totalTypeName == inType.片種名稱totalTypeName).片種編號totalTypeId;
-            c.電影編號movieId = db.電影movies.FirstOrDefault(q => q.中文標題titleCht == inType.中文標題titleCht).電影編號movieId;
-            db.電影片種movieTypes.Add(c);
+            片種總表totalType c = new 片種總表totalType();
+            c = inType.TypeListe;
+            db.片種總表totalTypes.Add(c);
             db.SaveChanges();
             return RedirectToAction("List");
         }

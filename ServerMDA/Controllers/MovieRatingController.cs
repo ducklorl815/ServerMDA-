@@ -68,7 +68,6 @@ namespace ServerMDA.Controllers
             MDAContext db = new MDAContext();
             電影分級movieRating m = new 電影分級movieRating();
             m = inRating.Rating;
-
             db.電影分級movieRatings.Add(m);
             db.SaveChanges();
             return RedirectToAction("List");
