@@ -2,17 +2,21 @@
 @model List<CScreeningViewModel>
 
 @{
-    ViewData["Title"] = "List";
+    ViewData["Title"] = "場次清單";
 }
 
-<h1>List</h1>
+<link href="~/css/bootstrap-5.2.2/bootstrap.min.css" rel="stylesheet" />
+<link href="~/css/datatables/jquery.dataTables.css" rel="stylesheet" />
+<link href="~/css/site.css" rel="stylesheet" />
+<link href="~/css/bootstrap-5.2.2/YukabtnEdit.css" rel="stylesheet" />
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
+<h4>場次清單 <a class="btn btn-info mb-1" onclick="showmodal('@Url.Action("Create","Screening",Context.Request.Scheme)',null)">新增</a></h4>
+<table id="myTable" class="table tables display compact hover col-12">
     <thead>
         <tr>
+            <th style="width:25px">
+                ID
+            </th>
             <th>
                 @Html.DisplayNameFor(model => model.FirstOrDefault().放映日期playDate)
             </th>
@@ -20,12 +24,15 @@
                 @Html.DisplayNameFor(model => model.FirstOrDefault().放映開始時間playTime)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.FirstOrDefault().影廳編號cinema)
+                影廳名稱
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().電影代碼編號movieCodeId)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.FirstOrDefault().電影代碼movieCodeNavigation)
+                指令
             </th>
-            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -33,23 +40,68 @@
         {
             <tr>
                 <td>
+                    @Html.DisplayFor(modelItem => item.場次編號screeningId)
+                </td>
+                <td>
                     @Html.DisplayFor(modelItem => item.放映日期playDate)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.放映開始時間playTime)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.影廳編號cinema.座位資訊seatInfo)
+                    @Html.DisplayFor(modelItem => item.影廳名稱cinemaName)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.電影代碼movieCodeNavigation.電影代碼編號movieCodeId)
+                    @Html.DisplayFor(modelItem => item.電影代碼編號movieCodeId)
                 </td>
                 <td>
-                    <a asp-action="Edit" asp-route-id="@item.場次編號screeningId">Edit</a> |
-                    <a asp-action="Details" asp-route-id="@item.場次編號screeningId">Details</a> |
-                    <a asp-action="Delete" asp-route-id="@item.場次編號screeningId">Delete</a>
+                    <a class="btn btn-info mb-1" id="btn" onclick="showmodal('@Url.Action("Edit","Screening",new {id=@item.場次編號screeningId},Context.Request.Scheme)',null)">修改</a>
                 </td>
             </tr>
         }
     </tbody>
 </table>
+
+<div class="modal fade" id="newstaticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-body col-12 ">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="sortstaticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-body col-12 ">
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="~/js/bootstrap-5.2.2/bootstrap.bundle.min.js"></script>
+<script src="~/js/vendor/jquery/jquery.min.js"></script>
+<script src="~/js/vendor/datatables/Datatable_transCht.js"></script>
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
+
+
+<script>
+
+    showmodal = (url, title) => {
+        $.ajax({
+            type: "GET",
+            url: url,
+            success: function (res) {
+                $("#newstaticBackdrop .modal-body").html(res);
+                $("#newstaticBackdrop .modal-title").html(title);
+                $("#newstaticBackdrop").modal('show');
+            },
+        })
+    }
+</script>
+
+<script src="~/js/vendor/datatables/jquery.dataTables.js"></script>

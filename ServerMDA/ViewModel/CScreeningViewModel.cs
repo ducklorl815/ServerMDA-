@@ -60,7 +60,8 @@ namespace ServerMDA.ViewModel
         public string 廳種名稱cinemaClsName { get; set; }
         public string 座位資訊seatInfo { get; set; }
         public string 影廳照片image { get; set; }
-        public virtual 電影代碼movieCode 電影代碼movieCodeNavigation { get; set; }
+        //public virtual 電影代碼movieCode 電影代碼movieCodeNavigation { get; set; }
+        [DisplayName("電影代碼")]
         public int 電影代碼編號movieCodeId { get; set; }
         public int 電影編號movieId { get; set; }
         public int 語言編號languageId { get; set; }
