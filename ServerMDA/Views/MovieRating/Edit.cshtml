@@ -1,0 +1,50 @@
+﻿@using ServerMDA.ViewModel
+@model CMovieRatingViewModel
+
+@{
+    ViewData["Title"] = "修改";
+    Layout = null;
+}
+
+<link href="~/css/bootstrap-5.2.2/bootstrap.min.css" rel="stylesheet" />
+<link href="~/css/bootstrap-5.2.2/YukabtnEdit.css" rel="stylesheet" />
+<link href="~/css/site.css" rel="stylesheet" />
+
+<div class="row">
+    <div class="col-md-4">
+        <h4>修改電影分級 : @Model.分級編號ratingId</h4>
+        <form asp-action="Edit" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="分級編號ratingId" />
+            <div class="form-group">
+                <label asp-for="分級級數ratingLevel" class="control-label"></label>
+                <input asp-for="分級級數ratingLevel" class="form-control" />
+                <span asp-validation-for="分級級數ratingLevel" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="分級說明ratingIllustrate" class="control-label"></label>
+                <input asp-for="分級說明ratingIllustrate" class="form-control" />
+                <span asp-validation-for="分級說明ratingIllustrate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="分級圖片ratingImage" class="control-label"></label>
+                <img src="@Url.Action("ShowPhoto","MovieRating", new {id= @Model.分級編號ratingId })" class="img-fluid w-25" />
+                <input asp-for="分級圖片ratingImage" class="form-control" />
+                <span asp-validation-for="分級圖片ratingImage" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="確認修改" class="btn btn-yuka mr-1" />
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" aria-label="Close">回到清單</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+<script src="~/js/bootstrap-5.2.2/bootstrap.min.js"></script>
+<script src="~/js/bootstrap-5.2.2/bootstrap.bundle.js"></script>

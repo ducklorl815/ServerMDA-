@@ -52,6 +52,7 @@ namespace ServerMDA.ViewModel
         }
         //----photo
         public IFormFile photo { get; set; }
+
         //----電影院theater
         //public int 電影院編號theaterId { get; set; }
         public string 電影院名稱theaterName { get; set; }

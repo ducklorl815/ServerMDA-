@@ -70,6 +70,7 @@ namespace ServerMDA.Models
         {
             if (!optionsBuilder.IsConfigured)
             {
+#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
                 optionsBuilder.UseSqlServer("Data Source=.;Initial Catalog=MDA;Integrated Security=True");
             }
         }
@@ -997,7 +998,9 @@ namespace ServerMDA.Models
 
                 entity.Property(e => e.票房boxOffice).HasColumnName("票房BoxOffice");
 
-                entity.Property(e => e.系列編號seriesId).HasColumnName("系列編號Series_ID");
+                entity.Property(e => e.系列編號seriesId)
+                    .HasColumnName("系列編號Series_ID")
+                    .HasDefaultValueSql("((0))");
 
                 entity.Property(e => e.英文標題titleEng)
                     .IsRequired()

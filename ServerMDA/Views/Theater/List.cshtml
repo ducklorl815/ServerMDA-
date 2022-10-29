@@ -18,6 +18,9 @@
     <table id="myTable" class="table tables display compact hover col-12">
         <thead>
             <tr>
+                <th style="width:15px">
+                    ID
+                </th>
                 <th class="col-1">
                     電影院名稱
                 </th>
@@ -48,6 +51,9 @@
             @foreach (var item in Model)
             {
             <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.電影院編號theaterId)
+                </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.電影院名稱theaterName)
                 </td>

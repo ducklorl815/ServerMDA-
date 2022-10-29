@@ -97,16 +97,24 @@ namespace ServerMDA.Controllers
             return View(datas);
         }
         [HttpPost]
-        public ActionResult Create(影廳cinema p, CCinemaViewModel inCinema)
+        public ActionResult Create(CCinemaViewModel inCinema)
         {
             MDAContext db = new MDAContext();
+            影廳cinema p = new 影廳cinema();
 
-            string pName = Guid.NewGuid().ToString() + ".jpg";
-            string path = _enviro.WebRootPath + "/images/Theater/" + pName;
-            inCinema.photo.CopyTo(new FileStream(path, FileMode.Create));
+            if (inCinema.photo != null)
+            {
+                string pName = Guid.NewGuid().ToString() + ".jpg";
+                p.影廳照片image = pName;
+                string path = _enviro.WebRootPath + "/images/Theater/" + pName;
+                inCinema.photo.CopyTo(new FileStream(path, FileMode.Create));
+            }
 
-            p.影廳照片image = pName;
+            p.影廳名稱cinemaName = inCinema.影廳名稱cinemaName;
             p.電影院編號theaterId = db.電影院theaters.FirstOrDefault(q => q.電影院名稱theaterName == inCinema.電影院名稱theaterName).電影院編號theaterId;
+            p.廳種名稱cinemaClsName = inCinema.廳種名稱cinemaClsName;
+            p.座位資訊seatInfo = inCinema.座位資訊seatInfo;
+            p.影廳照片image = inCinema.影廳照片image;
 
             db.影廳cinemas.Add(p);
             db.SaveChanges();

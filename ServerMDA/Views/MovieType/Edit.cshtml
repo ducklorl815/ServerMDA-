@@ -1,0 +1,60 @@
+﻿@using ServerMDA.ViewModel
+@model CMovieTypeViewModel
+
+
+@{
+    ViewData["Title"] = "修改";
+    Layout = null;
+}
+
+<link href="~/css/bootstrap-5.2.2/bootstrap.min.css" rel="stylesheet" />
+<link href="~/css/bootstrap-5.2.2/YukabtnEdit.css" rel="stylesheet" />
+<link href="~/css/site.css" rel="stylesheet" />
+
+<h4 class="">修改片種編號 : @Model.中文標題titleCht</h4>
+
+<div class="row">
+    <div>
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="電影片種編號mtId" />
+            <div class="form-group">
+                <label asp-for="電影編號movieId" class="control-label"></label>
+                <select asp-for="電影編號movieId" name="中文標題titleCht" class="form-control" asp-items="ViewBag.電影編號movieId">
+                    <option selected>@Model.中文標題titleCht</option>
+                </select>
+                <span asp-validation-for="電影編號movieId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="片種編號typeId" class="control-label"></label>
+                <select asp-for="片種編號typeId" name="片種名稱totalTypeName" class="form-control" asp-items="ViewBag.片種編號typeId">
+                    <option selected>@Model.片種名稱totalTypeName</option>
+                    @{
+                        var q = @Model.片種名稱totalTypeName;
+                        foreach (var p in Model.titleType)
+                        {
+                            @if (p != q)
+                            {
+                                <option>@p</option>
+                            }
+                        }
+
+                    }
+                </select>
+                <span asp-validation-for="片種編號typeId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="確認修改" class="btn btn-yuka mr-1" />
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" aria-label="Close">回到清單</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
+<script src="~/js/bootstrap-5.2.2/bootstrap.min.js"></script>
+<script src="~/js/bootstrap-5.2.2/bootstrap.bundle.js"></script>

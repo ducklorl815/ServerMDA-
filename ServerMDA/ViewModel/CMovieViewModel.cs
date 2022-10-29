@@ -150,6 +150,9 @@ namespace ServerMDA.ViewModel
         //public int 電影編號movieId { get; set; }
         public int 圖片編號imageId { get; set; }
 
+        //========================================================
+        public int 片種編號typeId { get; set; }
+
         //OPTION
         public List<string> listrating { get; set; }
         public List<string> listseries { get; set; }

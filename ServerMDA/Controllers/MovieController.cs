@@ -161,6 +161,8 @@ namespace ServerMDA.Controllers
                     分級說明ratingIllustrate = p.電影分級編號rating.分級說明ratingIllustrate,
                     系列名稱seriesName = p.系列編號series.系列名稱seriesName,
                     分級級數ratingLevel = p.電影分級編號rating.分級級數ratingLevel,
+                    //todo 片種挖不過來
+                    //片種編號typeId = p.電影片種movieTypes.Select(p=>p.電影編號movie.電影編號movieId).ToList(),
                 }).FirstOrDefault();
             return View(datas);
         }

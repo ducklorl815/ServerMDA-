@@ -1,0 +1,42 @@
+﻿@using ServerMDA.ViewModel
+@model CMovieRatingViewModel
+
+@{
+    ViewData["Title"] = "新增";
+    Layout = null;
+}
+
+
+
+<h4 class="offset-md-1">新增電影分級</h4>
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="分級級數ratingLevel" class="control-label"></label>
+                <input asp-for="分級級數ratingLevel" class="form-control" />
+                <span asp-validation-for="分級級數ratingLevel" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="分級說明ratingIllustrate" class="control-label"></label>
+                <input asp-for="分級說明ratingIllustrate" class="form-control" />
+                <span asp-validation-for="分級說明ratingIllustrate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="分級圖片ratingImage" class="control-label"></label>
+                <input asp-for="分級圖片ratingImage" class="form-control" />
+                <span asp-validation-for="分級圖片ratingImage" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="新增" class="btn btn-success mr-2" />
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" aria-label="Close">回到清單</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

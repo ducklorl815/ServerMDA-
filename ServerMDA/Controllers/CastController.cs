@@ -129,7 +129,10 @@ namespace ServerMDA.Controllers
             MDAContext db = new MDAContext();
             電影導演movieDirector m = new 電影導演movieDirector();
             m = p.director;
+
+            m.電影編號movieId = p.電影編號movieId;
             m.導演編號directorId = db.導演總表directors.FirstOrDefault(q => q.導演中文名字nameCht == p.導演中文名字nameCht).導演編號directorId;
+
             //m.電影分級編號ratingId = db.電影分級movieRatings.FirstOrDefault(q => q.分級級數ratingLevel == p.分級級數ratingLevel).分級編號ratingId;
             db.電影導演movieDirectors.Add(m);
             db.SaveChanges();

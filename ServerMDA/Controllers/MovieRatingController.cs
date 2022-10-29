@@ -17,25 +17,61 @@ namespace ServerMDA.Controllers
             _context = context;
         }
 
-        public IActionResult List(CKeyWordViewModel model)
+        public IActionResult List()
         {
             MDAContext db = new MDAContext();
-            IEnumerable<電影分級movieRating> datas = null;
-            if (string.IsNullOrEmpty(model.txtkeyword))
-                datas = from p in db.電影分級movieRatings
-                        select p;
-            else
-                datas = db.電影分級movieRatings.Where(p => p.分級說明ratingIllustrate.Contains(model.txtkeyword) || p.分級級數ratingLevel.Contains(model.txtkeyword));
+            List<CMovieRatingViewModel> datas = null;
+            datas = db.電影分級movieRatings.Select
+            (p => new CMovieRatingViewModel
+            {
+                Rating = p,
+            }).ToList();
 
             return View(datas);
         }
+        public ActionResult Edit(int? id)
+        {
+            MDAContext db = new MDAContext();
+            CMovieRatingViewModel datas = null;
+            datas = db.電影分級movieRatings.Where(p => p.分級編號ratingId == id).Select
+                (p => new CMovieRatingViewModel
+                {
+                    Rating = p,
 
+                }).FirstOrDefault();
+            return View(datas);
+        }
+        [HttpPost]
+        public IActionResult Edit(CMovieRatingViewModel inRating) //post
+        {
+            MDAContext db = new MDAContext();
+            電影分級movieRating c = db.電影分級movieRatings.FirstOrDefault(c => c.分級編號ratingId == inRating.分級編號ratingId);
+            if (c != null)
+            {
+                db.SaveChanges();
+            }
+            return RedirectToAction("List");
+        }
         public FileResult ShowPhoto(int id)
         {
             電影分級movieRating movieRating = _context.電影分級movieRatings.Find(id);
             byte[] context = movieRating.分級圖片ratingImage;
             return File(context, "image/jpeg");
         }
+        public ActionResult Create()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult Create(CMovieRatingViewModel inRating)
+        {
+            MDAContext db = new MDAContext();
+            電影分級movieRating m = new 電影分級movieRating();
+            m = inRating.Rating;
 
+            db.電影分級movieRatings.Add(m);
+            db.SaveChanges();
+            return RedirectToAction("List");
+        }
     }
 }

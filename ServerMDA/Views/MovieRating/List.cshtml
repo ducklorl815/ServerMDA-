@@ -1,22 +1,31 @@
-﻿@model IEnumerable<ServerMDA.Models.電影分級movieRating>
+﻿@using ServerMDA.ViewModel
+@model List<CMovieRatingViewModel>
 
 @{
     ViewData["Title"] = "電影分級";
 }
 
-<h2>電影分級清單<a asp-action="Create" class="btn btn-warning mb-1  ml-2">新增</a></h2>
+<link href="~/css/bootstrap-5.2.2/bootstrap.min.css" rel="stylesheet" />
+<link href="~/css/datatables/jquery.dataTables.css" rel="stylesheet" />
+<link href="~/css/site.css" rel="stylesheet" />
+<link href="~/css/bootstrap-5.2.2/YukabtnEdit.css" rel="stylesheet" />
 
-<table class="table">
+<h3 class="MovieList">
+    電影分級清單
+    <a class="btn btn-success mb-1" onclick="showmodal('@Url.Action("Create", "MovieRating", Context.Request.Scheme)',null)">新增</a>
+</h3>
+
+<table id="myTable" class="table tables display compact hover col-12">
     <thead>
         <tr>
             <th class="col-1">
-                @Html.DisplayNameFor(model => model.分級圖片ratingImage)
+                @Html.DisplayNameFor(model => model.FirstOrDefault().分級圖片ratingImage)
             </th>
             <th class="col-1">
-                @Html.DisplayNameFor(model => model.分級級數ratingLevel)
+                @Html.DisplayNameFor(model => model.FirstOrDefault().分級級數ratingLevel)
             </th>
             <th class="col-5">
-                @Html.DisplayNameFor(model => model.分級說明ratingIllustrate)
+                @Html.DisplayNameFor(model => model.FirstOrDefault().分級說明ratingIllustrate)
             </th>
 
             <th class="col-1">
@@ -27,21 +36,65 @@
     <tbody>
         @foreach (var item in Model)
         {
-        <tr>
-            <td>
-                <img src="@Url.Action("ShowPhoto","MovieRating", new {id= item.分級編號ratingId })" class="img-thumbnail w-50" />
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.分級級數ratingLevel)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.分級說明ratingIllustrate)
-            </td>
+            <tr>
+                <td>
+                    <img src="@Url.Action("ShowPhoto","MovieRating", new {id= item.分級編號ratingId })" class="img-thumbnail w-50" />
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.分級級數ratingLevel)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.分級說明ratingIllustrate)
+                </td>
 
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.分級編號ratingId" class="btn btn-info">修改</a>
-            </td>
-        </tr>
+                <td>
+                    <a class="btn btn-yuka " id="btn" onclick="showmodal('@Url.Action("Edit","MovieRating",new {id=@item.分級編號ratingId},Context.Request.Scheme)',null)">修改</a>
+                    @*<a class="btn btn-info " id="btn" onclick="showmodal('@Url.Action("Details","Member",new {id=@item.會員編號memberId},Context.Request.Scheme)',null)">細節</a>*@
+                </td>
+            </tr>
         }
     </tbody>
 </table>
+
+<div class="modal fade" id="newstaticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-body col-12 ">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="sortstaticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-body col-12 ">
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="~/js/bootstrap-5.2.2/bootstrap.bundle.min.js"></script>
+<script src="~/js/vendor/jquery/jquery.min.js"></script>
+<script src="~/js/vendor/datatables/Datatable_transCht.js"></script>
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
+
+
+<script>
+
+    showmodal = (url, title) => {
+        $.ajax({
+            type: "GET",
+            url: url,
+            success: function (res) {
+                $("#newstaticBackdrop .modal-body").html(res);
+                $("#newstaticBackdrop .modal-title").html(title);
+                $("#newstaticBackdrop").modal('show');
+            },
+        })
+    }
+</script>
+
+<script src="~/js/vendor/datatables/jquery.dataTables.js"></script>

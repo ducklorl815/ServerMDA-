@@ -37,27 +37,31 @@ namespace ServerMDA.Controllers
         public ActionResult Edit(int? id)
         {
             MDAContext db = new MDAContext();
-            CMovieOriginViewModel datas = null;
-            datas = db.電影產地movieOrigins.Where(p => p.電影產地編號mcId == id).Select
-                (p => new CMovieOriginViewModel
+            CMovieTypeViewModel datas = null;
+            var type = db.片種總表totalTypes.Select(p => p.片種名稱totalTypeName).ToList();
+            var cht = db.電影movies.Select(p => p.中文標題titleCht).ToList();
+            datas = db.電影片種movieTypes.Where(p => p.電影片種編號mtId == id && p.片種編號typeId== p.片種編號typeId).Select
+                (p => new CMovieTypeViewModel
                 {
-                    Origin = p,
-                    國家名稱countryName = p.國家編號country.國家名稱countryName,
-                    國旗countryImage = p.國家編號country.國旗countryImage,
+                    movieType = p,
+                    //todo 沒辦法修改到第二個
+                    //片種名稱totalTypeName = p.片種編號type.片種名稱totalTypeName,
                     中文標題titleCht = p.電影編號movie.中文標題titleCht,
 
                 }).FirstOrDefault();
+            datas.titleCht = cht;
+            datas.titleType = type;
             return View(datas);
         }
         [HttpPost]
-        public IActionResult Edit(CMovieOriginViewModel inOrigin) //post
+        public IActionResult Edit(CMovieTypeViewModel inType) //post
         {
             MDAContext db = new MDAContext();
-            電影產地movieOrigin c = db.電影產地movieOrigins.FirstOrDefault(c => c.電影產地編號mcId == inOrigin.電影產地編號mcId);
+            電影片種movieType c = db.電影片種movieTypes.FirstOrDefault(c => c.電影片種編號mtId == inType.電影片種編號mtId);
             if (c != null)
             {
-                c.國家編號countryId = db.國家總表countrys.FirstOrDefault(q => q.國家名稱countryName == inOrigin.國家名稱countryName).國家編號countryId;
-                c.電影編號movieId = db.電影movies.FirstOrDefault(q => q.中文標題titleCht == inOrigin.中文標題titleCht).電影編號movieId;
+                c.片種編號typeId = db.片種總表totalTypes.FirstOrDefault(q => q.片種名稱totalTypeName == inType.片種名稱totalTypeName).片種編號totalTypeId;
+                c.電影編號movieId = db.電影movies.FirstOrDefault(q => q.中文標題titleCht == inType.中文標題titleCht).電影編號movieId;
                 db.SaveChanges();
             }
             return RedirectToAction("List");
@@ -67,42 +71,17 @@ namespace ServerMDA.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult Create(CMovieOriginViewModel inOrigin)
+        public ActionResult Create(CMovieTypeViewModel inType)
         {
             MDAContext db = new MDAContext();
-            電影產地movieOrigin m = new 電影產地movieOrigin();
-            m = inOrigin.Origin;
-            m.國家編號countryId = db.國家總表countrys.FirstOrDefault(q => q.國家名稱countryName == inOrigin.國家名稱countryName).國家編號countryId;
-            m.電影編號movieId = db.電影movies.FirstOrDefault(q => q.中文標題titleCht == inOrigin.中文標題titleCht).電影編號movieId;
-            db.電影產地movieOrigins.Add(m);
+            電影片種movieType c = new 電影片種movieType();
+            c = inType.movieType;
+            c.片種編號typeId = db.片種總表totalTypes.FirstOrDefault(q => q.片種名稱totalTypeName == inType.片種名稱totalTypeName).片種編號totalTypeId;
+            c.電影編號movieId = db.電影movies.FirstOrDefault(q => q.中文標題titleCht == inType.中文標題titleCht).電影編號movieId;
+            db.電影片種movieTypes.Add(c);
             db.SaveChanges();
             return RedirectToAction("List");
         }
-        public FileResult ShowPhoto(string id)
-        {
-            國家總表country country = _context.國家總表countrys.Find(id);
-            byte[] context = country.國旗countryImage;
-            return File(context, "image/jpeg");
-        }
-        public IActionResult FirstAjax(int id)
-        {
-            var first = _context.電影movies.Where(p => p.電影編號movieId != id).Select(a => a.中文標題titleCht).ToList();
-            return Json(first);
-        }
-        public IActionResult SecondAjax(string id)
-        {
-            var second = _context.國家總表countrys.Where(p => p.國家編號countryId != id).Select(a => a.國家名稱countryName).ToList();
-            return Json(second);
-        }
-        public IActionResult FirstAjaxCreate()
-        {
-            var first = _context.電影movies.Select(a => a.中文標題titleCht).ToList();
-            return Json(first);
-        }
-        public IActionResult SecondAjaxCreate()
-        {
-            var second = _context.國家總表countrys.Select(a => a.國家名稱countryName).ToList();
-            return Json(second);
-        }
+
     }
 }

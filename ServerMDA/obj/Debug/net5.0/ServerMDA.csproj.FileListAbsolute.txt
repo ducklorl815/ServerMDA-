@@ -186,7 +186,6 @@ C:\Users\duckl\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\Movie
 C:\Users\duckl\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\MovieOrigin\Edit.cshtml.g.cs
 C:\Users\duckl\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\MovieOrigin\Create.cshtml.g.cs
 C:\Users\duckl\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\MovieType\List.cshtml.g.cs
-C:\Users\duckl\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\ServerMDA.csproj.AssemblyReference.cache
 C:\Users\duckl\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\Movie\detail.cshtml.g.cs
 C:\Users\duckl\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\Movie\Details.cshtml.g.cs
 E:\C#\03_iSpan資策會\MSIT_143_智慧應用微軟C#工程師就業養成班\06.專題_GitHub\MSIT143.ServerMDA\ServerMDA\bin\Debug\net5.0\appsettings.Development.json
@@ -655,3 +654,8 @@ E:\C#\03_iSpan資策會\MSIT_143_智慧應用微軟C#工程師就業養成班\06
 E:\C#\03_iSpan資策會\MSIT_143_智慧應用微軟C#工程師就業養成班\06.專題_GitHub\MSIT143.ServerMDA\ServerMDA\obj\Debug\net5.0\Razor\Views\product\ProductList.cshtml.g.cs
 E:\C#\03_iSpan資策會\MSIT_143_智慧應用微軟C#工程師就業養成班\06.專題_GitHub\MSIT143.ServerMDA\ServerMDA\obj\Debug\net5.0\Razor\Views\product\ProductSearchKeyword.cshtml.g.cs
 E:\C#\03_iSpan資策會\MSIT_143_智慧應用微軟C#工程師就業養成班\06.專題_GitHub\MSIT143.ServerMDA\ServerMDA\obj\Debug\net5.0\Razor\Views\Shared\_ChartLayout.cshtml.g.cs
+C:\Users\duckl\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\MovieType\Create.cshtml.g.cs
+C:\Users\duckl\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\MovieType\Edit.cshtml.g.cs
+C:\Users\duckl\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\MovieRating\Edit.cshtml.g.cs
+C:\Users\duckl\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\MovieRating\Create.cshtml.g.cs
+C:\Users\duckl\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\ServerMDA.csproj.AssemblyReference.cache
