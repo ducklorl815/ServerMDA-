@@ -29,7 +29,7 @@ namespace ServerMDA.Controllers
                 screening = p,
                 影廳名稱cinemaName = p.影廳編號cinema.影廳名稱cinemaName,
                 電影代碼編號movieCodeId = p.電影代碼movieCodeNavigation.電影代碼編號movieCodeId,
-
+                電影名稱 = db.電影movies.Where(x => x.電影編號movieId == p.電影代碼movieCodeNavigation.電影編號movieId).Select(x => x.中文標題titleCht).First(),
 
 
 

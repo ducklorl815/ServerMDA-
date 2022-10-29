@@ -1,34 +1,38 @@
 ﻿@using ServerMDA.ViewModel
-@model List<CScreeningViewModel>
+@model List<CSeatStatusViewModel>
 
 @{
-    ViewData["Title"] = "場次清單";
+    ViewData["Title"] = "座位狀態清單";
 }
-
 <link href="~/css/bootstrap-5.2.2/bootstrap.min.css" rel="stylesheet" />
 <link href="~/css/datatables/jquery.dataTables.css" rel="stylesheet" />
 <link href="~/css/site.css" rel="stylesheet" />
 <link href="~/css/bootstrap-5.2.2/YukabtnEdit.css" rel="stylesheet" />
 
-<h4>場次清單 <a class="btn btn-info mb-1" onclick="showmodal('@Url.Action("Create","Screening",Context.Request.Scheme)',null)">新增</a></h4>
+<h4>座位狀態清單 <a class="btn btn-info mb-1" onclick="showmodal('@Url.Action("Create","SeatStatus",Context.Request.Scheme)',null)">新增</a></h4>
 <table id="myTable" class="table tables display compact hover col-12">
     <thead>
-        <tr>
-            <th style="width:25px">
+        <tr style="white-space:nowrap">
+            <th>
                 ID
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().出售座位資訊seatSoldInfo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().電影代碼movieCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().場次編號screeningId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().影廳編號cinemaId)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.FirstOrDefault().放映日期playDate)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.FirstOrDefault().放映開始時間playTime)
-            </th>
-            <th>
-                影廳名稱
-            </th>
-
-            <th>
-                電影名稱
             </th>
             <th>
                 指令
@@ -38,26 +42,32 @@
     <tbody>
         @foreach (var item in Model)
         {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.場次編號screeningId)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.放映日期playDate)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.放映開始時間playTime)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.影廳名稱cinemaName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.電影名稱)
-                </td>
-                <td>
-                    <a class="btn btn-info mb-1" id="btn" onclick="showmodal('@Url.Action("Edit","Screening",new {id=@item.場次編號screeningId},Context.Request.Scheme)',null)">修改</a>
-                </td>
-            </tr>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.出售座位編號seatId)
+            </td>
+            <td class="tables_hidtext">
+                @Html.DisplayFor(modelItem => item.出售座位資訊seatSoldInfo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.電影名稱)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.場次編號screeningId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.影廳名稱)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.放映日期playDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.放映開始時間playTime)
+            </td>
+            <td>
+                <a class="btn btn-info mb-1" id="btn" onclick="showmodal('@Url.Action("Edit","SeatStatus",new {id=@item.出售座位編號seatId},Context.Request.Scheme)',null)">修改</a>
+            </td>
+        </tr>
         }
     </tbody>
 </table>
@@ -83,6 +93,7 @@
 </div>
 
 
+
 <script src="~/js/bootstrap-5.2.2/bootstrap.bundle.min.js"></script>
 <script src="~/js/vendor/jquery/jquery.min.js"></script>
 <script src="~/js/vendor/datatables/Datatable_transCht.js"></script>
@@ -101,6 +112,13 @@
                 $("#newstaticBackdrop").modal('show');
             },
         })
+    }
+</script>
+<script>
+    function cancel() {
+    }
+    function show() {
+        $("#myModal").modal();
     }
 </script>
 

@@ -66,5 +66,8 @@ namespace ServerMDA.ViewModel
         public int 電影編號movieId { get; set; }
         public int 語言編號languageId { get; set; }
 
+        public string 電影名稱 { get; set; }
+
+
     }
 }

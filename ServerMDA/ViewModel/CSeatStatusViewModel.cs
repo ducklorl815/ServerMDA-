@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -45,8 +46,13 @@ namespace ServerMDA.ViewModel
         [DisplayName("電影代碼")]
         public int 電影代碼movieCode { get; set; }
         [DisplayName("放映日期")]
+        [DisplayFormat(DataFormatString = "{0:yyyy/MM/dd}")]
         public DateTime 放映日期playDate { get; set; }
         [DisplayName("放映開始時間")]
+        [DisplayFormat(DataFormatString = "{0:yyyy/MM/dd}")]
         public string 放映開始時間playTime { get; set; }
+
+        public string 影廳名稱 { get; set; }
+        public string 電影名稱 { get; set; }
     }
 }
