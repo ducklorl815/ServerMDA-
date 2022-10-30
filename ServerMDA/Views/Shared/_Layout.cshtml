@@ -383,7 +383,7 @@
 
                 <!-- #region Nav Item - User Information 登入狀態 -->
                 <li class="nav-item dropdown no-arrow">
-                    <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a class="nav-link  dropdown-toggle" asp-controller="HomePage" asp-action="List" id="userDropdown" role="button" data-toggle="dropdown">
                         <span class="mr-2 d-none d-lg-inline text-gray-600 small">Administrator</span>
                         <img class="img-profile rounded-circle" src="~/images/MEMBER.png">
                     </a>
@@ -392,10 +392,10 @@
                         <a class="dropdown-item" href="#"><i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>狀態</a>
                         <a class="dropdown-item" href="#"><i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>設定</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal"><i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>登出</a>
+                        <a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="Login"><i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>登出</a>
                     </div>
                 </li>
-                <!-- #endregion Nav Item - User Information 登入狀態 -->
+                <!-- #endregion Nav Item - User Information 登入狀態  data-toggle="modal" data-target="#logoutModal" -->
 
             </ul>
         </nav>
