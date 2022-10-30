@@ -5,16 +5,14 @@
     ViewData["Title"] = "優惠明細";
 }
 
-<link href="~/css/bootstrap-5.2.2/bootstrap.min.css" rel="stylesheet" />
-<link href="~/css/datatables/jquery.dataTables.css" rel="stylesheet" />
-<link href="~/css/site.css" rel="stylesheet" />
+
 <link href="~/css/bootstrap-5.2.2/YukabtnEdit.css" rel="stylesheet" />
 
 <h3 class="MovieList">
     優惠明細
-    <a class="btn btn-success mb-1" onclick="showmodal('@Url.Action("Create", "Coupon", Context.Request.Scheme)',null)">新增</a>
+    <a class="btn btn-success mb-1" onclick="showmodal('@Url.Action("Create", "Coupon", Context.Request.Scheme)',null)">新增優惠券</a>
 </h3>
-<table class="table">
+<table id="myTable" class="table tables display compact hover col-12">
     <thead>
         <tr>
             <th>
@@ -22,6 +20,9 @@
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.FirstOrDefault().優惠編號couponId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().優惠截止日期couponDueDate)
             </th>
             <th>
                 使用於訂單
@@ -55,6 +56,9 @@
                 @Html.DisplayFor(modelItem => item.優惠代碼couponCode)
             </td>
             <td>
+                @Html.DisplayFor(modelItem => item.優惠截止日期couponDueDate)
+            </td>
+            <td>
                 @Html.DisplayFor(modelItem => item.訂單編號orderId)
             </td>
             <td>
@@ -79,7 +83,7 @@
 </table>
 
 <div class="modal fade" id="newstaticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
+    <div class="modal-dialog modal-dialog">
         <div class="modal-content">
             <div class="modal-body col-12 ">
             </div>
@@ -88,7 +92,7 @@
 </div>
 
 <div class="modal fade" id="sortstaticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
+    <div class="modal-dialog modal-dialog">
         <div class="modal-content">
             <div class="modal-body col-12 ">
 
@@ -98,7 +102,6 @@
     </div>
 </div>
 
-<script src="~/js/bootstrap-5.2.2/bootstrap.bundle.min.js"></script>
 <script src="~/js/vendor/jquery/jquery.min.js"></script>
 <script src="~/js/vendor/datatables/Datatable_transCht.js"></script>
 <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>

@@ -49,8 +49,7 @@ namespace ServerMDA.Controllers
         {
             MDAContext db = new MDAContext();
             評論圖片總表commentImage c = db.評論圖片總表commentImages.FirstOrDefault(c => c.評論圖庫編號commentImageId == inComment.評論圖庫編號commentImageId);
-            if (c != null)
-            {
+
                 if (inComment.photo != null)
                 {
                     string pName = Guid.NewGuid().ToString() + ".jpg";
@@ -62,7 +61,6 @@ namespace ServerMDA.Controllers
 
                 db.SaveChanges();
 
-            }
             return RedirectToAction("List");
 
         }

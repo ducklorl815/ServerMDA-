@@ -17,6 +17,9 @@
     <table id="myTable" class="table tables display compact hover col-12">
         <thead>
             <tr>
+                <th class="col-1">
+                    圖庫ID
+                </th>
                 <th>
                     @Html.DisplayNameFor(model => model.FirstOrDefault().圖片image)
                 </th>
@@ -32,6 +35,9 @@
             @foreach (var item in Model)
             {
             <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.評論圖庫編號commentImageId)
+                </td>
                 <td>
                     <div>
                         <img src="~/images/Comment/@item.圖片image" width="100" />

@@ -1,0 +1,73 @@
+﻿@using ServerMDA.ViewModel
+@model CCouponViewModel
+
+@{
+    ViewData["Title"] = "修改";
+    Layout = null;
+}
+
+
+<div class="row">
+    <form asp-action="Edit">
+        <div>
+            <h4>修改優惠明細 : @Model.會員編號memberId</h4>
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="優惠明細編號couponListId" />
+            <div class="form-group">
+                <label class="control-label">會員</label>
+                <select asp-for="會員編號memberId" name="姓氏lName名字fName" class="form-control" asp-items="ViewBag.會員編號memberId">
+                    <option selected>@Model.姓氏lName@Model.名字fName</option>
+                    @{ 
+                        var q = Model.姓氏lName + Model.名字fName;
+                        foreach (var p in Model.titleName)
+                        {
+                            if (p != q)
+                            {
+                                <option>@p</option>
+                            }
+                        }
+                    }
+                </select>
+                
+                <span asp-validation-for="會員編號memberId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="優惠編號couponId" class="control-label"></label>
+                <select asp-for="優惠編號couponId" name="優惠名稱couponName" class="form-control" asp-items="ViewBag.優惠編號couponId">
+                    <option selected>@Model.優惠名稱couponName</option>
+                    @{
+                        var s = Model.優惠名稱couponName;
+                        foreach (var r in Model.titleCou)
+                        {
+                            if (r != s)
+                            {
+                                <option>@r</option>
+                            }
+                        }
+                    }
+                </select>
+                <span asp-validation-for="優惠編號couponId" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="是否使用優惠oxCouponUsing" /> @Html.DisplayNameFor(model => model.是否使用優惠oxCouponUsing)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="訂單編號orderId" class="control-label"></label>
+                <input asp-for="訂單編號orderId" class="form-control" />
+                <span asp-validation-for="訂單編號orderId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="確認修改" class="btn btn-yuka mr-1" />
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" aria-label="Close">回到清單</button>
+            </div>
+
+        </div>
+    </form>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

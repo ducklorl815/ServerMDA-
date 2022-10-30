@@ -1,4 +1,4 @@
-﻿@model ServerMDA.Models.會員member
+﻿@model ServerMDA.ViewModel.CMemberViewModel
 
 @{
     ViewData["Title"] = "新增";
@@ -6,83 +6,105 @@
 }
 
 
-<h4 class="offset-md-1">新增會員</h4>
+
 
 <div class="row">
-    <div class="col-md-5 offset-md-1">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="會員電話cellphone" class="control-label"></label>
-                <input asp-for="會員電話cellphone" class="form-control" />
-                <span asp-validation-for="會員電話cellphone" class="text-danger"></span>
+    <form asp-action="Create">
+        <div class="d-flex flex-row">
+            <div class="col-6">
+                <h4 class="offset-md-1">新增會員</h4>
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="會員電話cellphone" class="control-label"></label>
+                    <input asp-for="會員電話cellphone" class="form-control" />
+                    <span asp-validation-for="會員電話cellphone" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="密碼password" class="control-label"></label>
+                    <input asp-for="密碼password" class="form-control" />
+                    <span asp-validation-for="密碼password" class="text-danger"></span>
+                </div>
+                <div class="d-flex flex-row">
+                    <div class="form-group">
+                        <label asp-for="姓氏lName" class="control-label"></label>
+                        <input asp-for="姓氏lName" class="form-control" />
+                        <span asp-validation-for="姓氏lName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-6">
+                        <label asp-for="名字fName" class="control-label"></label>
+                        <input asp-for="名字fName" class="form-control" />
+                        <span asp-validation-for="名字fName" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="d-flex flex-row">
+                    <div class="form-group">
+                        <label asp-for="暱稱nickName" class="control-label"></label>
+                        <input asp-for="暱稱nickName" class="form-control" />
+                        <span asp-validation-for="暱稱nickName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group form-check col-6 m5-3">
+                        <label class="form-check-label">
+                            <input class="form-check-input" asp-for="正式會員formal" /> @Html.DisplayNameFor(model => model.正式會員formal)
+                        </label>
+                    </div>
+                </div>
+                    <div class="form-group">
+                        <label asp-for="生日birthDate" class="control-label"></label>
+                        <input asp-for="生日birthDate" class="form-control" />
+                        <span asp-validation-for="生日birthDate" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="性別gender" class="control-label"></label>
+                        <select asp-for="性別gender" class="form-control" asp-items="ViewBag.性別gender"></select>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="電子信箱email" class="control-label"></label>
+                        <input asp-for="電子信箱email" class="form-control" />
+                        <span asp-validation-for="電子信箱email" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="地址address" class="control-label"></label>
+                        <input asp-for="地址address" class="form-control" />
+                        <span asp-validation-for="地址address" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="紅利點數bonus" class="control-label"></label>
+                        <input asp-for="紅利點數bonus" class="form-control" />
+                        <span asp-validation-for="紅利點數bonus" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="會員權限permission" class="control-label"></label>
+                        <select asp-for="會員權限permission" class="form-control" asp-items="ViewBag.會員權限permission"></select>
+                    </div>
+                    <div class="form-group" style="float:right">
+                        <input type="submit" value="新增" class="btn btn-success mr-2" />
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" aria-label="Close">回到清單</button>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="form-group">
+                        <label class="control-label">演員照片</label><br />
+                        <br />
+                        <img id="myimg" height="375" class="p-2" />
+                        <input id="myfile" type="file" onchange="selectimgFile(this.files)" name="photo" />
+                    </div>
+
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="密碼password" class="control-label"></label>
-                <input asp-for="密碼password" class="form-control" />
-                <span asp-validation-for="密碼password" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="姓氏lName" class="control-label"></label>
-                <input asp-for="姓氏lName" class="form-control" />
-                <span asp-validation-for="姓氏lName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="名字fName" class="control-label"></label>
-                <input asp-for="名字fName" class="form-control" />
-                <span asp-validation-for="名字fName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="暱稱nickName" class="control-label"></label>
-                <input asp-for="暱稱nickName" class="form-control" />
-                <span asp-validation-for="暱稱nickName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="生日birthDate" class="control-label"></label>
-                <input asp-for="生日birthDate" class="form-control" />
-                <span asp-validation-for="生日birthDate" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="性別gender" class="control-label"></label>
-                <select asp-for="性別gender" class="form-control" asp-items="ViewBag.性別gender"></select>
-            </div>
-            <div class="form-group">
-                <label asp-for="電子信箱email" class="control-label"></label>
-                <input asp-for="電子信箱email" class="form-control" />
-                <span asp-validation-for="電子信箱email" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="地址address" class="control-label"></label>
-                <input asp-for="地址address" class="form-control" />
-                <span asp-validation-for="地址address" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="紅利點數bonus" class="control-label"></label>
-                <input asp-for="紅利點數bonus" class="form-control" />
-                <span asp-validation-for="紅利點數bonus" class="text-danger"></span>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="正式會員formal" /> @Html.DisplayNameFor(model => model.正式會員formal)
-                </label>
-            </div>
-            <div class="form-group">
-                <label asp-for="會員權限permission" class="control-label"></label>
-                <select asp-for="會員權限permission" class="form-control" asp-items="ViewBag.會員權限permission"></select>
-            </div>
-            <div class="form-group">
-                <label class="control-label">演員照片</label><br />
-                <input type="file" name="photo" />
-            </div>
-            <div class="form-group" style="float:right">
-                <input type="submit" value="新增" class="btn btn-success mr-2" />
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" aria-label="Close">回到清單</button>
-            </div>
-        </form>
-    </div>
+    </form>
 </div>
 
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
+<script>
+    function selectimgFile(files) {
+        const myfile = document.querySelector("#myfile")
+        const myimg = document.querySelector("#myimg")
+        let mynewimg = files[0]
+        let objURL = URL.createObjectURL(mynewimg)
+        myimg.src = objURL
+    }
+</script>

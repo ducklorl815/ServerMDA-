@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -18,6 +19,7 @@ namespace ServerMDA.ViewModel
         public CCouponViewModel()
         {
             _couponList = new 優惠明細couponList();  //每做一個就建一個
+            _coupon = new 優惠總表coupon();
         }
         [DisplayName("優惠明細編號")]
         public int 優惠明細編號couponListId
@@ -50,17 +52,45 @@ namespace ServerMDA.ViewModel
             set { _couponList.訂單編號orderId = value; }
         }
         //public virtual 優惠總表coupon 優惠編號coupon { get; set; }
+        private 優惠總表coupon _coupon;
+        public 優惠總表coupon coupon
+        {
+            get { return _coupon; }
+            set { _coupon = value; }
+        }
+
         //public int 優惠編號couponId { get; set; }
         [DisplayName("優惠名稱")]
-        public string 優惠名稱couponName { get; set; }
+        public string 優惠名稱couponName
+        {
+            get { return _coupon.優惠名稱couponName; }
+            set { _coupon.優惠名稱couponName = value; }
+        }
         [DisplayName("優惠折扣")]
-        public decimal 優惠折扣couponDiscount { get; set; }
+        public decimal 優惠折扣couponDiscount
+        {
+            get { return _coupon.優惠折扣couponDiscount; }
+            set { _coupon.優惠折扣couponDiscount = value; }
+        }
         [DisplayName("優惠代碼")]
-        public string 優惠代碼couponCode { get; set; }
+        public string 優惠代碼couponCode
+        {
+            get { return _coupon.優惠代碼couponCode; }
+            set { _coupon.優惠代碼couponCode = value; }
+        }
         [DisplayName("優惠截止日期")]
-        public DateTime 優惠截止日期couponDueDate { get; set; }
+        [DisplayFormat(DataFormatString = "{0:yyyy/MM/dd}")]
+        public DateTime 優惠截止日期couponDueDate
+        {
+            get { return _coupon.優惠截止日期couponDueDate; }
+            set { _coupon.優惠截止日期couponDueDate = value; }
+        }
         [DisplayName("優惠所需紅利")]
-        public int 優惠所需紅利bonusCost { get; set; }
+        public int 優惠所需紅利bonusCost
+        {
+            get { return _coupon.優惠所需紅利bonusCost; }
+            set { _coupon.優惠所需紅利bonusCost = value; }
+        }
         //public virtual 會員member 會員編號member { get; set; }
         //public int 會員編號memberId { get; set; }
         [DisplayName("會員電話")]
@@ -69,5 +99,7 @@ namespace ServerMDA.ViewModel
         public string 姓氏lName { get; set; }
         [DisplayName("名字")]
         public string 名字fName { get; set; }
+        public List<string> titleName { get; set; }
+        public List<string> titleCou { get; set; }
     }
 }

@@ -36,9 +36,15 @@ namespace ServerMDA.Controllers
             if (id != null)
             {
                 MDAContext db = new MDAContext();
-                演員總表actor actor = db.演員總表actors.FirstOrDefault(p => p.演員編號actorsId == id);
-                if (actor != null)
-                    return View(actor);
+                CActorViewModel datas = null;
+                datas = db.演員總表actors.Where(p => p.演員編號actorsId == id).Select
+                    (p => new CActorViewModel
+                    {
+                        actor = p,
+
+                    }).FirstOrDefault();
+
+                return View(datas);
             }
             return RedirectToAction("List");
         }

@@ -6,16 +6,15 @@
     Layout = null;
 }
 
-<link href="~/css/bootstrap-5.2.2/bootstrap.min.css" rel="stylesheet" />
 <link href="~/css/bootstrap-5.2.2/YukabtnEdit.css" rel="stylesheet" />
-<link href="~/css/site.css" rel="stylesheet" />
 
-<h4 class="">修改會員編號 : @Model.會員編號memberId</h4>
+
+
 <div class="row">
     <form asp-action="Edit" enctype="multipart/form-data">
         <div class="d-flex flex-row">
             <div class="col-md-5">
-
+                <h4 class="">修改會員編號 : @Model.會員編號memberId</h4>
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                 <input type="hidden" asp-for="會員編號memberId" />
                 <div class="d-flex flex-row">
@@ -107,12 +106,12 @@
                     <label asp-for="會員照片image" class="control-label"></label>
                     <br />
                     @*<input asp-for="會員照片image" class="form-control" />*@
-                    <img src="~/images/Member/@Model.會員照片image" height="265" />
+                    <img id="myimg" height="375" class="p-2" src="~/images/Member/@Model.會員照片image" />
                     <span asp-validation-for="會員照片image" class="text-danger"></span>
                 </div>
                 <div class="form-group">
                     @*<label class="control-label">會員照片</label>*@
-                    <input type="file" name="photo" />
+                    <input id="myfile" type="file" onchange="selectimgFile(this.files)" name="photo" />
                 </div>
                 <div class="form-group">
                     <label asp-for="暱稱nickName" class="control-label"></label>
@@ -159,7 +158,12 @@
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
-
-
-<script src="~/js/bootstrap-5.2.2/bootstrap.min.js"></script>
-<script src="~/js/bootstrap-5.2.2/bootstrap.bundle.js"></script>
+<script>
+    function selectimgFile(files) {
+        const myfile = document.querySelector("#myfile")
+        const myimg = document.querySelector("#myimg")
+        let mynewimg = files[0]
+        let objURL = URL.createObjectURL(mynewimg)
+        myimg.src = objURL
+    }
+</script>

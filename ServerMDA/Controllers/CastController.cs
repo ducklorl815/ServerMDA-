@@ -24,7 +24,7 @@ namespace ServerMDA.Controllers
         {
             MDAContext db = new MDAContext();
             List<CCastViewModel> datas = null;
-            datas = db.電影主演casts.Where(p => p.電影編號movieId == id).OrderBy(p=>p.演員編號actorId).Select
+            datas = db.電影主演casts.Where(p => p.電影編號movieId == id).OrderBy(p => p.演員編號actorId).Select
             (p => new CCastViewModel
             {
                 cast = p,

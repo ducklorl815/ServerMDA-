@@ -50,6 +50,7 @@ namespace ServerMDA.ViewModel
         public int 電影編號movieId { get; set; }
         public decimal? 評分rate { get; set; }
         public decimal? 期待度anticipation { get; set; }
+        [DisplayName("評論標題")]
         public string 評論標題commentTitle { get; set; }
         public string 評論內容comments { get; set; }
         public DateTime 發佈時間commentTime { get; set; }
@@ -58,5 +59,6 @@ namespace ServerMDA.ViewModel
         public int? 公開等級編號publicId { get; set; }
         public bool? 是否開放討論串oxFloor { get; set; }
         //public int 屏蔽invisible { get; set; }
+        public List<string> titleComm { get; set; }
     }
 }
