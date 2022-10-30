@@ -20,10 +20,12 @@
                 <th>
                     @Html.DisplayNameFor(model => model.FirstOrDefault().圖片image)
                 </th>
-                <th>
+                <th class="col-1">
                     @Html.DisplayNameFor(model => model.FirstOrDefault().屏蔽invisible)
                 </th>
-                <th></th>
+                <th class="col-1">
+                    指令
+                </th>
             </tr>
         </thead>
         <tbody>
@@ -40,7 +42,7 @@
                 </td>
                 <td>
                     <a class="btn btn-yuka mr-2" id="btn" onclick="showmodal('@Url.Action("Edit","CommentImage",new {id=@item.評論圖庫編號commentImageId},Context.Request.Scheme)',null)">修改</a>
-                    <a class="btn btn-info " id="btn" onclick="showmodal('@Url.Action("Details","CommentImage",new {id=@item.評論圖庫編號commentImageId},Context.Request.Scheme)',null)">細節</a>
+                    @*<a class="btn btn-info " id="btn" onclick="showmodal('@Url.Action("Details","CommentImage",new {id=@item.評論圖庫編號commentImageId},Context.Request.Scheme)',null)">細節</a>*@
                 </td>
             </tr>
             }
@@ -48,7 +50,7 @@
     </table>
 </div>
 <div class="modal fade" id="newstaticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
+    <div class="modal-dialog modal-static">
         <div class="modal-content">
             <div class="modal-body col-12 ">
             </div>

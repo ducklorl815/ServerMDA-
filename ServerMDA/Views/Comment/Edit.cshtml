@@ -11,18 +11,18 @@
     <div class="col-md-12">
         <form asp-action="Edit">
             <div class="d-flex flex-row">
-                <div class="col-6">
+                <div class="col-3">
                     <h4>修改評論編號 : @Model.電影編號movieId</h4>
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                     <input type="hidden" asp-for="評論編號commentId" />
                     <div class="form-group">
                         <label asp-for="會員編號memberId" class="control-label"></label>
-                        <input asp-for="會員編號memberId" class="form-control" />
+                        <input asp-for="會員編號memberId" disabled="disabled" class="form-control" />
                         <span asp-validation-for="會員編號memberId" class="text-danger"></span>
                     </div>
                     <div class="form-group">
                         <label asp-for="電影編號movieId" class="control-label"></label>
-                        <select asp-for="電影編號movieId"  name="中文標題titleCht" class="form-control" asp-items="ViewBag.電影編號movieId">
+                        <select asp-for="電影編號movieId" disabled="disabled" name="中文標題titleCht" class="form-control" asp-items="ViewBag.電影編號movieId">
                             <option selected>@Model.中文標題titleCht</option>
                         </select>
                         <span asp-validation-for="電影編號movieId" class="text-danger"></span>
@@ -30,23 +30,23 @@
                     <div class="d-flex flex-row">
                         <div class="form-group">
                             <label asp-for="評分rate" class="control-label"></label>
-                            <input asp-for="評分rate" class="form-control" />
+                            <input asp-for="評分rate"  disabled="disabled" class="form-control" />
                             <span asp-validation-for="評分rate" class="text-danger"></span>
                         </div>
                         <div class="form-group ml-2">
                             <label asp-for="期待度anticipation" class="control-label"></label>
-                            <input asp-for="期待度anticipation" class="form-control" />
+                            <input asp-for="期待度anticipation" disabled="disabled" class="form-control" />
                             <span asp-validation-for="期待度anticipation" class="text-danger"></span>
                         </div>
                     </div>
                     <div class="form-group">
                         <label asp-for="觀影方式source" class="control-label"></label>
-                        <input asp-for="觀影方式source" class="form-control" />
+                        <input asp-for="觀影方式source" disabled="disabled" class="form-control" />
                         <span asp-validation-for="觀影方式source" class="text-danger"></span>
                     </div>
                     <div class="form-group">
                         <label asp-for="公開等級編號publicId" class="control-label"></label>
-                        <select asp-for="公開等級編號publicId" name="公開等級public" class="form-control" asp-items="ViewBag.公開等級編號publicId">
+                        <select asp-for="公開等級編號publicId" disabled="disabled" name="公開等級public" class="form-control" asp-items="ViewBag.公開等級編號publicId">
                             <option selected>@Model.公開等級public</option>
                         </select>
                         <span asp-validation-for="公開等級編號publicId" class="text-danger"></span>
@@ -54,7 +54,7 @@
                     <div class="d-flex flex-row">
                         <div class="form-group">
                             <label asp-for="是否開放討論串oxFloor" class="control-label"></label>
-                            <input asp-for="是否開放討論串oxFloor" class="form-control" />
+                            <input asp-for="是否開放討論串oxFloor" disabled="disabled" class="form-control" />
                             <span asp-validation-for="是否開放討論串oxFloor" class="text-danger"></span>
                         </div>
                         <div class="form-group ml-2">
@@ -65,25 +65,25 @@
                     </div>
 
                 </div>
-                <div class="col-6">
+                <div class="col-9">
                     <div class="form-group">
                         <label asp-for="發佈時間commentTime" class="control-label"></label>
-                        <input asp-for="發佈時間commentTime" class="form-control" />
+                        <input asp-for="發佈時間commentTime" disabled="disabled" class="form-control" />
                         <span asp-validation-for="發佈時間commentTime" class="text-danger"></span>
                     </div>
                     <div class="form-group">
                         <label asp-for="觀影日期viewingTime" class="control-label"></label>
-                        <input asp-for="觀影日期viewingTime" class="form-control" />
+                        <input asp-for="觀影日期viewingTime" disabled="disabled" class="form-control" />
                         <span asp-validation-for="觀影日期viewingTime" class="text-danger"></span>
                     </div>
                     <div class="form-group">
                         <label asp-for="評論標題commentTitle" class="control-label"></label>
-                        <input asp-for="評論標題commentTitle" class="form-control" />
+                        <input asp-for="評論標題commentTitle" disabled="disabled" class="form-control" />
                         <span asp-validation-for="評論標題commentTitle" class="text-danger"></span>
                     </div>
                     <div class="form-group">
                         <label asp-for="評論內容comments" class="control-label"></label>
-                        <textarea rows="8" asp-for="評論內容comments" class="form-control"></textarea>
+                        <textarea rows="8" asp-for="評論內容comments" disabled="disabled" class="form-control"></textarea>
                         <span asp-validation-for="評論內容comments" class="text-danger"></span>
                     </div>
                     <div class="form-group">

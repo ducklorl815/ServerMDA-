@@ -10,32 +10,37 @@
 
 <div class="row">
     <form asp-action="Edit" enctype="multipart/form-data">
-        <div class="col-md-6">
+        <div>
             <label class="control-label">評論照片</label>
             <br />
-            <img id="myimg" height="375" class="p-2" />
-            <input id="myfile" type="file" onchange="selectimgFile(this.files)" name="photo" />
-        </div>
-
-        <div class="col-md-6">
+            <div class="col-7 offset-2">
+                <img id="myimg" height="400" class="p-2" />
+            </div>
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="評論圖庫編號commentImageId" />
 
             <div class="form-group">
-                <label asp-for="屏蔽invisible" class="control-label"></label>
-                <input asp-for="屏蔽invisible" value="@Model.屏蔽invisible" class="form-control" />
-                <span asp-validation-for="屏蔽invisible" class="text-danger"></span>
+                <div class="mb-2">
+                    <input id="myfile" type="file" onchange="selectimgFile(this.files)" name="photo" />
+                </div>
+                <div class="d-flex flex-row">
+                    <div class="mr-3 mt-1">
+                        <label asp-for="屏蔽invisible" class="control-label"></label>
+                    </div>
+                    <div>
+                        <input asp-for="屏蔽invisible" value="@Model.屏蔽invisible" class="form-control" />
+                        <span asp-validation-for="屏蔽invisible" class="text-danger"></span>
+                    </div>
+                </div>
             </div>
-            <div class="form-group ">
-                <input type="submit" value="確認修改" class="btn btn-yuka mr-2" />
-                @*<a asp-action="List" class="btn btn-secondary">回到清單</a>*@
-                <button type="button" class="btn btn-secondary " data-bs-dismiss="modal" aria-label="Close">回到清單</button>
-
+            <div>
+                <div class="form-group ">
+                    <input type="submit" value="確認修改" class="btn btn-yuka mr-2" />
+                    @*<a asp-action="List" class="btn btn-secondary">回到清單</a>*@
+                    <button type="button" class="btn btn-secondary " data-bs-dismiss="modal" aria-label="Close">回到清單</button>
+                </div>
             </div>
         </div>
-
-
-
     </form>
 </div>
 

@@ -7,83 +7,130 @@
 }
 
 
-<h4 class="offset-md-1">電影評論</h4>
 
 <div class="row">
-    <form asp-action="Create">
-        <div class="d-flex flex-row">
-            <div>
-                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                <div class="form-group">
-                    <label asp-for="會員編號memberId" class="control-label"></label>
-                    <input asp-for="會員編號memberId" class="form-control" />
-                    <span asp-validation-for="會員編號memberId" class="text-danger"></span>
+    <div class="col-md-12">
+        <form asp-action="Create">
+            <div class="d-flex flex-row">
+                <div class="col-6">
+                    <h4>新增電影評論</h4>
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" asp-for="評論編號commentId" />
+                    <div class="form-group">
+                        <label asp-for="會員編號memberId" class="control-label"></label>
+                        <input asp-for="會員編號memberId" id="memid" class="form-control" />
+                        <span asp-validation-for="會員編號memberId" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="電影編號movieId" class="control-label"></label>
+                        <select asp-for="電影編號movieId" id="movId" name="中文標題titleCht" class="form-control" asp-items="ViewBag.電影編號movieId">
+                            <option></option>
+                        </select>
+                        <span asp-validation-for="電影編號movieId" class="text-danger"></span>
+                    </div>
+                    <div class="d-flex flex-row">
+                        <div class="form-group">
+                            <label asp-for="評分rate" class="control-label"></label>
+                            <input asp-for="評分rate" id="rate" class="form-control" />
+                            <span asp-validation-for="評分rate" class="text-danger"></span>
+                        </div>
+                        <div class="form-group ml-2">
+                            <label asp-for="期待度anticipation" class="control-label"></label>
+                            <input asp-for="期待度anticipation" id="anti" class="form-control" />
+                            <span asp-validation-for="期待度anticipation" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="觀影方式source" class="control-label"></label>
+                        <input asp-for="觀影方式source" id="sour" class="form-control" />
+                        <span asp-validation-for="觀影方式source" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="公開等級編號publicId" class="control-label"></label>
+                        <select asp-for="公開等級編號publicId" name="公開等級public" class="form-control" asp-items="ViewBag.公開等級編號publicId">
+                            <option id="opt"></option>
+                        </select>
+                        <span asp-validation-for="公開等級編號publicId" class="text-danger"></span>
+                    </div>
+                    <div class="d-flex flex-row">
+                        <div class="form-group">
+                            <label asp-for="是否開放討論串oxFloor" class="control-label"></label>
+                            <input asp-for="是否開放討論串oxFloor" id="oxval" class="form-control" />
+                            <span asp-validation-for="是否開放討論串oxFloor" class="text-danger"></span>
+                        </div>
+                        <div class="form-group ml-2">
+                            <label asp-for="屏蔽invisible" class="control-label"></label>
+                            <input asp-for="屏蔽invisible" id="inv" class="form-control" />
+                            <span asp-validation-for="屏蔽invisible" class="text-danger"></span>
+                        </div>
+                    </div>
+
                 </div>
-                <div class="form-group">
-                    <label asp-for="電影編號movieId" class="control-label"></label>
-                    <select asp-for="電影編號movieId" class="form-control" asp-items="ViewBag.電影編號movieId"></select>
-                </div>
-                <div class="form-group">
-                    <label asp-for="評分rate" class="control-label"></label>
-                    <input asp-for="評分rate" class="form-control" />
-                    <span asp-validation-for="評分rate" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="期待度anticipation" class="control-label"></label>
-                    <input asp-for="期待度anticipation" class="form-control" />
-                    <span asp-validation-for="期待度anticipation" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="評論標題commentTitle" class="control-label"></label>
-                    <input asp-for="評論標題commentTitle" class="form-control" />
-                    <span asp-validation-for="評論標題commentTitle" class="text-danger"></span>
+                <div class="col-6">
+                    <div class="form-group">
+                        <label asp-for="發佈時間commentTime" class="control-label"></label>
+                        <input asp-for="發佈時間commentTime" id="comT" class="form-control" />
+                        <span asp-validation-for="發佈時間commentTime" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="觀影日期viewingTime" class="control-label"></label>
+                        <input asp-for="觀影日期viewingTime" class="form-control" />
+                        <span asp-validation-for="觀影日期viewingTime" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="評論標題commentTitle" class="control-label"></label>
+                        <input asp-for="評論標題commentTitle" class="form-control" />
+                        <span asp-validation-for="評論標題commentTitle" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="評論內容comments" class="control-label"></label>
+                        <textarea rows="8" asp-for="評論內容comments" class="form-control"></textarea>
+                        <span asp-validation-for="評論內容comments" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="新增" class="btn btn-success" />
+                        <button type="button" class="btn btn-dark" aria-label="Close" id="demo">Demo</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" aria-label="Close">回到清單</button>
+                    </div>
                 </div>
             </div>
-            <div>
-                <div class="form-group">
-                    <label asp-for="評論內容comments" class="control-label"></label>
-                    <input asp-for="評論內容comments" class="form-control" />
-                    <span asp-validation-for="評論內容comments" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="發佈時間commentTime" class="control-label"></label>
-                    <input asp-for="發佈時間commentTime" class="form-control" />
-                    <span asp-validation-for="發佈時間commentTime" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="觀影日期viewingTime" class="control-label"></label>
-                    <input asp-for="觀影日期viewingTime" class="form-control" />
-                    <span asp-validation-for="觀影日期viewingTime" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="觀影方式source" class="control-label"></label>
-                    <input asp-for="觀影方式source" class="form-control" />
-                    <span asp-validation-for="觀影方式source" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="公開等級編號publicId" class="control-label"></label>
-                    <select asp-for="公開等級編號publicId" class="form-control" asp-items="ViewBag.公開等級編號publicId"></select>
-                </div>
-                <div class="form-group">
-                    <label asp-for="是否開放討論串oxFloor" class="control-label"></label>
-                    <input asp-for="是否開放討論串oxFloor" class="form-control" />
-                    <span asp-validation-for="是否開放討論串oxFloor" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="屏蔽invisible" class="control-label"></label>
-                    <input asp-for="屏蔽invisible" class="form-control" />
-                    <span asp-validation-for="屏蔽invisible" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <input type="submit" value="新增" class="btn btn-success mr-2" />
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" aria-label="Close">回到清單</button>
-                </div>
-            </div>
-        </div>
-    </form>
+        </form>
+    </div>
 </div>
 
 
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+    @section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }
+<script>
+
+
+    demo.addEventListener("click", () => {
+        const demo = document.querySelector("#demo");
+        const selectSeriesName = document.querySelector("#selectDemoName");
+        const titleCh = document.querySelector("#titleCh");
+        const titleEn = document.querySelector("#titleEn");
+        const year = document.querySelector("#year");
+        const date = document.querySelector("#date");
+        const runtime = document.querySelector("#runtime");
+        const selectRating = document.querySelector("#selectRating");
+        const rate = document.querySelector("#rate");
+        const anti = document.querySelector("#anti");
+        const box = document.querySelector("#box");
+        const plot = document.querySelector("#plot");
+
+        selectSeriesName.selectedIndex = 0;
+        titleCh.value = "媽的多重宇宙";
+        titleEn.value = "Everything Everywhere All at Once";
+        year.value = 2022;
+        date.value = "2022-04-22T10:00";
+        runtime.value = 140;
+
+        selectRating.selectedIndex = 3;
+        rate.value = 4.5;
+        anti.value = 3.5;
+        box.value = 1.007;
+        plot.value = "《媽的多重宇宙》由楊紫瓊主演，故事描述一位移民家庭的中年婦女秀蓮，以洗衣店的收入維持生計，遭逢繁雜稅務、婚姻危機、母女疏離，意外發現自己所處的世界只是萬千與眾宇宙中的其中一環，丈夫突然自稱來自α宇宙，並不是秀蓮認知中那個有些懦弱、成不了大器的男人，並說明宇宙間有一個「極大的惡」的存在，而秀蓮就是她所尋找的「救世主」。而α宇宙的秀蓮，發明了可以讓意識在宇宙間流竄的技術——「宇宙搖」，使秀蓮可以習得不同宇宙的秀蓮技術，其中有武打巨星秀蓮、廚師秀蓮、京劇盲人秀蓮、熱狗手指秀蓮等等，並也得知人生發生的每一個變故，都可能延伸出不同的走向，進而成為另一個宇宙。";
+    })
+
+</script>

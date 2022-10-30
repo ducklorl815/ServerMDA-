@@ -68,7 +68,14 @@ namespace ServerMDA.Controllers
         }
         public ActionResult Create()
         {
-            return View();
+            MDAContext db = new MDAContext();
+            CCommentImageViewModel datas = null;
+            datas = db.評論圖片總表commentImages.Select
+            (p => new CCommentImageViewModel
+            {
+                commentImage = p,
+            }).FirstOrDefault();
+            return View(datas);
         }
         [HttpPost]
         public ActionResult Create(評論圖片總表commentImage p, CCommentImageViewModel inComment)
