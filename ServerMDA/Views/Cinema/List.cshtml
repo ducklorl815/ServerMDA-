@@ -5,9 +5,6 @@
     ViewData["Title"] = "影廳清單";
 }
 
-<link href="~/css/bootstrap-5.2.2/bootstrap.min.css" rel="stylesheet" />
-<link href="~/css/datatables/jquery.dataTables.css" rel="stylesheet" />
-<link href="~/css/site.css" rel="stylesheet" />
 <link href="~/css/bootstrap-5.2.2/YukabtnEdit.css" rel="stylesheet" />
 
 
@@ -31,7 +28,9 @@
                 <th>
                     @Html.DisplayNameFor(model => model.FirstOrDefault().電影院名稱theaterName)
                 </th>
-                <th></th>
+                <th class="col-1">
+                    指令
+                </th>
             </tr>
         </thead>
         <tbody>
@@ -58,11 +57,11 @@
                     @*<td>
                             <a src="@Url.Action("Edit","Cinema", new {id= item.影廳編號cinemaId })"></a>
                         </td>*@
-                <td>
-                    <a class="btn btn-info mb-1" id="btn" onclick="showmodal('@Url.Action("Edit","Cinema",new {id=@item.影廳編號cinemaId},Context.Request.Scheme)',null)">修改</a>
-                    @*<a asp-action="Edit" asp-route-id="@item.電影編號movieId" class="btn btn-info mb-1" style="white-space:nowrap">修改</a>*@
-                    @*<a class="btn btn-default" href="#" onclick="show()" onkeypress="show()">想跳出視窗按這</a>*@
-                </td>
+                    <td>
+                        <a class="btn btn-yuka mb-1" id="btn" onclick="showmodal('@Url.Action("Edit","Cinema",new {id=@item.影廳編號cinemaId},Context.Request.Scheme)',null)">修改</a>
+                        @*<a asp-action="Edit" asp-route-id="@item.電影編號movieId" class="btn btn-info mb-1" style="white-space:nowrap">修改</a>*@
+                        @*<a class="btn btn-default" href="#" onclick="show()" onkeypress="show()">想跳出視窗按這</a>*@
+                    </td>
                 </tr>
             }
         </tbody>
@@ -90,33 +89,29 @@
 </div>
 
 
-
-
- 
-    ------------------------------------上面是呼叫的 下面是被呼叫的-----------------------------------------------
-    <!-- Modal -->
-    <div class="modal fade" id="myModal" role="dialog">
-        <div class="modal-dialog">
-            <!-- Modal content-->
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button class="close" data-dismiss="modal" type="button">&times;</button>
-                    <h4 class="modal-title">我是彈跳視窗標題</h4>
-                </div>
-                <div class="modal-body">
-                    <p>彈跳視窗內文</p>
-                </div>
-                <div class="modal-footer">
-                    <button class="btn btn-default" data-dismiss="modal" type="button">確認</button>
-                    <button class="btn btn-default" data-dismiss="modal" onclick="cancel()" onkeypress="cancel()" type="button">取消</button>
-                </div>
+<!--------------------------------------上面是呼叫的 下面是被呼叫的------------------------------------------------->
+<!-- Modal -->
+<!--<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">-->
+<!-- Modal content-->
+<!--<div class="modal-content">
+            <div class="modal-header">
+                <button class="close" data-dismiss="modal" type="button">&times;</button>
+                <h4 class="modal-title">我是彈跳視窗標題</h4>
+            </div>
+            <div class="modal-body">
+                <p>彈跳視窗內文</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-default" data-dismiss="modal" type="button">確認</button>
+                <button class="btn btn-default" data-dismiss="modal" onclick="cancel()" onkeypress="cancel()" type="button">取消</button>
             </div>
         </div>
     </div>
+</div>-->
 
 
 
-<script src="~/js/bootstrap-5.2.2/bootstrap.bundle.min.js"></script>
 <script src="~/js/vendor/jquery/jquery.min.js"></script>
 <script src="~/js/vendor/datatables/Datatable_transCht.js"></script>
 <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
@@ -143,5 +138,3 @@
         $("#myModal").modal();
     }
 </script>
-
-<script src="~/js/vendor/datatables/jquery.dataTables.js"></script>

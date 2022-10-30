@@ -119,9 +119,9 @@ namespace ServerMDA.ViewModel
         public string 對象名字fName { get; set; }
 
         //public virtual 電影movie 電影編號movie { get; set; }
-        [DisplayName("中文名")]
+        [DisplayName("文章標題")]
         public string 中文標題titleCht { get; set; }
-        [DisplayName("英文名")]
+        [DisplayName("英文標題")]
         public string 英文標題titleEng { get; set; }
     }
 }

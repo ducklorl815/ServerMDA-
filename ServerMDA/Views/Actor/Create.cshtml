@@ -5,37 +5,63 @@
     Layout = null;
 }
 
+<style>
+    .divEmpty {
+        margin: 206px;
+    }
+</style>
+<link href="~/css/bootstrap-5.2.2/YukabtnEdit.css" rel="stylesheet" />
 
 
-<h4 class="offset-md-1">新增演員</h4>
 
 <div class="row">
-    <div class="col-md-5 offset-md-1">
-        <form asp-action="Create" enctype="multipart/form-data">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="演員中文名字nameCht" class="control-label"></label>
-                <input asp-for="演員中文名字nameCht" class="form-control" />
-                <span asp-validation-for="演員中文名字nameCht" class="text-danger"></span>
+    <form asp-action="Create" enctype="multipart/form-data">
+        <div class="d-flex flex-row">
+            <div class="col-md-5">
+                <h4 >新增演員</h4>
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="演員中文名字nameCht" class="control-label"></label>
+                    <input asp-for="演員中文名字nameCht" class="form-control" />
+                    <span asp-validation-for="演員中文名字nameCht" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="演員英文名字nameEng" class="control-label"></label>
+                    <input asp-for="演員英文名字nameEng" class="form-control" />
+                    <span asp-validation-for="演員英文名字nameEng" class="text-danger"></span>
+                </div>
+                <div class="divEmpty">
+
+                </div>
+                <div class="form-group" style="float:right">
+                    <input type="submit" value="新增" class="btn btn-success mr-2" />
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" aria-label="Close">回到清單</button>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="演員英文名字nameEng" class="control-label"></label>
-                <input asp-for="演員英文名字nameEng" class="form-control" />
-                <span asp-validation-for="演員英文名字nameEng" class="text-danger"></span>
+            <div class="col-md-5">
+                <label class="control-label">演員照片</label>
+                <br />
+                <img id="myimg" height="375" class="p-2" />
+                <div class="form-group">
+                    <input id="myfile" type="file" onchange="selectimgFile(this.files)" name="photo" />
+                </div>
             </div>
-            <div class="form-group">
-                <label class="control-label">演員照片</label><br />
-                <input type="file" name="photo" />
-            </div>
-            <div class="form-group" style="float:right">
-                <input type="submit" value="新增" class="btn btn-success mr-2" />
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" aria-label="Close">回到清單</button>
-            </div>
-        </form>
-    </div>
+        </div>
+    </form>
 </div>
 
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
+
+<script>
+
+    function selectimgFile(files) {
+        const myfile = document.querySelector("#myfile")
+        const myimg = document.querySelector("#myimg")
+        let mynewimg = files[0]
+        let objURL = URL.createObjectURL(mynewimg)
+        myimg.src = objURL
+    }
+</script>

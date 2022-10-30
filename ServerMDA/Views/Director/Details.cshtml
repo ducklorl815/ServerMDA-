@@ -4,9 +4,9 @@
     ViewData["Title"] = "Details";
     Layout = null;
 }
-<link href="~/css/bootstrap-5.2.2/bootstrap.min.css" rel="stylesheet" />
+
 <link href="~/css/bootstrap-5.2.2/YukabtnEdit.css" rel="stylesheet" />
-<link href="~/css/site.css" rel="stylesheet" />
+
 
 <div>
 
@@ -37,5 +37,3 @@
     <a class="btn btn-yuka mb-1" id="btn" onclick="showmodal('@Url.Action("Edit","Director",new {id=Model.導演編號directorId},Context.Request.Scheme)',null)">修改</a>
     <button type="button" class="btn btn-secondary mb-1" data-bs-dismiss="modal" aria-label="Close">回到清單</button>
 </div>
-
-<script src="~/js/bootstrap-5.2.2/bootstrap.bundle.min.js"></script>

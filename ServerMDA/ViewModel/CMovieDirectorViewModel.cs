@@ -2,6 +2,7 @@
 using ServerMDA.Models;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -22,16 +23,19 @@ namespace ServerMDA.ViewModel
         }
 
         //電影導演movieDirector 
+        [DisplayName("電影導演編號")]
         public int 電影導演編號mdId
         {
             get { return _director.電影導演編號mdId; }
             set { _director.電影導演編號mdId = value; }
         }
+        [DisplayName("電影編號")]
         public int 電影編號movieId
         {
             get { return _director.電影編號movieId; }
             set { _director.電影編號movieId = value; }
         }
+        [DisplayName("導演編號")]
         public int 導演編號directorId
         {
             get { return _director.導演編號directorId; }
@@ -41,12 +45,16 @@ namespace ServerMDA.ViewModel
         //public virtual 導演總表director 導演編號director { get; set; }
 
         //public int 導演編號directorId { get; set; }
-        public string 導演中文名字nameCht { get; set; } 
-        public string 導演英文名字nameEng { get; set; } 
+        [DisplayName("中文名")]
+        public string 導演中文名字nameCht { get; set; }
+        [DisplayName("英文名")]
+        public string 導演英文名字nameEng { get; set; }
+        [DisplayName("導演照片")]
         public string 導演照片image { get; set; }
 
 
         //電影movie
+        [DisplayName("中文標題")]
         public string 中文標題titleCht { get; set; }
         //public virtual 電影movie 電影編號movie { get; set; }
 

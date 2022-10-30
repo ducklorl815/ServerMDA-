@@ -18,15 +18,15 @@ namespace ServerMDA.Controllers
         {
             _enviro = p;
         }
-        public IActionResult List(CKeyWordViewModel model)
+        public IActionResult List()
         {
             MDAContext db = new MDAContext();
-            IEnumerable<導演總表director> datas = null;
-            if (string.IsNullOrEmpty(model.txtkeyword))
-                datas = from p in db.導演總表directors
-                        select p;
-            else
-                datas = db.導演總表directors.Where(p => p.導演中文名字nameCht.Contains(model.txtkeyword) || p.導演英文名字nameEng.ToLower().Contains(model.txtkeyword.ToLower()));
+            List<CDirectorViewModel> datas = null;
+            datas = db.導演總表directors.Select
+            (p => new CDirectorViewModel
+            {
+                director = p,
+            }).ToList();
 
             return View(datas);
         }

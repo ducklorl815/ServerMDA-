@@ -2,6 +2,7 @@
 using ServerMDA.Models;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -19,32 +20,37 @@ namespace ServerMDA.ViewModel
         {
             _cinema = new 影廳cinema();  //每做一個就建一個
         }
+        [DisplayName("影廳編號")]
         public int 影廳編號cinemaId
         {
             get { return _cinema.影廳編號cinemaId; }
             set { _cinema.影廳編號cinemaId = value; }
         }
-
+        [DisplayName("影廳名稱")]
         public string 影廳名稱cinemaName
         {
             get { return _cinema.影廳名稱cinemaName; }
             set { _cinema.影廳名稱cinemaName = value; }
         }
+        [DisplayName("電影院編號")]
         public int 電影院編號theaterId
         {
             get { return _cinema.電影院編號theaterId; }
             set { _cinema.電影院編號theaterId = value; }
         }
+        [DisplayName("廳種名稱")]
         public string 廳種名稱cinemaClsName
         {
             get { return _cinema.廳種名稱cinemaClsName; }
             set { _cinema.廳種名稱cinemaClsName = value; }
         }
+        [DisplayName("座位資訊")]
         public string 座位資訊seatInfo
         {
             get { return _cinema.座位資訊seatInfo; }
             set { _cinema.座位資訊seatInfo = value; }
         }
+        [DisplayName("影廳照片")]
         public string 影廳照片image
         {
             get { return _cinema.影廳照片image; }
@@ -55,6 +61,7 @@ namespace ServerMDA.ViewModel
 
         //----電影院theater
         //public int 電影院編號theaterId { get; set; }
+        [DisplayName("電影院名稱")]
         public string 電影院名稱theaterName { get; set; }
         public int 影城編號mainTheaterId { get; set; }
         public string 營業時間businessHours { get; set; }

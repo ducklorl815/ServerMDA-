@@ -9,7 +9,7 @@
     <style>
     </style>
 }
-
+<link href="~/css/bootstrap-5.2.2/YukabtnEdit.css" rel="stylesheet" />
 
 <h3 class="MovieList">電影清單 
     <a class="btn btn-success mb-1" onclick="showmodal('@Url.Action("Create", "Movie", Context.Request.Scheme)',null)">新增</a>
@@ -43,7 +43,7 @@
                 <th class="col-1">
                     @Html.DisplayNameFor(model => model.FirstOrDefault().期待度anticipation)
                 </th>
-                <th style="width:75px">
+                 <th class="col-2">
                     @Html.DisplayNameFor(model => model.FirstOrDefault().票房boxOffice)
                 </th>
                 @*<th class="col-1">
@@ -141,26 +141,16 @@
     </div>
 </div>
 
-<!-- Modal -->
-<!--<div class="modal fade" id="newstaticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h1 class="modal-title fs-5" id="newstaticBackdrop">Modal title</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                ...
-            </div>
-        </div>
-    </div>
-</div>-->
 
-
-<script src="~/js/bootstrap-5.2.2/bootstrap.bundle.min.js"></script>
 <script src="~/js/vendor/jquery/jquery.min.js"></script>
 <script src="~/js/vendor/datatables/Datatable_transCht.js"></script>
 <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $('#myTable').DataTable();
+    });
+</script>
 
 <script>
 

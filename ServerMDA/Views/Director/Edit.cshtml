@@ -10,9 +10,8 @@
     }
 </style>
 
-<link href="~/css/bootstrap-5.2.2/bootstrap.min.css" rel="stylesheet" />
 <link href="~/css/bootstrap-5.2.2/YukabtnEdit.css" rel="stylesheet" />
-<link href="~/css/site.css" rel="stylesheet" />
+
 
 <div class="row">
     <div class="col-4 offset-1">
@@ -33,7 +32,7 @@
                 <span asp-validation-for="導演英文名字nameEng" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input id="filePhoto" type="file" name="photo" />
+                <input id="myfile" type="file" onchange="selectimgFile(this.files)" name="photo" />
             </div>
 
             <div class="divEmpty">
@@ -53,7 +52,7 @@
             <div class="form-group">
                 <label asp-for="導演照片image" class="control-label "></label>
                 <br />
-                <img src="~/images/Director/@Model.導演照片image" width="300" />
+                <img id="myimg" src="~/images/Director/@Model.導演照片image" width="300" />
                 @*<input asp-for="導演照片image" disabled="disabled" class="form-control" />*@
                 <span asp-validation-for="導演照片image" class="text-danger"></span>
 
@@ -65,6 +64,15 @@
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
+<script>
+
+    function selectimgFile(files) {
+        const myfile = document.querySelector("#myfile")
+        const myimg = document.querySelector("#myimg")
+        let mynewimg = files[0]
+        let objURL = URL.createObjectURL(mynewimg)
+        myimg.src = objURL
+    }
+</script>
 
 <script src="~/js/bootstrap-5.2.2/bootstrap.min.js"></script>
-<script src="~/js/bootstrap-5.2.2/bootstrap.bundle.js"></script>

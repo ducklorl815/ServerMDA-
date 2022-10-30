@@ -4,9 +4,7 @@
 @{
     ViewData["Title"] = "電影評論";
 }
-<link href="~/css/bootstrap-5.2.2/bootstrap.min.css" rel="stylesheet" />
-<link href="~/css/datatables/jquery.dataTables.css" rel="stylesheet" />
-<link href="~/css/site.css" rel="stylesheet" />
+
 <link href="~/css/bootstrap-5.2.2/YukabtnEdit.css" rel="stylesheet" />
 
 <h3 class="MovieList">
@@ -16,35 +14,44 @@
 <div>
     <table id="myTable" class="table tables display compact hover col-12">
         <thead>
-            <tr>
-                <th style="width:50px">
+            <tr style="white-space:nowrap">
+                <th style="width:65px">
+                    評論ID
+                </th>
+                <th style="width:240px">
+                    @Html.DisplayNameFor(model => model.FirstOrDefault().中文標題titleCht)
+                </th>
+                @*<th class="col-1">
+                    @Html.DisplayNameFor(model => model.FirstOrDefault().評論標題commentTitle)
+                </th>*@
+                @*<th class="col-2">
+                    @Html.DisplayNameFor(model => model.FirstOrDefault().評論內容comments)
+                </th>*@
+                <th class="col-1">
+                    @Html.DisplayNameFor(model => model.FirstOrDefault().評分rate)
+                </th>
+                <th class="col-1">
                     會員ID
                 </th>
                 <th class="col-2">
-                    @Html.DisplayNameFor(model => model.FirstOrDefault().中文標題titleCht)
+                    @Html.DisplayNameFor(model => model.FirstOrDefault().會員電話cellphone)
                 </th>
                 <th class="col-1">
-                    @Html.DisplayNameFor(model => model.FirstOrDefault().評論標題commentTitle)
+                    姓名
                 </th>
-                <th class="col-2">
-                    @Html.DisplayNameFor(model => model.FirstOrDefault().評論內容comments)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.FirstOrDefault().評分rate)
-                </th>
-                <th>
+                <th class="col-1">
                     @Html.DisplayNameFor(model => model.FirstOrDefault().發佈時間commentTime)
                 </th>
-                <th>
+                <th class="col-1">
                     @Html.DisplayNameFor(model => model.FirstOrDefault().屏蔽invisible)
                 </th>
-                <th>
+                <th class="col-1">
                     @Html.DisplayNameFor(model => model.FirstOrDefault().公開等級public)
                 </th>
-                <th>
+                <th class="col-1">
                     @Html.DisplayNameFor(model => model.FirstOrDefault().是否開放討論串oxFloor)
                 </th>
-                <th class="col-2">
+                <th style="width:100px">
                     指令
                 </th>
             </tr>
@@ -54,19 +61,28 @@
             {
             <tr style="white-space:nowrap">
                 <td>
-                    @Html.DisplayFor(modelItem => item.會員編號memberId)
+                    @Html.DisplayFor(modelItem => item.評論編號commentId)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.中文標題titleCht)
                 </td>
-                <td class="tables_hidtext">
+                @*<td class="tables_hidtext">
                     @Html.DisplayFor(modelItem => item.評論標題commentTitle)
-                </td>
-                <td class="tables_hidtext">
+                </td>*@
+                @*<td class="tables_hidtext">
                     @Html.DisplayFor(modelItem => item.評論內容comments)
-                </td>
+                </td>*@
                 <td>
                     @Html.DisplayFor(modelItem => item.評分rate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.會員編號memberId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.會員電話cellphone)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.姓氏lName)@Html.DisplayFor(modelItem => item.名字fName)
                 </td>
                 <td class="tables_hidtext">
                     @Html.DisplayFor(modelItem => item.發佈時間commentTime)
@@ -110,7 +126,6 @@
     </div>
 </div>
 
-<script src="~/js/bootstrap-5.2.2/bootstrap.bundle.min.js"></script>
 <script src="~/js/vendor/jquery/jquery.min.js"></script>
 <script src="~/js/vendor/datatables/Datatable_transCht.js"></script>
 <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
