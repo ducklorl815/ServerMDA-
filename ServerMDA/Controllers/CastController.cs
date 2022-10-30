@@ -138,5 +138,29 @@ namespace ServerMDA.Controllers
             db.SaveChanges();
             return RedirectToAction("List", "Movie", null);
         }
+        public ActionResult 查詢dir(string txtkeyword)
+        {
+            MDAContext db = new MDAContext();
+            IEnumerable<導演總表director> datas = null;
+            if (string.IsNullOrEmpty(txtkeyword))
+                datas = from p in db.導演總表directors
+                        select p;
+            else
+                datas = db.導演總表directors.Where(p => p.導演中文名字nameCht.Contains(txtkeyword) || p.導演英文名字nameEng.ToLower().Contains(txtkeyword.ToLower()));
+
+            return View(datas);
+        }
+        public ActionResult 查詢cost(string txtkeyword)
+        {
+            MDAContext db = new MDAContext();
+            IEnumerable<演員總表actor> datas = null;
+            if (string.IsNullOrEmpty(txtkeyword))
+                datas = from p in db.演員總表actors
+                        select p;
+            else
+                datas = db.演員總表actors.Where(p => p.演員中文名字nameCht.Contains(txtkeyword) || p.演員英文名字nameEng.ToLower().Contains(txtkeyword.ToLower()));
+
+            return View(datas);
+        }
     }
 }
