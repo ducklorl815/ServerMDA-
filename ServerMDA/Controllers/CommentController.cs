@@ -17,6 +17,7 @@ namespace ServerMDA.Controllers
         {
             _enviro = p;
         }
+
         public IActionResult List()
         {
             MDAContext db = new MDAContext();
@@ -39,6 +40,7 @@ namespace ServerMDA.Controllers
         {
             MDAContext db = new MDAContext();
             CCommentViewModel datas = null;
+            var invis = db.電影評論movieComments.Select(p => p.屏蔽invisible).Distinct().ToList();
             datas = db.電影評論movieComments.Where(p => p.電影編號movieId == id).Select
                 (p => new CCommentViewModel
                 {
@@ -49,15 +51,16 @@ namespace ServerMDA.Controllers
                     中文標題titleCht = p.電影編號movie.中文標題titleCht,
                     英文標題titleEng = p.電影編號movie.英文標題titleEng,
                     公開等級public = p.公開等級編號public.公開等級public,
-
+                  
                 }).FirstOrDefault();
-
+            datas.titleInvis = invis;
             return View(datas);
         }
         [HttpPost]
         public IActionResult Edit(CCommentViewModel inComment) //post
         {
             MDAContext db = new MDAContext();
+            
             電影評論movieComment c = db.電影評論movieComments.FirstOrDefault(c => c.評論編號commentId == inComment.評論編號commentId);
             if (c != null)
             {
