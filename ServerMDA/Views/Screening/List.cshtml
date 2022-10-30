@@ -10,7 +10,7 @@
 <link href="~/css/site.css" rel="stylesheet" />
 <link href="~/css/bootstrap-5.2.2/YukabtnEdit.css" rel="stylesheet" />
 
-<h4>場次清單 <a class="btn btn-info mb-1" onclick="showmodal('@Url.Action("Create","Screening",Context.Request.Scheme)',null)">新增</a></h4>
+<h4>場次清單 <a class="btn btn-success mb-1" onclick="showmodal('@Url.Action("Create","Screening",Context.Request.Scheme)',null)">新增</a></h4>
 <table id="myTable" class="table tables display compact hover col-12">
     <thead>
         <tr>
@@ -55,7 +55,7 @@
                     @Html.DisplayFor(modelItem => item.電影名稱)
                 </td>
                 <td>
-                    <a class="btn btn-info mb-1" id="btn" onclick="showmodal('@Url.Action("Edit","Screening",new {id=@item.場次編號screeningId},Context.Request.Scheme)',null)">修改</a>
+                    <a class="btn btn-yuka mb-1" id="btn" onclick="showmodal('@Url.Action("Edit","Screening",new {id=@item.場次編號screeningId},Context.Request.Scheme)',null)">修改</a>
                 </td>
             </tr>
         }

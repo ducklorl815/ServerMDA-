@@ -24,7 +24,7 @@
                         <input asp-for="姓氏lName" class="form-control" />
                         <span asp-validation-for="姓氏lName" class="text-danger"></span>
                     </div>
-                    <div class="form-group col-6">
+                    <div class="form-group col-7" style="padding-right:0">
                         <label asp-for="名字fName" class="control-label"></label>
                         <input asp-for="名字fName" class="form-control" />
                         <span asp-validation-for="名字fName" class="text-danger"></span>
@@ -76,7 +76,7 @@
                         <input asp-for="紅利點數bonus" class="form-control" />
                         <span asp-validation-for="紅利點數bonus" class="text-danger"></span>
                     </div>
-                    <div class="form-group col-6">
+                    <div class="form-group col-6" style="padding-right:0">
                         <label asp-for="會員權限permission" class="control-label"></label>
                         <select asp-for="會員權限permission" name="權限名稱permissionName" class="form-control" asp-items="ViewBag.會員權限permission">
                             <option selected>@Model.權限名稱permissionName</option>
@@ -96,7 +96,7 @@
                     </div>
                 </div>
                 <br />
-                <div class="form-group">
+                <div class="form-group" style="float:right">
                     <input type="submit" value="確認修改" class="btn btn-yuka mr-1" />
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" aria-label="Close">回到清單</button>
                 </div>
@@ -125,7 +125,7 @@
                         <input asp-for="生日birthDate" class="form-control" />
                         <span asp-validation-for="生日birthDate" class="text-danger"></span>
                     </div>
-                    <div class="form-group col-4">
+                    <div class="form-group col-4" style="padding-right:5px">
                         <label asp-for="性別gender" class="control-label"></label>
                         <select asp-for="性別gender" name="性別名稱genderName" class="form-control" asp-items="ViewBag.性別gender">
                             <option selected>@Model.性別名稱genderName</option>
