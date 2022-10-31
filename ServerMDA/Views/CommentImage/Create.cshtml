@@ -16,8 +16,8 @@
             <div>
                 <h4>新增評論圖片</h4>
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                <div class="col-7 offset-2">
-                    <img id="myimg" height="400" class="p-2" />
+                <div class="col-12">
+                    <img id="myimg" class="p-2" style="display:block; margin:auto;width:400px" />
                 </div>
                 <div class="form-group">
                     <input id="myfile" type="file" onchange="selectimgFile(this.files)" name="photo" />
@@ -33,7 +33,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="form-group">
+                <div class="form-group" style="float:right">
                     <input type="submit" value="新增" class="btn btn-success mr-2" />
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" aria-label="Close">回到清單</button>
                 </div>

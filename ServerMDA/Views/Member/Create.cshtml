@@ -5,93 +5,109 @@
     Layout = null;
 }
 
-
-
-
 <div class="row">
     <form asp-action="Create">
         <div class="d-flex flex-row">
             <div class="col-6">
                 <h4 class="offset-md-1">新增會員</h4>
+                <div class="form-group form-check col-4 m5-3" style="float:right">
+                    <label class="form-check-label">
+                        <input class="form-check-input" asp-for="正式會員formal" /> @Html.DisplayNameFor(model => model.正式會員formal)
+                    </label>
+                </div>
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                 <div class="form-group">
                     <label asp-for="會員電話cellphone" class="control-label"></label>
-                    <input asp-for="會員電話cellphone" class="form-control" />
+                    <input asp-for="會員電話cellphone" class="form-control" id="memPhone"/>
                     <span asp-validation-for="會員電話cellphone" class="text-danger"></span>
                 </div>
                 <div class="form-group">
                     <label asp-for="密碼password" class="control-label"></label>
-                    <input asp-for="密碼password" class="form-control" />
+                    <input asp-for="密碼password" class="form-control" id="memPW" />
                     <span asp-validation-for="密碼password" class="text-danger"></span>
                 </div>
                 <div class="d-flex flex-row">
                     <div class="form-group">
                         <label asp-for="姓氏lName" class="control-label"></label>
-                        <input asp-for="姓氏lName" class="form-control" />
+                        <input asp-for="姓氏lName" class="form-control" id="memLName"/>
                         <span asp-validation-for="姓氏lName" class="text-danger"></span>
                     </div>
-                    <div class="form-group col-6">
+                    <div class="form-group col-7" style="padding-right:0">
                         <label asp-for="名字fName" class="control-label"></label>
-                        <input asp-for="名字fName" class="form-control" />
+                        <input asp-for="名字fName" class="form-control" id="memFName"/>
                         <span asp-validation-for="名字fName" class="text-danger"></span>
                     </div>
                 </div>
                 <div class="d-flex flex-row">
                     <div class="form-group">
                         <label asp-for="暱稱nickName" class="control-label"></label>
-                        <input asp-for="暱稱nickName" class="form-control" />
+                        <input asp-for="暱稱nickName" class="form-control" id="memNickName" />
                         <span asp-validation-for="暱稱nickName" class="text-danger"></span>
                     </div>
-                    <div class="form-group form-check col-6 m5-3">
-                        <label class="form-check-label">
-                            <input class="form-check-input" asp-for="正式會員formal" /> @Html.DisplayNameFor(model => model.正式會員formal)
-                        </label>
+                    <div class="form-group col-5" style="padding-right:0">
+                        <label asp-for="性別gender" class="control-label"></label>
+                        <select asp-for="性別gender" class="form-control" asp-items="ViewBag.性別gender">
+                            <option id="memGender"></option>
+                        </select>
                     </div>
                 </div>
-                    <div class="form-group">
-                        <label asp-for="生日birthDate" class="control-label"></label>
-                        <input asp-for="生日birthDate" class="form-control" />
-                        <span asp-validation-for="生日birthDate" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="性別gender" class="control-label"></label>
-                        <select asp-for="性別gender" class="form-control" asp-items="ViewBag.性別gender"></select>
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="電子信箱email" class="control-label"></label>
-                        <input asp-for="電子信箱email" class="form-control" />
-                        <span asp-validation-for="電子信箱email" class="text-danger"></span>
+            </div>
+            <div class="col-6">
+                <div class="form-group" style="overflow:hidden">
+                    <label class="control-label">會員照片</label><br />
+                    <br />
+                    <img id="myimg" class="p-2" style="display: block; margin: auto; height: 295px" />
+                    <input id="myfile" type="file" onchange="selectimgFile(this.files)" name="photo" />
+                </div>
+            </div>
+        </div>
+        <div class="d-flex flex-row">
+            <div class="col-12">
+                <div class="form-group">
+                    <div class="d-flex flex-row">
+                        <div class="form-group col-5" style="padding-left:0">
+                            <label asp-for="生日birthDate" class="control-label"></label>
+                            <input asp-for="生日birthDate" class="form-control" id="memBD" />
+                            <span asp-validation-for="生日birthDate" class="text-danger"></span>
+                        </div>
+                        <div class="form-group col-7" style="padding-right:0">
+                            <label asp-for="電子信箱email" class="control-label"></label>
+                            <input asp-for="電子信箱email" class="form-control" id="memEmail"/>
+                            <span asp-validation-for="電子信箱email" class="text-danger"></span>
+                        </div>
                     </div>
                     <div class="form-group">
                         <label asp-for="地址address" class="control-label"></label>
-                        <input asp-for="地址address" class="form-control" />
+                        <input asp-for="地址address" class="form-control" id="memAddress"/>
                         <span asp-validation-for="地址address" class="text-danger"></span>
                     </div>
-                    <div class="form-group">
-                        <label asp-for="紅利點數bonus" class="control-label"></label>
-                        <input asp-for="紅利點數bonus" class="form-control" />
-                        <span asp-validation-for="紅利點數bonus" class="text-danger"></span>
-                    </div>
-
-                    <div class="form-group">
-                        <label asp-for="會員權限permission" class="control-label"></label>
-                        <select asp-for="會員權限permission" class="form-control" asp-items="ViewBag.會員權限permission"></select>
+                    <div class="d-flex flex-row">
+                        <div class="form-group col-5" style="padding-left:0">
+                            <label asp-for="紅利點數bonus" class="control-label"></label>
+                            <input asp-for="紅利點數bonus" class="form-control" id="memBonus" />
+                            <span asp-validation-for="紅利點數bonus" class="text-danger"></span>
+                        </div>
+                        <div class="form-group col-4">
+                            <label asp-for="會員權限permission" class="control-label"></label>
+                            <select asp-for="會員權限permission" class="form-control" asp-items="ViewBag.會員權限permission">
+                                <option id="memPermission"></option>
+                            </select>
+                        </div>
+                        @*下面的正式會員位置*@
+                        @*<div class="form-group form-check col-2" style="float:right;margin-left:70px;">
+                                <label class="form-check-label">
+                                    <input class="form-check-input" asp-for="正式會員formal" /> @Html.DisplayNameFor(model => model.正式會員formal)
+                                </label>
+                            </div>*@
                     </div>
                     <div class="form-group" style="float:right">
-                        <input type="submit" value="新增" class="btn btn-success mr-2" />
+                        <input type="submit" value="新增" class="btn btn-success" />
+                        <button type="button" class="btn btn-dark" aria-label="Close" id="demo">Demo</button>
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" aria-label="Close">回到清單</button>
                     </div>
                 </div>
-                <div class="col-6">
-                    <div class="form-group">
-                        <label class="control-label">演員照片</label><br />
-                        <br />
-                        <img id="myimg" height="375" class="p-2" />
-                        <input id="myfile" type="file" onchange="selectimgFile(this.files)" name="photo" />
-                    </div>
-
-                </div>
             </div>
+        </div>
     </form>
 </div>
 
@@ -99,6 +115,40 @@
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
+
+<script>
+
+    demo.addEventListener("click", () => {
+        const demo = document.querySelector("#demo");
+        const memPhone = document.querySelector("#memPhone");
+        const memPW = document.querySelector("#memPW");
+        const memLName = document.querySelector("#memLName");
+        const memFName = document.querySelector("#memFName");
+        const memNickName = document.querySelector("#memNickName");
+        const memBD = document.querySelector("#memBD");
+        const memGender = document.querySelector("#memGender");
+        const memEmail = document.querySelector("#memEmail");
+        const memAddress = document.querySelector("#memAddress");
+        const memBonus = document.querySelector("#memBonus");
+        const memPermission = document.querySelector("#memPermission");
+        /*const memCreatedTime = document.querySelector("#memCreatedTime");*/
+
+
+        memPhone.value = "0912554321";
+        memPW.value = "0000";
+        memLName.value = "楊";
+        memFName.value = "秀蓮";
+        memNickName.value = "師姐";
+        memBD.value = "1976-04-22T10:00";
+        memGender.value = 2;
+        memEmail.value = "jayjayyang@gmail.com"
+        memAddress.value = "恆春";
+        memBonus.value = "0";
+        memPermission.value = 2;
+        /*memCreatedTime.value = Date.now();*/
+    })
+
+</script>
 <script>
     function selectimgFile(files) {
         const myfile = document.querySelector("#myfile")
@@ -108,3 +158,4 @@
         myimg.src = objURL
     }
 </script>
+<script src="~/js/vendor/datatables/jquery.dataTables.js"></script>

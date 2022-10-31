@@ -50,14 +50,11 @@
                         </select>
                         <span asp-validation-for="公開等級編號publicId" class="text-danger"></span>
                     </div>
-                    <div class="d-flex flex-row">
-                        <div class="form-group">
-                            <label asp-for="是否開放討論串oxFloor" class="control-label"></label>
-                            <input asp-for="是否開放討論串oxFloor" disabled="disabled" class="form-control bg-transparent" />
-                            <span asp-validation-for="是否開放討論串oxFloor" class="text-danger"></span>
-                        </div>
+                    <div class="form-group">
+                        <label asp-for="是否開放討論串oxFloor" class="control-label"></label>
+                        <input asp-for="是否開放討論串oxFloor" disabled="disabled" class="form-control bg-transparent" />
+                        <span asp-validation-for="是否開放討論串oxFloor" class="text-danger"></span>
                     </div>
-
                 </div>
                 <div class="col-9">
                     <div class="form-group">
@@ -80,34 +77,31 @@
                         <textarea rows="8" asp-for="評論內容comments" disabled="disabled" class="form-control bg-transparent"></textarea>
                         <span asp-validation-for="評論內容comments" class="text-danger"></span>
                     </div>
-                    <div class="form-group">
-                        <div class="d-flex flex-row">
-                            <div>
-                                <input type="submit" value="確認修改" class="btn btn-yuka mr-1" />
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" aria-label="Close">回到清單</button>
-                            </div>
-                            <div class="d-flex flex-row col-6">
-                                <div class="mt-1">
-                                    <label asp-for="屏蔽invisible" class="control-label"></label>
-                                </div>
-
-                                <div class="col-6">
-                                    <select asp-for="屏蔽invisible" class="form-control" asp-items="ViewBag.屏蔽invisible">
-                                        <option>@Model.屏蔽invisible</option>
-                                        @{
-                                            var q = Model.屏蔽invisible;
-                                            foreach (var p in @Model.titleInvis)
-                                            {
-                                                if (p != q)
-                                                {
-                                                    <option>@p</option>
-                                                }
-                                            }
+                    <div class="d-flex flex-row">
+                        <div class="mt-1">
+                            <label asp-for="屏蔽invisible" class="control-label"></label>
+                        </div>
+                        <div class="col-4">
+                            <select asp-for="屏蔽invisible" class="form-control" asp-items="ViewBag.屏蔽invisible">
+                                <option>@Model.屏蔽invisible</option>
+                                @{
+                                    var q = Model.屏蔽invisible;
+                                    foreach (var p in @Model.titleInvis)
+                                    {
+                                        if (p != q)
+                                        {
+                                            <option>@p</option>
                                         }
-                                    </select>
-                                    <span asp-validation-for="屏蔽invisible" class="text-danger"></span>
-                                </div>
-                            </div>
+                                    }
+                                }
+                            </select>
+                            <span asp-validation-for="屏蔽invisible" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="d-flex flex-row" style="float:right">
+                        <div class="form-group">
+                            <input type="submit" value="確認修改" class="btn btn-yuka mr-1" />
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" aria-label="Close">回到清單</button>
                         </div>
                     </div>
                 </div>
