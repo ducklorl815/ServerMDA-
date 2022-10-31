@@ -49,9 +49,13 @@ namespace ServerMDA.ViewModel
         [DisplayName("名字")]
         public string 名字fName
         {
-            get { return _member.名字fName = _member.名字fName.Substring(0, 0) + "O" + _member.名字fName.Substring(1); }
+            get { return _member.名字fName; }
             set { _member.名字fName = value; }
         }
+        //{
+        //    get { return _member.名字fName = _member.名字fName.Substring(0, 0) + "O" + _member.名字fName.Substring(1); }
+        //    set { _member.名字fName = value; }
+        //}
         [DisplayName("暱稱")]
         public string 暱稱nickName
         {

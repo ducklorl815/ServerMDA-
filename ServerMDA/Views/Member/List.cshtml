@@ -26,7 +26,6 @@
                 <th class="col-1">
                     @Html.DisplayNameFor(model => model.FirstOrDefault().會員電話cellphone)
                 </th>
-
                 <th class="col-2">
                     @Html.DisplayNameFor(model => model.FirstOrDefault().電子信箱email)
                 </th>
@@ -51,39 +50,38 @@
         <tbody>
             @foreach (var item in Model)
             {
-                <tr style="white-space:nowrap">
-                    <th>
-                        @Html.DisplayFor(modelItem => item.會員編號memberId)
-                    </th>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.姓氏lName)@Html.DisplayFor(modelItem => item.名字fName)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.會員電話cellphone)
-                    </td>
-
-                    <td class="tables_hidtext">
-                        @Html.DisplayFor(modelItem => item.電子信箱email)
-                    </td>
-                    <td>
-                        <div>
-                            <img src="~/images/Member/@item.會員照片image" width="100" />
-                        </div>
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.性別名稱genderName)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.權限名稱permissionName)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.正式會員formal)
-                    </td>
-                    <td>
-                        <a class="btn btn-yuka " id="btn" onclick="showmodal('@Url.Action("Edit","Member",new {id=@item.會員編號memberId},Context.Request.Scheme)',null)">修改</a>
-                        @*<a class="btn btn-details " id="btn" onclick="showmodal('@Url.Action("Details","Member",new {id=@item.會員編號memberId},Context.Request.Scheme)',null)">細節</a>*@
-                    </td>
-                </tr>
+            <tr style="white-space:nowrap">
+                <td>
+                    @Html.DisplayFor(modelItem => item.會員編號memberId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.姓氏lName)@Html.DisplayFor(modelItem => item.名字fName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.會員電話cellphone)
+                </td>
+                <td class="tables_hidtext">
+                    @Html.DisplayFor(modelItem => item.電子信箱email)
+                </td>
+                <td>
+                    <div>
+                        <img src="~/images/Member/@item.會員照片image" width="100" />
+                    </div>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.性別名稱genderName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.權限名稱permissionName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.正式會員formal)
+                </td>
+                <td>
+                    <a class="btn btn-yuka " id="btn" onclick="showmodal('@Url.Action("Edit","Member",new {id=@item.會員編號memberId},Context.Request.Scheme)',null)">修改</a>
+                    @*<a class="btn btn-details " id="btn" onclick="showmodal('@Url.Action("Details","Member",new {id=@item.會員編號memberId},Context.Request.Scheme)',null)">細節</a>*@
+                </td>
+            </tr>
             }
         </tbody>
     </table>

@@ -23,6 +23,14 @@
     <link href="~/css/bootstrap-5.2.2/YukabtnEdit.css" rel="stylesheet" />
     <!-- #endregion Css Styles -->
 
+
+    <link href="~/wencssjs/css/all.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/wencssjs/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/wencssjs/css/site.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+
+
+
     @await RenderSectionAsync("Styles", required: false)
 </head>
 
@@ -31,7 +39,6 @@
     @using System.Text.Json
     @using ServerMDA.ViewModel
     @inject IHttpContextAccessor Accessor
-
     <!-- #region sidebar Start 側欄 -->
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion overflow-scroll" id="accordionSidebar">
 
@@ -42,191 +49,191 @@
             @*<div class="sidebar-brand-text mx-2">MDA</div>*@
         </a>
         <!-- 會員登入 -->
-        @*@{
-        if (Accessor.HttpContext.Session.Keys.Contains(CDictionary.SK_LOGINED_USER))
-        {*@
-        <!-- Divider -->
-        <hr class="sidebar-divider my-0" />
+        @{
+            if (Accessor.HttpContext.Session.Keys.Contains(CDictionary.SK_LOGINED_USER))
+            {
+                <!-- Divider -->
+                <hr class="sidebar-divider my-0" />
 
-        <!-- Nav Item - Dashboard -->
-        <li class="nav-item active">
-            <a class="nav-link" asp-area="" asp-controller="HomePage" asp-action="List">
-                <i class="fas fa-fw fa-tachometer-alt"></i>
-                <span>總表清單</span>
-            </a>
-        </li>
+                <!-- Nav Item - Dashboard -->
+                <li class="nav-item active">
+                    <a class="nav-link" asp-area="" asp-controller="HomePage" asp-action="List">
+                        <i class="fas fa-fw fa-tachometer-alt"></i>
+                        <span>總表清單</span>
+                    </a>
+                </li>
 
-        <!-- Divider -->
-        <hr class="sidebar-divider">
+                <!-- Divider -->
+                <hr class="sidebar-divider">
 
-        <!-- #region Heading 大分類-電影院資料庫 -->
-        <div class="sidebar-heading text-white"> 電影院資料庫</div>
+                <!-- #region Heading 大分類-電影院資料庫 -->
+                <div class="sidebar-heading text-white"> 電影院資料庫</div>
 
-        <!-- Nav Item 小分類-電影 -->
-        <li class="nav-item">
-            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
-               aria-expanded="true" aria-controls="collapseTwo">
-                <i class="fas fa-fw fa-film"></i>
-                <span>電影</span>
-            </a>
-            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                <div class="bg-white py-2 collapse-inner rounded">
-                    <h6 class="collapse-header text-gray-600">電影管理:</h6>
-                    <a class="collapse-item" asp-area="" asp-controller="Movie" asp-action="List">電影</a>
-                    <a class="collapse-item" asp-area="" asp-controller="MovieImage" asp-action="List">電影海報、劇照</a>
-                    <a class="collapse-item" asp-area="" asp-controller="MovieOrigin" asp-action="List">電影產地</a>
-                    <a class="collapse-item" asp-area="" asp-controller="MovieLanguage" asp-action="List">電影語言</a>
-                    <a class="collapse-item" asp-area="" asp-controller="MovieType" asp-action="List">電影分類(片種)</a>
-                    <a class="collapse-item" asp-area="" asp-controller="MovieRating" asp-action="List">電影分級</a>
-                    <a class="collapse-item" asp-area="" asp-controller="Director" asp-action="List">導演</a>
-                    <a class="collapse-item" asp-area="" asp-controller="Actor" asp-action="List">演員</a>
+                <!-- Nav Item 小分類-電影 -->
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+                       aria-expanded="true" aria-controls="collapseTwo">
+                        <i class="fas fa-fw fa-film"></i>
+                        <span>電影</span>
+                    </a>
+                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded">
+                            <h6 class="collapse-header text-gray-600">電影管理:</h6>
+                            <a class="collapse-item" asp-area="" asp-controller="Movie" asp-action="List">電影</a>
+                            <a class="collapse-item" asp-area="" asp-controller="MovieImage" asp-action="List">電影海報、劇照</a>
+                            <a class="collapse-item" asp-area="" asp-controller="MovieOrigin" asp-action="List">電影產地</a>
+                            <a class="collapse-item" asp-area="" asp-controller="MovieLanguage" asp-action="List">電影語言</a>
+                            <a class="collapse-item" asp-area="" asp-controller="MovieType" asp-action="List">電影分類(片種)</a>
+                            <a class="collapse-item" asp-area="" asp-controller="MovieRating" asp-action="List">電影分級</a>
+                            <a class="collapse-item" asp-area="" asp-controller="Director" asp-action="List">導演</a>
+                            <a class="collapse-item" asp-area="" asp-controller="Actor" asp-action="List">演員</a>
+                        </div>
+                    </div>
+                </li>
+                <!-- Nav Item 小分類-影城 -->
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseKwo"
+                       aria-expanded="true" aria-controls="collapseKwo">
+                        <i class="fas fa-fw fa fa-github-alt"></i>
+                        <span>影城</span>
+                    </a>
+                    <div id="collapseKwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded">
+                            <h6 class="collapse-header text-gray-600">影城管理:</h6>
+                            <a class="collapse-item" asp-area="" asp-controller="Theater" asp-action="List">電影院</a>
+                            <a class="collapse-item" asp-area="" asp-controller="Cinema" asp-action="List">影廳</a>
+                            <a class="collapse-item" asp-area="" asp-controller="Screening" asp-action="List">場次</a>
+                            <a class="collapse-item" asp-area="" asp-controller="SeatStatus" asp-action="List">座位資訊</a>
+                            <a class="collapse-item" asp-area="" asp-controller="票種ticketType" asp-action="Index">票種、票價</a>
+                        </div>
+                    </div>
+                </li>
+                <!-- Nav Item 小分類-商店 -->
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseProduct"
+                       aria-expanded="true" aria-controls="collapseProduct">
+                        <i class="fas fa-fw fa-ticket"></i>
+                        <span>商店</span>
+                    </a>
+                    <div id="collapseProduct" class="collapse" aria-labelledby="headingproduct"
+                         data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded">
+                            <div class="collapse-divider"></div>
+                            <h6 class="collapse-header text-gray-600">商店管理:</h6>
+                            <a class="collapse-item" asp-area="" asp-controller="product" asp-action="ProductList">影城商店</a>
+                            <a class="collapse-item" asp-area="" asp-controller="product" asp-action="ProductList">影城商品</a>
+                        </div>
+                    </div>
+                </li>
+                <!-- Nav Item 小分類-活動/票券 -->
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
+                       aria-expanded="true" aria-controls="collapseUtilities">
+                        <i class="fas fa-fw fa-ticket"></i>
+                        <span>活動、票券</span>
+                    </a>
+                    <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
+                         data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded">
+                            <div class="collapse-divider"></div>
+                            <h6 class="collapse-header text-gray-600">票券管理:</h6>
+                            <a class="collapse-item" asp-area="" asp-controller="Coupon" asp-action="List">優惠券總表</a>
+                            <a class="collapse-item" asp-area="" asp-controller="Coupon" asp-action="List">會員優惠券</a>
+                        </div>
+                    </div>
+                </li>
+
+                <!-- Divider -->
+                <hr class="sidebar-divider" />
+
+                <!-- #endregion Heading 大分類-電影院資料庫 -->
+                <!-- #region Heading 大分類-會員專區 -->
+                <div class="sidebar-heading text-white"> 會員專區</div>
+
+                <!-- Nav Item 小分類-會員管理系統 -->
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
+                       aria-expanded="true" aria-controls="collapsePages">
+                        <i class="fas fa-fw fa-user-circle"></i>
+                        <span>會員管理系統</span>
+                    </a>
+                    <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded">
+                            <h6 class="collapse-header">會員管理:</h6>
+                            <a class="collapse-item" asp-area="" asp-controller="Member" asp-action="List">會員資訊</a>
+                            <a class="collapse-item" asp-area="" asp-controller="MyMovieList" asp-action="List">片單管理</a>
+                            <a class="collapse-item" asp-area="" asp-controller="MyFollowList" asp-action="List">追蹤管理</a>
+                            <a class="collapse-item" href="forgot-password.html">權限管理</a>
+                            <a class="collapse-item" href="forgot-password.html">訂單管理</a>
+                        </div>
+                    </div>
+                </li>
+                <!-- Nav Item 小分類-評論管理系統 -->
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages2"
+                       aria-expanded="true" aria-controls="collapsePages2">
+                        @*<a class="nav-link" asp-area="" asp-controller="Comment" asp-action="List">*@
+                        <i class="fas fa-fw fa-commenting"></i>
+                        <span>評論管理系統</span>
+                    </a>
+                    <div id="collapsePages2" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded">
+                            <h6 class="collapse-header">評論管理:</h6>
+                            <a class="collapse-item" asp-area="" asp-controller="Comment" asp-action="List">評論管理</a>
+                            <a class="collapse-item" asp-area="" asp-controller="CommentImage" asp-action="List">評論圖庫清單</a>
+                            <a class="collapse-item" asp-area="" asp-controller="CommentImagesList" asp-action="List">評論圖片明細</a>
+                            <a class="collapse-item" href="register.html">留言管理</a>
+                        </div>
+                    </div>
+                </li>
+                <!-- Nav Item 小分類-客服管理系統 -->
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages3"
+                       aria-expanded="true" aria-controls="collapsePages3">
+                        <i class="fas fa-fw fa-commenting"></i>
+                        <span>客服管理系統</span>
+                    </a>
+                    <div id="collapsePages3" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded">
+                            <h6 class="collapse-header">客服管理:</h6>
+                            <a class="collapse-item" href="forgot-password.html">檢舉管理</a>
+                            <a class="collapse-item" href="forgot-password.html">來信管理</a>
+                            @*<a class="collapse-item" href="forgot-password.html">留言板管理</a>*@
+                            <a class="collapse-item" href="forgot-password.html">AI小幫手管理</a>
+                        </div>
+                    </div>
+                </li>
+                <!-- Nav Item 小分類-報表 -->
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages4"
+                       aria-expanded="true" aria-controls="collapsePages4">
+                        <i class="fas fa-fw fa-chart-area"></i>
+                        <span>報表:</span>
+                    </a>
+                    <div id="collapsePages4" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded">
+                            <h6 class="collapse-header">報表:</h6>
+                            <a class="collapse-item" asp-area="" asp-controller="PBI" asp-action="PBI">PBI</a>
+                            <a class="collapse-item" asp-area="" asp-controller="product" asp-action="ProductChartSample">商品上架統計表</a>
+                            <a class="collapse-item" asp-area="" asp-controller="product" asp-action="ProductChartTwo">商品銷售數量統計表</a>
+                        </div>
+                    </div>
+                </li>
+
+                @Html.ActionLink("登出", "Logout", "Home", null, new { @class = "btn btn-yuka" })
+
+
+                <!-- Divider -->
+                <hr class="sidebar-divider d-none d-md-block">
+
+                <!-- #endregion Heading 大分類-會員專區 -->
+                <!-- Sidebar Toggler (Sidebar) -->
+                <div class="text-center d-none d-md-inline">
+                    <button class="rounded-circle border-0" id="sidebarToggle" onclick="sidebarToggle"></button>
                 </div>
-            </div>
-        </li>
-        <!-- Nav Item 小分類-影城 -->
-        <li class="nav-item">
-            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseKwo"
-               aria-expanded="true" aria-controls="collapseKwo">
-                <i class="fas fa-fw fa fa-github-alt"></i>
-                <span>影城</span>
-            </a>
-            <div id="collapseKwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                <div class="bg-white py-2 collapse-inner rounded">
-                    <h6 class="collapse-header text-gray-600">影城管理:</h6>
-                    <a class="collapse-item" asp-area="" asp-controller="Theater" asp-action="List">電影院</a>
-                    <a class="collapse-item" asp-area="" asp-controller="Cinema" asp-action="List">影廳</a>
-                    <a class="collapse-item" asp-area="" asp-controller="Screening" asp-action="List">場次</a>
-                    <a class="collapse-item" asp-area="" asp-controller="SeatStatus" asp-action="List">座位資訊</a>
-                    <a class="collapse-item" asp-area="" asp-controller="票種ticketType" asp-action="Index">票種、票價</a>
-                </div>
-            </div>
-        </li>
-        <!-- Nav Item 小分類-商店 -->
-        <li class="nav-item">
-            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseProduct"
-               aria-expanded="true" aria-controls="collapseProduct">
-                <i class="fas fa-fw fa-ticket"></i>
-                <span>商店</span>
-            </a>
-            <div id="collapseProduct" class="collapse" aria-labelledby="headingproduct"
-                 data-parent="#accordionSidebar">
-                <div class="bg-white py-2 collapse-inner rounded">
-                    <div class="collapse-divider"></div>
-                    <h6 class="collapse-header text-gray-600">商店管理:</h6>
-                    <a class="collapse-item" asp-area="" asp-controller="product" asp-action="ProductList">影城商店</a>
-                    <a class="collapse-item" asp-area="" asp-controller="product" asp-action="ProductList">影城商品</a>
-                </div>
-            </div>
-        </li>
-        <!-- Nav Item 小分類-活動/票券 -->
-        <li class="nav-item">
-            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
-               aria-expanded="true" aria-controls="collapseUtilities">
-                <i class="fas fa-fw fa-ticket"></i>
-                <span>活動、票券</span>
-            </a>
-            <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
-                 data-parent="#accordionSidebar">
-                <div class="bg-white py-2 collapse-inner rounded">
-                    <div class="collapse-divider"></div>
-                    <h6 class="collapse-header text-gray-600">票券管理:</h6>
-                    <a class="collapse-item" asp-area="" asp-controller="Coupon" asp-action="List">優惠券總表</a>
-                    <a class="collapse-item" asp-area="" asp-controller="Coupon" asp-action="List">會員優惠券</a>
-                </div>
-            </div>
-        </li>
 
-        <!-- Divider -->
-        <hr class="sidebar-divider" />
-
-        <!-- #endregion Heading 大分類-電影院資料庫 -->
-        <!-- #region Heading 大分類-會員專區 -->
-        <div class="sidebar-heading text-white"> 會員專區</div>
-
-        <!-- Nav Item 小分類-會員管理系統 -->
-        <li class="nav-item">
-            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
-               aria-expanded="true" aria-controls="collapsePages">
-                <i class="fas fa-fw fa-user-circle"></i>
-                <span>會員管理系統</span>
-            </a>
-            <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-                <div class="bg-white py-2 collapse-inner rounded">
-                    <h6 class="collapse-header">會員管理:</h6>
-                    <a class="collapse-item" asp-area="" asp-controller="Member" asp-action="List">會員資訊</a>
-                    <a class="collapse-item" asp-area="" asp-controller="MyMovieList" asp-action="List">片單管理</a>
-                    <a class="collapse-item" asp-area="" asp-controller="MyFollowList" asp-action="List">追蹤管理</a>
-                    <a class="collapse-item" href="forgot-password.html">權限管理</a>
-                    <a class="collapse-item" href="forgot-password.html">訂單管理</a>
-                </div>
-            </div>
-        </li>
-        <!-- Nav Item 小分類-評論管理系統 -->
-        <li class="nav-item">
-            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages2"
-               aria-expanded="true" aria-controls="collapsePages2">
-                @*<a class="nav-link" asp-area="" asp-controller="Comment" asp-action="List">*@
-                <i class="fas fa-fw fa-commenting"></i>
-                <span>評論管理系統</span>
-            </a>
-            <div id="collapsePages2" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-                <div class="bg-white py-2 collapse-inner rounded">
-                    <h6 class="collapse-header">評論管理:</h6>
-                    <a class="collapse-item" asp-area="" asp-controller="Comment" asp-action="List">評論管理</a>
-                    <a class="collapse-item" asp-area="" asp-controller="CommentImage" asp-action="List">評論圖庫清單</a>
-                    <a class="collapse-item" asp-area="" asp-controller="CommentImagesList" asp-action="List">評論圖片明細</a>
-                    <a class="collapse-item" href="register.html">留言管理</a>
-                </div>
-            </div>
-        </li>
-        <!-- Nav Item 小分類-客服管理系統 -->
-        <li class="nav-item">
-            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages3"
-               aria-expanded="true" aria-controls="collapsePages3">
-                <i class="fas fa-fw fa-commenting"></i>
-                <span>客服管理系統</span>
-            </a>
-            <div id="collapsePages3" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-                <div class="bg-white py-2 collapse-inner rounded">
-                    <h6 class="collapse-header">客服管理:</h6>
-                    <a class="collapse-item" href="forgot-password.html">檢舉管理</a>
-                    <a class="collapse-item" href="forgot-password.html">來信管理</a>
-                    @*<a class="collapse-item" href="forgot-password.html">留言板管理</a>*@
-                    <a class="collapse-item" href="forgot-password.html">AI小幫手管理</a>
-                </div>
-            </div>
-        </li>
-        <!-- Nav Item 小分類-報表 -->
-        <li class="nav-item">
-            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages4"
-               aria-expanded="true" aria-controls="collapsePages4">
-                <i class="fas fa-fw fa-chart-area"></i>
-                <span>報表:</span>
-            </a>
-            <div id="collapsePages4" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-                <div class="bg-white py-2 collapse-inner rounded">
-                    <h6 class="collapse-header">報表:</h6>
-                    <a class="collapse-item" asp-area="" asp-controller="PBI" asp-action="PBI">PBI</a>
-                    <a class="collapse-item" asp-area="" asp-controller="product" asp-action="ProductChartSample">商品上架統計表</a>
-                    <a class="collapse-item" asp-area="" asp-controller="product" asp-action="ProductChartTwo">商品銷售數量統計表</a>
-                </div>
-            </div>
-        </li>
-
-        @Html.ActionLink("登出", "Logout", "Home", null, new { @class = "btn btn-yuka" })
-
-
-        <!-- Divider -->
-        <hr class="sidebar-divider d-none d-md-block">
-
-        <!-- #endregion Heading 大分類-會員專區 -->
-        <!-- Sidebar Toggler (Sidebar) -->
-        <div class="text-center d-none d-md-inline">
-            <button class="rounded-circle border-0" id="sidebarToggle" onclick="sidebarToggle"></button>
-        </div>
-
-        @*}
-        }*@
+            }
+        }
         <!-- 會員登入end -->
     </ul>
     <!-- #endregion sidebar End 側欄 -->
@@ -446,6 +453,13 @@
     <script src="~/js/chart-pie-demo.js"></script>
 
     <script src="/jquery/jquery-1.11.1.min.js"></script>
+
+    <script src="~/wencssjs/chart.js/Chart.js"></script>
+    <script src="~/wencssjs/chart.js/utils.js"></script>
+
+    <script src="~/wencssjs/lib/jquery/dist/jquery.js"></script>
+
+
 
 
 
