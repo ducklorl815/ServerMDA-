@@ -37,5 +37,13 @@ namespace ServerMDA.ViewModel
             get { return _movieCode.語言編號languageId; }
             set { _movieCode.語言編號languageId = value; }
         }
+
+        //public virtual 電影語言movieLanguage 語言編號language { get; set; }
+        //public int 語言編號languageId { get; set; }
+        public string 語言名稱languageName { get; set; }
+        //public virtual 電影movie 電影編號movie { get; set; }
+        //public int 電影編號movieId { get; set; }
+        public int? 系列編號seriesId { get; set; }
+        public string 中文標題titleCht { get; set; }
     }
 }

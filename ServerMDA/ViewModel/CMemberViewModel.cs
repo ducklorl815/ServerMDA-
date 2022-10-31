@@ -30,10 +30,11 @@ namespace ServerMDA.ViewModel
         [DisplayName("電話")]
         public string 會員電話cellphone
         {
-            get { return _member.會員電話cellphone; }
+            get { return _member.會員電話cellphone = _member.會員電話cellphone.Substring(0, 4) + "****" + _member.會員電話cellphone.Substring(8); }
             set { _member.會員電話cellphone = value; }
         }
         [DisplayName("密碼")]
+
         public string 密碼password
         {
             get { return _member.密碼password; }
@@ -48,7 +49,7 @@ namespace ServerMDA.ViewModel
         [DisplayName("名字")]
         public string 名字fName
         {
-            get { return _member.名字fName; }
+            get { return _member.名字fName = _member.名字fName.Substring(0, 0) + "O" + _member.名字fName.Substring(1); }
             set { _member.名字fName = value; }
         }
         [DisplayName("暱稱")]

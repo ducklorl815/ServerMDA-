@@ -18,15 +18,17 @@ namespace ServerMDA.Controllers
             _enviro = p;
         }
 
-        public IActionResult List(CKeyWordViewModel model)
+        public IActionResult List()
         {
             MDAContext db = new MDAContext();
-            IEnumerable<電影代碼movieCode> datas = null;
-            if (string.IsNullOrEmpty(model.txtkeyword))
-                datas = from p in db.電影代碼movieCodes
-                        select p;
-            else
-                datas = db.電影代碼movieCodes.Where(p => p.電影代碼編號movieCodeId.ToString() == model.txtkeyword);
+            List<CMovieCodeViewModel> datas = null;
+            datas = db.電影代碼movieCodes.Select
+            (p => new CMovieCodeViewModel
+            {
+                movieCode = p,
+                語言名稱languageName = p.語言編號language.語言名稱languageName,
+                中文標題titleCht = p.電影編號movie.中文標題titleCht,
+            }).ToList();
 
             return View(datas);
         }

@@ -26,7 +26,12 @@
     @await RenderSectionAsync("Styles", required: false)
 </head>
 
-<body>
+<body id="page-top">
+    @using Microsoft.AspNetCore.Http
+    @using System.Text.Json
+    @using ServerMDA.ViewModel
+    @inject IHttpContextAccessor Accessor
+
     <!-- #region sidebar Start 側欄 -->
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion overflow-scroll" id="accordionSidebar">
 
@@ -36,7 +41,10 @@
             <img id="logo2" src="~/images/MDA_LOGO.png" style="height:25px" />
             @*<div class="sidebar-brand-text mx-2">MDA</div>*@
         </a>
-
+        <!-- 會員登入 -->
+        @*@{
+        if (Accessor.HttpContext.Session.Keys.Contains(CDictionary.SK_LOGINED_USER))
+        {*@
         <!-- Divider -->
         <hr class="sidebar-divider my-0" />
 
@@ -205,6 +213,9 @@
             </div>
         </li>
 
+        @Html.ActionLink("登出", "Logout", "Home", null, new { @class = "btn btn-yuka" })
+
+
         <!-- Divider -->
         <hr class="sidebar-divider d-none d-md-block">
 
@@ -214,13 +225,9 @@
             <button class="rounded-circle border-0" id="sidebarToggle" onclick="sidebarToggle"></button>
         </div>
 
-        <!-- Sidebar Message -->
-        @*<div class="sidebar-card d-none d-lg-flex">
-                <img class="sidebar-card-illustration mb-2" src="img/undraw_rocket.svg" alt="...">
-                <p class="text-center mb-2"><strong>SB Admin Pro</strong> is packed with premium features, components, and more!</p>
-                <a class="btn btn-success btn-sm" href="https://startbootstrap.com/theme/sb-admin-pro">Upgrade to Pro!</a>
-            </div>*@
-
+        @*}
+        }*@
+        <!-- 會員登入end -->
     </ul>
     <!-- #endregion sidebar End 側欄 -->
 
@@ -439,6 +446,9 @@
     <script src="~/js/chart-pie-demo.js"></script>
 
     <script src="/jquery/jquery-1.11.1.min.js"></script>
+
+
+
     <script>
         $(document).ready(function () {
             $("#sidebarToggle").click(function () {

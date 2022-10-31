@@ -32,6 +32,8 @@ namespace ServerMDA
             services.AddControllersWithViews();
             services.AddSession();
 
+            services.AddMvc();
+            services.AddHttpContextAccessor();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -51,7 +53,6 @@ namespace ServerMDA
             app.UseStaticFiles();
 
             app.UseRouting();
-
             app.UseSession();
             app.UseAuthorization();
 
@@ -59,7 +60,7 @@ namespace ServerMDA
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=HomePage}/{action=List}/{id?}");
+                    pattern: "{controller=Home}/{action=Login}/{id?}");
             });
         }
     }

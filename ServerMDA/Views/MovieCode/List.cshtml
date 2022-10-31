@@ -1,42 +1,100 @@
-﻿@model IEnumerable<ServerMDA.Models.電影代碼movieCode>
+﻿@using ServerMDA.ViewModel
+@model List<CMovieCodeViewModel>
+
 
 @{
     ViewData["Title"] = "新增";
 }
 
-<h1>List</h1>
+<link href="~/css/bootstrap-5.2.2/YukabtnEdit.css" rel="stylesheet" />
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.語言編號language)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.電影編號movie)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
+<h3 class="MovieList">
+    電影清單
+    <a class="btn btn-success mb-1" onclick="showmodal('@Url.Action("Create", "Movie", Context.Request.Scheme)',null)">新增</a>
+</h3>
+<div>
+    <table id="myTable" class="table tables display compact hover col-12">
+        <thead>
             <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.語言編號language.語言名稱languageName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.電影編號movie.英文標題titleEng)
-                </td>
-                <td>
-                    <a asp-action="Edit" asp-route-id="@item.電影代碼編號movieCodeId">Edit</a> |
-                    <a asp-action="Details" asp-route-id="@item.電影代碼編號movieCodeId">Details</a> |
-                    <a asp-action="Delete" asp-route-id="@item.電影代碼編號movieCodeId">Delete</a>
-                </td>
+                <th>
+                    @Html.DisplayNameFor(model => model.FirstOrDefault().語言名稱languageName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FirstOrDefault().中文標題titleCht)
+                </th>
+                <th></th>
             </tr>
-        }
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.語言名稱languageName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.中文標題titleCht)
+                    </td>
+                    <td>
+                        <a class="btn btn-yuka " id="btn" onclick="showmodal('@Url.Action("Edit","Movie",new {id=@item.電影編號movieId},Context.Request.Scheme)',null)">修改</a>
+                        @*<a class="btn btn-details " id="btn" onclick="showmodal('@Url.Action("Details","Movie",new {id=@item.電影編號movieId},Context.Request.Scheme)',null)">細節</a>*@
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<div class="modal fade" id="newstaticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            @*<div class="modal-header">*@
+            @*<span type="button" id="btnClose" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></span>*@
+            @*</div>*@
+            <div class="modal-body">
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="sortstaticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            @*<div class="modal-header">*@
+            @*<span type="button" id="btnClose" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></span>*@
+            @*</div>*@
+            <div class="modal-body">
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="~/js/vendor/jquery/jquery.min.js"></script>
+<script src="~/js/vendor/datatables/Datatable_transCht.js"></script>
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $('#myTable').DataTable();
+    });
+</script>
+
+<script>
+
+    showmodal = (url, title) => {
+        $.ajax({
+            type: "GET",
+            url: url,
+            success: function (res) {
+                $("#newstaticBackdrop .modal-body").html(res);
+                $("#newstaticBackdrop .modal-title").html(title);
+                $("#newstaticBackdrop").modal('show');
+            },
+        })
+    }
+</script>

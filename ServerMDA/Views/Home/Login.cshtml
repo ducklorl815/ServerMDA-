@@ -65,14 +65,15 @@
             <h3>登入/註冊</h3>
             <form method="post">
                 <div class="input__item">
-                    <input type="text" name="txtPhone" placeholder="手機號碼10碼" id="txt">
+                    <input type="text" name="txtAccount" placeholder="手機號碼10碼" id="txt">
+
                     <span class="icon_mobile"></span>
                 </div>
                 <div class="input__item">
-                    <input type="password" name="txtPassword" placeholder="密碼">
+                    <input type="password" name="txtPassword" id="paswd" style="color:black" placeholder="密碼">
                     <span class="icon_lock"></span>
                 </div>
-                <button type="submit" class="site-btn">登入/註冊</button>
+                <button type="submit" id="checkPss" class="site-btn">登入/註冊</button>
                 <button type="button" class="site-btn" id="demo">demoID_1</button>
                 @*<a href="#" class="ml-3">管理員登入</a>*@
             </form>
@@ -93,10 +94,13 @@
 
     <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
     <script>
-        const demo = document.querySelector("#demo")
-        const txt = document.querySelector("#txt")
+
         demo.addEventListener("click", () => {
-            txt.value = "0911111111"
+            const demo = document.querySelector("#demo")
+            const txt = document.querySelector("#txt")
+            const pwd = document.querySelector("#paswd")
+            txt.value = "0911111111",
+            pwd.value="1111"
         })
     </script>
 

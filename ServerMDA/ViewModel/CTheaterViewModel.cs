@@ -79,6 +79,7 @@ namespace ServerMDA.ViewModel
         public List<string> titleTheater { get; set; }
 
         //public int 影城編號mainTheaterId { get; set; }
+        [DisplayName("影城名稱")]
         public string 影城名稱mainTheaterName { get; set; }
     }
 }

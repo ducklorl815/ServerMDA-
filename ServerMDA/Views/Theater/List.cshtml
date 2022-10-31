@@ -40,7 +40,7 @@
                     電影院照片
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model[0].影城編號mainTheaterId)
+                    @Html.DisplayNameFor(model => model.FirstOrDefault().影城名稱mainTheaterName)
                 </th>
                 <th>
                     指令
@@ -75,7 +75,7 @@
                     </div>
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.影城編號mainTheaterId)
+                    @Html.DisplayFor(modelItem => item.影城名稱mainTheaterName)
                 </td>
                 <td>
                     <a class="btn btn-yuka" id="btn" onclick="showmodal('@Url.Action("Edit","Theater",new {id=@item.電影院編號theaterId},Context.Request.Scheme)',null)">修改</a>

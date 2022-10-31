@@ -64,19 +64,19 @@ namespace ServerMDA.Controllers
             電影評論movieComment c = db.電影評論movieComments.FirstOrDefault(c => c.評論編號commentId == inComment.評論編號commentId);
             if (c != null)
             {
-                c.會員編號memberId = inComment.會員編號memberId;
+                //c.會員編號memberId = inComment.會員編號memberId;
                 //c.電影編號movieId = inComment.電影編號movieId;
-                c.電影編號movieId = db.電影movies.FirstOrDefault(p => p.中文標題titleCht == inComment.中文標題titleCht).電影編號movieId;
-                c.評分rate = inComment.評分rate;
-                c.期待度anticipation = inComment.期待度anticipation;
-                c.評論標題commentTitle = inComment.評論標題commentTitle;
-                c.評論內容comments = inComment.評論內容comments;
-                c.發佈時間commentTime = inComment.發佈時間commentTime;
-                c.觀影日期viewingTime = inComment.觀影日期viewingTime;
-                c.觀影方式source = inComment.觀影方式source;
+                //c.電影編號movieId = db.電影movies.FirstOrDefault(p => p.中文標題titleCht == inComment.中文標題titleCht).電影編號movieId;
+                //c.評分rate = inComment.評分rate;
+                //c.期待度anticipation = inComment.期待度anticipation;
+                //c.評論標題commentTitle = inComment.評論標題commentTitle;
+                //c.評論內容comments = inComment.評論內容comments;
+                //c.發佈時間commentTime = inComment.發佈時間commentTime;
+                //c.觀影日期viewingTime = inComment.觀影日期viewingTime;
+                //c.觀影方式source = inComment.觀影方式source;
                 //c.公開等級編號publicId = inComment.公開等級編號publicId;
-                c.公開等級編號publicId = db.公開等級編號publicIds.FirstOrDefault(p => p.公開等級public == inComment.公開等級public).公開等級編號publicId1;
-                c.是否開放討論串oxFloor = inComment.是否開放討論串oxFloor;
+                //c.公開等級編號publicId = db.公開等級編號publicIds.FirstOrDefault(p => p.公開等級public == inComment.公開等級public).公開等級編號publicId1;
+                //c.是否開放討論串oxFloor = inComment.是否開放討論串oxFloor;
                 c.屏蔽invisible = inComment.屏蔽invisible;
                 db.SaveChanges();
 

@@ -31,7 +31,7 @@ namespace ServerMDA.Controllers
             (p => new CTheaterViewModel
             {
                 theater = p,
-                影廳名稱cinemaName = p.影城編號mainTheater.影城名稱mainTheaterName
+                影城名稱mainTheaterName = p.影城編號mainTheater.影城名稱mainTheaterName
             }).ToList();
 
             return View(datas);
