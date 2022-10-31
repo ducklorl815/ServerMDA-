@@ -66,8 +66,7 @@ body {
     line-height: 1.5;
     color: #858796;
     text-align: left;
-    background-color: #FCFCFC;
-    /*background-color: #fff;*/
+    background: #FCFCFC;
 }
 
 
@@ -8094,6 +8093,13 @@ button.bg-dark:focus {
 .mx-auto {
   margin-left: auto !important;
 }
+
+.container.my-auto { /*footer¸m¤¤*/
+    margin-left: 28% !important;
+    margin-right: 0 !important;
+}
+
+
 
 @media (min-width: 576px) {
   .m-sm-0 {

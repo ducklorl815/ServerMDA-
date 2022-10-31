@@ -21,13 +21,10 @@
     <link href="~/css/site.css" rel="stylesheet" />
     <link href="~/css/sb-admin-2.css" rel="stylesheet">
     <link href="~/css/bootstrap-5.2.2/YukabtnEdit.css" rel="stylesheet" />
-    <!-- #endregion Css Styles -->
-
 
     <link href="~/wencssjs/css/all.css" rel="stylesheet" />
     <link rel="stylesheet" href="~/wencssjs/css/site.css" />
-
-
+    <!-- #endregion Css Styles -->
 
     @await RenderSectionAsync("Styles", required: false)
 </head>
@@ -38,7 +35,7 @@
     @using ServerMDA.ViewModel
     @inject IHttpContextAccessor Accessor
     <!-- #region sidebar Start 側欄 -->
-    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion overflow-scroll" id="accordionSidebar">
+    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
         <!-- Sidebar - Brand -->
         <a class="sidebar-brand d-flex align-items-center justify-content-center" href="https://localhost:44345/">
@@ -46,7 +43,7 @@
             <img id="logo2" src="~/images/MDA_LOGO.png" style="height:25px" />
             @*<div class="sidebar-brand-text mx-2">MDA</div>*@
         </a>
-        <!-- 會員登入 -->
+        <!-- #region 會員登入 -->
         @{
             if (Accessor.HttpContext.Session.Keys.Contains(CDictionary.SK_LOGINED_USER))
             {
@@ -145,6 +142,7 @@
                 <hr class="sidebar-divider" />
 
                 <!-- #endregion Heading 大分類-電影院資料庫 -->
+
                 <!-- #region Heading 大分類-會員專區 -->
                 <div class="sidebar-heading text-white"> 會員專區</div>
 
@@ -220,7 +218,6 @@
 
                 @Html.ActionLink("登出", "Logout", "Home", null, new { @class = "btn btn-yuka" })
 
-
                 <!-- Divider -->
                 <hr class="sidebar-divider d-none d-md-block">
 
@@ -229,14 +226,14 @@
                 <div class="text-center d-none d-md-inline">
                     <button class="rounded-circle border-0" id="sidebarToggle" onclick="sidebarToggle"></button>
                 </div>
-
             }
         }
-        <!-- 會員登入end -->
+        <!-- #endregion 會員登入 -->
     </ul>
     <!-- #endregion sidebar End 側欄 -->
 
     <div class="divPosition">
+
         <!-- #region TopBar Start 頂部欄位 -->
 
         <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow backgroundcolor">
@@ -412,6 +409,7 @@
             </ul>
         </nav>
         <!-- #endregion TopBar End 頂部欄位 -->
+
         <!-- #region RenderBody Start -->
         <div class="container col-12">
             <main role="main" class="pb-3">
@@ -419,6 +417,7 @@
             </main>
         </div>
         <!-- #endregion RenderBody End -->
+
         <!-- #region Footer Start -->
         <footer class="sticky-footer bg-white ">
             <div class="container my-auto">
@@ -433,6 +432,7 @@
 
     @await RenderSectionAsync("Scripts", required: false)
 
+    <!-- #region Scripts -->
     <!--Bootstrap core JavaScript-->
     <script src="~/js/vendor/jquery/jquery.min.js"></script>
     <script src="~/js/vendor/bootstrap/js/bootstrap.min.js"></script>
@@ -457,10 +457,6 @@
 
     <script src="~/wencssjs/lib/jquery/dist/jquery.js"></script>
 
-
-
-
-
     <script>
         $(document).ready(function () {
             $("#sidebarToggle").click(function () {
@@ -471,11 +467,10 @@
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
     <script src="~/js/bootstrap-5.2.2/bootstrap.bundle.min.js"></script>
 
-    <!-- #region JS樣式 -->
+
+
     <script src="~/js/vendor/datatables/jquery.dataTables.js"></script>
-    <!-- #endregion JS樣式 -->
-
-
+    <!-- #endregion Scripts -->
 
 </body>
 </html>

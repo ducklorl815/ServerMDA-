@@ -3,40 +3,34 @@
     ViewData["Title"] = "Login";
 }
 
-    <meta charset="UTF-8">
-    <meta name="description" content="Anime Template">
-    <meta name="keywords" content="Anime, unica, creative, html">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Anime | Template</title>
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
 
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
-
-    <!-- Css Styles -->
-    <link rel="stylesheet" href="~/css/login/bootstrap.min.css" type="text/css">
-    <link rel="stylesheet" href="~/css/login/font-awesome.min.css" type="text/css">
-    <link rel="stylesheet" href="~/css/login/elegant-icons.css" type="text/css">
-    <link rel="stylesheet" href="~/css/login/plyr.css" type="text/css">
+<!-- Css Styles -->
+@*<link rel="stylesheet" href="~/css/login/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="~/css/login/font-awesome.min.css" type="text/css">*@
+<link rel="stylesheet" href="~/css/login/elegant-icons.css" type="text/css">
+@*<link rel="stylesheet" href="~/css/login/plyr.css" type="text/css">
     <link rel="stylesheet" href="~/css/login/nice-select.css" type="text/css">
     <link rel="stylesheet" href="~/css/login/owl.carousel.min.css" type="text/css">
-    <link rel="stylesheet" href="~/css/login/slicknav.min.css" type="text/css">
-    <link rel="stylesheet" href="~/css/login/style.css" type="text/css">
+    <link rel="stylesheet" href="~/css/login/slicknav.min.css" type="text/css">*@
+<link rel="stylesheet" href="~/css/login/style.css" type="text/css">
+<link href="~/css/sb-admin-2.css" rel="stylesheet">
 
-    <style>
-        div.login__form::after {
-            content: none;
-        }
+<style>
+    div.login__form::after {
+        content: none;
+    }
 
-        #temp {
-            content: none;
-        }
+    #temp {
+        content: none;
+    }
 
-        .login {
-            padding: 10px 0 120px 0;
-        }
-    </style>
+    .login {
+        padding: 10px 0 120px 0;
+    }
+</style>
 
 
 <!-- Page Preloder -->
@@ -44,7 +38,6 @@
     <div class="loader" style="display: none;"></div>
 </div>
 
-<!-- Header End -->
 <!-- Normal Breadcrumb Begin -->
 <section class="normal-breadcrumb set-bg" data-setbg="img/normal-breadcrumb.jpg" style="background-image: url(&quot;img/normal-breadcrumb.jpg&quot;);">
     <div class="container">
@@ -79,11 +72,19 @@
             </form>
         </div>
     </div>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
 </section>
 <!-- Login Section End -->
 <!-- Js Plugins -->
-
-    <script src="~/js/login/jquery-3.3.1.min.js"></script>
+@*<script src="~/js/login/jquery-3.3.1.min.js"></script>
     <script src="~/js/login/bootstrap.min.js"></script>
     <script src="~/js/login/player.js"></script>
     <script src="~/js/login/jquery.nice-select.min.js"></script>
@@ -91,17 +92,14 @@
     <script src="~/js/login/jquery.slicknav.js"></script>
     <script src="~/js/login/owl.carousel.min.js"></script>
     <script src="~/js/login/main.js"></script>
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>*@
 
-    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
-    <script>
-
-        demo.addEventListener("click", () => {
-            const demo = document.querySelector("#demo")
-            const txt = document.querySelector("#txt")
-            const pwd = document.querySelector("#paswd")
-            txt.value = "0911111111",
-            pwd.value="1111"
-        })
-    </script>
-
-
+<script>
+    demo.addEventListener("click", () => {
+        const demo = document.querySelector("#demo")
+        const txt = document.querySelector("#txt")
+        const pwd = document.querySelector("#paswd")
+        txt.value = "0911111111",
+            pwd.value = "1111"
+    })
+</script>
