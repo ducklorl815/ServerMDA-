@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using ServerMDA.Models;
+using ServerMDA.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +12,17 @@ namespace ServerMDA.Controllers
     {
         public IActionResult List()
         {
-            return View();
+            MDAContext db = new MDAContext();
+            CTheaterViewModel datas = null;
+            var theater = db.電影院theaters.Select(p => p.電影院名稱theaterName).ToList();
+            datas = db.電影院theaters.Select
+            (p => new CTheaterViewModel
+            {
+                theater = p,
+
+            }).FirstOrDefault();
+            datas.titleTheater = theater;
+            return View(datas);
         }
     }
 }
