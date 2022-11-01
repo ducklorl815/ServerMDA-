@@ -697,3 +697,5 @@ C:\Users\Student\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\Mov
 C:\Users\Student\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\Orders\List.cshtml.g.cs
 C:\Users\Student\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\Screening\List.cshtml.g.cs
 C:\Users\Student\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\SeatStatus\List.cshtml.g.cs
+C:\Users\Student\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\Movie\CreateOneWay.cshtml.g.cs
+C:\Users\Student\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\Movie\CreateActor.cshtml.g.cs

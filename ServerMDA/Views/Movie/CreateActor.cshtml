@@ -1,0 +1,80 @@
+﻿@using Microsoft.AspNetCore.Http
+@using System.Text.Json;
+
+@using ServerMDA.ViewModel
+@model List<CMovieOneWayViewModel>
+
+@{
+    ViewData["Title"] = "CreateActor";
+    Layout = null;
+}
+
+<!-- Modal -->
+@*<div class="modal fade" id="AddModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">*@
+        @using (Html.BeginForm("WatchListCreate", "Member"))
+        {
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle" style="color:black">我的所有片單</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <!--modal content start-->
+
+                    <table id="WatchList" class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>片單</th>
+                                <th>移除</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tableLists">
+                        </tbody>
+                    </table>
+
+                    <input type="text" list="typelist" class="form-control inputMovie" id="inputMovie" name="movieName" placeholder="演員名稱">
+                    <datalist id="typelist" class="typelist"></datalist>
+                    <button type="button" id="btnAddMovie" class="site-btn btn-sm mt-3 btnAddMovie">
+                        <i class="fa fa-plus">新增</i>
+                    </button>
+
+                    <!--modal content end-->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary" id="submitAddList">確定</button>
+                </div>
+            </div>
+        }
+    @*</div>
+</div>*@
+<!--modal end-->
+<script>
+        const inputMovie = document.querySelectorAll(".inputMovie")
+        const listData = document.querySelectorAll(".typelist")
+
+        listData.forEach(item => {
+            item.style.display="none"
+        })
+
+        inputMovie.forEach(item => {
+
+            item.addEventListener("input", async () => {
+                let keyword = item.value
+                let results = await fetch("@Url.Content("~/Movie/autoCmpMovie")" + `?keyword=${keyword}`)
+                let datas = await results.json()
+                //console.log(datas)
+                let htmlDatas = datas.map(data => {
+                    return (
+                        `
+                <option onclick="read(event)">${data}</option>
+                `)
+                })
+                listData.forEach(item => { item.innerHTML = htmlDatas.join("") })
+            })
+        })
+</script>
+

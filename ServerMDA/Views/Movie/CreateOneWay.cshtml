@@ -1,12 +1,9 @@
 ﻿@using ServerMDA.ViewModel
-@model CMovieViewModel
+@model CMovieOneWayViewModel
 
 @{
     ViewData["Title"] = "新增";
-    Layout = null;
 }
-
-
 
 
 <link href="~/css/bootstrap-5.2.2/YukabtnEdit.css" rel="stylesheet" />
@@ -17,7 +14,7 @@
     <form asp-action="Create">
         <div class="col-md-12">
             <div class="d-flex flex-row">
-                <div class="col-6">
+                <div class="col-3">
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                     <div class="form-group">
                         <label asp-for="系列編號seriesId" class="control-label"></label>
@@ -62,7 +59,7 @@
                     </div>
 
                 </div>
-                <div class="col-6">
+                <div class="col-5">
                     <div class="form-group">
                         <label asp-for="電影分級編號ratingId" class="control-label"></label>
                         <select asp-for="電影分級編號ratingId" name="分級級數ratingLevel" class="form-control" asp-items="ViewBag.分級級數ratingLevel" id="selectRating"></select>
@@ -89,82 +86,66 @@
                     </div>
                     <div class="form-group" style="float:right">
                         <input type="submit" value="新增電影" class="btn btn-success" />
-                        <button type="button" class="btn btn-dark" aria-label="Close" id="demoOnewWay">Demo</button>
+                        <button type="button" class="btn btn-dark" aria-label="Close" id="demo">Demo</button>
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" aria-label="Close">回到清單</button>
                     </div>
                 </div>
+                <div class="col-5">
+                    <a class="btn btn-details mb-1" id="btn" onclick="showmodal('@Url.Action("CreateActor","Movie", Context.Request.Scheme)',null)">導演</a>
+                    <a class="btn btn-details mb-1" id="btn" onclick="showmodal('@Url.Action("CreateActor","Movie", Context.Request.Scheme)',null)">演員</a>
+                </div>
             </div>
         </div>
-
     </form>
 
 </div>
 
+<div class="modal fade" id="newstaticBackdrop" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-title">
+                @*<div class="modal-header">
+                <span type="button" id="btnClose" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></span>
+                </div>*@
 
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+            </div>
+            <div class="modal-body">
 
 
-}
+            </div>
+        </div>
+    </div>
+</div>
 
-<script>
 
-    demoOnewWay.addEventListener("click", () => {
-        const demo = document.querySelector("#demoOnewWay");
-        const selectSeriesName = document.querySelector("#selectDemoName");
-        const titleCh = document.querySelector("#titleCh");
-        const titleEn = document.querySelector("#titleEn");
-        const year = document.querySelector("#year");
-        const date = document.querySelector("#date");
-        const runtime = document.querySelector("#runtime");
-        const selectRating = document.querySelector("#selectRating");
-        const rate = document.querySelector("#rate");
-        const anti = document.querySelector("#anti");
-        const box = document.querySelector("#box");
-        const plot = document.querySelector("#plot");
+<div class="modal fade" id="newstaticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            @*<div class="modal-header">*@
+            @*<span type="button" id="btnClose" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></span>*@
+            @*</div>*@
+            <div class="modal-body">
 
-        selectSeriesName.selectedIndex = 0;
-        titleCh.value = "媽的多重宇宙";
-        titleEn.value = "Everything Everywhere All at Once";
-        year.value = 2022;
-        date.value = "2022-04-22T10:00";
-        runtime.value = 140;
 
-        selectRating.selectedIndex = 3;
-        rate.value = 4.5;
-        anti.value = 3.5;
-        box.value = 1.007;
-        plot.value = "《媽的多重宇宙》由楊紫瓊主演，故事描述一位移民家庭的中年婦女秀蓮，以洗衣店的收入維持生計，遭逢繁雜稅務、婚姻危機、母女疏離，意外發現自己所處的世界只是萬千與眾宇宙中的其中一環，丈夫突然自稱來自α宇宙，並不是秀蓮認知中那個有些懦弱、成不了大器的男人，並說明宇宙間有一個「極大的惡」的存在，而秀蓮就是她所尋找的「救世主」。而α宇宙的秀蓮，發明了可以讓意識在宇宙間流竄的技術——「宇宙搖」，使秀蓮可以習得不同宇宙的秀蓮技術，其中有武打巨星秀蓮、廚師秀蓮、京劇盲人秀蓮、熱狗手指秀蓮等等，並也得知人生發生的每一個變故，都可能延伸出不同的走向，進而成為另一個宇宙。";
-    })
+            </div>
+        </div>
+    </div>
+</div>
 
-</script>
+<script src="~/js/vendor/jquery/jquery.min.js"></script>
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
 
 <script>
-            async function LoadRatings() {
-                let selRating = document.querySelector("#selectRating")
-                let response = await fetch("@Url.Content("~/Movie/rating")")
-                let datas = await response.json()
 
-                datas.forEach(rating => {
-                const opt = new Option(rating, rating)
-                selRating.options.add(opt)
-            })
-        };
-            async function LoadseriesName() {
-                let selSeries = document.querySelector("#selectSeriesName")
-                let response = await fetch("@Url.Content("~/Movie/series")")
-                let datas = await response.json()
-
-                datas.forEach(seriesname => {
-                const opt = new Option(seriesname, seriesname)
-                selSeries.options.add(opt)
-            })
-        };
-
-    LoadRatings();
-    LoadseriesName();
+    showmodal = (url, title) => {
+        $.ajax({
+            type: "GET",
+            url: url,
+            success: function (res) {
+                $("#newstaticBackdrop .modal-body").html(res);
+                $("#newstaticBackdrop .modal-title").html(title);
+                $("#newstaticBackdrop").modal('show');
+            },
+        })
+    }
 </script>
-
-
-
-<script src="~/js/vendor/datatables/jquery.dataTables.js"></script>

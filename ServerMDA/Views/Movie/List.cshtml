@@ -11,9 +11,11 @@
 }
 <link href="~/css/bootstrap-5.2.2/YukabtnEdit.css" rel="stylesheet" />
 
-<h3 class="MovieList">電影清單 
+<h3 class="MovieList">
+    電影清單
     <a class="btn btn-success mb-1" onclick="showmodal('@Url.Action("Create", "Movie", Context.Request.Scheme)',null)">新增</a>
-    </h3>
+    <a class="btn btn-duck" asp-area="" asp-controller="Movie" asp-action="CreateOneWay">新增一條龍</a>
+</h3>
 
 <div>
     <table id="myTable" class="table tables display compact hover col-12">
@@ -128,7 +130,7 @@
 </div>
 
 <div class="modal fade" id="sortstaticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
+    <div class="modal-dialog modal-xl">
         <div class="modal-content">
             @*<div class="modal-header">*@
             @*<span type="button" id="btnClose" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></span>*@
@@ -162,6 +164,17 @@
                 $("#newstaticBackdrop .modal-body").html(res);
                 $("#newstaticBackdrop .modal-title").html(title);
                 $("#newstaticBackdrop").modal('show');
+            },
+        })
+    }
+    showmodaloneway = (url, title) => {
+        $.ajax({
+            type: "GET",
+            url: url,
+            success: function (res) {
+                $("#sortstaticBackdrop .modal-body").html(res);
+                $("#sortstaticBackdrop .modal-title").html(title);
+                $("#sortstaticBackdrop").modal('show');
             },
         })
     }

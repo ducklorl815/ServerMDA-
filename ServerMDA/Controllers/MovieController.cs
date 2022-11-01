@@ -112,6 +112,61 @@ namespace ServerMDA.Controllers
             db.SaveChanges();
             return RedirectToAction("List");
         }
+        public ActionResult CreateOneWay()
+        {
+            MDAContext db = new MDAContext();
+            CMovieOneWayViewModel datas = null;
+            var rating = db.電影分級movieRatings.Select(p => p.分級級數ratingLevel).ToList();
+            var series = db.系列電影movieSeries.Select(p => p.系列名稱seriesName).ToList();
+            datas = db.電影movies.Select
+                (p => new CMovieOneWayViewModel
+                {
+                    movie = p,
+                    //分級圖片ratingImage = p.電影分級編號rating.分級圖片ratingImage,
+                    //分級說明ratingIllustrate = p.電影分級編號rating.分級說明ratingIllustrate,
+                    系列名稱seriesName = p.系列編號series.系列名稱seriesName,
+                    //分級級數ratingLevel = p.電影分級編號rating.分級級數ratingLevel,
+                }).FirstOrDefault();
+            datas.listrating = rating;
+            datas.listseries = series;
+            return View(datas);
+        }
+        [HttpPost]
+        public ActionResult CreateOneWay(CMovieOneWayViewModel p)
+        {
+            MDAContext db = new MDAContext();
+            電影movie m = new 電影movie();
+            m = p.movie;
+            m.系列編號seriesId = db.系列電影movieSeries.FirstOrDefault(q => q.系列名稱seriesName == p.系列名稱seriesName).系列編號seriesId;
+            //m.電影分級編號ratingId = db.電影分級movieRatings.FirstOrDefault(q => q.分級級數ratingLevel == p.分級級數ratingLevel).分級編號ratingId;
+            db.電影movies.Add(m);
+
+            db.SaveChanges();
+            return RedirectToAction("List");
+        }
+        public IActionResult CreateActor()
+        {
+
+            var q = _context.演員總表actors.Select(m => new CMovieOneWayViewModel
+            {
+                actorList = _context.電影主演casts.Where(l => l.演員編號actorId == m.演員編號actorsId).Select(m => new CCastViewModel
+                {
+                    角色名字characterName = m.角色名字characterName,
+                    演員編號actorsId = m.演員編號actorId,
+                    角色說明characterIllustrate = m.角色說明characterIllustrate,
+                }).ToList(),
+
+            }).ToList();
+
+            return View(q);
+        }
+        public IActionResult autoCmpMovie(string keyword)
+        {
+            var q = _context.演員總表actors.Where(m => m.演員中文名字nameCht.Contains(keyword) || m.演員英文名字nameEng.ToUpper().Contains(keyword.ToUpper())).Select(p => p.演員中文名字nameCht);
+            return Json(q);
+
+        }
+
         public FileResult ShowPhoto(int id)
         {
             電影分級movieRating movieRating = _context.電影分級movieRatings.Find(id);

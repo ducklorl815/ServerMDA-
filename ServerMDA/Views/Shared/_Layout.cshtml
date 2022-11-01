@@ -16,6 +16,9 @@
     <script src="https://kit.fontawesome.com/c6052fa518.js" crossorigin="anonymous"></script>
     <!-- #endregion Google Font -->
     <!-- #region Css Styles -->
+    @*<link href="~/css/all.css" rel="stylesheet" />
+    <script src="~/js/all.js"></script>*@
+
     <link href="~/css/datatables/jquery.dataTables.css" rel="stylesheet" />
     <link href="~/css/bootstrap-5.2.2/bootstrap.min.css" rel="stylesheet" />
     <link href="~/css/site.css" rel="stylesheet" />
@@ -25,9 +28,21 @@
     <link href="~/wencssjs/css/all.css" rel="stylesheet" />
     <link rel="stylesheet" href="~/wencssjs/css/site.css" />
     <!-- #endregion Css Styles -->
-
+    <style>
+        .btn.btn-yuka {
+            color: #fff;
+            background-color: rgba(38, 95, 161,.4);
+            border: none;
+            
+        }
+            .btn.btn-yuka:hover {
+                background-color: rgba(31, 78, 132,.4);
+                border: none;
+            }
+    </style>
     @await RenderSectionAsync("Styles", required: false)
 </head>
+
 
 <body id="page-top">
     @using Microsoft.AspNetCore.Http
@@ -215,8 +230,9 @@
                         </div>
                     </div>
                 </li>
-
-                @Html.ActionLink("登出", "Logout", "Home", null, new { @class = "btn btn-yuka" })
+                <div><i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i><a asp-area="" asp-controller="Home" asp-action="Logout"></a>登出</div>
+                @*@Html.ActionLink("登出", "Logout", "Home", null, new { @class = "btn btn-yuka" })*@
+                <a asp-area="" asp-controller="Home" asp-action="Logout"><i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>登出</a>
 
                 <!-- Divider -->
                 <hr class="sidebar-divider d-none d-md-block">
@@ -234,7 +250,8 @@
 
     <div class="divPosition">
 
-        <!-- #region TopBar Start 頂部欄位 -->
+        <!--
+                #region TopBar Start 頂部欄位 -->
 
         <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow backgroundcolor">
 
