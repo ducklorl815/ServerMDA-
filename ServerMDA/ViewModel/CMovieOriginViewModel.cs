@@ -1,4 +1,5 @@
-﻿using ServerMDA.Models;
+﻿using Microsoft.AspNetCore.Http;
+using ServerMDA.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -42,11 +43,13 @@ namespace ServerMDA.ViewModel
         [DisplayName("國家名稱")]
         public string 國家名稱countryName { get; set; }
         [DisplayName("國旗")]
-        public byte[] 國旗countryImage { get; set; }
+        public string 國旗countryImage { get; set; }
 
         //電影movie
         //public int 電影編號movieId { get; set; }
         [DisplayName("電影名稱")]
         public string 中文標題titleCht { get; set; }
+
+        public IFormFile photo { get; set; }
     }
 }

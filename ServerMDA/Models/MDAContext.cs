@@ -328,7 +328,9 @@ namespace ServerMDA.Models
                     .HasMaxLength(50)
                     .HasColumnName("國家名稱Country_Name");
 
-                entity.Property(e => e.國旗countryImage).HasColumnName("國旗Country_Image");
+                entity.Property(e => e.國旗countryImage)
+                    .HasMaxLength(200)
+                    .HasColumnName("國旗Country_Image");
             });
 
             modelBuilder.Entity<地址address>(entity =>
@@ -1195,6 +1197,18 @@ namespace ServerMDA.Models
                 entity.ToTable("電影排行MovieRank");
 
                 entity.Property(e => e.排行編號rankId).HasColumnName("排行編號Rank_ID");
+
+                entity.Property(e => e.周末票房boxOfficeWeekend)
+                    .HasMaxLength(50)
+                    .HasColumnName("周末票房BoxOffice_Weekend");
+
+                entity.Property(e => e.周次weeks)
+                    .HasMaxLength(50)
+                    .HasColumnName("周次Weeks");
+
+                entity.Property(e => e.累積票房boxOfficeGross)
+                    .HasMaxLength(50)
+                    .HasColumnName("累積票房BoxOffice_Gross");
 
                 entity.Property(e => e.電影movie)
                     .HasMaxLength(100)

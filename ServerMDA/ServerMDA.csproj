@@ -22,6 +22,7 @@
     <Folder Include="wwwroot\images\Cinema\" />
     <Folder Include="wwwroot\images\Cinema\" />
     <Folder Include="wwwroot\images\Comment\" />
+    <Folder Include="wwwroot\images\Country\" />
     <Folder Include="wwwroot\images\Theater\" />
   </ItemGroup>
 

@@ -14,7 +14,7 @@ namespace ServerMDA.Models
 
         public string 國家編號countryId { get; set; }
         public string 國家名稱countryName { get; set; }
-        public byte[] 國旗countryImage { get; set; }
+        public string 國旗countryImage { get; set; }
 
         public virtual ICollection<電影產地movieOrigin> 電影產地movieOrigins { get; set; }
     }

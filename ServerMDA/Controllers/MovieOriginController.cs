@@ -36,6 +36,7 @@ namespace ServerMDA.Controllers
 
             return View(datas);
         }
+
         public ActionResult Edit(int? id)
         {
             MDAContext db = new MDAContext();
@@ -64,6 +65,48 @@ namespace ServerMDA.Controllers
             }
             return RedirectToAction("List");
         }
+        public IActionResult ListOri()
+        {
+            MDAContext db = new MDAContext();
+            List<CCountrysViewModel> datas = null;
+            datas = db.國家總表countrys.Select
+            (p => new CCountrysViewModel
+            {
+                country = p,
+            }).ToList();
+
+            return View(datas);
+        }
+        public ActionResult EditOri(string id)
+        {
+            MDAContext db = new MDAContext();
+            CCountrysViewModel datas = null;
+            datas = db.國家總表countrys.Where(p => p.國家編號countryId == id).Select
+                (p => new CCountrysViewModel
+                {
+                    country = p,
+
+                }).FirstOrDefault();
+            return View(datas);
+        }
+        [HttpPost]
+        public IActionResult EditOri(CCountrysViewModel inCou) //post
+        {
+            MDAContext db = new MDAContext();
+            國家總表country c = db.國家總表countrys.FirstOrDefault(c => c.國家編號countryId == inCou.國家編號countryId);
+
+            if (inCou.photo != null)
+            {
+                string pName = Guid.NewGuid().ToString() + ".jpg";
+                c.國旗countryImage = pName;
+                string path = _enviro.WebRootPath + "/images/Country/" + pName;
+                inCou.photo.CopyTo(new FileStream(path, FileMode.Create));
+            }
+            c.國家名稱countryName = inCou.國家名稱countryName;
+            db.SaveChanges();
+
+            return RedirectToAction("ListOri");
+        }
         public ActionResult Create()
         {
             return View();
@@ -80,12 +123,13 @@ namespace ServerMDA.Controllers
             db.SaveChanges();
             return RedirectToAction("List");
         }
-        public FileResult ShowPhoto(string id)
-        {
-            國家總表country country = _context.國家總表countrys.Find(id);
-            byte[] context = country.國旗countryImage;
-            return File(context, "image/jpeg");
-        }
+
+        //public FileResult ShowPhoto(string id)
+        //{
+        //    國家總表country country = _context.國家總表countrys.Find(id);
+        //    byte[] context = country.國旗countryImage;
+        //    return File(context, "image/jpeg");
+        //}
         public IActionResult FirstAjax(int id)
         {
             var first = _context.電影movies.Where(p => p.電影編號movieId != id).Select(a => a.中文標題titleCht).ToList();

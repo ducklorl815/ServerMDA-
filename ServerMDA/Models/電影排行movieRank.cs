@@ -11,5 +11,8 @@ namespace ServerMDA.Models
         public string 電影movie { get; set; }
         public string 電影英movieEn { get; set; }
         public string 電影排名movieRank { get; set; }
+        public string 周末票房boxOfficeWeekend { get; set; }
+        public string 累積票房boxOfficeGross { get; set; }
+        public string 周次weeks { get; set; }
     }
 }
