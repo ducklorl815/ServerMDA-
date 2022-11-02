@@ -36,6 +36,14 @@ namespace ServerMDA.Controllers
 
             return View(datas);
         }
+
+        public IActionResult TheaterInfo(int theaterId)
+        {
+
+            return ViewComponent("TheaterInfo",theaterId);
+        }
+
+        #region Edit
         public ActionResult Edit(int? id)
         {
             MDAContext db = new MDAContext();
@@ -73,6 +81,10 @@ namespace ServerMDA.Controllers
             }
             return RedirectToAction("List");
         }
+        #endregion
+
+        #region Create
+
         public ActionResult Create()
         {
             MDAContext db = new MDAContext();
@@ -103,5 +115,7 @@ namespace ServerMDA.Controllers
             db.SaveChanges();
             return RedirectToAction("List");
         }
+
+        #endregion
     }
 }

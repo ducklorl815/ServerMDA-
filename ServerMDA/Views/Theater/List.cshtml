@@ -9,6 +9,36 @@
 <link href="~/css/datatables/jquery.dataTables.css" rel="stylesheet" />
 <link href="~/css/site.css" rel="stylesheet" />
 <link href="~/css/bootstrap-5.2.2/YukabtnEdit.css" rel="stylesheet" />
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+<style>
+    .row {
+        text-align: center;
+    }
+
+
+    .seatrow .dot {
+        display: inline-block;
+        width: 13px;
+        height: 13px;
+        border-radius: 50%;
+        margin: 0.2vw;
+        cursor: pointer;
+        background-color: black;
+    }
+
+    .seatrow div {
+        display: block;
+    }
+
+    .seatrow .selected {
+        background-color: deeppink;
+    }
+
+    .seatrow .none {
+        background-color: transparent;
+    }
+</style>
 
 <h3 class="MovieList">
     電影院清單
@@ -50,38 +80,38 @@
         <tbody>
             @foreach (var item in Model)
             {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.電影院編號theaterId)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.電影院名稱theaterName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.營業時間businessHours)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.電話phone)
-                </td>
-                <td class="tables_hidtext">
-                    @Html.DisplayFor(modelItem => item.地址address)
-                </td>
-                <td class="tables_hidtext">
-                    @Html.DisplayFor(modelItem => item.官方網站url)
-                </td>
-                <td>
-                    <div>
-                        <img src="~/images/Theater/@item.電影院照片image " width="120" />
-                    </div>
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.影城名稱mainTheaterName)
-                </td>
-                <td>
-                    <a class="btn btn-yuka" id="btn" onclick="showmodal('@Url.Action("Edit","Theater",new {id=@item.電影院編號theaterId},Context.Request.Scheme)',null)">修改</a>
-                    <a class="btn btn-details " id="btn" onclick="showmodal('@Url.Action("Details","Theater",new {id=@item.電影院編號theaterId},Context.Request.Scheme)',null)">細節</a>
-                </td>
-            </tr>
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.電影院編號theaterId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.電影院名稱theaterName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.營業時間businessHours)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.電話phone)
+                    </td>
+                    <td class="tables_hidtext">
+                        @Html.DisplayFor(modelItem => item.地址address)
+                    </td>
+                    <td class="tables_hidtext">
+                        @Html.DisplayFor(modelItem => item.官方網站url)
+                    </td>
+                    <td>
+                        <div>
+                            <img src="~/images/Theater/@item.電影院照片image " width="120" />
+                        </div>
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.影城名稱mainTheaterName)
+                    </td>
+                    <td>
+                        <a class="btn btn-yuka" id="btn" onclick="showmodal('@Url.Action("Edit","Theater",new {id=@item.電影院編號theaterId},Context.Request.Scheme)',null)">修改</a>
+                        <button class="btn btn-details " name="Cinemabtn" value="@item.電影院編號theaterId ">細節</button>
+                    </td>
+                </tr>
             }
         </tbody>
     </table>
@@ -107,11 +137,24 @@
     </div>
 </div>
 
+
+<div class="w3-container">
+    <div class="w3-modal" id="theaterModal">
+        <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="width:75vw;">
+            <div id="id01">
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
 <script src="~/js/bootstrap-5.2.2/bootstrap.bundle.min.js"></script>
 <script src="~/js/vendor/jquery/jquery.min.js"></script>
 <script src="~/js/vendor/datatables/Datatable_transCht.js"></script>
 <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
-
 
 <script>
 
@@ -124,6 +167,41 @@
                 $("#newstaticBackdrop .modal-title").html(title);
                 $("#newstaticBackdrop").modal('show');
             },
+        })
+    }
+
+    $('button[name=Cinemabtn]').click(function () {
+        let value = this.getAttribute('value');
+        console.log(value);
+        document.getElementById('theaterModal').style.display = 'block';
+        CallAjax(value);
+    })
+
+       async function CallAjax(theaterID) {
+        $("#id01").empty();
+           let _url = await '@Url.Action("TheaterInfo", "Theater")' + `?theaterId=${theaterID}`;
+                $.ajax({
+                    type: "GET",
+                    url: _url,
+                    success: function (result) {
+                        $('#id01').html(result);
+                        showbox();
+                    }
+                });
+    }
+
+    function showbox() {
+        $('.accordion-button').click(function () {
+            let id = `collapse${this.getAttribute('data')}`;
+            let flag = this.getAttribute('data-flag');
+            if (flag == 0) {
+                $(`#${id}`).addClass('show');
+                this.setAttribute('data-flag', 1)
+            } else {
+                $(`#${id}`).removeClass('show');
+                this.setAttribute('data-flag', 0)
+            }
+
         })
     }
 </script>

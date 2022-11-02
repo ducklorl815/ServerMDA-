@@ -1,0 +1,65 @@
+﻿@using ServerMDA.ViewModel
+@model List<CCinemaInfoViewModel>
+@{
+
+}
+
+
+@{
+    int i = 0;
+    string idstr = $"collapse{i}";
+    foreach (var item in Model)
+    {
+
+        string[] seatArr = item.seatMap.Split('#');
+
+        <div class="accordion">
+            <div class="accordion-item">
+                    <div value="@item.id" data-flag="0" data="@i" class="accordion-button row m-auto justify-content-center" >
+                            <div class="col-2 m-auto">@item.name</div>
+                            <div class="col-3 m-auto">@item.type 型影廳 </div>
+                            <div class="col-3 m-auto">總座位數 @item.count 個</div>
+                            <div class="col-4 m-auto"><button class="btn btn-primary">編輯座位</button></div>
+                    </div>
+                <div id="@idstr" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <div class="row justify-content-center pb-3">
+                            <div class="seatMap">
+                                @{
+                                    @:<div>
+                                        @:<div class="seatrow">
+                                            foreach (string seat in seatArr)
+                                            {
+                                                if (seat.Contains("NA"))
+                                                {
+                                                    @:<div class="dot none"></div>
+                                                }
+                                                else if (seat.Contains("||"))
+                                                {
+                                                @:</div></div><div>
+                                                    @:<div class="seatrow">
+                                                    }
+                                                    else if (seat.Contains("selected"))
+                                                    {
+                                                        @:<div class="dot selected"></div>
+                                                    }
+                                                    else if (seat != "")
+                                                    {
+                                                        @:<div class="dot green"></div>
+                                                    }
+                                                }
+                                            @:</div></div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        i++;
+        idstr = $"collapse{i}";
+    }
+    <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
+        <button onclick="document.getElementById('theaterModal').style.display='none'" type="button" class="w3-button w3-red">Cancel</button>
+    </div>
+}
