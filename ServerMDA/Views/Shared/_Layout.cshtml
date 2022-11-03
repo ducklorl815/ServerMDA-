@@ -235,7 +235,7 @@
                 <div><i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i><a asp-area="" asp-controller="Home" asp-action="Logout"></a>登出</div>
                 @*@Html.ActionLink("登出", "Logout", "Home", null, new { @class = "btn btn-yuka" })*@
                 <a asp-area="" asp-controller="Home" asp-action="Logout" class="btn btn-logout"><i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>登出</a>
-                <br/>
+                <br />
                 <!-- Divider -->
                 <hr class="sidebar-divider d-none d-md-block">
 
@@ -428,7 +428,6 @@
             </ul>
         </nav>
         <!-- #endregion TopBar End 頂部欄位 -->
-
         <!-- #region RenderBody Start -->
         <div class="container col-12">
             <main role="main" class="pb-3">
@@ -436,7 +435,6 @@
             </main>
         </div>
         <!-- #endregion RenderBody End -->
-
         <!-- #region Footer Start -->
         <footer class="sticky-footer bg-white ">
             <div class="container my-auto">
@@ -448,34 +446,18 @@
         <!-- #endregion Footer End -->
 
     </div>
-
-    @await RenderSectionAsync("Scripts", required: false)
-
     <!-- #region Scripts -->
-    <!--Bootstrap core JavaScript-->
     <script src="~/js/vendor/jquery/jquery.min.js"></script>
     <script src="~/js/vendor/bootstrap/js/bootstrap.min.js"></script>
-
-    <!-- Core plugin JavaScript-->
     <script src="~/js/vendor/jquery-easing/jquery.easing.min.js"></script>
-
-    <!-- Custom scripts for all pages-->
     <script src="~/js/sb-admin-2.min.js"></script>
-
-    <!-- Page level plugins -->
     <script src="~/js/vendor/chart.js/Chart.min.js"></script>
-
-    <!-- Page level custom scripts -->
     <script src="~/js/chart-area-demo.js"></script>
     <script src="~/js/chart-pie-demo.js"></script>
-
     <script src="/jquery/jquery-1.11.1.min.js"></script>
-
     <script src="~/wencssjs/chart.js/Chart.js"></script>
     <script src="~/wencssjs/chart.js/utils.js"></script>
-
     <script src="~/wencssjs/lib/jquery/dist/jquery.js"></script>
-
     <script>
         $(document).ready(function () {
             $("#sidebarToggle").click(function () {
@@ -485,8 +467,8 @@
     </script>
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
     <script src="~/js/bootstrap-5.2.2/bootstrap.bundle.min.js"></script>
-
     <script src="~/js/vendor/datatables/jquery.dataTables.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
     <!-- #endregion Scripts -->
 
 </body>

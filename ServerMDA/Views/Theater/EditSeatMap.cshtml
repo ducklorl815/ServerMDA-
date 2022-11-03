@@ -1,0 +1,305 @@
+﻿@using ServerMDA.Models
+@model 影廳cinema
+@{
+    string[] seatArr = Model.座位資訊seatInfo.Split('@');
+}
+
+@section Styles{
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <style>
+        .row {
+            text-align: center;
+        }
+
+        .seatSample {
+            margin: auto;
+            text-align: center;
+        }
+
+            .seatSample .sampleName {
+                height: 15px;
+                color: rgb(120, 120, 120);
+                font-size: 0.875rem;
+                display: inline-block;
+            }
+
+            .seatSample .screen {
+                width: 300px;
+                color: rgb(142, 142, 142);
+                border: 1px solid rgb(142, 142, 142);
+                font-size: 0.75rem;
+                height: 26px;
+                line-height: 26px;
+                margin: 0px auto 30px;
+            }
+
+        .seatrow .dot {
+            display: inline-block;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            margin: 0.3vw;
+            cursor: pointer;
+            background-color: black;
+        }
+
+        .seatrow div {
+            display: block;
+        }
+
+        .seatrow .green {
+        }
+
+        .seatrow .green2 {
+        }
+
+        .seatrow .none {
+            background-color: transparent;
+        }
+
+        .emptyrow {
+
+        }
+
+        .emptycolumn {
+        }
+
+        .seatrow .love {
+            background-color: hotpink;
+        }
+
+        .seatMap {
+            width: 100%;
+            margin: 20px auto;
+            text-align: center;
+        }
+
+        .seatrow .selected {
+            background-color: rgb(231, 0, 140);
+        }
+    </style>
+}
+
+
+
+<div class="row pt-5 m-auto">
+    <div class="col-3"></div>
+    <div class="col-6">
+        <input type="number" value="20" id="columnvalue" />
+        <input type="number" value="12" id="rowvalue" />
+        <button type="button" class="primary-btn" id="setseat">設定</button>
+    </div>
+    <div class="col-3">
+        <select id="seletor">
+            <option value="0">設定直行</option>
+            <option value="1">設定橫列</option>
+            <option value="2">空位(計入計算)</option>
+            <option value="3">愛心座位(不可訂票)</option>
+            <option value="4">可用座位</option>
+        </select>
+    </div>
+</div>
+
+<div class="row justify-content-center">
+    <div class="row">
+        <div class="seatMap" id="seatMap">
+            @{
+                @:<div class="seatrow">
+                    foreach (var item in seatArr)
+                    {
+                        if (!string.IsNullOrEmpty(item))
+                        {
+                            if (item.Contains("NA"))
+                            {
+                                <div class="dot none" name="dot"></div>
+                            }
+                            else if (item.Contains("||"))
+                            {
+                            @:</div><div class="seatrow">
+                            }
+                            else
+                            {
+                                string[] data = item.Split(':');
+                                if (data[1].Contains("love"))
+                                {
+                                    string[] datalove = data[1].Split('l');
+                                    @:<div class="dot love" data-x="@datalove[0].Trim()" data-y="@data[0].Trim()" name="dot"></div>
+                                }
+                                else
+                                {
+                                    @:<div class="dot" data-x="@data[1].Trim()" data-y="@data[0].Trim()" name="dot"></div>
+                                }
+                            }
+                        }
+
+                    }
+                @:</div>
+            }
+        </div>
+        <div class="row">
+            <div class="col-4"></div>
+            <div class="col-4"><input type="button" class="btn btn-primary pt-5 justify-content-center" id="Savebtn" value="上傳新座位表" /></div>
+            <div class="col-4"></div>
+        </div>
+    </div>
+</div>
+
+<form method="post" action="~/Theater/SaveSeatInfo" id="form">
+    <input type="hidden" value="@Model.影廳編號cinemaId" id="cinemaID" name="cinemaID"/>
+    <input type="hidden" value="" id="seatInfo" name="seatInfo"/>
+</form>
+
+@section Scripts{
+    <script>
+        let row = 12;
+        let column = 20;
+        let selectValue = 0;
+
+        $("#columnvalue").on("change paste keyup", function () {
+            let cvalue = $(this).val();
+            if (parseInt(cvalue) < 0) {
+                this.setAttribute('value', 0);
+                return;
+            }
+            else {
+                column = cvalue;
+            }
+        });
+
+        $("#rowvalue").on("change paste keyup", function () {
+            let cvalue = $(this).val();
+            if (parseInt(cvalue) < 0) {
+                this.setAttribute('value', 0);
+                return;
+            }
+            else {
+                row = cvalue;
+            }
+        });
+
+        $('#seletor').change(function () {
+            selectValue = this.options[this.selectedIndex].value
+            console.log(selectValue);
+        })
+
+        $('#setseat').click(function () {
+            $('#seatMap').empty();
+            addseatMap();
+        })
+
+        $('div[name=dot]').click(function () {
+            if (selectValue == 0) {
+                console.log(this.getAttribute('data-x'));
+                Deleterow(this.getAttribute('data-x'));
+            }
+            else if (selectValue == 1) {
+                console.log(this.getAttribute('data-y'));
+                Deletecolumn(this.getAttribute('data-y'));
+            }
+            else if (selectValue == 2) {
+                this.classList.add('none');
+            }
+            else if (selectValue == 3) {
+                this.classList.add('love');
+            }
+            else if (selectValue == 4) {
+                this.setAttribute('class', 'dot');
+            }
+        })
+
+        $('#Savebtn').click(function () {
+            saveMap();
+            let result = confirm("確定修改最為表資訊?")
+            if (result) {
+                $('#form').submit();
+            }
+        })
+
+        function Deleterow(data) {
+            let dots = document.getElementsByName('dot')
+            for (let item of dots) {
+                if (item.getAttribute('data-x') == data) {
+                    item.classList.add('none');
+                }
+                else if (parseInt(item.getAttribute('data-x')) > parseInt(data)) {
+                    let newdata = item.getAttribute('data-x');
+                    item.setAttribute('data-x', parseInt(newdata) - 1);
+                }
+            }
+        }
+
+        function Deletecolumn(data) {
+            let dots = document.getElementsByName('dot')
+            for (let item of dots) {
+                if (item.getAttribute('data-y') == data) {
+                    item.classList.add('none')
+                }
+                else if (parseInt(item.getAttribute('data-y')) > parseInt(data)) {
+                    let newdata = item.getAttribute('data-y');
+                    item.setAttribute('data-y', parseInt(newdata) - 1);
+                }
+            }
+        }
+
+        function addseatMap() {
+            let divmap = document.createElement('div');
+            for (let j = 0; j < row; j++) {
+                let divrow = document.createElement('div');
+                divrow.setAttribute('class', 'seatrow')
+                for (let i = 0; i < column; i++) {
+                    let divdot = document.createElement('div')
+                    divdot.setAttribute('class', 'dot')
+                    divdot.setAttribute('data-x', i + 1)
+                    divdot.setAttribute('data-y', j + 1)
+                    divdot.setAttribute('name', 'dot')
+                    divrow.appendChild(divdot)
+                }
+                divmap.appendChild(divrow);
+            }
+            $('#seatMap').append(divmap);
+            $('div[name=dot]').click(function () {
+                if (selectValue == 0) {
+                    console.log(this.getAttribute('data-x'));
+                    Deleterow(this.getAttribute('data-x'));
+                }
+                else if (selectValue == 1) {
+                    console.log(this.getAttribute('data-y'));
+                    Deletecolumn(this.getAttribute('data-y'));
+                }
+                else if (selectValue == 2) {
+                    this.classList.add('none');
+                }
+                else if (selectValue == 3) {
+                    this.classList.add('love');
+                }
+                else if (selectValue == 4) {
+                    this.setAttribute('class', 'dot');
+                }
+            })
+        }
+
+        let savestr = '';
+        function saveMap() {
+            savestr = '';
+            let seatrow = document.getElementsByClassName('seatrow');
+            for (let rowitem of seatrow) {
+                let divdot = $(rowitem).find('.dot');
+                for (let item of divdot) {
+                    if ($(item).hasClass('none')) {
+                        savestr += 'NA#'
+                    }
+                    else if ($(item).hasClass('love')) {
+                        savestr += `${item.getAttribute('data-y')}:${item.getAttribute('data-x')}love#`;
+                    }
+                    else {
+                        savestr += `${item.getAttribute('data-y')}:${item.getAttribute('data-x')}#`;
+                    }
+                }
+                savestr += '||#';
+            }           
+            console.log(savestr);
+            $('#seatInfo').val(savestr);
+        }
+    </script>
+}
+

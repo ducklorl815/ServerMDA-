@@ -14,10 +14,12 @@ namespace ServerMDA.Controllers
     public class TheaterController : Controller
     {
         private IWebHostEnvironment _enviro;
+        private MDAContext _MDA;
 
-        public TheaterController(IWebHostEnvironment p)
+        public TheaterController(IWebHostEnvironment p, MDAContext MDA)
         {
             _enviro = p;
+            _MDA = MDA;
         }
 
         public IActionResult List()
@@ -40,7 +42,33 @@ namespace ServerMDA.Controllers
         public IActionResult TheaterInfo(int theaterId)
         {
 
-            return ViewComponent("TheaterInfo",theaterId);
+            return ViewComponent("TheaterInfo", theaterId);
+        }
+
+        public IActionResult EditSeatMap(int cinemaid)
+        {
+            影廳cinema cinema = this._MDA.影廳cinemas
+                                    .Where(c => c.影廳編號cinemaId == cinemaid)
+                                    .FirstOrDefault();
+
+            return View(cinema);
+        }
+
+        public class _SaveSeatInfo
+        {
+            public int cinemaID { get; set; }
+            public string seatInfo { get; set; }
+        }
+
+        public IActionResult SaveSeatInfo(_SaveSeatInfo saveInfo)
+        {
+            var q = this._MDA.影廳cinemas
+                      .Where(c => c.影廳編號cinemaId == saveInfo.cinemaID).FirstOrDefault();
+            string seatInfo = saveInfo.seatInfo.Replace('#', '@');
+            seatInfo = seatInfo.Trim();
+            q.座位資訊seatInfo = seatInfo;
+            this._MDA.SaveChanges();
+            return RedirectToAction("List");
         }
 
         #region Edit
@@ -48,10 +76,10 @@ namespace ServerMDA.Controllers
         {
             MDAContext db = new MDAContext();
             CTheaterViewModel datas = null;
-            datas = db.電影院theaters.Where(p=>p.電影院編號theaterId==id).Select
+            datas = db.電影院theaters.Where(p => p.電影院編號theaterId == id).Select
             (p => new CTheaterViewModel
             {
-              theater = p,
+                theater = p,
             }).FirstOrDefault();
 
             return View(datas);
@@ -93,8 +121,8 @@ namespace ServerMDA.Controllers
             datas = db.電影院theaters.Select
             (p => new CTheaterViewModel
             {
-                    theater = p,
-                    影城名稱mainTheaterName = p.影城編號mainTheater.影城名稱mainTheaterName,
+                theater = p,
+                影城名稱mainTheaterName = p.影城編號mainTheater.影城名稱mainTheaterName,
 
             }).FirstOrDefault();
             datas.titleTheater = theater;
