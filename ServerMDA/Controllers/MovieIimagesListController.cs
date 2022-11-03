@@ -75,7 +75,7 @@ namespace ServerMDA.Controllers
 
                 db.SaveChanges();
             }
-            return RedirectToAction("List","Movie");
+            return RedirectToAction("List", "MovieIimagesList");
         }
 
         public ActionResult Create()

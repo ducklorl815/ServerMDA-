@@ -6,7 +6,7 @@
 
 @{
     ViewData["Title"] = "CreateActor";
-    Layout = null;
+    //Layout = null;
 }
 
 <!-- Modal -->
@@ -37,9 +37,19 @@
 
                     <input type="text" list="typelist" class="form-control inputMovie" id="inputMovie" name="movieName" placeholder="演員名稱">
                     <datalist id="typelist" class="typelist"></datalist>
+                    <button type="button" id="btnAddList" class="site-btn btn-sm mt-3">
+                        <i class="fa fa-plus">新增</i>
+                    </button>
                     <button type="button" id="btnAddMovie" class="site-btn btn-sm mt-3 btnAddMovie">
                         <i class="fa fa-plus">新增</i>
                     </button>
+                    <input type="text" class="form-control inputMovie" id="inputListName" name="listName"
+                           placeholder="我的片單">
+                    <datalist id="typelist" class="typelist"></datalist>
+                    @*<button type="button" id="btnAddList" class="site-btn btn-sm mt-3">
+                        <i class="fa fa-plus">新增</i>
+                    </button>*@
+                    <small id="duplicate" style="color:darkgray"></small>
 
                     <!--modal content end-->
                 </div>
@@ -53,8 +63,41 @@
 </div>*@
 <!--modal end-->
 <script>
-        const inputMovie = document.querySelectorAll(".inputMovie")
-        const listData = document.querySelectorAll(".typelist")
+    const inputName = document.querySelector("#inputListName")
+    const inputMovie = document.querySelectorAll(".inputMovie")
+    const listData = document.querySelectorAll(".typelist")
+    const btnAddList = document.querySelector("#btnAddList")
+
+    btnAddList.addEventListener("click", async () => {
+
+            const url = "@Url.Content("~/Movie/checkWatchList")"
+            const params = `?name=${inputName.value}`
+            let response = await fetch(url + params)  //resolve->response, reject
+            let data = await response.text()
+            if (inputName.value == "") {
+                duplicate.textContent = "不可空白"
+            }
+            else if (data == 'True') {
+                duplicate.textContent = "片單名稱重複"
+            }
+            else {
+                duplicate.textContent = ""
+
+                var tr = document.createElement('tr');
+                tr.innerHTML =
+                            `
+                        <td>
+                        <input type="hidden" class="id" name="listId" value="" />
+                        <input type="text" class="form-control name" name="listName" value="${inputName.value}"/>
+                        </td>
+                        <td><button type="button" onclick="deleteRow(event)" class="btn btn-danger btn-sm delList"><i class="fas fa-trash-alt"></i></button></td>
+                            `
+                tableLists.appendChild(tr);
+
+            }
+        })
+
+
 
         listData.forEach(item => {
             item.style.display="none"

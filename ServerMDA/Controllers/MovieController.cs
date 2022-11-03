@@ -219,7 +219,11 @@ namespace ServerMDA.Controllers
                 }).FirstOrDefault();
             return View(datas);
         }
-
+        public IActionResult checkWatchList(string name)
+        {
+            bool isExist = _context.演員總表actors.Any(l => l.演員中文名字nameCht == name);
+            return Content(isExist.ToString(), "text/plain");
+        }
 
         //todo Session
         //public IActionResult AS(string jsonString) 
