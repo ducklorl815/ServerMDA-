@@ -22,12 +22,16 @@ namespace ServerMDA.Controllers
         {
             MDAContext db = new MDAContext();
             List<CMemberViewModel> datas = null;
+            var C = db.優惠總表coupons;
+            var D = db.會員權限permissions;
             datas = db.會員members.Select
             (p => new CMemberViewModel
             {
                 member = p,
                 性別名稱genderName = p.性別genderNavigation.性別名稱genderName,
                 權限名稱permissionName = p.會員權限permissionNavigation.權限名稱permissionName,
+                優惠總表coupon=C.ToList(),
+                會員權限PermissionS = D.ToList()
             }).ToList();
 
             return View(datas);

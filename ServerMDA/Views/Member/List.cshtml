@@ -4,19 +4,68 @@
 @{
     ViewData["Title"] = "會員清單";
 }
+@section styles{
+    <style>
+        .w3-check {
+            transform: scale(2);
+        }
 
+        #con {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center
+        }
+
+        #quickchange {
+            display: flex;
+        }
+    </style>
+}
 <link href="~/css/bootstrap-5.2.2/YukabtnEdit.css" rel="stylesheet" />
 
 
-<h3 class="MovieList">
-    會員清單
-    <a class="btn btn-success mb-1" onclick="showmodal('@Url.Action("Create", "Member", Context.Request.Scheme)',null)">新增</a>
-</h3>
+<div id="con">
+    <div id="a">
+        <h3 class="MovieList">
+            會員清單
+            <a class="btn btn-success mb-1" onclick="showmodal('@Url.Action("Create", "Member", Context.Request.Scheme)',null)">新增</a>
+        </h3>
+    </div>
+    <div id="quickchange">
+        <h3 class="chagetitle" style="width: 250px; vertical-align:middle; ">快速修改</h3>
+        <select id="selector" class="form-select" name="selector">
+            <option value="" id="space"></option>
+            <optgroup label="優惠券" id="coupon">
+                @foreach (var t in Model.First().優惠總表coupon)
+                {
+                    <option value=" @t.優惠編號couponId">@t.優惠名稱couponName</option>
+                }
+            </optgroup>
+            <optgroup label="會員權限" id="permite">
+                @foreach (var p in Model.First().會員權限PermissionS)
+                {
+                    <option value="@p.會員權限permission1">@p.權限名稱permissionName </option>
+                }
+            </optgroup>
+            <optgroup label="會員資格" id="Formal">
+                <option value="1">正式會員 </option>
+                <option value="0">非正式會員 </option>
+
+            </optgroup>
+        </select>
+        <button class="btn btn-success mb-1" style="width:100px;" id="execution">執行</button>
+    </div>
+</div>
 
 <div>
     <table id="myTable" class="table tables display compact hover col-12">
         <thead>
             <tr style="white-space:nowrap">
+                <th style="width:60px">
+                    全選 &nbsp;
+                    <input class="w3-check" type="checkbox" id="checkAll" />
+                </th>
                 <th style="width:5px">
                     ID
                 </th>
@@ -50,38 +99,42 @@
         <tbody>
             @foreach (var item in Model)
             {
-            <tr style="white-space:nowrap">
-                <td>
-                    @Html.DisplayFor(modelItem => item.會員編號memberId)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.姓氏lName)@Html.DisplayFor(modelItem => item.名字fName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.會員電話cellphone)
-                </td>
-                <td class="tables_hidtext">
-                    @Html.DisplayFor(modelItem => item.電子信箱email)
-                </td>
-                <td>
-                    <div>
-                        <img src="~/images/Member/@item.會員照片image" width="100" />
-                    </div>
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.性別名稱genderName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.權限名稱permissionName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.正式會員formal)
-                </td>
-                <td>
-                    <a class="btn btn-yuka " id="btn" onclick="showmodal('@Url.Action("Edit","Member",new {id=@item.會員編號memberId},Context.Request.Scheme)',null)">修改</a>
-                    @*<a class="btn btn-details " id="btn" onclick="showmodal('@Url.Action("Details","Member",new {id=@item.會員編號memberId},Context.Request.Scheme)',null)">細節</a>*@
-                </td>
-            </tr>
+                <tr style="white-space:nowrap">
+                    <td id="ccontainer">
+                        <input class="w3-check" type="checkbox" id="select" name="checkbox" />
+                        <input type="hidden" id="memberId" />
+                    </td>
+                    <td id="會員編號memberId">
+                        @Html.DisplayFor(modelItem => item.會員編號memberId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.姓氏lName)@Html.DisplayFor(modelItem => item.名字fName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.會員電話cellphone)
+                    </td>
+                    <td class="tables_hidtext">
+                        @Html.DisplayFor(modelItem => item.電子信箱email)
+                    </td>
+                    <td>
+                        <div>
+                            <img src="~/images/Member/@item.會員照片image" width="100" />
+                        </div>
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.性別名稱genderName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.權限名稱permissionName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.正式會員formal)
+                    </td>
+                    <td>
+                        <a class="btn btn-yuka " id="btn" onclick="showmodal('@Url.Action("Edit","Member",new {id=@item.會員編號memberId},Context.Request.Scheme)',null)">修改</a>
+                        @*<a class="btn btn-details " id="btn" onclick="showmodal('@Url.Action("Details","Member",new {id=@item.會員編號memberId},Context.Request.Scheme)',null)">細節</a>*@
+                    </td>
+                </tr>
             }
         </tbody>
     </table>
@@ -113,6 +166,11 @@
 
 
 <script>
+    const checkbox = document.querySelectorAll('#select')
+    const member = document.querySelectorAll('#會員編號memberId')
+    const memberID = document.querySelectorAll('#memberId')
+    const selector = document.querySelector('#document.querySelector')
+
 
     showmodal = (url, title) => {
         $.ajax({
@@ -125,6 +183,101 @@
             },
         })
     }
+
+
+    //全選
+    let arrId = new Array();
+    $("#checkAll").click(function () {
+        $('input:checkbox').not(this).prop('checked', this.checked);
+        for (let i = 0; i < checkbox.length; i++) {
+            if (this.checked) {
+                memberID[i].value = member[i].innerText;
+                arrId.push(memberID[i].value)
+            } else {
+                let ok = arrId.indexOf((memberID[i].value))
+                arrId.splice(ok, 1)
+                memberID[i].value = 0;
+            }
+        };
+    });
+
+    //多選
+    for (let i = 0; i < checkbox.length; i++) {
+        checkbox[i].addEventListener('click', function () {
+            if (this.checked) {
+                memberID[i].value = member[i].innerText;
+                arrId.push(memberID[i].value)
+
+            }
+            else {
+                let ok = arrId.indexOf((memberID[i].value))
+                arrId.splice(ok, 1)
+                memberID[i].value = 0;
+
+            }
+        });
+    }
+
+    //combobox
+    let arrToDo = ""
+    let label =
+    $('#selector').on('change', function () {       
+            this.value == ""
+            arrToDo = this.value;
+            console.log(arrToDo)
+            label = $(this.options[this.selectedIndex]).closest('optgroup').prop('label');
+            console.log(label)
+       
+    })
+
+
+    $('#execution').click(async function () {
+        
+       
+        //增加優惠券
+        if (label == "優惠券") {
+        $.ajax({
+            type: "POST",
+            url: "/ApiHome/addCoupon",
+            data: { arrId: arrId, arrToDo: arrToDo },
+            success: function () {
+                alert('success');
+                $("input:checked").prop("checked", false)               
+            },
+            dataType: 'json',
+        });
+        }
+        //增加會員權限
+        else if (label == "會員權限") {
+            $.ajax({
+                type: "POST",
+                url: "/ApiHome/addPermission",
+                data: { arrId: arrId, arrToDo: arrToDo },
+                success: function () {
+                    alert('success');
+                    $("input:checked").prop("checked", false)
+                },
+                dataType: 'json',
+            });            
+        }
+        //會員資格
+        else if (label == "會員資格") {
+            $.ajax({
+                type: "POST",
+                url: "/ApiHome/addFormal",
+                data: { arrId: arrId, arrToDo: arrToDo },
+                success: function () {
+                    alert('success');
+                    $("input:checked").prop("checked", false)
+                },
+                dataType: 'json',
+            });
+        }
+        else
+            alert("請選擇執行項目")
+        
+    })
+    
 </script>
 
 <script src="~/js/vendor/datatables/jquery.dataTables.js"></script>

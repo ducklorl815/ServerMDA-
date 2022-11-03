@@ -169,5 +169,10 @@ namespace ServerMDA.ViewModel
         public DateTime 訂單時間orderTime { get; set; }
         public int 場次編號screeningId { get; set; }
         public int 訂單狀態編號orderStatusId { get; set; }
+
+
+        public List<優惠總表coupon> 優惠總表coupon { get; set; }
+        public List<string> 優惠名稱Coupon_Name { get; set; }
+        public List<會員權限permission> 會員權限PermissionS { get; set; }
     }
 }
