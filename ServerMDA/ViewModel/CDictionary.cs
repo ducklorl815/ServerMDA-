@@ -9,5 +9,6 @@ namespace ServerMDA.ViewModel
     {
         public static readonly string SK_PURCHASED_PRODUCT = "SK_PURCHASED_PRODUCT";
         public static readonly string SK_LOGINED_USER = "SK_LOGINED_USER";
+        public static readonly string SK_ADDMOVIE_ACTOR = "SK_ADDMOVIE_ACTOR";
     }
 }

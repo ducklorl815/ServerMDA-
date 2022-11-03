@@ -6,7 +6,7 @@
 
 @{
     ViewData["Title"] = "CreateActor";
-    Layout = null;
+    //Layout = null;
 }
 <!-- Modal -->
 @*<div class="modal fade" id="AddModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -22,6 +22,7 @@
         </div>
         <div class="modal-body">-->
     <!--modal content start-->
+<div>
 
     <table id="WatchList" class="table table-bordered">
         <thead>
@@ -34,37 +35,44 @@
         </tbody>
     </table>
 
-
     <button type="button" id="btnAddList" class="site-btn btn-sm mt-3">
         <i class="fa fa-plus">新增</i>
     </button>
-    <input type="text" list="typelist" class="form-control inputMovie" id="inputMovie" name="movieName" placeholder="演員名稱">
-    <datalist id="typelist" class="typelist"></datalist>
+    <div>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
+        <button type="button" class="btn btn-primary" id="submitAddList">確定</button>
+    </div>
 
-    <small id="duplicate" style="color:darkgray"></small>
+    <div class="mb-2 mt-2">
+        <input type="text" list="typelist" class="form-control inputMovie" id="inputMovie" name="movieName" placeholder="演員名稱">
+        <datalist id="typelist" class="typelist"></datalist><small id="duplicate" style="color:darkgray"></small>
+    </div>
+
 
     <!--modal content end-->
-    <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
-    <button type="button" class="btn btn-primary" id="submitAddList">確定</button>
     @*</div>
-    <div class="modal-footer">
+        <div class="modal-footer">
 
-    </div>
-    </div>*@
+        </div>
+        </div>*@
+
+    @*</div>
+        </div>*@
+    <!--modal end-->
+</div>
 }
-@*</div>
-    </div>*@
-<!--modal end-->
 <script>
-    const inputName = document.querySelector("#inputMovie")
-    const inputMovie = document.querySelectorAll(".inputMovie")
-    const listData = document.querySelectorAll(".typelist")
-    const btnAddList = document.querySelector("#btnAddList")
+            const btnAddList = document.querySelector("#btnAddList")
+            const listData = document.querySelectorAll(".typelist")
+            const inputName = document.querySelector("#inputMovie")
+            const inputMovie = document.querySelectorAll(".inputMovie")
 
-    @* 新增名單 *@
-    btnAddList.addEventListener("click", async () => {
+            @* 新增名單 *@
+            btnAddList.addEventListener("click", async () => {
+
             const url = "@Url.Content("~/Movie/checkWatchList")"
             const params = `?name=${inputName.value}`
+
             let response = await fetch(url + params)  //resolve->response, reject
             let data = await response.text()
             if (inputName.value == "") {
@@ -75,7 +83,7 @@
             }
             else {
                 duplicate.textContent = ""
-
+                inputMovie.textContent=""
                 var tr = document.createElement('tr');
                 tr.innerHTML =
                             `
@@ -111,6 +119,25 @@
                 listData.forEach(item => { item.innerHTML = htmlDatas.join("") })
             })
         })
+
+
+    const submitAddList = document.querySelector("#submitAddList")
+    submitAddList.addEventListener("click", async () => {
+        var ids = document.querySelectorAll('.id')
+        var names = document.querySelectorAll('.name')
+        for (let i = 0; i < ids.length; i++) {
+            ids[i].setAttribute('name', `ls[${i}].listId`)
+        }
+        for (let i = 0; i < names.length; i++) {
+            names[i].setAttribute('name', `ls[${i}].listName`)
+        }
+        await fetch("@Url.Content("~/Movie/AS")")
+    })
+    //await submitAddList.setAttribute('type', 'JSON')
+    //await fetch("@Url.Content("~/api/getmemID")")
+
+
+
 </script>
 
 @*刪除按鈕*@

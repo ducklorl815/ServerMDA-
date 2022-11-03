@@ -39,7 +39,7 @@ namespace ServerMDA.Controllers
                 {
                     string jsonUser = JsonSerializer.Serialize(mem);
                     HttpContext.Session.SetString(CDictionary.SK_LOGINED_USER, jsonUser);
-                    return RedirectToAction("List","HomePage");
+                    return RedirectToAction("List", "HomePage");
                 }
             }
 

@@ -226,11 +226,27 @@ namespace ServerMDA.Controllers
         }
 
         //todo Session
-        //public IActionResult AS(string jsonString) 
+        public IActionResult AS(string jsonString)
+        {
+            HttpContext.Session.SetString(CDictionary.SK_ADDMOVIE_ACTOR, jsonString);
+            string jsonAll = HttpContext.Session.GetString(CDictionary.SK_ADDMOVIE_ACTOR);
+            //var result = JsonSerializer.Deserialize<CDictionary>(jsonAll);
+            return View();
+        }
+
+        //public IActionResult ADDAD(CLoginViewModel vModel)
         //{
-        //    HttpContext.Session.SetString(CDictionary.SK_PURCHASED_PRODUCT, jsonString);
-        //    string jsonAll = HttpContext.Session.GetString(CDictionary.SK_PURCHASED_PRODUCT);
-        //    var result = JsonSerializer.Deserialize<CDictionary>(jsonAll);
+        //    會員member mem = (new MDAContext()).會員members.FirstOrDefault(c => c.會員電話cellphone.Equals(vModel.txtAccount));
+        //    if (mem != null)
+        //    {
+        //        if (mem.密碼password.Equals(vModel.txtPassword))
+        //        {
+        //            //string jsonUser = JsonSerializer.Serialize(mem);
+        //            HttpContext.Session.SetString(CDictionary.SK_ADDMOVIE_ACTOR, jsonUser);
+        //            return RedirectToAction("List", "HomePage");
+        //        }
+        //    }
+
         //    return View();
         //}
     }
