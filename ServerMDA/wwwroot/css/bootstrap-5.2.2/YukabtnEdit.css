@@ -140,3 +140,34 @@
         background-color: #198754;
         border-color: #198754
     }
+
+.btn-logout {
+    color: #fff;
+    background-color: rgba(38, 95, 161,.5);
+}
+
+    .btn-logout:hover {
+        color: #fff;
+        background-color: rgba(31, 78, 132,.5);
+    }
+
+    .btn-logout.focus, .btn-logout:focus {
+        color: #fff;
+        background-color: rgba(31, 78, 132,.5);
+        box-shadow: 0 0 0 .2rem rgba(45, 112, 190, .5)
+    }
+
+    .btn-logout.disabled, .btn-logout:disabled {
+        color: #fff;
+        background-color: rgba(38, 95, 161, .5);
+    }
+
+    .btn-logout:not(:disabled):not(.disabled).active, .btn-logout:not(:disabled):not(.disabled):active, .show > .btn-logout.dropdown-toggle {
+        color: #fff;
+        background-color: rgba(28, 71, 120, .5);
+    }
+
+        .btn-logout:not(:disabled):not(.disabled).active:focus, .btn-logout:not(:disabled):not(.disabled):active:focus, .show > .btn-logout.dropdown-toggle:focus {
+            box-shadow: 0 0 0 .2rem rgba(45, 112, 190, .5)
+        }
+
