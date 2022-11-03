@@ -6,110 +6,105 @@
 }
 <!-- Content Wrapper -->
 <div id="content-wrapper" class="d-flex flex-column">
-
+    <iframe title="後台首頁 - 收入" width="1880" height="1200" src="https://app.powerbi.com/view?r=eyJrIjoiMzE5NGQxZGYtNzUxNS00NmM5LWI1ZWItNmU0MWExMGJlOGFmIiwidCI6ImE0M2Y2Y2QzLTU0MTItNGIxZi1hMTM0LTJjMjc3MzY0Y2FmNiIsImMiOjEwfQ%3D%3D" frameborder="0" allowFullScreen="true"></iframe>
     <!-- Main Content -->
-    <div id="content">
+    <!--<div id="content">
 
 
         <!-- Begin Page Content -->
-        <div class="container-fluid">
-            <div class="row">
-
-                <!-- Area Chart -->
-                <div class="col-8">
-                    <div class="card shadow mb-4">
-                        <!-- Card Header - Dropdown -->
-
-                        <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                            <div class="d-flex flex-row">
-                                <div class="mt-2 mr-2">
-                                    <h6 class="m-0 font-weight-bold fs-3 text-primary">收益 曲線圖</h6>
-                                </div>
-                                <div>
-                                    <select id="select1" name="電影院名稱theaterName" class="form-select fs-5">
-                                        <option>請選擇您要查詢的電影院</option>
-                                        @{
-                                            foreach (var item in Model.titleTheater)
-                                            {
-                                                <option class="myclass">@item</option>
-                                            }
-                                        }
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="dropdown no-arrow">
-                                <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-                                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                                </a>
-                                <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
-                                     aria-labelledby="dropdownMenuLink">
-                                    <div class="dropdown-header">收入來源:</div>
-                                    <a class="dropdown-item" href="#">Action</a>
-                                    <a class="dropdown-item" href="#">Another action</a>
-                                    <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="#">Something else here</a>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Card Body -->
-                        <div class="card-body">
-                            <div class="chart-area" style="height:400px">
-                                <canvas class="h-100" id="myChart"></canvas>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Pie Chart -->
-                <div class="col-xl-4 col-lg-5">
-                    <div class="card shadow mb-4">
-                        <!-- Card Header - Dropdown -->
-                        <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                            <h6 class="m-0 font-weight-bold text-primary">收入來源</h6>
-                            <div class="dropdown no-arrow">
-                                <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-                                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                                </a>
-                                <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
-                                     aria-labelledby="dropdownMenuLink">
-                                    <div class="dropdown-header">Dropdown Header:</div>
-                                    <a class="dropdown-item" href="#">Action</a>
-                                    <a class="dropdown-item" href="#">Another action</a>
-                                    <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="#">Something else here</a>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Card Body 收益圖 -->
-                        @*<div class="card-body">
-                                <div class="chart-pie pt-4 pb-2">
-                                    <canvas id="myPieChart"></canvas>
-                                </div>
-                                <div class="mt-4 text-center small">
-                                    <span class="mr-2">
-                                        <i class="fas fa-circle text-primary"></i> 廠商廣告
-                                    </span>
-                                    <span class="mr-2">
-                                        <i class="fas fa-circle text-success"></i> 電影票
-                                    </span>
-                                    <span class="mr-2">
-                                        <i class="fas fa-circle text-info"></i> 周邊商品
-                                    </span>
-                                </div>
-                            </div>*@
-                    </div>
+    <!--<div class="container-fluid">
+        <div class="row">-->
+    <!-- Area Chart -->
+    <!--<div class="col-8">
+        <div class="card shadow mb-4">-->
+    <!-- Card Header - Dropdown -->
+    <!--<div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+        <div class="d-flex flex-row">
+            <div class="mt-2 mr-2">
+                <h6 class="m-0 font-weight-bold fs-3 text-primary">收益 曲線圖</h6>
+            </div>
+            <div>
+                <select id="select1" name="電影院名稱theaterName" class="form-select fs-5">
+                    <option>請選擇您要查詢的電影院</option>
+                    @{
+                        //foreach (var item in Model.titleTheater)
+                        {
+                            <option class="myclass">  </option>
+                        }
+                    }
+                </select>
+            </div>
+        </div>
+        <div class="dropdown no-arrow">
+            <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
+                 aria-labelledby="dropdownMenuLink">
+                <div class="dropdown-header">收入來源:</div>
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+        </div>
+    </div>-->
+    <!-- Card Body -->
+    <!--<div class="card-body">
+                <div class="chart-area" style="height:400px">
+                    <canvas class="h-100" id="myChart"></canvas>
                 </div>
             </div>
-            <!-- #region 備註 -->
-            <!-- Content Row -->
-
-
         </div>
-        @*/.container-fluid*@
+    </div>-->
+    <!-- Pie Chart -->
+    <!--<div class="col-xl-4 col-lg-5">
+        <div class="card shadow mb-4">-->
+    <!-- Card Header - Dropdown -->
+    <!--<div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+        <h6 class="m-0 font-weight-bold text-primary">收入來源</h6>
+        <div class="dropdown no-arrow">
+            <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
+                 aria-labelledby="dropdownMenuLink">
+                <div class="dropdown-header">Dropdown Header:</div>
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+        </div>
+    </div>-->
+    <!-- Card Body 收益圖 -->@*-->*@
+    <!--@*<div class="card-body">
+                        <div class="chart-pie pt-4 pb-2">
+                            <canvas id="myPieChart"></canvas>
+                        </div>
+                        <div class="mt-4 text-center small">
+                            <span class="mr-2">
+                                <i class="fas fa-circle text-primary"></i> 廠商廣告
+                            </span>
+                            <span class="mr-2">
+                                <i class="fas fa-circle text-success"></i> 電影票
+                            </span>
+                            <span class="mr-2">
+                                <i class="fas fa-circle text-info"></i> 周邊商品
+                            </span>
+                        </div>
+                    </div>*@
+            <!--</div>
+        </div>
+    </div>-->
+    <!-- #region 備註 -->
+    <!-- Content Row -->
+    <!--</div>-->
+    @*/.container-fluid*@
 
-    </div>
+@*</div>-->*@
     <!--End of Main Content-->
 
 
@@ -121,12 +116,12 @@
 <!-- End of Page Wrapper -->
 <!-- Scroll to Top Button-->
 <!-- #endregion 備註 -->
-<a class="scroll-to-top rounded" href="#page-top">
+@*<a class="scroll-to-top rounded" href="#page-top">
     <i class="fas fa-angle-up"></i>
-</a>
+</a>*@
 
 <!-- Logout Modal-->
-<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+@*<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
      aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -143,7 +138,7 @@
             </div>
         </div>
     </div>
-</div>
+</div>*@
 
 
 
