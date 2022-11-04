@@ -19,9 +19,9 @@
                 <th>
                     @Html.DisplayNameFor(model => model.FirstOrDefault().廳種名稱cinemaClsName)
                 </th>
-                <th>
+                @*<th>
                     @Html.DisplayNameFor(model => model.FirstOrDefault().座位資訊seatInfo)
-                </th>
+                </th>*@
                 <th>
                     @Html.DisplayNameFor(model => model.FirstOrDefault().影廳照片image)
                 </th>
@@ -43,9 +43,9 @@
                     <td>
                         @Html.DisplayFor(modelItem => item.廳種名稱cinemaClsName)
                     </td>
-                    <td class="tables_hidtext">
+                    @*<td class="tables_hidtext">
                         @Html.DisplayFor(modelItem => item.座位資訊seatInfo)
-                    </td>
+                    </td>*@
                     <td>
                         <div>
                             <img src="~/images/Cinema/@item.影廳照片image" width="70" />
