@@ -1205,3 +1205,13 @@ C:\MDA143後\ServerMDA\obj\Debug\net5.0\ref\ServerMDA.dll
 C:\MDA143後\ServerMDA\obj\Debug\net5.0\ServerMDA.pdb
 C:\MDA143後\ServerMDA\obj\Debug\net5.0\ServerMDA.genruntimeconfig.cache
 >>>>>>> feature/#orli
+C:\MDA143後\ServerMDA\bin\Debug\net5.0\MailKit.dll
+C:\MDA143後\ServerMDA\bin\Debug\net5.0\MimeKit.dll
+C:\MDA143後\ServerMDA\bin\Debug\net5.0\BouncyCastle.Crypto.dll
+C:\MDA143後\ServerMDA\bin\Debug\net5.0\System.Formats.Asn1.dll
+C:\MDA143後\ServerMDA\bin\Debug\net5.0\System.Runtime.CompilerServices.Unsafe.dll
+C:\MDA143後\ServerMDA\bin\Debug\net5.0\System.Security.Cryptography.Pkcs.dll
+C:\MDA143後\ServerMDA\bin\Debug\net5.0\System.Text.Encoding.CodePages.dll
+C:\MDA143後\ServerMDA\bin\Debug\net5.0\runtimes\win\lib\netcoreapp3.1\System.Security.Cryptography.Pkcs.dll
+C:\MDA143後\ServerMDA\bin\Debug\net5.0\runtimes\win\lib\netcoreapp3.1\System.Text.Encoding.CodePages.dll
+C:\MDA143後\ServerMDA\obj\Debug\net5.0\Razor\Views\Report\Report.cshtml.g.cs

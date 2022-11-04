@@ -65,7 +65,7 @@ namespace ServerMDA.Controllers
             foreach (var i in arrId)
             {
                 var q = _MDA.會員members.Where(p => p.會員編號memberId == i).FirstOrDefault();
-                q.紅利點數bonus = arrToDo;
+                q.紅利點數bonus = q.紅利點數bonus+arrToDo;
             }
             _MDA.SaveChanges();
             return Content("1", "text/plain");
