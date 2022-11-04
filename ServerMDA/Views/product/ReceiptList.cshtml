@@ -1,158 +1,132 @@
-﻿@model ServerMDA.ViewModel.WenViewModel.CMyListPrd
+﻿@*@model IEnumerable<ServerMDA.Models.購買商品明細receipt>*@
+@model ServerMDA.ViewModel.WenViewModel.CRList
 
 @{
-    ViewData["Title"] = "ProductList";
-    Layout = null;
-    //Layout = "~/Views/Shared/_ChartLayout.cshtml";
-    //Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "ReceiptList";
 }
-
 <style>
-    .Deletebtn {
-    }
+   /* .Deletebtn {
+    }*/
 </style>
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
-@*<p>@Model.產品列表.First().電影院名稱theaterName</p>*@
-<div style="display:block;height:20px;"></div>
-<h1>產品清單</h1>
 
-<p>
-    @*<a asp-action="ProductCreate">新增上架產品</a>*@
-    @*@Html.ActionLink("新增產品", "ProductCreate", "product", null, new { @class = "btn btn-success" })*@
-    <a asp-action="ProductCreate" class="btn btn-success"><i class="fa-solid fa-sign-hanging"></i>&nbsp;新增產品</a>
-</p>
-<div class="container">
-    @*action="~/product/ProductList"*@
-    <!--<form name="mypagInfo" method="get" action="~/product/Pag" enctype="text/plain" id="pagInfo">
-        <div class="row justify-content-end">
-            <div class="col-2"></div>
-            <div class="col-4">
-                <div class="input-group mb-12">
-                    <span>目前筆數:@Model.產品列表.Count&nbsp;&nbsp;&nbsp;&nbsp;</span>
-                    <span class="input-group-text" id="inputGroup-sizing-default">一頁幾筆</span>
-                    <input id="mytx" name="mytx" type="hidden" />
-                    <input id="tx" type="text" name="tx" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-                </div>
-            </div>-->
-    @*<div class="col-auto">
-            <button id="pre" type="submit" class="btn btn-outline-success">上一頁</button>
+<h1>購買商品明細</h1>
 
-        </div>*@
-    <!--<div class="col-auto">
-                <button id="next" type="submit" class="btn btn-outline-success">顯示筆數</button>
-            </div>
-        </div>
-    </form>-->
+<div style="display:block;height:40px;"></div>
 
-    <div style="display:block;height:40px;"></div>
+<div class="row">
+    @*id="ttable"*@
+    <div class="col-12">
+        <table class="table table-hover" id="myTable">
+            <thead>
+                <tr>
+                    <th class="ml-2">
+                        序號
+                    </th>
+                    <th class="ml-2">
+                        購買商品明細
+                    </th>
+                    <th class="ml-2">
+                        訂單編號
+                    </th>
+                    <th class="ml-2">
+                        商品名稱
+                    </th>
+                    <th class="ml-2">
+                        商品價格
+                    </th>
+                    <th class="ml-2">
+                        數量
+                    </th>
+                    <th class="ml-2">
+                        類別
+                    </th>
+                    <th class="ml-2">
+                        電影院名稱
+                    </th>
+                    @*<th></th>
+                        <th></th>*@
+                </tr>
+            </thead>
+            <tbody>
+                @* <p>@Model.產品列表.First().電影院名稱theaterName</p>*@
 
-    <div class="row" id="ttable">
-        <div class="col-12">
-            <table class="table table-hover" id="myTable">
-                <thead>
-                    <tr>
-                        <th class="ml-2">
-                            序號
-                        </th>
-                        <th style="width:150px">
-                            圖片
-                        </th>
-                        <th class="ml-2">
-                            商品名稱
-                        </th>
-                        <th class="ml-2">
-                            商品價格
-                        </th>
-                        <th class="ml-2">
-                            商品描述
-                        </th>
-                        <th class="ml-2">
-                            類別
-                        </th>
-                        <th class="ml-2">
-                            電影院名稱
-                        </th>
-                        <th></th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @* <p>@Model.產品列表.First().電影院名稱theaterName</p>*@
+                @{ int count = 0;
 
-                    @{ int count = 0;
+                    foreach (var item in Model.購買的明細表)
+                    {
+                        count++;
+                        <tr data="@item.商品編號productId">
+                            <td>
+                                @count
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.購買商品明細編號receiptId)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.訂單編號orderId)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.商品名稱productName)
+                            </td>
+                            <td>
+                                @item.商品價格productPrice.ToString("0")
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.商品數量qty)
+                            </td>
 
-                        foreach (var item in Model.產品列表)
-                        {
-                            count++;
-                            <tr data="@item.商品編號productId">
-                                <td>
-                                    @count
-
-                                </td>
-                                <td>
-                                    <img class="w-50" src="~/images/WenProduct/@item.商品圖片路徑imagePath" />
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.商品名稱productName)
-                                </td>
-                                <td>
-                                    @*@Html.DisplayFor(modelItem => item.商品價格productPrice)*@
-                                    @item.商品價格productPrice.ToString("0")
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.商品介紹introduce)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.類別category)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.電影院名稱theaterName)
-                                </td>
-                                <td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.類別category)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.電影院名稱theaterName)
+                            </td>
+                            @*<td>
                                     <a asp-action="ProductEdit" asp-route-id="@item.商品編號productId" class="btn btn-dark "><i class="fa-regular fa-pen-to-square"></i></a>
-                                </td>
-                                <td>
-                                    @* asp-action="ProductDelete" asp-route-id="@item.商品編號productId"*@
-                                    <a asp-action="ProductDelete" asp-route-id="@item.商品編號productId" class="btn btn-dark Deletebtn text-white" data-toggle="modal" data-target="#myModel"><i class="fa-regular fa-trash-can"></i></a>
-                                    @*<input type="hidden" value="@item.商品編號productId" />*@
-                                    @* <button class="btn btn-dark" asp-action="ProductDelete" asp-route-id="@item.商品編號productId" data-toggle="modal" data-target="#myModel"><i class="fa-regular fa-trash-can"></i></button>*@
+                                </td>*@
+                            @* <td>*@
+                            @* asp-action="ProductDelete" asp-route-id="@item.商品編號productId"*@
+                            @*<a asp-action="ProductDelete" asp-route-id="@item.商品編號productId" class="btn btn-dark Deletebtn text-white" data-toggle="modal" data-target="#myModel"><i class="fa-regular fa-trash-can"></i></a>*@
+                            @*<input type="hidden" value="@item.商品編號productId" />*@
+                            @* <button class="btn btn-dark" asp-action="ProductDelete" asp-route-id="@item.商品編號productId" data-toggle="modal" data-target="#myModel"><i class="fa-regular fa-trash-can"></i></button>*@
 
-                                </td>
-                            </tr>
+                            @*</td>*@
+                        </tr>
 
-                        }
                     }
-                </tbody>
-            </table>
+                }
+            </tbody>
+        </table>
 
-            <div class="modal fade text-dark" id="myModel" data-backdrop="static">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h4>您好，要移除商品嗎?</h4>
-                            <button class="close" data-dismiss="modal">&times;</button>
-                        </div>
-                        <div id="div1" class="modal-body">
-                            <p>親愛的顧客您好，確定要移除，此商品嗎?</p>
-                        </div>
-                        <div class="modal-footer">
-                            <button class="btn btn-default" data-dismiss="modal">關閉</button>
-                            @*<a id=" mycurrentId"><i class="fa-regular fa-trash-can"></i></a>*@
-                            <button id="D" type="submit" class="btn btn-warning" data-dismiss="modal">移除</button>
-                        </div>
+        <!--<div class="modal fade text-dark" id="myModel" data-backdrop="static">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4>您好，要移除商品嗎?</h4>
+                        <button class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div id="div1" class="modal-body">
+                        <p>親愛的顧客您好，確定要移除，此商品嗎?</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-default" data-dismiss="modal">關閉</button>-->
+        @*<a id=" mycurrentId"><i class="fa-regular fa-trash-can"></i></a>*@
+        <!--<button id="D" type="submit" class="btn btn-warning" data-dismiss="modal">移除</button>
                     </div>
                 </div>
             </div>
+        </div>-->
 
-        </div>
     </div>
-
 </div>
+
+@*</div>*@
 <div style="display:block;height:40px;"></div>
 
-<form name="DelInfo" method="get" action="~/product/ProductDelete" enctype="text/plain" id="Deleteform">
+@*<form name="DelInfo" method="get" action="~/product/ProductDelete" enctype="text/plain" id="Deleteform">
     <input type="hidden" id="inputdelete" name="Inprod" />
-</form>
+</form>*@
 
 @section Scripts
 {
@@ -404,47 +378,47 @@
 
             });
         });
-        let deletebtns = document.getElementsByClassName('Deletebtn')//自動長出的刪除鍵
-        let deleteID = document.querySelector('#inputdelete')//隱藏欄位，放要刪除的產品id號碼
-        let D = document.querySelector('#D')//出現要刪除的方塊，「移除」的按鈕
-        let inputdelete = document.querySelector('#inputdelete')//隱藏欄位，放要刪除的產品id號碼,設定value
+        //let deletebtns = document.getElementsByClassName('Deletebtn')//自動長出的刪除鍵
+        //let deleteID = document.querySelector('#inputdelete')//隱藏欄位，放要刪除的產品id號碼
+        //let D = document.querySelector('#D')//出現要刪除的方塊，「移除」的按鈕
+        //let inputdelete = document.querySelector('#inputdelete')//隱藏欄位，放要刪除的產品id號碼,設定value
 
-        let pre = document.getElementById("pre")
-        let next = document.getElementById("next")
-        let tx = document.getElementById("tx")
-        let mytx = document.getElementById("mytx")
+        //let pre = document.getElementById("pre")
+        //let next = document.getElementById("next")
+        //let tx = document.getElementById("tx")
+        //let mytx = document.getElementById("mytx")
         //let ttable = $("#ttable");
 
-        next.addEventListener("click", evt => {
-            evt.preventDefault()
-            console.log('click')
-            mytx.value = tx.value
+        //next.addEventListener("click", evt => {
+            //evt.preventDefault()
+           // console.log('click')
+          //  mytx.value = tx.value
             //mytx.setAttribute('value', mytx);
-            console.log(mytx)
-            $('#pagInfo').submit();
+          //  console.log(mytx)
+         //   $('#pagInfo').submit();
 
             @*var url = "@Url.Content("~/product/pag")"
             var n = `?n=${parseInt(tx.value)}`
             ttable.empty();
             ttable.load(url + n)*@
-        })
+       // })
 
         //delete-----------------------
-        for (let item of deletebtns) {
-            item.addEventListener('click', evt => {
-                evt.preventDefault();
+       // for (let item of deletebtns) {
+        //    item.addEventListener('click', evt => {
+          //      evt.preventDefault();
 
-                deleteID = $(event.currentTarget).parents('tr')[0].getAttribute('data');
-                inputdelete.setAttribute('value', deleteID);
-                D.addEventListener('click', evt => {
-                    $('#Deleteform').submit();//form 的id
+               // deleteID = $(event.currentTarget).parents('tr')[0].getAttribute('data');
+                //inputdelete.setAttribute('value', deleteID);
+                //D.addEventListener('click', evt => {
+                   // $('#Deleteform').submit();//form 的id
 
-                })
+                //})
 
 
-            })
+            //})
 
-        }
+       // }
 
     </script>
 }

@@ -93,24 +93,29 @@ namespace ServerMDA.Controllers
             }
             return View(cp);
 
-            //int tx = 5;
-            //count = 1;
+        }
+        public IActionResult ReceiptList(CRList v)
+        {          
 
-            //var tx = Convert.ToInt32(textBox1.Text);
-            //var q = from o in dataSet11.Orders
-            //        join od in dataSet11.Order_Details
-            //        on o.OrderID equals od.OrderID
-            //        where o.OrderDate.Year == comboBox1.SelectedItem.GetHashCode()
-            //        orderby o.OrderID descending
-            //        select o;
-            //var query = from a in cp.產品列表.Take(count * tx).Skip((count - 1) * tx)
-            //         select a;
-            //dataGridView2.DataSource = q2.ToList();
-
-            // return View(q);
+            if (v.購買的明細表 == null)
+            {
+                v = new CRList();
+                v.購買的明細表 = (from c in _context.購買商品明細receipts                          
+                           select new 明細
+                           {
+                               購買商品明細編號receiptId=c.購買商品明細編號receiptId,
+                               商品編號productId =c.商品編號productId,
+                               商品名稱productName = c.商品編號product.商品名稱productName,
+                               類別category=c.商品編號product.類別category,
+                               訂單編號orderId=c.訂單編號orderId,
+                               商品價格productPrice=c.商品編號product.商品價格productPrice,
+                               商品數量qty=c.商品數量qty,
+                               電影院名稱theaterName =c.商品編號product.電影院編號theater.電影院名稱theaterName
+                           }).ToList();                                    
+            }
+            return View(v);
         }
 
-        
 
         public IActionResult Pag(/*CMyListPrd mytx,*/int mytx)
         {
@@ -223,7 +228,7 @@ namespace ServerMDA.Controllers
 
             return RedirectToAction("ProductList");
         }
-       
+   
         public IActionResult ProductCreate()
         {
             
