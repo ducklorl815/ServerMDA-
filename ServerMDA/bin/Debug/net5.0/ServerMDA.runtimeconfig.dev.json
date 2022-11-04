@@ -1,8 +1,14 @@
 {
   "runtimeOptions": {
     "additionalProbingPaths": [
+<<<<<<< HEAD
       "C:\\Users\\jo3wait\\.dotnet\\store\\|arch|\\|tfm|",
       "C:\\Users\\jo3wait\\.nuget\\packages",
+=======
+      "C:\\Users\\yikis\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\yikis\\.nuget\\packages",
+      "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+>>>>>>> feature/#orli
       "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet"
     ]
   }
