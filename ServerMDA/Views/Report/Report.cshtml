@@ -1,0 +1,660 @@
+﻿@using ServerMDA.ViewModel.Report
+@model List<CReportViewModel>
+@using Microsoft.AspNetCore.Http
+@using System.Text.Json;
+@inject IHttpContextAccessor Accessor
+
+@{
+    string tab = "";
+    if (Accessor.HttpContext.Session.Keys.Contains(CDictionaryReport.SK_導回的tab))
+    {
+        tab = Accessor.HttpContext.Session.GetString(CDictionaryReport.SK_導回的tab);
+    }
+
+}
+
+@{
+    ViewData["Title"] = "Report";
+}
+@section Styles{
+    <link href='//cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css' rel='stylesheet' />
+    <style>
+        ul {
+            list-style: none;
+        }
+
+        .tox-tinymce {
+            /* 設定最低高度 */
+            min-height: 300px;
+        }
+
+        .table {
+            font-size: 14px;
+        }
+    </style>
+
+}
+<h1>檢舉管理</h1>
+@{
+    var rpMem = Model.Where(l => l.對象targetId == 1 && l.處理狀態status == 0).ToList();
+    var rpCom = Model.Where(l => l.對象targetId == 2 && l.處理狀態status == 0).ToList();
+    var rpRep = Model.Where(l => l.對象targetId == 0 && l.處理狀態status == 0).ToList();
+    var rpDon = Model.Where(l => l.處理狀態status == 1).ToList();
+}
+
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item" role="presentation">
+        <button class="nav-link " id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="false">待處理會員(@rpMem.Count())</button>
+    </li>
+    <li class="nav-item" role="presentation">
+        <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">待處理評論(@rpCom.Count())</button>
+    </li>
+    <li class="nav-item" role="presentation">
+        <button class="nav-link" id="reply-tab" data-bs-toggle="tab" data-bs-target="#reply" type="button" role="tab" aria-controls="reply" aria-selected="false">待處理回覆(@rpRep.Count())</button>
+    </li>
+    <li class="nav-item" role="presentation">
+        <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false">已處理(@rpDon.Count())</button>
+    </li>
+</ul>
+<div class="tab-content" id="myTabContent">
+    <!--被檢舉會員-->
+    <div class="tab-pane fade  " id="home" role="tabpanel" aria-labelledby="home-tab">
+        <h4 class="mt-3">被檢舉會員一覽表</h4>
+        <div class="text-right">
+            <button type="button" class="mr-3 mb-3 btn btn-secondary" data-toggle="modal" data-target="#modalExample">
+                統一回覆信件預覽
+            </button>
+            <button id="solveAllMem" class="mr-3 mb-3 btn btn-warning" tab="mem">統一回覆(不停權)</button>
+        </div>
+        <table class="table " id="memTable">
+            <thead>
+                <tr>
+                    <th><input type="checkbox" id="selectAllMem" class="all">全選</th>
+                    <th>序</th>
+                    <th>檢舉項目</th>
+                    <th>檢舉人編號</th>
+                    <th>
+                        檢舉理由
+                        @*<select id="selectReasonMem">
+                                <option>全選</option>
+                                <option>無內容</option>
+                                <option>有內容</option>
+                            </select>*@
+                    </th>
+                    <th>被檢舉內容</th>
+                    <th>處理</th>
+                    <th>回覆檢舉人</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    int count1 = 0;
+                    foreach (var item in rpMem)
+                    {
+                        count1++;
+                                <tr>
+                                    <td><input type="checkbox" value="@item.我的追蹤清單編號cfId" email="@item.會員編號member.電子信箱email" class="checkbox" /></td>
+                                    <td>@count1</td>
+                                    <td>@item.對象名稱targetName</td>
+                                    <td>@item.會員編號memberId</td>
+                                    <td>@item.檢舉理由reportReason</td>
+                                    <td><a href='@Url.Content("https://localhost:44345/Comment/會員評論/" + item.連接編號connectId)' target="_blank">被檢舉頁面</a></td>
+                                    @*<td><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#dealModalmem" data-bs-whatever="@item.連接編號connectId">停權</button></td>*@
+                                    @{
+                                        if (item.停權m != 1)
+                                        {
+                                            <td><button type="button" class="btn btn-danger" onclick="suspend(event)" status="0" connectid="@item.連接編號connectId">停權</button></td>
+                                        }
+                                        else
+                                        {
+                                            <td><button type="button" class="btn btn-success" onclick="suspend(event)" status="1" connectid="@item.連接編號connectId">取消停權</button></td>
+                                        }
+                                    }
+                                    <td>
+                                        <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#modalEmail"
+                                                data-bs-email="@item.會員編號member.電子信箱email"
+                                                data-bs-tar="mem"
+                                                data-bs-cfid="@item.我的追蹤清單編號cfId"
+                                                data-bs-link='@Url.Content("https://localhost:44345/Comment/會員評論/" + item.連接編號connectId)'>
+                                            回覆檢舉人
+                                        </button>
+                                    </td>
+                                </tr>
+
+                                        }
+                }
+            </tbody>
+        </table>
+    </div>
+    <!--被檢舉評論-->
+    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+        <h4 class="mt-3">被檢舉評論一覽表</h4>
+        <div class="text-right">
+            <button type="button" class="mr-3 mb-3 btn btn-secondary" data-toggle="modal" data-target="#modalExample">
+                統一回覆信件預覽
+            </button>
+            <button id="solveAllCom" class="mr-3 mb-3 btn btn-warning">統一回覆(不屏蔽)</button>
+        </div>
+        <table class="table" id="comTable">
+            <thead>
+                <tr>
+                    <th><input type="checkbox" id="selectAllCom" class="all">全選</th>
+                    <th>序</th>
+                    <th>檢舉項目</th>
+                    <th>檢舉人編號</th>
+                    <th>
+                        檢舉理由
+                        @*<select id="selectReasonCom">
+                                <option>全選</option>
+                                <option>無內容</option>
+                                <option>有內容</option>
+                            </select>*@
+                    </th>
+                    <th>被檢舉內容</th>
+                    <th>處理</th>
+                    <th>回覆檢舉人</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    int count2 = 0;
+                    foreach (var item in rpCom)
+                    {
+                        count2++;
+                                <tr>
+                                    <td><input type="checkbox" value="@item.我的追蹤清單編號cfId" class="checkbox" /></td>
+                                    <td>@count2</td>
+                                    <td>@item.對象名稱targetName</td>
+                                    <td>@item.會員編號memberId</td>
+                                    <td>@item.檢舉理由reportReason</td>
+                                    <td><a href='@Url.Content("https://localhost:44345/Comment/電影評論/" + item.連接編號connectId)' target="_blank">被檢舉頁面</a></td>
+                                    @*<td><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#dealModalcom" data-bs-whatever="@item.連接編號connectId">處理</button></td>*@
+                                    @{
+                                        if (item.屏蔽c == 0)
+                                        {
+                                            <td><button type="button" class="btn btn-danger" onclick="invisibleCom(event)" status="0" connectid="@item.連接編號connectId">屏蔽</button></td>
+                                        }
+                                        else
+                                        {
+                                            <td><button type="button" class="btn btn-success" onclick="invisibleCom(event)" status="1" connectid="@item.連接編號connectId">取消屏蔽</button></td>
+                                        }
+                                    }
+                                    <td>
+                                        <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#modalEmail"
+                                                data-bs-email="@item.會員編號member.電子信箱email"
+                                                data-bs-tar="com"
+                                                data-bs-cfid="@item.我的追蹤清單編號cfId"
+                                                data-bs-link='@Url.Content("https://localhost:44345/Comment/電影評論/" + item.連接編號connectId)'>
+                                            回覆檢舉人
+                                        </button>
+                                    </td>
+                                </tr>
+                                        }
+                }
+            </tbody>
+        </table>
+    </div>
+    <!--被檢舉回覆-->
+    <div class="tab-pane fade" id="reply" role="tabpanel" aria-labelledby="reply-tab">
+        <h4 class="mt-3">被檢舉回覆一覽表</h4>
+        <div class="text-right">
+            <button type="button" class="mr-3 mb-3 btn btn-secondary" data-toggle="modal" data-target="#modalExample">
+                統一回覆信件預覽
+            </button>
+            <button id="solveAllRep" class="mr-3 mb-3 btn btn-warning">統一回覆(不屏蔽)</button>
+        </div>
+        <table class="table" id="repTable">
+            <thead>
+                <tr>
+                    <th><input type="checkbox" id="selectAllRep" class="all">全選</th>
+                    <th>序</th>
+                    <th>檢舉項目</th>
+                    <th>檢舉人編號</th>
+                    <th>
+                        檢舉理由
+                        @*<select id="selectReasonRep">
+                                <option>全選</option>
+                                <option>無內容</option>
+                                <option>有內容</option>
+                            </select>*@
+                    </th>
+                    <th>被檢舉內容</th>
+                    <th>處理</th>
+                    <th>回覆檢舉人</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    int count3 = 0;
+                    foreach (var item in rpRep)
+                    {
+                        count3++;
+                                <tr>
+                                    <td><input type="checkbox" value="@item.我的追蹤清單編號cfId" class="checkbox" /></td>
+                                    <td>@count3</td>
+                                    <td>@item.對象名稱targetName</td>
+                                    <td>@item.會員編號memberId</td>
+                                    <td>@item.檢舉理由reportReason</td>
+                                    <td>@item.被檢舉回覆內容</td>
+                                    @*<td><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#dealModalrep" data-bs-whatever="@item.連接編號connectId">處理</button></td>*@
+                                    @{
+                                        if (item.屏蔽r == 0)
+                                        {
+                                            <td><button type="button" class="btn btn-danger" onclick="invisibleRep(event)" status="0" connectid="@item.連接編號connectId">屏蔽</button></td>
+                                        }
+                                        else
+                                        {
+                                            <td><button type="button" class="btn btn-success" onclick="invisibleRep(event)" status="1" connectid="@item.連接編號connectId">取消屏蔽</button></td>
+                                        }
+                                    }
+                                    <td>
+                                        <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#modalEmail"
+                                                data-bs-email="@item.會員編號member.電子信箱email"
+                                                data-bs-tar="rep" data-bs-cfid="@item.我的追蹤清單編號cfId"
+                                                data-bs-link='@item.被檢舉回覆內容'>
+                                            回覆檢舉人
+                                        </button>
+                                    </td>
+                                </tr>
+                                        }
+                }
+            </tbody>
+        </table>
+    </div>
+    <!--已處理檢舉-->
+    <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+        <h4 class="mt-3">已處理檢舉一覽表</h4>
+        <table class="table" id="donTable">
+            <thead>
+                <tr>
+                    @*<th><input type="checkbox"></th>*@
+                    <th>序</th>
+                    <th>檢舉項目</th>
+                    <th>檢舉人編號</th>
+                    <th>
+                        檢舉理由
+                        @*<select id="selectReasonDon">
+                                <option>全選</option>
+                                <option>無內容</option>
+                                <option>有內容</option>
+                            </select>*@
+                    </th>
+                    <th>被檢舉內容</th>
+                    <th>更改</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    int count0 = 0;
+                    foreach (var item in rpDon)
+                    {
+                        count0++;
+                        <tr>
+                            @*<td><input type="checkbox" value="@item.我的追蹤清單編號cfId" /></td>*@
+                            <td>@count0</td>
+                            <td>@item.對象名稱targetName</td>
+                            <td>@item.會員編號memberId</td>
+                            <td>@item.檢舉理由reportReason</td>
+                            <td>@item.連接編號connectId</td>
+                            <td><button type="button" class="btn btn-info">改為未處理</button></td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+<!-- Modal exampleEmail-->
+<div class="modal fade bd-example-modal-lg" id="modalExample" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">快速處理信件內容</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon3">信件標題</span>
+                    <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" value="MDA會員檢舉後續處理情形">
+                </div>
+                <div class="input-group">
+                    <span class="input-group-text">信件內容</span>
+                    <textarea class="form-control" aria-label="With textarea" rows="10">
+親愛的會員您好，
+&emsp;感谢您對認為違反我們社群守則的內容提出檢舉。
+&emsp;對於讓MDA成為安全且友好的環境來說,您提出的檢舉是相當重要的一環。
+&emsp;經審查並未發現有違反社群守則之處，
+&emsp;若您認為應再次進行調查,請回覆此封信件告知我們。
+&emsp;謝謝您！
+</textarea>
+                </div>
+
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">關閉</button>
+                @*<button type="button" class="btn btn-primary" id="#editExample">修改</button>*@
+            </div>
+        </div>
+    </div>
+</div>
+<!--modal end-->
+<!-- Modal Email-->
+<div class="modal fade bd-example-modal-lg" id="modalEmail" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">信件內容</h5>
+                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            @using (Html.BeginForm("sendmail", "Report"))
+            {
+                <div class="modal-body">
+                    <input type="hidden" name="type" id="type" value="" />
+                    <input type="hidden" name="cfid" id="cfid" value="" />
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="input-group mb-3">
+                                <span class="input-group-text">收件人</span>
+                                <input type="text" class="form-control" id="emailReporter" name="emailReporter" aria-describedby="basic-addon3" value="">
+                            </div>
+                            <div class="input-group mb-3">
+                                <span class="input-group-text">信件標題</span>
+                                <input type="text" class="form-control" name="emailTitle" aria-describedby="basic-addon3" value="MDA會員檢舉後續處理情形">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-8">                       
+                                <textarea id="open-source-plugins" name="emailContent" class="form-control" aria-label="With textarea"></textarea>
+                            </div>
+                            <div class="col-md-4 ml-auto" style="font-size:small">
+                                <label><strong>常用回覆(拖放使用)</strong></label>
+                                <p draggable="true" id="經審查並未發現有違反社群守則之處">經審查並未發現有違反社群守則之處</p>
+                                <p draggable="true" id="經審查發現有違反社群守則之處">經審查發現有違反社群守則之處</p>
+                                <p draggable="true" id="若您認為應再次進行調查,請回此封信件告知我們">若您認為應再次進行調查,請回此封信件告知我們</p>
+                                <p draggable="true" id="該則評論將予以屏蔽">該則評論將予以屏蔽</p>
+                                <p draggable="true" id="該會員將予以停權">該會員將予以停權</p>
+                                <p draggable="true" id="該則回覆將予以屏蔽">該則回覆將予以屏蔽</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
+                    <button type="submit" class="btn btn-primary" id="sendEmail">確認送出</button>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+<!--modal end-->
+
+
+@section Scripts{
+    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+ 
+    <script> //停權屏蔽
+    async function suspend(event) {
+        let status = event.target.getAttribute('status')
+        let memid = event.target.getAttribute('connectid')
+        let response = await fetch( '@Url.Content("~/report/suspendMember")'+'?id='+memid)
+        let data = await response.text()
+        //console.log(data)
+        if (status == 0) {
+            event.target.setAttribute('class', 'btn btn-success')
+            event.target.textContent="取消停權"
+            event.target.setAttribute('status', 1)
+        }
+        else {
+            event.target.setAttribute('class', 'btn btn-danger')
+            event.target.textContent = "停權"
+            event.target.setAttribute('status', 0)
+        }
+    }
+        async function invisibleCom(event) {
+            let status = event.target.getAttribute('status')
+            let connectid = event.target.getAttribute('connectid')
+            let response = await fetch('@Url.Content("~/report/invisibleComment")' + '?id=' + connectid)
+            let data = await response.text()
+        console.log(data)
+        if (status == 0) {
+            event.target.setAttribute('class', 'btn btn-success')
+            event.target.textContent="取消屏蔽"
+            event.target.setAttribute('status', 1)
+        }
+        else {
+            event.target.setAttribute('class', 'btn btn-danger')
+            event.target.textContent = "屏蔽"
+            event.target.setAttribute('status', 0)
+        }
+        }
+        async function invisibleRep(event) {
+            let status = event.target.getAttribute('status')
+            let connectid = event.target.getAttribute('connectid')
+            let response = await fetch('@Url.Content("~/report/invisibleReply")' + '?id=' + connectid)
+            let data = await response.text()
+        console.log(data)
+        if (status == 0) {
+            event.target.setAttribute('class', 'btn btn-success')
+            event.target.textContent="取消屏蔽"
+            event.target.setAttribute('status', 1)
+        }
+        else {
+            event.target.setAttribute('class', 'btn btn-danger')
+            event.target.textContent = "屏蔽"
+            event.target.setAttribute('status', 0)
+        }
+        }
+    </script>
+    <script>//拖放功能
+        const txtarea = document.querySelector("#open-source-plugins")
+        /* Event fired on the drag target */
+        document.addEventListener("dragstart", function (event) {
+            event.dataTransfer.setData("Text", event.target.id);
+        });
+        /* Events fired on the drop target */
+        txtarea.addEventListener("dragover", function (event) {
+            event.preventDefault();
+        });
+        document.addEventListener("drop", function (event) {
+            event.preventDefault();
+            var data = event.dataTransfer.getData("Text");
+            event.target.appendChild(document.getElementById(data).textContent); //event.target.appendChild(document.getElementById(data));
+            console.log(data)
+            console.log(document.getElementById(data).innerHTML)
+
+        })
+    </script>
+    <script> //全選功能
+        const selectAllMem = document.querySelector("#selectAllMem")
+        const selectAllCom = document.querySelector("#selectAllCom")
+        const selectAllRep = document.querySelector("#selectAllRep")
+        const allCheckbox = document.querySelectorAll('.checkbox')
+        selectAllMem.addEventListener('change', selectAll)
+        selectAllCom.addEventListener('change', selectAll)
+        selectAllRep.addEventListener('change', selectAll)
+        allCheckbox.forEach(c => c.addEventListener('change', () => {
+            if (!c.checked)
+                c.closest('.table').querySelector('.all').checked = false
+        }))
+        function selectAll(event) {
+            let chks = event.target.closest('.table').querySelectorAll('.checkbox')
+            if (event.target.checked) {
+                chks.forEach(chk => chk.checked = true)
+            }
+            else {
+                chks.forEach(chk => chk.checked = false)
+            }
+        }
+    </script>
+    <script> //一鍵處理
+        const solveAllMem = document.querySelector("#solveAllMem")
+        const solveAllCom = document.querySelector("#solveAllCom")
+        const solveAllRep = document.querySelector("#solveAllRep")
+        solveAllMem.addEventListener('click', send)
+        solveAllCom.addEventListener('click', send)
+        solveAllRep.addEventListener('click', send)
+        async function send(event) {
+            let tab = event.target.getAttribute('tab')
+            let boxes = event.target.closest('.tab-pane').querySelectorAll('.checkbox')
+            var vm = new Array();
+            //let arrId = []
+            //let arrEm = []
+            boxes.forEach(b => {
+                if (b.checked == true) {
+                    //arrId.push(b.value)
+                    let email = b.getAttribute('email')
+                    var test = {};
+                    test.id = b.value
+                    test.mail = email
+                    test.tab=tab
+                    //arrEm.push(email)
+                    vm.push(test)
+                }
+            })
+            //vm = JSON.stringify({ 'vm': vm });
+            @*let response = await fetch('@Url.Content("~/report/sendmany")' + '?vm=' + vm )
+                let data = await response.text()*@
+            $.ajax({
+                type: "POST",
+                url: '@Url.Action("sendmany")',
+                data: JSON.stringify(vm),
+                contentType: "application/json",
+                dataType: "json",
+                
+                success: function () {
+                    console.log("inserted");
+                }
+            });
+        }
+       
+
+    </script>
+
+    <script> //信件帶入內容
+        var modalEmail = document.getElementById('modalEmail')
+
+
+        modalEmail.addEventListener('show.bs.modal', async function (event) {
+                // Button that triggered the modal
+                var button = event.relatedTarget
+                // Extract info from data-bs-* attributes
+                var email = button.getAttribute('data-bs-email')
+            var type = button.getAttribute('data-bs-tar')
+            var cfid = button.getAttribute('data-bs-cfid')
+
+
+            var link = button.getAttribute('data-bs-link')
+            // If necessary, you could initiate an AJAX request here
+            // and then do the updating in a callback.
+            //console.log(type)
+                if (type == 'rep') {
+                @*let response = await fetch( '@Url.Content("~/report/queryReply")'+'?repid='+link)
+                let data = await response.text()*@
+                link = '回覆『'+link+'』'
+            }
+            //
+            // Update the modal's content.
+            var emailReporter = modalEmail.querySelector('#emailReporter')
+            emailReporter.value = email
+            emailReporter.readOnly = true
+
+            var emailType = modalEmail.querySelector('#type')
+            emailType.value = type
+
+            var emailCfid = modalEmail.querySelector('#cfid')
+            emailCfid.value = cfid
+
+            await tinymce.init({
+                selector: '#open-source-plugins',
+                language: "zh_TW"
+            });
+
+            let area = await document.querySelector('#open-source-plugins_ifr')
+            //console.log(area)
+            //console.log(area.contentWindow.document.getElementById('tinymce'))
+            let inner = await area.contentWindow.document.getElementById('tinymce')
+
+            inner.innerHTML = `
+親愛的會員您好，<br/>
+對於讓MDA成為安全且友好的環境來說,您提出的檢舉是相當重要的一環。<br/>
+針對您檢舉: ${link}<br/><br/>`
+
+        })
+    </script>
+
+    <script> //重刷轉跳頁籤
+    const mem = document.querySelector('#home')
+    const com = document.querySelector('#profile')
+    const rep = document.querySelector('#reply')
+    const memt = document.querySelector('#home-tab')
+    const comt = document.querySelector('#profile-tab')
+    const rept = document.querySelector('#reply-tab')
+    const tab = '@tab'
+    window.onload = function () {
+
+        if (tab == "com") {
+            document.querySelector('#profile').classList.add("active")
+            document.querySelector('#profile').classList.add("show")
+            document.querySelector('#profile-tab').classList.add("active")
+            document.querySelector('#profile-tab').setAttribute('aria-selected','true')
+        }
+        else if (tab == "rep") {
+            document.querySelector('#reply').classList.add("active")
+            document.querySelector('#reply').classList.add("show")
+            document.querySelector('#reply-tab').classList.add("active")
+            document.querySelector('#reply-tab').setAttribute('aria-selected', 'true')
+        }
+        else {
+            document.querySelector('#home').classList.add("active")
+            document.querySelector('#home').classList.add("show")
+            document.querySelector('#home-tab').classList.add("active")
+            document.querySelector('#home-tab').setAttribute('aria-selected', 'true')
+        }
+    }
+    </script>
+
+    <script src='//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js'></script>
+    <script src='//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js'></script>
+
+    <script> //可篩選table
+        function setTable(a) {
+            $(a).DataTable({
+                language: {
+                    "emptyTable": "無資料...",
+                    "processing": "處理中...",
+                    "loadingRecords": "載入中...",
+                    "lengthMenu": "每頁 _MENU_ 筆資料",
+                    "zeroRecords": "無搜尋結果",
+                    "info": "_START_ 至 _END_ / 共 _TOTAL_ 筆",
+                    "infoEmpty": "尚無資料",
+                    "infoFiltered": "(從 _MAX_ 筆資料過濾)",
+                    "infoPostFix": "",
+                    "search": "搜尋:",
+                    "paginate": {
+                        "first": "首頁",
+                        "last": "末頁",
+                        "next": "下頁",
+                        "previous": "前頁"
+                    },
+                    "aria": {
+                        "sortAscending": ": 升冪",
+                        "sortDescending": ": 降冪"
+                    }
+                }
+            })
+        }
+        setTable('#memTable');
+        setTable('#comTable');
+        setTable('#repTable');
+        setTable('#donTable');
+    </script>
+
+}
