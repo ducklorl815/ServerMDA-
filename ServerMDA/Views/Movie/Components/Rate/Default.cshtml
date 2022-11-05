@@ -1,0 +1,18 @@
+﻿@*
+    這是分級
+*@
+@using ServerMDA.Models
+@model List<電影分級movieRating>
+@{
+
+}
+
+<select class="form-control" id="Rate_ID">
+    @{
+        foreach (var item in Model)
+        {
+            <option value="@item.分級編號ratingId">@item.分級級數ratingLevel</option>
+        }
+    }
+</select>
+

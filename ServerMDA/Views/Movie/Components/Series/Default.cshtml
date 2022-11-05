@@ -1,0 +1,17 @@
+﻿@*
+    這是系列
+*@
+@using ServerMDA.Models
+@model List<系列電影movieSeries>
+@{
+
+}
+
+<select class="form-control" id="Series_ID">
+    @{
+        foreach (var item in Model)
+        {
+            <option value="@item.系列編號seriesId">@item.系列名稱seriesName</option>
+        }
+    }
+</select>

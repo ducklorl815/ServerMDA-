@@ -1,0 +1,54 @@
+﻿@*
+    這是演員
+*@
+@using ServerMDA.ViewComponents
+@model List<演員總表actor>
+@{
+    
+}
+
+<div class="container m-3 pt-2 pb-2">
+    <div class="row">
+        <div class="col-1"></div>
+        <div class="col-5">
+            <div class="d-block">
+                <div class="card" style="width: 18rem; overflow: hidden!important" id="actordropzone">
+                    <div class="card-body" style="overflow:hidden">
+                        <h5 class="card-title">加入演員</h5>
+                        <p class="card-text">拖入已加入演員</p>
+                    </div>
+                </div>
+            </div>
+            <div class="d-block">
+                <div class="card" style="width: 95%;">
+                    <ul class="list-group list-group-flush" id="actorlist">
+                    </ul>
+                </div>
+            </div>
+            <div class="d-block">
+                <label>角色名</label>
+                <input type="text" />
+                <label>角色介紹</label>
+                <textarea></textarea>
+            </div>
+            <div class="d-block">
+                <button class="btn btn-primary" id="closeandsave">儲存</button>
+                <button class="btn btn-primary">取消</button>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="card" style="width: 90%;height:60vh;">
+                <input type="text" />
+                <ul class="list-group list-group-flush">
+                    @{
+                        foreach (var item in Model)
+                        {
+                            string idstr = $"actor{item.演員編號actorsId}";
+                            <li id=@idstr name="actor" class="list-group-item" value="@item.演員編號actorsId" draggable="true">@item.演員中文名字nameCht<img draggable="false" src="~/images/Actor/@item.演員照片image"/></li>
+                        }
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

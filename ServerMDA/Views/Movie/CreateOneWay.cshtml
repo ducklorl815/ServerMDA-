@@ -1,101 +1,121 @@
-﻿@using ServerMDA.ViewModel
-@model CMovieOneWayViewModel
-
-@{
+﻿@{
     ViewData["Title"] = "新增";
 }
 
 
 <link href="~/css/bootstrap-5.2.2/YukabtnEdit.css" rel="stylesheet" />
+<style>
+    .card {
+        overflow: scroll;
+    }
+
+    .list-group-item {
+    }
+
+        .list-group-item img {
+            position: relative;
+            max-height: 75px;
+            padding-left: 5%;
+            float: right;
+        }
+
+    .dataimg {
+        position: relative;
+        height: 277px;
+        max-width: 200px;
+        padding-left: 5%;
+        padding-bottom: 3%;
+    }
+</style>
 
 <h4>新增電影</h4>
 
 <div class="row">
-    <form asp-action="Create">
+    <form method="post" action="~/Movie/CreateOneDragon" enctype="multipart/form-data" id="form">
         <div class="col-md-12">
             <div class="d-flex flex-row">
                 <div class="col-3">
-                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="text-danger"></div>
                     <div class="form-group">
-                        <label asp-for="系列編號seriesId" class="control-label"></label>
-                        <select asp-for="系列編號seriesId" name="系列名稱seriesName" class="form-control" asp-items="ViewBag.系列編號seriesId" id="selectDemoName">
-                            @{
-                                var g = @Model.系列名稱seriesName;
-                                foreach (var i in Model.listseries)
-                                {
-                                    @if (i != g)
-                                    {
-                                        <option>@i</option>
-                                    }
-                                }
-                            }
-                        </select>
+                        <label for="Series_ID" class="control-label">系列名稱</label><button type="button" class="d-inline btn btn-primary ml-5" id="NewSeries">新增系列</button>
+                        @await Component.InvokeAsync("Series")
                     </div>
                     <div class="form-group">
-                        <label asp-for="中文標題titleCht" class="control-label"></label>
-                        <input asp-for="中文標題titleCht" value="" class="form-control" id="titleCh" />
-                        <span asp-validation-for="中文標題titleCht" class="text-danger"></span>
+                        <label for="Title_Chi" class="control-label">電影中文名</label>
+                        <input class="form-control" id="Title_Chi" name="Title_Chi" />
+                        <span class="text-danger"></span>
                     </div>
                     <div class="form-group">
-                        <label asp-for="英文標題titleEng" class="control-label"></label>
-                        <input asp-for="英文標題titleEng" value="" class="form-control" id="titleEn" />
-                        <span asp-validation-for="英文標題titleEng" class="text-danger"></span>
+                        <label for="Title_Eng" class="control-label">電影英文名</label>
+                        <input class="form-control" id="Title_Eng" name="Title_Eng" />
+                        <span class="text-danger"></span>
                     </div>
                     <div class="form-group">
-                        <label asp-for="上映年份releaseYear" class="control-label"></label>
-                        <input asp-for="上映年份releaseYear" value="" class="form-control" id="year" />
-                        <span asp-validation-for="上映年份releaseYear" class="text-danger"></span>
+                        <label for="Release_Date" class="control-label">上映日期</label>
+                        <input type="date" class="form-control" id="Release_Date" name="Release_Date" />
+                        <span class="text-danger"></span>
                     </div>
                     <div class="form-group">
-                        <label asp-for="上映日期releaseDate" class="control-label"></label>
-                        <input asp-for="上映日期releaseDate" value="" class="form-control" id="date" />
-                        <span asp-validation-for="上映日期releaseDate" class="text-danger"></span>
-                    </div>
-
-                    <div class="form-group">
-                        <label asp-for="片長runtime" class="control-label"></label>
-                        <input asp-for="片長runtime" value="" class="form-control" id="runtime" />
-                        <span asp-validation-for="片長runtime" class="text-danger"></span>
+                        <label for="runtime" class="control-label">片長</label>
+                        <input class="form-control" id="runtime" name="runtime" />
+                        <span class="text-danger"></span>
                     </div>
 
                 </div>
                 <div class="col-5">
                     <div class="form-group">
-                        <label asp-for="電影分級編號ratingId" class="control-label"></label>
-                        <select asp-for="電影分級編號ratingId" name="分級級數ratingLevel" class="form-control" asp-items="ViewBag.分級級數ratingLevel" id="selectRating"></select>
+                        <label for="Rate_ID" class="control-label">電影分級</label>
+                        @await Component.InvokeAsync("Rate")
                     </div>
                     <div class="form-group">
-                        <label asp-for="評分rate" class="control-label"></label>
-                        <input id="rate" asp-for="評分rate" value="" class="form-control" />
-                        <span asp-validation-for="評分rate" class="text-danger"></span>
+                        <label for="Box" class="control-label">票房</label>
+                        <input class="form-control" id="Box" name="Box" />
+                        <span class="text-danger"></span>
                     </div>
                     <div class="form-group">
-                        <label asp-for="期待度anticipation" class="control-label"></label>
-                        <input asp-for="期待度anticipation" value="" class="form-control" id="anti" />
-                        <span asp-validation-for="期待度anticipation" class="text-danger"></span>
+                        <label for="TrailerUrl" class="control-label">預告片(網址)</label>
+                        <input class="form-control" id="TrailerUrl" name="TrailerUrl" />
+                        <span class="text-danger"></span>
                     </div>
                     <div class="form-group">
-                        <label asp-for="票房boxOffice" class="control-label"></label>
-                        <input asp-for="票房boxOffice" value="" class="form-control" id="box" />
-                        <span asp-validation-for="票房boxOffice" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="劇情大綱plot" class="control-label"></label>
-                        <textarea rows="5" class="form-control" id="plot"></textarea>
-                        <span asp-validation-for="劇情大綱plot" class="text-danger"></span>
+                        <label for="Plot" class="control-label">電影介紹</label>
+                        <textarea rows="5" class="form-control" id="Plot" name="Plot"></textarea>
+                        <span class="text-danger"></span>
                     </div>
                     <div class="form-group" style="float:right">
-                        <input type="submit" value="新增電影" class="btn btn-success" />
+                        <button type="button" class="btn btn-success" id="sumbit">上傳新資料</button>
                         <button type="button" class="btn btn-dark" aria-label="Close" id="demo">Demo</button>
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" aria-label="Close">回到清單</button>
                     </div>
                 </div>
                 <div class="col-5">
-                    <a class="btn btn-details mb-1" id="btn" onclick="showmodal('@Url.Action("CreateActor","Movie", Context.Request.Scheme)',null)">導演</a>
-                    <a class="btn btn-details mb-1" id="btn" onclick="showmodal('@Url.Action("CreateActor","Movie", Context.Request.Scheme)',null)">演員</a>
+                    <div class="d-block pt-4">
+                        <a class="btn btn-details mb-1" id="btn" onclick="showmodalD('@Url.Action("CreateDirector","Movie", Context.Request.Scheme)','加入導演')">導演</a>
+                        <a class="btn btn-details mb-1" id="btn" onclick="showmodalA('@Url.Action("CreateActor","Movie", Context.Request.Scheme)','加入演員')">演員</a>
+                        <input type="file" id="btnP" value="上傳照片" name="photos" multiple>
+                    </div>
+                    <div class="d-block pt-4">
+                        <label>導演清單</label>
+                        <ul class="list-group" id="DlistInfo">
+                        </ul>
+                    </div>
+                    <div class="d-block pt-4">
+                        <label>演員清單</label>
+                        <ul class="list-group" id="AlistInfo">
+                        </ul>
+                    </div>
+                    <div class="d-block pt-4">
+                        <label>圖片清單</label>
+                        <div class="d-block" id="picBox">
+
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
+        <div id="Ddata"></div>
+        <div id="Adata"></div>
+        <div id="Pdata"></div>
     </form>
 
 </div>
@@ -104,48 +124,155 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-title">
-                @*<div class="modal-header">
-                <span type="button" id="btnClose" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></span>
-                </div>*@
-
             </div>
             <div class="modal-body">
-
-
             </div>
         </div>
     </div>
 </div>
 
 
-<div class="modal fade" id="newstaticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            @*<div class="modal-header">*@
-            @*<span type="button" id="btnClose" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></span>*@
-            @*</div>*@
-            <div class="modal-body">
-
-
-            </div>
-        </div>
-    </div>
-</div>
 
 <script src="~/js/vendor/jquery/jquery.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
 
 <script>
 
-    showmodal = (url, title) => {
+    showmodalD = (url, title) => {
         $.ajax({
             type: "GET",
             url: url,
             success: function (res) {
+                $("#newstaticBackdrop .modal-body").empty();
+                $("#newstaticBackdrop .modal-title").empty();
                 $("#newstaticBackdrop .modal-body").html(res);
                 $("#newstaticBackdrop .modal-title").html(title);
                 $("#newstaticBackdrop").modal('show');
+                AddDropEvent('director', 'directordropzone', 'directorlist');
+                CloseAndSaveEvent('DlistInfo', 'Ddata','directors');
             },
         })
     }
+    showmodalA = (url, title) => {
+        $.ajax({
+            type: "GET",
+            url: url,
+            success: function (res) {
+                $("#newstaticBackdrop .modal-body").empty();
+                $("#newstaticBackdrop .modal-title").empty();
+                $("#newstaticBackdrop .modal-body").html(res);
+                $("#newstaticBackdrop .modal-title").html(title);
+                $("#newstaticBackdrop").modal('show');
+                AddDropEvent('actor', 'actordropzone', 'actorlist');
+                CloseAndSaveEvent('AlistInfo', 'Adata', 'actors');
+            },
+        })
+    }
+
+    let items;
+    let zone;
+    let list;
+
+    let ActorsArr = new Array(); //放演員陣列
+    let Dirctor = new Array(); //放導演陣列
+
+    function dragStartHandler(e) {
+        let id = this.getAttribute('id');
+        e.dataTransfer.setData("text/plain", id);
+    }//儲存要拖放的資
+    function dragoverHandler(e) {
+        e.preventDefault();
+    }//取消預設動作
+    function dropHandler(e) {
+        e.preventDefault();
+        let ID = e.dataTransfer.getData("text/plain");
+        let element = document.getElementById(`${ID}`);
+        let eleli = document.createElement('li');
+        eleli.innerHTML = element.textContent;
+        list.appendChild(eleli)
+        eleli.setAttribute("class", "list-group-item");
+        eleli.setAttribute("name", "additem");
+        eleli.setAttribute("data", `${element.getAttribute('value')}`);
+        element.setAttribute('draggable', 'false');
+
+
+    }
+    function AddDropEvent(itemname,zonename,listname) {
+        items = document.getElementsByName(itemname)
+        zone = document.getElementById(zonename);
+        list = document.getElementById(listname);
+        for (let item of items) {
+            item.addEventListener("dragstart", dragStartHandler);
+        }
+        zone.addEventListener('drop', dropHandler)
+        zone.addEventListener('dragover', dragoverHandler)
+    }
+    function CloseAndSaveEvent(ulid,divid,name) {
+        $('#closeandsave').click(() => {
+            let data = document.getElementsByName('additem');
+            $(`#${ulid}`).empty();
+            for (let item of data) {
+                let eleli = document.createElement('li');
+                let eleinput = document.createElement('input')
+                eleli.setAttribute('value', `${item.getAttribute('data')}`);
+                eleli.textContent = item.textContent;
+                eleinput.setAttribute('value', `${item.getAttribute('data')}`);
+                eleinput.setAttribute('name', name)
+                eleinput.setAttribute('type', 'hidden');
+                document.getElementById(ulid).appendChild(eleli);
+                document.getElementById(divid).appendChild(eleinput);
+
+            }
+            $("#newstaticBackdrop").modal('hide');
+        })
+    }
+
+    $('#NewSeries').click(() => {
+        Swal.fire({
+            title: '新的系列',
+            input: 'text',
+            inputLabel: '輸入新系列名稱',
+            inputPlaceholder: '系列名稱'
+        })
+
+
+        $('.swal2-confirm').click(() => {
+            let name = $('#swal2-input').val()
+            console.log('click')
+            console.log(name);
+            let _url = '@Url.Action("CreateNewSerial", "Movie")' + `?name=${name}`;
+            $.ajax({
+                type:"GET",
+                url: _url,
+                success: function (result) {
+                    Swal.fire({
+                        icon: 'success',
+                        title: '成功',
+                        text: '新系列已新增，請重新整理!',
+                    })
+                }
+            });
+        })
+    })
+
+    let imageBuffer;
+
+    $('#btnP').on("change", function () {
+        console.log('change')
+        $.each(this.files, function (index, file) {
+            console.log(file);
+            let image = document.createElement('img');
+            let src = URL.createObjectURL(file);
+            image.setAttribute('src', src);
+            image.setAttribute('class', 'dataimg');
+            $('#picBox').append(image);
+
+        })
+    })
+
+    $('#sumbit').click(function () {
+        $('#form').submit();
+    })
+
 </script>

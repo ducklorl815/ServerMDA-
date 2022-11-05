@@ -1,0 +1,49 @@
+﻿@*
+    這是導演
+*@
+
+@using ServerMDA.ViewComponents
+@model List<導演總表director>
+@{
+
+}
+
+<div class="container m-3 pt-2 pb-2">
+    <div class="row">
+        <div class="col-1"></div>
+        <div class="col-5">
+            <div class="d-block">
+                <div class="card" style="width: 18rem; overflow: hidden!important" id="directordropzone">
+                    <div class="card-body" style="overflow:hidden">
+                        <h5 class="card-title">加入導演</h5>
+                        <p class="card-text">拖曳以加入導演</p>
+                    </div>
+                </div>
+            </div>
+            <div class="d-block">
+                <div class="card" style="width: 95%;">
+                    <ul class="list-group list-group-flush" id="directorlist">
+                    </ul>
+                </div>
+            </div>         
+            <div class="d-block">
+                <button class="btn btn-primary" id="closeandsave">儲存</button>
+                <button class="btn btn-primary">取消</button>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="card" style="width: 90%;height:60vh;">
+                <input type="text" />
+                <ul class="list-group list-group-flush">
+                    @{
+                        foreach (var item in Model)
+                        {
+                            string idstr = $"Director{item.導演編號directorId}";
+                            <li id=@idstr name="director" class="list-group-item" value="@item.導演編號directorId" draggable="true">@item.導演中文名字nameCht<img draggable="false" src="~/images/Director/@item.導演照片image" /></li>
+                        }
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
