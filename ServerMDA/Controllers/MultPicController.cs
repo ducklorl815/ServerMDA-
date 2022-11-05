@@ -22,49 +22,62 @@ namespace ServerMDA.Controllers
         }
         private readonly MDAContext _context;
         List<string> imagetype = new List<string> { "海報", "劇照", "未分類" };
+
         List<int> invisible = new List<int> { 0, 1 };
         [HttpGet]
         public ActionResult Create()
         {
             MDAContext db = new MDAContext();
-            CCreateTravelProductViewModel datas = null;
+            CCreateMultPictureViewModel datas = null;
+            List<string> ChtList = db.電影movies.Select(p => p.中文標題titleCht).ToList();
             datas = db.電影圖片總表movieImages.Select
-                (p => new CCreateTravelProductViewModel
+                (p => new CCreateMultPictureViewModel
                 {
                     movieImage = p,
 
                 }).FirstOrDefault();
+            datas.titleChtList = ChtList;
             datas.listImagetype = imagetype;
             datas.listinvisible = invisible;
             return View(datas);
         }
 
         [HttpPost]
-        public ActionResult Create(CCreateTravelProductViewModel newProduct)
+        public ActionResult Create(CCreateMultPictureViewModel newProduct)
         {
             MDAContext db = new MDAContext();
             電影圖片總表movieImage c = _context.電影圖片總表movieImages.FirstOrDefault(c => c.圖片編號imageId == newProduct.圖片編號imageId);
+            電影圖片movieIimagesList d = _context.電影圖片movieIimagesLists.FirstOrDefault(c => c.電影編號movieId == newProduct.電影編號movieId);
 
-
-                if (newProduct.photo != null)
+            if (newProduct.photo != null)
+            {
+                foreach (IFormFile 圖片在這 in newProduct.photo)
                 {
-                    foreach (IFormFile 圖片在這 in newProduct.photo)
-                    {
-                        電影圖片總表movieImage pic = new 電影圖片總表movieImage();
-  
-                        //pic.圖片編號imageId = _context.電影圖片總表movieImages.OrderBy(e => e.圖片編號imageId).LastOrDefault().圖片編號imageId+1;
+                    電影圖片總表movieImage pic = new 電影圖片總表movieImage();
+                    電影圖片movieIimagesList list = new 電影圖片movieIimagesList();
+                    //c.電影名稱movieName = newProduct.電影名稱movieName;
+                    //pic.圖片編號imageId = _context.電影圖片總表movieImages.OrderBy(e => e.圖片編號imageId).LastOrDefault().圖片編號imageId+1;
+                    
+                    string pname = Guid.NewGuid().ToString() + ".jpg";
+                    pic.圖片image = pname;
+                    pic.圖片類型imageType = newProduct.圖片類型imageType;
+                    pic.電影名稱movieName = newProduct.中文標題titleCht;
+                    pic.屏蔽invisible = newProduct.屏蔽invisible;
+                    string path = _enviro.WebRootPath + "/images/MovieImage/" + pname;
 
-                        string pname = Guid.NewGuid().ToString() + ".jpg";
-                        pic.圖片image = pname;
-                        string path = _enviro.WebRootPath + "/images/MovieImage/" + pname;
+                    圖片在這.CopyTo(new FileStream(path, FileMode.Create));
 
-                        圖片在這.CopyTo(new FileStream(path, FileMode.Create));
-
-                        _context.電影圖片總表movieImages.Add(pic);
-                        _context.SaveChanges();
-                    }
+                    _context.電影圖片總表movieImages.Add(pic);
+                    _context.SaveChanges();
+                    //d.電影編號movieId = _context.電影movies.FirstOrDefault(c => c.中文標題titleCht == newProduct.中文標題titleCht).電影編號movieId;
+                    int id = _context.電影movies.FirstOrDefault(c => c.中文標題titleCht == newProduct.中文標題titleCht).電影編號movieId;
+                    list.電影編號movieId = id;
+                    list.圖片編號imageId = pic.圖片編號imageId;
+                    _context.電影圖片movieIimagesLists.Add(list);
+                    _context.SaveChanges();
                 }
-            return RedirectToAction("List", "MovieImage");
+            }
+
             //if (newProduct._電影圖片總表movieImageDetail != null)
             //{
             //    foreach (var list in newProduct._電影圖片總表movieImageDetail)
@@ -124,7 +137,7 @@ namespace ServerMDA.Controllers
             //        _context.SaveChanges();
             //    }
             //}
-
+            return RedirectToAction("List", "MovieImage");
 
         }
     }

@@ -8,7 +8,7 @@ using System.ComponentModel;
 
 namespace ServerMDA.ViewModel
 {
-    public class CCreateTravelProductViewModel
+    public class CCreateMultPictureViewModel
     {
         private 電影圖片總表movieImage _movieImage;
         public 電影圖片總表movieImage movieImage
@@ -16,7 +16,7 @@ namespace ServerMDA.ViewModel
             get { return _movieImage; }
             set { _movieImage = value; }
         }
-        public CCreateTravelProductViewModel()
+        public CCreateMultPictureViewModel()
         {
             _movieImage = new 電影圖片總表movieImage();  //每做一個就建一個
         }
