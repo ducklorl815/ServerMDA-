@@ -21,38 +21,11 @@
 <h1>產品清單</h1>
 
 <p>
-    @*<a asp-action="ProductCreate">新增上架產品</a>*@
-    @*@Html.ActionLink("新增產品", "ProductCreate", "product", null, new { @class = "btn btn-success" })*@
     <a asp-action="ProductCreate" class="btn btn-success"><i class="fa-solid fa-sign-hanging"></i>&nbsp;新增產品</a>
 </p>
-@*<div class="container">*@
-@*action="~/product/ProductList"*@
-<!--<form name="mypagInfo" method="get" action="~/product/Pag" enctype="text/plain" id="pagInfo">
-    <div class="row justify-content-end">
-        <div class="col-2"></div>
-        <div class="col-4">
-            <div class="input-group mb-12">
-                <span>目前筆數:@Model.產品列表.Count&nbsp;&nbsp;&nbsp;&nbsp;</span>
-                <span class="input-group-text" id="inputGroup-sizing-default">一頁幾筆</span>
-                <input id="mytx" name="mytx" type="hidden" />
-                <input id="tx" type="text" name="tx" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-            </div>
-        </div>-->
-@*<div class="col-auto">
-        <button id="pre" type="submit" class="btn btn-outline-success">上一頁</button>
 
-    </div>*@
-<!--<div class="col-auto">
-            <button id="next" type="submit" class="btn btn-outline-success">顯示筆數</button>
-        </div>
-    </div>
-</form>-->
-@*<div style="display:block;height:40px;"></div>
-
-    <div class="row" id="ttable">*@
 <div>
     <table id="myTable" class="table tables display compact hover col-12">
-
         <thead>
             <tr>
                 <th class="ml-2">
@@ -158,11 +131,36 @@
     <input type="hidden" id="inputdelete" name="Inprod" />
 </form>
 
-@section Scripts
-{
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+@section Scripts {
+    
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+        }
+<script>
+    let deletebtns = document.getElementsByClassName('Deletebtn')//自動長出的刪除鍵
+    let deleteID = document.querySelector('#inputdelete')//隱藏欄位，放要刪除的產品id號碼
+    let D = document.querySelector('#D')//出現要刪除的方塊，「移除」的按鈕
+    let inputdelete = document.querySelector('#inputdelete')//隱藏欄位，放要刪除的產品id號碼,設定value
+   
+        //delete-----------------------
+        for (let item of deletebtns) {
+            item.addEventListener('click', evt => {
+                evt.preventDefault();
 
-}
+                deleteID = $(event.currentTarget).parents('tr')[0].getAttribute('data');
+                inputdelete.setAttribute('value', deleteID);
+                D.addEventListener('click', evt => {
+                    $('#Deleteform').submit();//form 的id
+
+                })
+
+
+            })
+
+        }
+
+</script>
+
+
 
 <script src="~/js/vendor/jquery/jquery.min.js"></script>
 <script src="~/js/vendor/datatables/Datatable_transCht.js"></script>

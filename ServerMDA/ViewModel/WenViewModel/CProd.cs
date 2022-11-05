@@ -18,7 +18,6 @@ namespace ServerMDA.ViewModel.WenViewModel
         public string 商品圖片路徑imagePath { get; set; }
         public string 商品介紹introduce { get; set; }
         public string 類別category { get; set; }
-        public string 電影院名稱theaterName { get; set; }      
         public int inputdelete { get; set; }
         public int currentheaterID { get; set; }
         public IFormFile photo { get; set; }
