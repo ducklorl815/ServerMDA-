@@ -141,6 +141,8 @@ namespace ServerMDA.Controllers
 
             int movieID = this._context.電影movies.OrderBy(m => m.電影編號movieId).LastOrDefault().電影編號movieId;
             fn_加入電影圖片(movieID, Inputdata.photos);
+            fn_加入電影主演(movieID, Inputdata.actors);
+            fn_加入電影導演(movieID, Inputdata.directors);
             return RedirectToAction("List");
         }
 
@@ -162,13 +164,17 @@ namespace ServerMDA.Controllers
 
         public IActionResult CreateNewSerial(string name)
         {
-            系列電影movieSeries series = new 系列電影movieSeries()
+            if(!string.IsNullOrEmpty(name))
             {
-                系列名稱seriesName = name
-            };
-            this._context.系列電影movieSeries.Add(series);
-            this._context.SaveChanges();
-            return Json('T');
+                系列電影movieSeries series = new 系列電影movieSeries()
+                {
+                    系列名稱seriesName = name
+                };
+                this._context.系列電影movieSeries.Add(series);
+                this._context.SaveChanges();
+                return Json('T');
+            }
+            return Json('F');
         }
 
 
