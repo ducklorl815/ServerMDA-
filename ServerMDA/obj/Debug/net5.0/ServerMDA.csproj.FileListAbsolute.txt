@@ -503,3 +503,4 @@ C:\Users\duckl\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\Movie
 C:\Users\duckl\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\Movie\Components\CreateDirctor\Default.cshtml.g.cs
 C:\Users\duckl\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\Movie\Components\Rate\Default.cshtml.g.cs
 C:\Users\duckl\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\Movie\Components\Series\Default.cshtml.g.cs
+C:\Users\duckl\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\ServerMDA.csproj.AssemblyReference.cache

@@ -34,7 +34,7 @@
                         </select>
                         <span asp-validation-for="圖片類型imageType" class="text-danger"></span>
                     </div>
-                    
+
                     <div class="form-group">
                         <label asp-for="電影名稱movieName" class="control-label"></label>
                         <select asp-for="電影名稱movieName" name="中文標題titleCht" class="form-control">
@@ -50,15 +50,15 @@
                     </div>
                     <div class="form-group">
                         <label asp-for="屏蔽invisible" class="control-label"></label>
-                        <select asp-for="屏蔽invisible" name="屏蔽invisible" class="form-control" >
-                        <option></option>
-                        @{
-                            foreach (var r in Model.listinvisible)
-                            {
+                        <select asp-for="屏蔽invisible" name="屏蔽invisible" class="form-control">
+                            <option></option>
+                            @{
+                                foreach (var r in Model.listinvisible)
+                                {
 
-                                <option>@r</option>
+                                    <option>@r</option>
+                                }
                             }
-                        }
                         </select>
                         <span asp-validation-for="屏蔽invisible" class="text-danger"></span>
                     </div>
@@ -67,63 +67,57 @@
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" aria-label="Close">回到清單</button>
                     </div>
                 </div>
-                @*<div class="col-7">
-                        <img id="myimg" width="430" class="p-2" />
-                        <input id="myfile" type="file" onchange="selectimgFile(this.files)" name="photo" />
-                    </div>*@
-
-
-
-
-                @*<input id="Upload_File" style="display:none;" type="file" name="photo" multiple onchange="checkFiles()">*@
-
                 <div class="col-7">
-                    <div>
-                        <label class="control-label"></label>
-                        <div>
-                            <div class="swiper mySwiper6 mt-0 mb-1">
-                                <div class="swiper-wrapper">
-                                    <div class="swiper-slide"><img id="swip0" src="" /></div>
-                                    <div class="swiper-slide"><img id="swip1" src="" /></div>
-                                    <div class="swiper-slide"><img id="swip2" src="" /></div>
-                                    <div class="swiper-slide"><img id="swip3" src="" /></div>
-                                    <div class="swiper-slide"><img id="swip4" src="" /></div>
+                    <div id="pic_group">
+                        <div class="form-group">
+                            <div class="d-flex flex-row">
+                                <div>
+                                    <input type="file" id="Upload_File" name="photo" class="calc-select btn btn-warning" multiple>
+                                </div>
+                                <div>
+                                    <p style="display:inline" id="Upload_File_Count">　</p>
                                 </div>
                             </div>
+                            <div class="d-flex flex-row">
+                                <div>
+                                    <img id="myimg0" width="200" class="p-1" />
+                                </div>
+                                <div>
+                                    <img id="myimg1" width="200" class="p-1" />
+                                </div>
+                                <div>
+                                    <img id="myimg2" width="200" class="p-1" />
+                                </div>
+                            </div>
+                            <div class="d-flex flex-row">
+                                <div>
+                                    <img id="myimg3" width="200" class="p-1" />
+                                </div>
+                                <div>
+                                    <img id="myimg4" width="200" class="p-1" />
+                                </div>
+                                <div>
+                                    <img id="myimg5" width="200" class="p-1" />
+                                </div>
+                            </div>
+                            <div class="d-flex flex-row">
+                                <div>
+                                    <img id="myimg6" width="200" class="p-1" />
+                                </div>
+                                <div>
+                                    <img id="myimg7" width="200" class="p-1" />
+                                </div>
+                                <div>
+                                    <img id="myimg8" width="200" class="p-1" />
+                                </div>
+                            </div>
+
+
                         </div>
-                    </div>
-
-                    <p>Tips:按住ctrl可進行多筆上傳</p>
-                    <label class="btn btn-info">
-                        <input type="file" name="photo" accept="image/gif, image/jpeg, image/png" id="Upload_File" style="display:none;" multiple onchange="checkFiles()">
-                        <i class="fa fa-photo"></i> +新增多筆圖片
-                    </label>
-                    <p style="display:inline" id="Upload_File_Count">　</p>
-                    <img id="myimg" width="430" class="p-2" />
-
-                    @*<input type="file" id="progressbarTWInput" accept="image/gif, image/jpeg, image/png" multiple />*@
-                    @*<div id="preview_progressbarTW_imgs" style="width:100%; height: 300px; overflow:scroll;">
-                            <p>目前沒有圖片</p>
-                        </div>*@
-
-
-                    @*<div class="form-group" style="float:right">
-                            <input type="submit" value="新增" class="btn btn-success mr-2" />
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" aria-label="Close">回到清單</button>
-                        </div>*@
+                        </div>
                 </div>
-
             </div>
-
-
-
         </form>
-
-
-
-
-
-
     </div>
 </div>
 
@@ -131,38 +125,17 @@
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
-
-
-@*<script>*@
-
-    @*function checkFiles(files) {
-        const myfile = document.querySelector("#myfile")
-        const myimg = document.querySelector("#myimg")
-        let mynewimg = files[0]
-        let objURL = URL.createObjectURL(mynewimg)
-        myimg.src = objURL
-    }
-</script>*@
-
 <script>
-    function checkFiles() {
+    $(".calc-select").on('change', function checkFiles() {
         const hint = document.getElementById("Upload_File_Count");
         let count = document.getElementById("Upload_File").files.length;
-        const myfile = document.querySelector("#myfile")
-        const myimg = document.querySelector("#myimg")
 
-        let mynewimg = files[0]
-        let objURL = URL.createObjectURL(mynewimg)
-        myimg.src = objURL
-
-        hint.innerText = `已上傳${count}張照片`;
+        hint.innerText = `上傳${count}張照片`;
         const file = document.getElementById("Upload_File").files;
-        for (let i = 0; i < file.length; i++) {
-            if (i < 6) {
-                reader.readAsDataURL(input.files[i]);
-                let objectURL = URL.createObjectURL(file[i]);
-                $(`#swip${i}`).attr('src', objectURL);
-            }
+        for (let i = 0; i < file.length+1; i++) {
+            let objectURL = URL.createObjectURL(file[i]);
+            $(`#myimg${i}`).attr('src', objectURL);
         }
+    })
 
 </script>

@@ -101,42 +101,5 @@ namespace ServerMDA.Controllers
             return RedirectToAction("List");
         }
 
-
-
-
-
-        public ActionResult CreateMult()
-        {
-            MDAContext db = new MDAContext();
-            CMovieImageViewModel datas = null;
-            datas = db.電影圖片總表movieImages.Select
-                (p => new CMovieImageViewModel
-                {
-                    movieImage = p,
-
-                }).FirstOrDefault();
-            datas.listImagetype = imagetype;
-            datas.listinvisible = invisible;
-            return View(datas);
-        }
-
-        [HttpPost]
-        public ActionResult CreateMult(電影圖片總表movieImage p, CMovieImageViewModel inImage)
-        {
-            MDAContext db = new MDAContext();
-            string pName = Guid.NewGuid().ToString() + ".jpg";
-            string path = _enviro.WebRootPath + "/images/MovieImage/" + pName;
-            inImage.photo.CopyTo(new FileStream(path, FileMode.Create));
-
-            p.圖片image = pName;
-
-            //m.系列編號seriesId = db.系列電影movieSeries.FirstOrDefault(q => q.系列名稱seriesName == p.系列名稱seriesName).系列編號seriesId;
-            //m.電影分級編號ratingId = db.電影分級movieRatings.FirstOrDefault(q => q.分級級數ratingLevel == p.分級級數ratingLevel).分級編號ratingId;
-            db.電影圖片總表movieImages.Add(p);
-            db.SaveChanges();
-            return RedirectToAction("List");
-        }
-
-
     }
 }
