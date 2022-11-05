@@ -7,42 +7,48 @@
     Layout = null;
 }
 
-<h4 class="offset-md-2">新增電影圖片</h4>
+
 
 <div class="row">
-    <div class="col-5 offset-2">
+    <div>
         <form asp-action="Create" enctype="multipart/form-data">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label class="control-label">圖片image</label><br />
-                <input type="file" name="photo" />
-            </div>
-            <div class="form-group">
-                <label asp-for="圖片類型imageType" class="control-label"></label>
-                <select asp-for="圖片類型imageType" class="form-control">
-                    <option selected></option>
-                    @{
-                        var g = @Model.圖片類型imageType;
-                        foreach (var i in Model.listImagetype)
-                        {
-                            @if (i != g)
-                            {
-                                <option>@i</option>
+            <div class="d-flex flex-row">
+                <div class="col-5">
+                    <h4 class="offset-md-2">新增電影圖片</h4>
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="圖片類型imageType" class="control-label"></label>
+                        <select asp-for="圖片類型imageType" class="form-control">
+                            <option selected></option>
+                            @{
+                                var g = @Model.圖片類型imageType;
+                                foreach (var i in Model.listImagetype)
+                                {
+                                    @if (i != g)
+                                    {
+                                        <option>@i</option>
 
+                                    }
+                                }
                             }
-                        }
-                    }
-                </select>
-                <span asp-validation-for="圖片類型imageType" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="屏蔽invisible" class="control-label"></label>
-                <input asp-for="屏蔽invisible" class="form-control" />
-                <span asp-validation-for="屏蔽invisible" class="text-danger"></span>
-            </div>
-            <div class="form-group" style="float:right">
-                <input type="submit" value="新增" class="btn btn-success mr-2"/>
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" aria-label="Close">回到清單</button>
+                        </select>
+                        <span asp-validation-for="圖片類型imageType" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="屏蔽invisible" class="control-label"></label>
+                        <input asp-for="屏蔽invisible" class="form-control" />
+                        <span asp-validation-for="屏蔽invisible" class="text-danger"></span>
+                    </div>
+                    <div class="form-group" style="float:right">
+                        <input type="submit" value="新增" class="btn btn-success mr-2" />
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" aria-label="Close">回到清單</button>
+                    </div>
+                </div>
+                <div class="col-7">
+                    <img id="myimg" width="430" class="p-2" />
+                    <input id="myfile" type="file" onchange="selectimgFile(this.files)" name="photo" />
+                </div>
+
             </div>
         </form>
     </div>
@@ -52,3 +58,12 @@
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
+<script>
+    function selectimgFile(files) {
+        const myfile = document.querySelector("#myfile")
+        const myimg = document.querySelector("#myimg")
+        let mynewimg = files[0]
+        let objURL = URL.createObjectURL(mynewimg)
+        myimg.src = objURL
+    }
+</script>

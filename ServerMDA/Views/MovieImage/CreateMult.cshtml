@@ -1,0 +1,115 @@
+﻿@using ServerMDA.ViewModel
+@model CCreateTravelProductViewModel
+
+
+@{
+    ViewData["Title"] = "新增";
+    Layout = null;
+}
+
+
+
+<div class="row">
+    <div>
+        <form asp-action="Create" enctype="multipart/form-data">
+            <div class="d-flex flex-row">
+                <div class="col-5">
+                    <h4 class="offset-md-2">新增電影圖片</h4>
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="圖片類型imageType" class="control-label"></label>
+                        <select asp-for="圖片類型imageType" class="form-control">
+                            <option selected></option>
+                            @*@{
+                                var g = @Model.圖片類型imageType;
+                                foreach (var i in Model.listImagetype)
+                                {
+                                    @if (i != g)
+                                    {
+                                        <option>@i</option>
+
+                                    }
+                                }
+                            }*@
+                        </select>
+                        <span asp-validation-for="圖片類型imageType" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="屏蔽invisible" class="control-label"></label>
+                        <input asp-for="屏蔽invisible" class="form-control" />
+                        <span asp-validation-for="屏蔽invisible" class="text-danger"></span>
+                    </div>
+                    <div class="form-group" style="float:right">
+                        <input type="submit" value="新增" class="btn btn-success mr-2" />
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" aria-label="Close">回到清單</button>
+                    </div>
+                </div>
+                <div class="col-7">
+                    <img id="myimg" width="430" class="p-2" />
+                    <input id="myfile" type="file" onchange="selectimgFile(this.files)" name="photo" />
+                </div>
+
+            </div>
+
+
+        </form>
+
+
+
+
+
+        <form asp-action="Create" enctype="multipart/form-data">
+            <input type="file" id="progressbarTWInput" accept="image/gif, image/jpeg, image/png" multiple />
+            <div id="preview_progressbarTW_imgs" style="width:100%; height: 300px; overflow:scroll;">
+                <p>目前沒有圖片</p>
+            </div>
+
+
+            <div class="form-group" style="float:right">
+                <input type="submit" value="新增" class="btn btn-success mr-2" />
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" aria-label="Close">回到清單</button>
+            </div>
+        </form>
+
+
+
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+<script>
+    function selectimgFile(files) {
+        const myfile = document.querySelector("#myfile")
+        const myimg = document.querySelector("#myimg")
+        let mynewimg = files[0]
+        let objURL = URL.createObjectURL(mynewimg)
+        myimg.src = objURL
+    }
+</script>
+
+
+<script>
+    $("#progressbarTWInput").change(function () {
+        $("#preview_progressbarTW_imgs").html(""); // 清除預覽
+        readURL(this);
+    });
+
+    function readURL(input) {
+        if (input.files && input.files.length >= 0) {
+            for (var i = 0; i < input.files.length; i++) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    var img = $("<img width='300' height='200'>").attr('src', e.target.result);
+                    $("#preview_progressbarTW_imgs").append(img);
+                }
+                reader.readAsDataURL(input.files[i]);
+            }
+        } else {
+            var noPictures = $("<p>目前沒有圖片</p>");
+            $("#preview_progressbarTW_imgs").append(noPictures);
+        }
+    }
+</script>

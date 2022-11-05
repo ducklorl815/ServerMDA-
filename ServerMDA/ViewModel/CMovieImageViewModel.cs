@@ -67,6 +67,7 @@ namespace ServerMDA.ViewModel
         //public List<IFormFile> photo { get; set; }
         public IFormFile photo { get; set; }
 
+
         //option
         //電影中文名 (目標為option內的資料內容)
         public List<string> listImagetype { get; set; }
