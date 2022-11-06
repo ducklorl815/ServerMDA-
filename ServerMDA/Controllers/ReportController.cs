@@ -174,5 +174,13 @@ namespace ServerMDA.Controllers
             _MDAcontext.SaveChanges();
             return Content("s", "text/plain");
         }
+        public IActionResult changeUnsolve(int id, string tab)
+        {
+            我的追蹤清單myFollowList q = _MDAcontext.我的追蹤清單myFollowLists.First(l => l.我的追蹤清單編號cfId == id);
+            q.處理狀態status = 0;
+            _MDAcontext.SaveChanges();
+            HttpContext.Session.SetString(CDictionaryReport.SK_導回的tab, tab);
+            return RedirectToAction("Report");
+        }
     }
 }
