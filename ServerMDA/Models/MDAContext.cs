@@ -17,13 +17,19 @@ namespace ServerMDA.Models
         {
         }
 
+        public virtual DbSet<一般資訊generaInformation> 一般資訊generaInformations { get; set; }
         public virtual DbSet<使用優惠明細usingCouponList> 使用優惠明細usingCouponLists { get; set; }
+        public virtual DbSet<優惠券couponQa> 優惠券couponQas { get; set; }
         public virtual DbSet<優惠明細couponList> 優惠明細couponLists { get; set; }
         public virtual DbSet<優惠總表coupon> 優惠總表coupons { get; set; }
         public virtual DbSet<公開等級編號publicId> 公開等級編號publicIds { get; set; }
         public virtual DbSet<出售座位明細seatSold> 出售座位明細seatSolds { get; set; }
         public virtual DbSet<出售座位狀態seatStatus> 出售座位狀態seatStatuses { get; set; }
+        public virtual DbSet<加入片單addlistQa> 加入片單addlistQas { get; set; }
+        public virtual DbSet<取票問題taketicketQa> 取票問題taketicketQas { get; set; }
         public virtual DbSet<商品資料product> 商品資料products { get; set; }
+        public virtual DbSet<問題總表question> 問題總表questions { get; set; }
+        public virtual DbSet<問題總類questionType> 問題總類questionTypes { get; set; }
         public virtual DbSet<回覆樓數floor> 回覆樓數floors { get; set; }
         public virtual DbSet<國家總表country> 國家總表countrys { get; set; }
         public virtual DbSet<地址address> 地址addresses { get; set; }
@@ -36,6 +42,7 @@ namespace ServerMDA.Models
         public virtual DbSet<我的片單myMovieList> 我的片單myMovieLists { get; set; }
         public virtual DbSet<我的追蹤清單myFollowList> 我的追蹤清單myFollowLists { get; set; }
         public virtual DbSet<會員member> 會員members { get; set; }
+        public virtual DbSet<會員問題memQa> 會員問題memQas { get; set; }
         public virtual DbSet<會員權限permission> 會員權限permissions { get; set; }
         public virtual DbSet<標籤明細hashtagsList> 標籤明細hashtagsLists { get; set; }
         public virtual DbSet<標籤總表hashtag> 標籤總表hashtags { get; set; }
@@ -48,10 +55,15 @@ namespace ServerMDA.Models
         public virtual DbSet<訂單明細orderDetail> 訂單明細orderDetails { get; set; }
         public virtual DbSet<訂單狀態orderStatus> 訂單狀態orderStatuses { get; set; }
         public virtual DbSet<訂單總表order> 訂單總表orders { get; set; }
+        public virtual DbSet<訂票問題orderticketQa> 訂票問題orderticketQas { get; set; }
+        public virtual DbSet<評分問題rateQa> 評分問題rateQas { get; set; }
+        public virtual DbSet<評論問題commentQa> 評論問題commentQas { get; set; }
         public virtual DbSet<評論圖片明細commentImagesList> 評論圖片明細commentImagesLists { get; set; }
         public virtual DbSet<評論圖片總表commentImage> 評論圖片總表commentImages { get; set; }
+        public virtual DbSet<購物問題shopQa> 購物問題shopQas { get; set; }
         public virtual DbSet<購買商品明細receipt> 購買商品明細receipts { get; set; }
         public virtual DbSet<追讚倒actionType> 追讚倒actionTypes { get; set; }
+        public virtual DbSet<退票問題refundQa> 退票問題refundQas { get; set; }
         public virtual DbSet<電影movie> 電影movies { get; set; }
         public virtual DbSet<電影主演cast> 電影主演casts { get; set; }
         public virtual DbSet<電影代碼movieCode> 電影代碼movieCodes { get; set; }
@@ -79,6 +91,27 @@ namespace ServerMDA.Models
         {
             modelBuilder.HasAnnotation("Relational:Collation", "Chinese_Taiwan_Stroke_CI_AS");
 
+            modelBuilder.Entity<一般資訊generaInformation>(entity =>
+            {
+                entity.ToTable("一般資訊GeneraInformation");
+
+                entity.Property(e => e.一般資訊generaInformationId).HasColumnName("一般資訊GeneraInformationID");
+
+                entity.Property(e => e.問題question)
+                    .IsRequired()
+                    .HasColumnName("問題Question");
+
+                entity.Property(e => e.問題總類編號questionTypeId).HasColumnName("問題總類編號QuestionTypeID");
+
+                entity.Property(e => e.答案answer).HasColumnName("答案Answer");
+
+                entity.HasOne(d => d.問題總類編號questionType)
+                    .WithMany(p => p.一般資訊generaInformations)
+                    .HasForeignKey(d => d.問題總類編號questionTypeId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_一般資訊GeneraInformation_問題總類QuestionType1");
+            });
+
             modelBuilder.Entity<使用優惠明細usingCouponList>(entity =>
             {
                 entity.HasKey(e => e.使用優惠明細編號usingCouponListId);
@@ -104,6 +137,23 @@ namespace ServerMDA.Models
                     .HasForeignKey(d => d.訂單編號orderId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_使用優惠明細UsingCouponLists_訂單總表Orders");
+            });
+
+            modelBuilder.Entity<優惠券couponQa>(entity =>
+            {
+                entity.HasNoKey();
+
+                entity.ToTable("優惠券couponQa");
+
+                entity.Property(e => e.優惠券couponQaId)
+                    .ValueGeneratedOnAdd()
+                    .HasColumnName("優惠券couponQaID");
+
+                entity.Property(e => e.問題question)
+                    .IsRequired()
+                    .HasColumnName("問題Question");
+
+                entity.Property(e => e.答案answer).HasColumnName("答案Answer");
             });
 
             modelBuilder.Entity<優惠明細couponList>(entity =>
@@ -236,6 +286,40 @@ namespace ServerMDA.Models
                     .HasConstraintName("FK_出售座位狀態SeatStatus_場次Screening");
             });
 
+            modelBuilder.Entity<加入片單addlistQa>(entity =>
+            {
+                entity.HasNoKey();
+
+                entity.ToTable("加入片單addlistQa");
+
+                entity.Property(e => e.加入片單addlistQaId)
+                    .ValueGeneratedOnAdd()
+                    .HasColumnName("加入片單addlistQaID");
+
+                entity.Property(e => e.問題question)
+                    .IsRequired()
+                    .HasColumnName("問題Question");
+
+                entity.Property(e => e.答案answer).HasColumnName("答案Answer");
+            });
+
+            modelBuilder.Entity<取票問題taketicketQa>(entity =>
+            {
+                entity.HasNoKey();
+
+                entity.ToTable("取票問題taketicketQa");
+
+                entity.Property(e => e.取票問題taketicketQaId)
+                    .ValueGeneratedOnAdd()
+                    .HasColumnName("取票問題taketicketQaID");
+
+                entity.Property(e => e.問題question)
+                    .IsRequired()
+                    .HasColumnName("問題Question");
+
+                entity.Property(e => e.答案answer).HasColumnName("答案Answer");
+            });
+
             modelBuilder.Entity<商品資料product>(entity =>
             {
                 entity.HasKey(e => e.商品編號productId)
@@ -275,6 +359,32 @@ namespace ServerMDA.Models
                     .HasForeignKey(d => d.電影院編號theaterId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_商品資料Products_電影院Theater");
+            });
+
+            modelBuilder.Entity<問題總表question>(entity =>
+            {
+                entity.HasKey(e => e.問題編號questionId);
+
+                entity.ToTable("問題總表Question");
+
+                entity.Property(e => e.問題編號questionId).HasColumnName("問題編號QuestionID");
+
+                entity.Property(e => e.問題總類questionTypeId).HasColumnName("問題總類QuestionTypeID");
+
+                entity.Property(e => e.答案answer).HasColumnName("答案Answer");
+            });
+
+            modelBuilder.Entity<問題總類questionType>(entity =>
+            {
+                entity.HasKey(e => e.問題總類編號questionTypeId);
+
+                entity.ToTable("問題總類QuestionType");
+
+                entity.Property(e => e.問題總類編號questionTypeId).HasColumnName("問題總類編號QuestionTypeID");
+
+                entity.Property(e => e.問題分類questionClassification)
+                    .HasMaxLength(10)
+                    .HasColumnName("問題分類QuestionClassification");
             });
 
             modelBuilder.Entity<回覆樓數floor>(entity =>
@@ -640,6 +750,27 @@ namespace ServerMDA.Models
                     .HasConstraintName("FK_會員Members_會員權限Permission");
             });
 
+            modelBuilder.Entity<會員問題memQa>(entity =>
+            {
+                entity.ToTable("會員問題memQa");
+
+                entity.Property(e => e.會員問題memQaId).HasColumnName("會員問題memQaID");
+
+                entity.Property(e => e.問題question)
+                    .IsRequired()
+                    .HasColumnName("問題Question");
+
+                entity.Property(e => e.問題總類編號questionTypeId).HasColumnName("問題總類編號QuestionTypeID");
+
+                entity.Property(e => e.答案answer).HasColumnName("答案Answer");
+
+                entity.HasOne(d => d.問題總類編號questionType)
+                    .WithMany(p => p.會員問題memQas)
+                    .HasForeignKey(d => d.問題總類編號questionTypeId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_會員問題memQa_問題總類QuestionType1");
+            });
+
             modelBuilder.Entity<會員權限permission>(entity =>
             {
                 entity.HasKey(e => e.會員權限permission1)
@@ -890,6 +1021,57 @@ namespace ServerMDA.Models
                     .HasConstraintName("FK_訂單總表Orders_訂單狀態OrderStatus");
             });
 
+            modelBuilder.Entity<訂票問題orderticketQa>(entity =>
+            {
+                entity.HasNoKey();
+
+                entity.ToTable("訂票問題orderticketQa");
+
+                entity.Property(e => e.問題question)
+                    .IsRequired()
+                    .HasColumnName("問題Question");
+
+                entity.Property(e => e.答案answer).HasColumnName("答案Answer");
+
+                entity.Property(e => e.訂票問題orderticketQaId)
+                    .ValueGeneratedOnAdd()
+                    .HasColumnName("訂票問題orderticketQaID");
+            });
+
+            modelBuilder.Entity<評分問題rateQa>(entity =>
+            {
+                entity.HasNoKey();
+
+                entity.ToTable("評分問題rateQa");
+
+                entity.Property(e => e.問題question)
+                    .IsRequired()
+                    .HasColumnName("問題Question");
+
+                entity.Property(e => e.答案answer).HasColumnName("答案Answer");
+
+                entity.Property(e => e.評分問題rateQaId)
+                    .ValueGeneratedOnAdd()
+                    .HasColumnName("評分問題rateQaID");
+            });
+
+            modelBuilder.Entity<評論問題commentQa>(entity =>
+            {
+                entity.HasNoKey();
+
+                entity.ToTable("評論問題commentQa");
+
+                entity.Property(e => e.問題question)
+                    .IsRequired()
+                    .HasColumnName("問題Question");
+
+                entity.Property(e => e.答案answer).HasColumnName("答案Answer");
+
+                entity.Property(e => e.評論問題commentQaId)
+                    .ValueGeneratedOnAdd()
+                    .HasColumnName("評論問題commentQaID");
+            });
+
             modelBuilder.Entity<評論圖片明細commentImagesList>(entity =>
             {
                 entity.HasKey(e => e.評論圖片編號ccId)
@@ -932,6 +1114,21 @@ namespace ServerMDA.Models
                 entity.Property(e => e.屏蔽invisible).HasColumnName("屏蔽Invisible");
             });
 
+            modelBuilder.Entity<購物問題shopQa>(entity =>
+            {
+                entity.HasNoKey();
+
+                entity.ToTable("購物問題shopQa");
+
+                entity.Property(e => e.問題question).HasColumnName("問題Question");
+
+                entity.Property(e => e.答案answer).HasColumnName("答案Answer");
+
+                entity.Property(e => e.購物問題shopQaId)
+                    .ValueGeneratedOnAdd()
+                    .HasColumnName("購物問題shopQaID");
+            });
+
             modelBuilder.Entity<購買商品明細receipt>(entity =>
             {
                 entity.HasKey(e => e.購買商品明細編號receiptId);
@@ -971,6 +1168,23 @@ namespace ServerMDA.Models
                     .IsRequired()
                     .HasMaxLength(50)
                     .HasColumnName("追讚倒名稱ActionType_Name");
+            });
+
+            modelBuilder.Entity<退票問題refundQa>(entity =>
+            {
+                entity.HasNoKey();
+
+                entity.ToTable("退票問題refundQa");
+
+                entity.Property(e => e.問題question)
+                    .IsRequired()
+                    .HasColumnName("問題Question");
+
+                entity.Property(e => e.答案answer).HasColumnName("答案Answer");
+
+                entity.Property(e => e.退票問題refundQaId)
+                    .ValueGeneratedOnAdd()
+                    .HasColumnName("退票問題refundQaID");
             });
 
             modelBuilder.Entity<電影movie>(entity =>
@@ -1209,6 +1423,8 @@ namespace ServerMDA.Models
                 entity.Property(e => e.累積票房boxOfficeGross)
                     .HasMaxLength(50)
                     .HasColumnName("累積票房BoxOffice_Gross");
+
+                entity.Property(e => e.統計時間).HasMaxLength(50);
 
                 entity.Property(e => e.電影movie)
                     .HasMaxLength(100)

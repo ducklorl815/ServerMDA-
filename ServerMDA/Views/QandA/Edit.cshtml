@@ -1,0 +1,55 @@
+﻿@using ServerMDA.ViewModel
+@model List<CQandAViewModel>
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = null; 
+}
+
+@section styles{ 
+<style>
+    textarea{
+
+    }
+</style>
+}
+
+<h4>一般資訊QA編輯</h4>
+<hr />
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            @{ foreach (var item in Model)
+                {
+
+
+
+                    <div asp-validation-summary="ModelOnly" class="text-danger" ></div>
+                    <input type="hidden" asp-for="@item.一般資訊GeneraInformationID" />
+                    <div class="form-group">
+                        <label asp-for="@item.問題Question" class="control-label"></label>
+                        <input asp-for="@item.問題Question" class="form-control"  style="width:500px;"/>
+                        <span asp-validation-for="@item.問題Question" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="@item.答案Answer" class="control-label"></label>
+                        <textarea asp-for="@item.答案Answer" class="form-control" style="width:700px;height:150px;" ></textarea>
+                        <span asp-validation-for="@item.答案Answer" class="text-danger"></span>
+                    </div>
+                    
+                }
+            }
+        <div class="form-group">
+            <input type="submit" value="Save" class="btn btn-primary" />
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" aria-label="Close">回到清單</button>            
+        </div>
+        </form>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

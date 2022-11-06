@@ -1,0 +1,180 @@
+﻿@using ServerMDA.ViewModel
+@model List<CQandAViewModel>
+
+@{
+    ViewData["Title"] = "List";
+}
+@section styles{
+    <style>
+        .w3-check {
+            transform: scale(2);
+        }
+
+        #con {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center
+        }
+
+        #quickchange {
+            display: flex;
+        }
+
+/*        td {
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            text-align: right;
+        }*/
+    </style>
+}
+<link href="~/css/bootstrap-5.2.2/YukabtnEdit.css" rel="stylesheet" />
+
+
+<div id="con">
+    <div id="a">
+        <h3 class="MovieList">
+            QA專區
+            <a class="btn btn-success mb-1" onclick="showmodal('@Url.Action("Create", "Member", Context.Request.Scheme)',null)">新增</a>
+        </h3>
+    </div>
+    <div id="quickchange">
+        <h3 class="chagetitle" style="width: 250px; vertical-align:middle; ">問題分類</h3>
+        <select id="selector" class="form-select" name="selector" style="width:200px;">
+            <option value="1">一般資訊</option>
+            <option value="2">會員問題 </option>
+            <option value="3">評分問題 </option>
+            <option value="4">評論問題 </option>
+            <option value="5">加入片單 </option>
+            <option value="6">訂票問題 </option>
+            <option value="7">取票問題 </option>
+            <option value="8">退票問題 </option>
+            <option value="9">優惠券 </option>
+            <option value="10">購物問題 </option>
+        </select>
+    </div>
+</div>
+
+<div>
+    <table id="myTable" class="table tables display compact hover col-12">
+        <thead>
+            <tr style="white-space:nowrap">
+                <th class="col-1">
+                    序號
+                </th>
+                <th class="col-2">
+                    問題
+                </th>
+                <th class="col-8">
+                    回答
+                </th>
+                <th class="col-1">
+                    指令
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @{int count = 0;
+                foreach (var item in Model)
+                {
+                    count++;
+                    <tr >
+                        <td id="編號" style="vertical-align: central; align-content:center" >
+                            @count
+                            <input type="hidden" value="@Html.DisplayFor(modelItem => item.一般資訊GeneraInformationID)" />
+                        </td>
+                        <td id="QQQ">
+                            <div class="col-10 offset-1">
+                                @Html.DisplayFor(modelItem => item.問題Question)
+                            </div>
+                        </td>
+                        <td id="AAA">
+                            <div class="col-10 offset-1">
+                                @Html.DisplayFor(modelItem => item.答案Answer)
+                            </div>
+                        </td>
+                        <td>
+
+                            <a class="btn btn-yuka " id="btn" onclick="showmodal('@Url.Action("Edit", "QandA", new { id = @item.一般資訊GeneraInformationID }, Context.Request.Scheme)',null)">修改</a>
+                            @*<a class="btn btn-details " id="btn" onclick="showmodal('@Url.Action("Details","Member",new {id=@item.會員編號memberId},Context.Request.Scheme)',null)">細節</a>*@
+                        </td>
+                    </tr>
+                } }
+        </tbody>
+        
+    </table>
+</div>
+
+
+<script src="~/js/vendor/jquery/jquery.min.js"></script>
+<script src="~/js/vendor/datatables/Datatable_transCht.js"></script>
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $('#myTable').DataTable();
+    });
+</script>
+
+<div class="modal fade" id="newstaticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-body">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="sortstaticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-body">
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<script>
+    
+
+    showmodal = (url, title) => {
+        $.ajax({
+            type: "GET",
+            url: url,
+            success: function (res) {
+                $("#newstaticBackdrop .modal-body").html(res);
+                $("#newstaticBackdrop .modal-title").html(title);
+                $("#newstaticBackdrop").modal('show');
+            },
+        })
+    }
+
+
+
+
+    //combobox
+    let arrToDo = ""
+
+        $('#selector').on('change', function () {
+            console.log(this.value)
+            arrToDo = this.value;
+            if (this.value == 2) {
+                getmemn()
+            }
+        })
+
+     async function getmemn(){
+                    let n = await fetch("@Url.Content("~/ApiHome/rateQaA")")
+                    let data = await n.json()
+                    $('#AAA').text=data
+                }
+
+</script>
+
+<script src="~/js/vendor/datatables/jquery.dataTables.js"></script>
+

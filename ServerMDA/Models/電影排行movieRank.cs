@@ -14,5 +14,6 @@ namespace ServerMDA.Models
         public string 周末票房boxOfficeWeekend { get; set; }
         public string 累積票房boxOfficeGross { get; set; }
         public string 周次weeks { get; set; }
+        public string 統計時間 { get; set; }
     }
 }
