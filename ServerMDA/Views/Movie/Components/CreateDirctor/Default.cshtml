@@ -1,7 +1,12 @@
 ﻿@*
     這是導演
 *@
-
+<style>
+    #ul {
+        list-style-type: none !important;
+        list-style-position: inside;
+    }
+</style>
 @using ServerMDA.ViewComponents
 @model List<導演總表director>
 @{
@@ -28,13 +33,13 @@
             </div>         
             <div class="d-block">
                 <button class="btn btn-primary" id="closeandsave">儲存</button>
-                <button class="btn btn-primary">取消</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" aria-label="Close">回到清單</button>
             </div>
         </div>
         <div class="col-6">
             <div class="card" style="width: 90%;height:60vh;">
                 <input type="text" />
-                <ul class="list-group list-group-flush">
+                <ul class="list-group list-group-flush" >
                     @{
                         foreach (var item in Model)
                         {

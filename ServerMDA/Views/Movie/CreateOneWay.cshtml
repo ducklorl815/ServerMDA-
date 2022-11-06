@@ -85,28 +85,28 @@
                     <div class="form-group" style="float:right">
                         <button type="button" class="btn btn-success" id="sumbit">上傳新資料</button>
                         <button type="button" class="btn btn-dark" aria-label="Close" id="demoDragon">Demo</button>
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" aria-label="Close">回到清單</button>
+                        @*<button type="button" class="btn btn-secondary" data-bs-dismiss="modal" aria-label="Close">回到清單</button>*@
                     </div>
                 </div>
-                <div class="col-6">
+                <div class="col-6 ml-4">
                     @*<div class="d-block">
                         <a class="btn btn-details mb-1" id="btn" onclick="showmodalD('@Url.Action("CreateDirector","Movie", Context.Request.Scheme)','加入導演')">導演</a>
                         <a class="btn btn-details mb-1" id="btn" onclick="showmodalA('@Url.Action("CreateActor","Movie", Context.Request.Scheme)','加入演員')">演員</a>
 
                     </div>*@
-                    <div class="d-block pt-1">
+                    <div class=" pt-1 ">
                         <label class="btn-gary">導演清單</label>
                         <a class="btn btn-details mb-1" id="btn" onclick="showmodalD('@Url.Action("CreateDirector","Movie", Context.Request.Scheme)','加入導演')">新增導演</a>
                         <ul class="list-group" id="DlistInfo">
                         </ul>
                     </div>
-                    <div class="d-block pt-4">
+                    <div class=" pt-4">
                         <label class="btn-gary">演員清單</label>
                         <a class="btn btn-details mb-1" id="btn" onclick="showmodalA('@Url.Action("CreateActor","Movie", Context.Request.Scheme)','加入演員')">新增演員</a>
                         <ul class="list-group" id="AlistInfo">
                         </ul>
                     </div>
-                    <div class="d-block pt-4">
+                    <div class=" pt-4">
                         <label class="btn-gary">圖片清單</label>
                         <div class="d-block" id="picBox">
                         </div>
