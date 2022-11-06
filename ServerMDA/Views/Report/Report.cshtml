@@ -59,73 +59,77 @@
 <div class="tab-content" id="myTabContent">
     <!--被檢舉會員-->
     <div class="tab-pane fade  " id="home" role="tabpanel" aria-labelledby="home-tab">
-        <h4 class="mt-3">被檢舉會員一覽表</h4>
-        <div class="text-right">
-            <button type="button" class="mr-3 mb-3 btn btn-secondary" data-toggle="modal" data-target="#modalExample">
-                統一回覆信件預覽
-            </button>
-            <button id="solveAllMem" class="mr-3 mb-3 btn btn-warning" tab="mem">統一回覆(不停權)</button>
+        <div class="d-flex flex-row">
+            <div >
+                <h4 class="mt-3">被檢舉會員一覽表</h4>
+            </div>
+            <div class="offset-8">
+                <button type="button" class="mb-3 btn btn-secondary" data-toggle="modal" data-target="#modalExample">
+                    統一回覆信件預覽
+                </button>
+                <button id="solveAllMem" class="mr-3 mb-3 btn btn-warning" tab="mem">統一回覆(不停權)</button>
+            </div>
         </div>
-        <table class="table " id="memTable">
-            <thead>
-                <tr>
-                    <th><input type="checkbox" id="selectAllMem" class="all">全選</th>
-                    <th>序</th>
-                    <th>檢舉項目</th>
-                    <th>檢舉人編號</th>
-                    <th>
-                        檢舉理由
-                        @*<select id="selectReasonMem">
-                                <option>全選</option>
-                                <option>無內容</option>
-                                <option>有內容</option>
-                            </select>*@
-                    </th>
-                    <th>被檢舉內容</th>
-                    <th>處理</th>
-                    <th>回覆檢舉人</th>
-                </tr>
-            </thead>
-            <tbody>
-                @{
-                    int count1 = 0;
-                    foreach (var item in rpMem)
-                    {
-                        count1++;
-                                <tr>
-                                    <td><input type="checkbox" value="@item.我的追蹤清單編號cfId" email="@item.會員編號member.電子信箱email" class="checkbox" /></td>
-                                    <td>@count1</td>
-                                    <td>@item.對象名稱targetName</td>
-                                    <td>@item.會員編號memberId</td>
-                                    <td>@item.檢舉理由reportReason</td>
-                                    <td><a href='@Url.Content("https://localhost:44345/Comment/會員評論/" + item.連接編號connectId)' target="_blank">被檢舉頁面</a></td>
-                                    @*<td><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#dealModalmem" data-bs-whatever="@item.連接編號connectId">停權</button></td>*@
-                                    @{
-                                        if (item.停權m != 1)
-                                        {
-                                            <td><button type="button" class="btn btn-danger" onclick="suspend(event)" status="0" connectid="@item.連接編號connectId">停權</button></td>
-                                        }
-                                        else
-                                        {
-                                            <td><button type="button" class="btn btn-success" onclick="suspend(event)" status="1" connectid="@item.連接編號connectId">取消停權</button></td>
-                                        }
+            <table class="table " id="memTable">
+                <thead>
+                    <tr>
+                        <th><input type="checkbox" id="selectAllMem" class="all">全選</th>
+                        <th>序</th>
+                        <th>檢舉項目</th>
+                        <th>檢舉人編號</th>
+                        <th>
+                            檢舉理由
+                            @*<select id="selectReasonMem">
+                            <option>全選</option>
+                            <option>無內容</option>
+                            <option>有內容</option>
+                        </select>*@
+                        </th>
+                        <th>被檢舉內容</th>
+                        <th>處理</th>
+                        <th>回覆檢舉人</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{
+                        int count1 = 0;
+                        foreach (var item in rpMem)
+                        {
+                            count1++;
+                            <tr>
+                                <td><input type="checkbox" value="@item.我的追蹤清單編號cfId" email="@item.會員編號member.電子信箱email" class="checkbox" /></td>
+                                <td>@count1</td>
+                                <td>@item.對象名稱targetName</td>
+                                <td>@item.會員編號memberId</td>
+                                <td>@item.檢舉理由reportReason</td>
+                                <td><a href='@Url.Content("https://localhost:44345/Comment/會員評論/" + item.連接編號connectId)' target="_blank">被檢舉頁面</a></td>
+                                @*<td><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#dealModalmem" data-bs-whatever="@item.連接編號connectId">停權</button></td>*@
+                                @{
+                                    if (item.停權m != 1)
+                                    {
+                                        <td><button type="button" class="btn btn-danger" onclick="suspend(event)" status="0" connectid="@item.連接編號connectId">停權</button></td>
                                     }
-                                    <td>
-                                        <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#modalEmail"
-                                                data-bs-email="@item.會員編號member.電子信箱email"
-                                                data-bs-tar="mem"
-                                                data-bs-cfid="@item.我的追蹤清單編號cfId"
-                                                data-bs-link='@Url.Content("https://localhost:44345/Comment/會員評論/" + item.連接編號connectId)'>
-                                            回覆檢舉人
-                                        </button>
-                                    </td>
-                                </tr>
+                                    else
+                                    {
+                                        <td><button type="button" class="btn btn-success" onclick="suspend(event)" status="1" connectid="@item.連接編號connectId">取消停權</button></td>
+                                    }
+                                }
+                                <td>
+                                    <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#modalEmail"
+                                            data-bs-email="@item.會員編號member.電子信箱email"
+                                            data-bs-tar="mem"
+                                            data-bs-cfid="@item.我的追蹤清單編號cfId"
+                                            data-bs-link='@Url.Content("https://localhost:44345/Comment/會員評論/" + item.連接編號connectId)'>
+                                        回覆檢舉人
+                                    </button>
+                                </td>
+                            </tr>
 
-                                        }
-                }
-            </tbody>
-        </table>
-    </div>
+                        }
+                    }
+                </tbody>
+            </table>
+        </div>
     <!--被檢舉評論-->
     <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
         <h4 class="mt-3">被檢舉評論一覽表</h4>

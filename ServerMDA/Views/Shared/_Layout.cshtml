@@ -10,14 +10,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <!-- #region Google Font -->
+    <!-- #region 字體 -->
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-    @* <link href="~/css/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">*@
+
     <script src="https://kit.fontawesome.com/c6052fa518.js" crossorigin="anonymous"></script>
-    <!-- #endregion Google Font -->
+    <!-- #endregion 字體 -->
+
     <!-- #region Css Styles -->
-    @*<link href="~/css/all.css" rel="stylesheet" />
-        <script src="~/js/all.js"></script>*@
 
     <link href="~/css/bootstrap-5.2.2/bootstrap.min.css" rel="stylesheet" />
     <link href="~/css/datatables/jquery.dataTables.css" rel="stylesheet" />
@@ -30,9 +29,11 @@
     <link rel="stylesheet" href="~/wencssjs/css/site.css" />
     <!-- #endregion Css Styles -->
 
-    @await RenderSectionAsync("Styles", required: false)
-</head>
 
+
+    @await RenderSectionAsync("Styles", required: false)
+
+</head>
 
 <body id="page-top">
     @using Microsoft.AspNetCore.Http
@@ -41,12 +42,11 @@
     @inject IHttpContextAccessor Accessor
     <!-- #region sidebar Start 側欄 -->
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
-
         <!-- Sidebar - Brand -->
         <a class="sidebar-brand d-flex align-items-center justify-content-center" asp-controller="Home" asp-action="Logout">
             <img id="logo1" src="~/images/MDA_LOGO.png" style="height:40px;position:fixed" />
             <img id="logo2" src="~/images/MDA_LOGO.png" style="height:25px" />
-            @*<div class="sidebar-brand-text mx-2">MDA</div>*@
+
         </a>
         <!-- #region 會員登入 -->
         @{
@@ -179,14 +179,8 @@
                     <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     </div>
                 </li>
-                <!-- Nav Item 小分類-評論管理系統 -->
-    @*<li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages2"
-           aria-expanded="true" aria-controls="collapsePages2">
-            <i class="fas fa-fw fa-commenting"></i>
-            <span>評論管理系統</span>
-        </a>
-    </li>*@
+
+
                 <li class="nav-item">
                     <a class="nav-link collapsed" asp-area="" asp-controller="Comment" asp-action="List">
                         <i class="fas fa-fw fa-commenting"></i>
@@ -194,18 +188,16 @@
                     </a>
                     <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     </div>
-                
 
-
-                @*<div id="collapsePages2" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">評論管理:</h6 
-                        <a class="collapse-item" asp-area="" asp-controller="Comment" asp-action="List">評論管理</a>
-                        <a class="collapse-item" asp-area="" asp-controller="CommentImage" asp-action="List">評論圖庫清單</a>
-                        <a class="collapse-item" asp-area="" asp-controller="CommentImagesList" asp-action="List">評論圖片明細</a>
-                        <a class="collapse-item" href="register.html">留言管理</a>
-                    </div>
-                </div>*@
+                    @*<div id="collapsePages2" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                            <div class="bg-white py-2 collapse-inner rounded">
+                                <h6 class="collapse-header">評論管理:</h6
+                                <a class="collapse-item" asp-area="" asp-controller="Comment" asp-action="List">評論管理</a>
+                                <a class="collapse-item" asp-area="" asp-controller="CommentImage" asp-action="List">評論圖庫清單</a>
+                                <a class="collapse-item" asp-area="" asp-controller="CommentImagesList" asp-action="List">評論圖片明細</a>
+                                <a class="collapse-item" href="register.html">留言管理</a>
+                            </div>
+                        </div>*@
                 </li>
                 <!-- Nav Item 小分類-客服管理系統 -->
                 <!--<li class="nav-item">
@@ -219,8 +211,8 @@
                             <h6 class="collapse-header">客服管理:</h6>
                             <a class="collapse-item" href="forgot-password.html">檢舉管理</a>
                             <a class="collapse-item" href="forgot-password.html">來信管理</a>-->
-                            @*<a class="collapse-item" href="forgot-password.html">留言板管理</a>*@
-                            <!--<a class="collapse-item" href="forgot-password.html">AI小幫手管理</a>
+                @*<a class="collapse-item" href="forgot-password.html">留言板管理</a>*@
+                <!--<a class="collapse-item" href="forgot-password.html">AI小幫手管理</a>
                         </div>
                     </div>
                 </li>-->
@@ -241,7 +233,6 @@
                     </div>
                 </li>
 
-                @*@Html.ActionLink("登出", "Logout", "Home", null, new { @class = "btn btn-yuka" })*@
                 <a asp-area="" asp-controller="Home" asp-action="Logout" class="btn btn-logout"><i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>登出</a>
                 <br />
                 <!-- Divider -->
@@ -254,14 +245,16 @@
                 </div>
             }
         }
-        <!-- #endregion 會員登入 -->
     </ul>
+    <!-- #endregion 會員登入 -->
+
+
     <!-- #endregion sidebar End 側欄 -->
 
     <div class="divPosition">
 
-        <!--
-                #region TopBar Start 頂部欄位 -->
+
+        <!-- #region TopBar Start 頂部欄位 -->
 
         <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow backgroundcolor">
 
@@ -308,13 +301,13 @@
                 <!-- #region -->
                 <!-- #region Nav Item - Alerts 狀態中心 -->
                 <!--<li class="nav-item dropdown no-arrow mx-1">
-                    <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="fas fa-bell fa-fw"></i>-->
-                        <!-- Counter - Alerts 狀態通知數量 -->
-                        <!--<span class="badge badge-danger badge-counter">3+</span>
-                    </a>-->
-                    <!-- Dropdown - Alerts 狀態中心內文 -->
-                    <!--<div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="alertsDropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-bell fa-fw"></i>-->
+                <!-- Counter - Alerts 狀態通知數量 -->
+                <!--<span class="badge badge-danger badge-counter">3+</span>
+                </a>-->
+                <!-- Dropdown - Alerts 狀態中心內文 -->
+                <!--<div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="alertsDropdown">
                         <h6 class="dropdown-header">狀態中心</h6>
                         <a class="dropdown-item d-flex align-items-center" href="#">
                             <div class="mr-3">
@@ -355,13 +348,13 @@
                 <!-- #endregion Nav Item - Alerts 狀態中心 -->
                 <!-- #region Nav Item - Messages 訊息中心 -->
                 <!--<li class="nav-item dropdown no-arrow mx-1">
-                    <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="fas fa-envelope fa-fw"></i>-->
-                        <!-- Counter - Messages 訊息通知數量 -->
-                        <!--<span class="badge badge-danger badge-counter">7</span>
-                    </a>-->
-                    <!-- Dropdown - Messages 訊息中心內文 -->
-                    <!--<div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="messagesDropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-envelope fa-fw"></i>-->
+                <!-- Counter - Messages 訊息通知數量 -->
+                <!--<span class="badge badge-danger badge-counter">7</span>
+                </a>-->
+                <!-- Dropdown - Messages 訊息中心內文 -->
+                <!--<div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="messagesDropdown">
                         <h6 class="dropdown-header">訊息中心</h6>
                         <a class="dropdown-item d-flex align-items-center" href="#">
                             <div class="dropdown-list-image mr-3">

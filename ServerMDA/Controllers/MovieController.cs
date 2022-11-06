@@ -270,9 +270,9 @@ namespace ServerMDA.Controllers
             byte[] context = movieRating.分級圖片ratingImage;
             return File(context, "image/jpeg");
         }
-        public IActionResult series(int id)
+        public IActionResult series()
         {
-            var series = _context.系列電影movieSeries.Where(p => p.系列編號seriesId != id).Select(a => a.系列名稱seriesName).ToList();
+            var series = _context.系列電影movieSeries.Select(a => a.系列名稱seriesName).ToList();
             return Json(series);
         }
         public IActionResult rating(int id)
@@ -329,22 +329,6 @@ namespace ServerMDA.Controllers
             //var result = JsonSerializer.Deserialize<CDictionary>(jsonAll);
             return View();
         }
-
-        //public IActionResult ADDAD(CLoginViewModel vModel)
-        //{
-        //    會員member mem = (new MDAContext()).會員members.FirstOrDefault(c => c.會員電話cellphone.Equals(vModel.txtAccount));
-        //    if (mem != null)
-        //    {
-        //        if (mem.密碼password.Equals(vModel.txtPassword))
-        //        {
-        //            //string jsonUser = JsonSerializer.Serialize(mem);
-        //            HttpContext.Session.SetString(CDictionary.SK_ADDMOVIE_ACTOR, jsonUser);
-        //            return RedirectToAction("List", "HomePage");
-        //        }
-        //    }
-
-        //    return View();
-        //}
 
         #endregion
     }

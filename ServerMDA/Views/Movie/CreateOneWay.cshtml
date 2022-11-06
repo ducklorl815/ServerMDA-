@@ -23,7 +23,7 @@
         position: relative;
         height: 277px;
         max-width: 200px;
-        padding-left: 5%;
+        padding-left: 2%;
         padding-bottom: 3%;
     }
 </style>
@@ -32,12 +32,12 @@
 
 <div class="row">
     <form method="post" action="~/Movie/CreateOneDragon" enctype="multipart/form-data" id="form">
-        <div class="col-md-12">
+        <div class="col-12">
             <div class="d-flex flex-row">
-                <div class="col-3">
-                    <div class="text-danger"></div>
+                <div class="col-2">
                     <div class="form-group">
-                        <label for="Series_ID" class="control-label">系列名稱</label><button type="button" class="d-inline btn btn-primary ml-5" id="NewSeries">新增系列</button>
+                        <label for="Series_ID" class="control-label">系列名稱</label>
+                        <button type="button" class="d-inline btn btn-yuka ml-3" id="NewSeries">新增系列</button>
                         @await Component.InvokeAsync("Series")
                     </div>
                     <div class="form-group">
@@ -62,7 +62,7 @@
                     </div>
 
                 </div>
-                <div class="col-5">
+                <div class="col-4">
                     <div class="form-group">
                         <label for="Rate_ID" class="control-label">電影分級</label>
                         @await Component.InvokeAsync("Rate")
@@ -84,31 +84,33 @@
                     </div>
                     <div class="form-group" style="float:right">
                         <button type="button" class="btn btn-success" id="sumbit">上傳新資料</button>
-                        <button type="button" class="btn btn-dark" aria-label="Close" id="demo">Demo</button>
+                        <button type="button" class="btn btn-dark" aria-label="Close" id="demoDragon">Demo</button>
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" aria-label="Close">回到清單</button>
                     </div>
                 </div>
-                <div class="col-5">
-                    <div class="d-block pt-4">
+                <div class="col-6">
+                    @*<div class="d-block">
                         <a class="btn btn-details mb-1" id="btn" onclick="showmodalD('@Url.Action("CreateDirector","Movie", Context.Request.Scheme)','加入導演')">導演</a>
                         <a class="btn btn-details mb-1" id="btn" onclick="showmodalA('@Url.Action("CreateActor","Movie", Context.Request.Scheme)','加入演員')">演員</a>
-                        <input type="file" id="btnP" value="上傳照片" name="photos" multiple>
-                    </div>
-                    <div class="d-block pt-4">
-                        <label>導演清單</label>
+
+                    </div>*@
+                    <div class="d-block pt-1">
+                        <label class="btn-gary">導演清單</label>
+                        <a class="btn btn-details mb-1" id="btn" onclick="showmodalD('@Url.Action("CreateDirector","Movie", Context.Request.Scheme)','加入導演')">新增導演</a>
                         <ul class="list-group" id="DlistInfo">
                         </ul>
                     </div>
                     <div class="d-block pt-4">
-                        <label>演員清單</label>
+                        <label class="btn-gary">演員清單</label>
+                        <a class="btn btn-details mb-1" id="btn" onclick="showmodalA('@Url.Action("CreateActor","Movie", Context.Request.Scheme)','加入演員')">新增演員</a>
                         <ul class="list-group" id="AlistInfo">
                         </ul>
                     </div>
                     <div class="d-block pt-4">
-                        <label>圖片清單</label>
+                        <label class="btn-gary">圖片清單</label>
                         <div class="d-block" id="picBox">
-
                         </div>
+                        <input type="file" id="btnP" value="上傳照片" name="photos" multiple>
                     </div>
                 </div>
             </div>
@@ -138,6 +140,37 @@
 <script src="~/js/vendor/jquery/jquery.min.js"></script>
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
+
+<script>
+
+    demoDragon.addEventListener("click", () => {
+        console.log(15);
+        const demoDragon = document.querySelector("#demoDragon");
+        const titleCh = document.querySelector("#Title_Chi");
+        const titleEn = document.querySelector("#Title_Eng");
+
+        const date = document.querySelector("#Release_Date");
+        const runtime = document.querySelector("#runtime");
+        const box = document.querySelector("#Box");
+        const plot = document.querySelector("#Plot");
+        const trailerUrl = document.querySelector("#TrailerUrl");
+
+
+        titleCh.value = "M.D.A一條龍設計製作Demo";
+        titleEn.value = "Movie, Drama, Anime Using MovieDemo";
+        trailerUrl.value ="https://www.youtube.com/MDA/DragonBall7z"
+        date.value = "2022-11-16";
+        runtime.value = 113;
+        box.value = 1.007;
+        plot.value = "M.D.A一條龍由李沛軒設計製作，希望藉由這個整合平台，讓最完整的電影、電視劇及動畫相關資訊都能快速方便的被使用者查找、觀賞及討論。藉由多媒體媒介（如電影預告片、快速訂票系統、評論交流區）提高用戶的使用體驗。提供使用者一個方便查看電影資訊、快速訂票、發表並交流電影評論的管道。";
+    })
+
+</script>
+
+
+
+
+
 
 <script>
 
@@ -293,3 +326,4 @@
     })
 
 </script>
+
