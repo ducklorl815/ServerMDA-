@@ -1,4 +1,5 @@
-﻿@model IEnumerable<ServerMDA.Models.電影主演cast>
+﻿@using ServerMDA.ViewModel
+@model List<CCastViewModel> 
 
 @{
     ViewData["Title"] = "List";
@@ -13,16 +14,16 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.角色名字characterName)
+                @Html.DisplayNameFor(model => model.FirstOrDefault().角色名字characterName)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.角色說明characterIllustrate)
+                @Html.DisplayNameFor(model => model.FirstOrDefault().角色說明characterIllustrate)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.演員編號actor)
+                @Html.DisplayNameFor(model => model.FirstOrDefault().演員中文名字nameCht)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.電影編號movie)
+                @Html.DisplayNameFor(model => model.FirstOrDefault().中文標題titleCht)
             </th>
             <th></th>
         </tr>
@@ -37,10 +38,10 @@
                 @Html.DisplayFor(modelItem => item.角色說明characterIllustrate)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.演員編號actor.演員英文名字nameEng)
+                @Html.DisplayFor(modelItem => item.演員中文名字nameCht)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.電影編號movie.英文標題titleEng)
+                @Html.DisplayFor(modelItem => item.中文標題titleCht)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.主演編號maId">Edit</a> |

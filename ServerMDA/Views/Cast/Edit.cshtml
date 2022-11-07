@@ -2,7 +2,7 @@
 
 @{
     ViewData["Title"] = "Edit";
-    Layout = null;
+    //Layout = null;
 }
 
 <link href="~/css/bootstrap-5.2.2/YukabtnEdit.css" rel="stylesheet" />
@@ -15,13 +15,15 @@
             <input type="hidden" asp-for="主演編號maId" />
             <div class="form-group">
                 <label asp-for="電影編號movieId" class="control-label"></label>
-                <select asp-for="電影編號movieId" class="form-control" asp-items="ViewBag.電影編號movieId"></select>
-                <span asp-validation-for="電影編號movieId" class="text-danger"></span>
+                <input asp-for="電影編號movieId" class="form-control" />
+                @*<select asp-for="電影編號movieId" class="form-control" asp-items="ViewBag.電影編號movieId"></select>
+                <span asp-validation-for="電影編號movieId" class="text-danger"></span>*@
             </div>
             <div class="form-group">
                 <label asp-for="演員編號actorId" class="control-label"></label>
-                <select asp-for="演員編號actorId" class="form-control" asp-items="ViewBag.演員編號actorId"></select>
-                <span asp-validation-for="演員編號actorId" class="text-danger"></span>
+                <input asp-for="演員編號actorId" class="form-control" />
+                @*<select asp-for="演員編號actorId" class="form-control" asp-items="ViewBag.演員編號actorId"></select>
+                <span asp-validation-for="演員編號actorId" class="text-danger"></span>*@
             </div>
             <div class="form-group">
                 <label asp-for="角色名字characterName" class="control-label"></label>

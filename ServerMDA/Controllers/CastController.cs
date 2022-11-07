@@ -20,6 +20,24 @@ namespace ServerMDA.Controllers
             _context = context;
         }
         private readonly MDAContext _context;
+
+        public IActionResult List()
+        {
+            MDAContext db = new MDAContext();
+            List<CCastViewModel> datas = null;
+            datas = db.電影主演casts.OrderBy(p => p.演員編號actorId).Select
+            (p => new CCastViewModel
+            {
+                cast = p,
+                演員中文名字nameCht = p.演員編號actor.演員中文名字nameCht,
+                演員照片image = p.演員編號actor.演員照片image,
+                演員英文名字nameEng = p.演員編號actor.演員英文名字nameEng,
+                中文標題titleCht = p.電影編號movie.中文標題titleCht,
+            }).ToList();
+
+            return View(datas);
+        }
+
         public IActionResult sortList(int id)
         {
             MDAContext db = new MDAContext();

@@ -101,15 +101,7 @@ namespace ServerMDA.Models
                     .IsRequired()
                     .HasColumnName("問題Question");
 
-                entity.Property(e => e.問題總類編號questionTypeId).HasColumnName("問題總類編號QuestionTypeID");
-
                 entity.Property(e => e.答案answer).HasColumnName("答案Answer");
-
-                entity.HasOne(d => d.問題總類編號questionType)
-                    .WithMany(p => p.一般資訊generaInformations)
-                    .HasForeignKey(d => d.問題總類編號questionTypeId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_一般資訊GeneraInformation_問題總類QuestionType1");
             });
 
             modelBuilder.Entity<使用優惠明細usingCouponList>(entity =>
@@ -760,15 +752,7 @@ namespace ServerMDA.Models
                     .IsRequired()
                     .HasColumnName("問題Question");
 
-                entity.Property(e => e.問題總類編號questionTypeId).HasColumnName("問題總類編號QuestionTypeID");
-
                 entity.Property(e => e.答案answer).HasColumnName("答案Answer");
-
-                entity.HasOne(d => d.問題總類編號questionType)
-                    .WithMany(p => p.會員問題memQas)
-                    .HasForeignKey(d => d.問題總類編號questionTypeId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_會員問題memQa_問題總類QuestionType1");
             });
 
             modelBuilder.Entity<會員權限permission>(entity =>
