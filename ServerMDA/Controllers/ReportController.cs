@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using MimeKit;
-using MailKit.Net.Smtp;
+//using MimeKit;
+//using MailKit.Net.Smtp;
 using ServerMDA.Models;
 using ServerMDA.ViewModel.Report;
 using System;

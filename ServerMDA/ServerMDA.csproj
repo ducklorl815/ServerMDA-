@@ -5,46 +5,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="MailKit" Version="3.4.2" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.17" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.17">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="5.0.2" />
-    <PackageReference Include="MimeKit" Version="3.4.2" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="wwwroot\images\Actor\" />
-    <Folder Include="wwwroot\images\Director\" />
-    <Folder Include="wwwroot\images\MovieRating\" />
-    <Folder Include="wwwroot\images\Member\" />
-    <Folder Include="wwwroot\images\MovieImage\" />
-    <Folder Include="wwwroot\images\Cinema\" />
-    <Folder Include="wwwroot\images\Cinema\" />
-    <Folder Include="wwwroot\images\Comment\" />
-    <Folder Include="wwwroot\images\Country\" />
-    <Folder Include="wwwroot\images\Theater\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Content Update="wwwroot\css\bootstrap.css">
-      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
-    <Content Update="wwwroot\css\bootstrap.css.map">
-      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
-    <Content Update="wwwroot\css\bootstrap.min.css">
-      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
-    <Content Update="wwwroot\css\bootstrap.min.css.map">
-      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
   </ItemGroup>
 
 </Project>

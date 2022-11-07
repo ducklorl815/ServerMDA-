@@ -207,7 +207,7 @@ namespace ServerMDA.Controllers
                 p.商品價格productPrice = Inprod.商品價格productPrice;
                 p.類別category = Inprod.類別category;
                 p.商品介紹introduce = Inprod.商品介紹introduce;
-                p.電影院編號theaterId = Inprod.currentheaterID;
+                p.電影院編號theaterId = Inprod.電影院編號theaterId;
 
                 _context.SaveChanges();
 

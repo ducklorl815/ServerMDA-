@@ -60,7 +60,7 @@ namespace ServerMDA.Controllers
         {
             MDAContext db = new MDAContext();
             電影圖片movieIimagesList c = db.電影圖片movieIimagesLists.FirstOrDefault(c => c.電影圖片編號miId == inList.電影圖片編號miId);
-            電影圖片總表movieImage d = db.電影圖片總表movieImages.FirstOrDefault(c => c.圖片編號imageId == inList.圖片編號imageId);
+            電影圖片總表movieImage d = db.電影圖片總表movieImages.FirstOrDefault(d => d.圖片編號imageId == c.圖片編號imageId);
             if (c != null)
             {
                 if (inList.photo != null)
@@ -69,9 +69,10 @@ namespace ServerMDA.Controllers
                     d.圖片image = pName;
                     string path = _enviro.WebRootPath + "/images/MovieImage/" + pName;
                     inList.photo.CopyTo(new FileStream(path, FileMode.Create));
+                    db.SaveChanges();
                 }
                 //c.圖片編號imageId = inList.圖片編號imageId;
-                //c.電影編號movieId = inList.電影編號movieId;
+                c.電影圖片編號miId = inList.電影圖片編號miId;
 
                 db.SaveChanges();
             }

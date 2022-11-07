@@ -58,7 +58,7 @@
                         @Html.DisplayFor(modelItem => item.圖片類型imageType)
                     </td>
                     <td>
-                        <a class="btn btn-yuka " id="btn" onclick="showmodal('@Url.Action("Edit","MovieIimagesList",new {id=@item.電影圖片編號miId},Context.Request.Scheme)',null)">修改</a>
+                        <a class="btn btn-yuka " id="btn" onclick="showmodal('@Url.Action("Edit","MovieIimagesList",new {id=@item.電影編號movieId},Context.Request.Scheme)',null)">修改</a>
                         @*<a asp-action="Delete" asp-route-id="@item.演員編號actorsId">Delete</a>*@
                     </td>
                 </tr>

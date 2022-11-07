@@ -61,12 +61,17 @@
 <div class="tab-content" id="myTabContent">
     <!--被檢舉會員-->
     <div class="tab-pane fade  " id="home" role="tabpanel" aria-labelledby="home-tab">
-        <h4 class="mt-3">被檢舉會員一覽表</h4>
-        <div class="text-right">
-            <button type="button" class="mr-3 mb-3 btn btn-secondary" data-toggle="modal" data-target="#modalExample">
-                統一回覆信件預覽
-            </button>
-            <button id="solveAllMem" class="mr-3 mb-3 btn btn-warning" tab="mem">統一回覆(不停權)</button>
+        <div class="d-flex flex-row">
+            <div  class="col-3">
+                <h4 class="mt-3">被檢舉會員一覽表</h4>
+            </div>
+            
+            <div class="col-3 offset-6 mt-2 pr-5">
+                <button type="button" class="mr-3 mb-3 btn btn-secondary" data-toggle="modal" data-target="#modalExample">
+                    統一回覆信件預覽
+                </button>
+                <button id="solveAllMem" class="mr-3 mb-3 btn btn-warning" tab="mem">統一回覆(不停權)</button>
+            </div>
         </div>
         <table class="table " id="memTable">
             <thead>
