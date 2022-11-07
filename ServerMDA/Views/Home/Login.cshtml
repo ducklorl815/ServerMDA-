@@ -68,6 +68,7 @@
                 </div>
                 <button type="submit" id="checkPss" class="site-btn">登入/註冊</button>
                 <button type="button" class="site-btn" id="demo">demoID_1</button>
+                <button type="button" class="site-btn" id="demo77">demoID_2</button>
                 @*<a href="#" class="ml-3">管理員登入</a>*@
             </form>
         </div>
@@ -101,5 +102,12 @@
         const pwd = document.querySelector("#paswd")
         txt.value = "0911111111",
             pwd.value = "1111"
+    })
+    demo77.addEventListener("click", () => {
+        const demo = document.querySelector("#demo")
+        const txt = document.querySelector("#txt")
+        const pwd = document.querySelector("#paswd")
+        txt.value = "0977777777",
+            pwd.value = "7777"
     })
 </script>

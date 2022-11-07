@@ -23,6 +23,7 @@ namespace ServerMDA.Controllers
 
         public IActionResult List()
         {
+
             MDAContext db = new MDAContext();
             List<CCastViewModel> datas = null;
             datas = db.電影主演casts.OrderBy(p => p.演員編號actorId).Select

@@ -40,439 +40,474 @@
     @using System.Text.Json
     @using ServerMDA.ViewModel
     @inject IHttpContextAccessor Accessor
-    <!-- #region sidebar Start 側欄 -->
-    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
-        <!-- Sidebar - Brand -->
-        <a class="sidebar-brand d-flex align-items-center justify-content-center" asp-controller="Home" asp-action="Logout">
-            <img id="logo1" src="~/images/MDA_LOGO.png" style="height:40px;position:fixed" />
-            <img id="logo2" src="~/images/MDA_LOGO.png" style="height:25px" />
+    @using Microsoft.AspNetCore.Hosting;
+    @using Microsoft.AspNetCore.Mvc;
 
-        </a>
-        <!-- #region 會員登入 -->
-        @{
-            if (Accessor.HttpContext.Session.Keys.Contains(CDictionary.SK_LOGINED_USER))
-            {
-                <!-- Divider -->
-                <hr class="sidebar-divider my-0" />
+        <!-- #region sidebar Start 側欄 -->
+        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+            <!-- Sidebar - Brand -->
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" asp-controller="Home" asp-action="Logout">
+                <img id="logo1" src="~/images/MDA_LOGO.png" style="height:40px;position:fixed" />
+                <img id="logo2" src="~/images/MDA_LOGO.png" style="height:25px" />
 
-                <!-- Nav Item - Dashboard -->
-                <li class="nav-item active">
-                    <a class="nav-link" asp-area="" asp-controller="HomePage" asp-action="List">
-                        <i class="fas fa-fw fa-tachometer-alt"></i>
-                        <span>總表清單</span>
-                    </a>
-                </li>
+            </a>
+            <!-- #region 會員登入 -->
+            @{
+                if (Accessor.HttpContext.Session.Keys.Contains(CDictionary.SK_LOGINED_USER))
+                {
+                    <!-- Divider -->
+                    <hr class="sidebar-divider my-0" />
 
-                <!-- Divider -->
-                <hr class="sidebar-divider">
+                    <!-- Nav Item - Dashboard -->
+                    <li class="nav-item active">
+                        <a class="nav-link" asp-area="" asp-controller="HomePage" asp-action="List">
+                            <i class="fas fa-fw fa-tachometer-alt"></i>
+                            <span>總表清單</span>
+                        </a>
+                    </li>
 
-                <!-- #region Heading 大分類-電影院資料庫 -->
-                <div class="sidebar-heading text-white"> 電影院資料庫</div>
+                    <!-- Divider -->
+                    <hr class="sidebar-divider">
 
-                <!-- Nav Item 小分類-電影 -->
-                <li class="nav-item">
-                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
-                       aria-expanded="true" aria-controls="collapseTwo">
-                        <i class="fas fa-fw fa-film"></i>
-                        <span>電影</span>
-                    </a>
-                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                        <div class="bg-white py-2 collapse-inner rounded">
-                            <h6 class="collapse-header text-gray-600">電影管理:</h6>
-                            <a class="collapse-item" asp-area="" asp-controller="Movie" asp-action="List">電影</a>
-                            <a class="collapse-item" asp-area="" asp-controller="MovieImage" asp-action="List">電影海報、劇照</a>
-                            @*<a class="collapse-item" asp-area="" asp-controller="MovieIimagesList" asp-action="List">電影圖片清單</a>*@
-                            <a class="collapse-item" asp-area="" asp-controller="MovieOrigin" asp-action="List">電影產地</a>
-                            <a class="collapse-item" asp-area="" asp-controller="MovieOrigin" asp-action="ListOri">電影國家</a>
-                            <a class="collapse-item" asp-area="" asp-controller="MovieLanguage" asp-action="List">電影語言</a>
-                            <a class="collapse-item" asp-area="" asp-controller="MovieType" asp-action="List">電影分類(片種)</a>
-                            <a class="collapse-item" asp-area="" asp-controller="MovieRating" asp-action="List">電影分級</a>
-                            <a class="collapse-item" asp-area="" asp-controller="Director" asp-action="List">導演</a>
-                            <a class="collapse-item" asp-area="" asp-controller="Actor" asp-action="List">演員</a>
-                        </div>
-                    </div>
-                </li>
-                <!-- Nav Item 小分類-影城 -->
-                <li class="nav-item">
-                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseKwo"
-                       aria-expanded="true" aria-controls="collapseKwo">
-                        <i class="fas fa-fw fa fa-github-alt"></i>
-                        <span>影城</span>
-                    </a>
-                    <div id="collapseKwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                        <div class="bg-white py-2 collapse-inner rounded">
-                            <h6 class="collapse-header text-gray-600">影城管理:</h6>
-                            <a class="collapse-item" asp-area="" asp-controller="Theater" asp-action="List">電影院</a>
-                            <a class="collapse-item" asp-area="" asp-controller="Cinema" asp-action="List">影廳</a>
-                            <a class="collapse-item" asp-area="" asp-controller="Screening" asp-action="List">場次</a>
-                            <a class="collapse-item" asp-area="" asp-controller="SeatStatus" asp-action="List">座位資訊</a>
-                            <a class="collapse-item" asp-area="" asp-controller="票種ticketType" asp-action="Index">票種、票價</a>
-                        </div>
-                    </div>
-                </li>
-                <!-- Nav Item 小分類-商店 -->
-                <li class="nav-item">
-                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseProduct"
-                       aria-expanded="true" aria-controls="collapseProduct">
-                        <i class="fas fa-fw fa-ticket"></i>
-                        <span>商店</span>
-                    </a>
-                    <div id="collapseProduct" class="collapse" aria-labelledby="headingproduct"
-                         data-parent="#accordionSidebar">
-                        <div class="bg-white py-2 collapse-inner rounded">
-                            <div class="collapse-divider"></div>
-                            <h6 class="collapse-header text-gray-600">商店管理:</h6>
-                            <a class="collapse-item" asp-area="" asp-controller="product" asp-action="ProductList">影城商店</a>
-                            <a class="collapse-item" asp-area="" asp-controller="product" asp-action="ReceiptList">商店明細</a>
-                        </div>
-                    </div>
-                </li>
-                <!-- Nav Item 小分類-活動/票券 -->
-                <li class="nav-item">
-                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
-                       aria-expanded="true" aria-controls="collapseUtilities">
-                        <i class="fas fa-fw fa-ticket"></i>
-                        <span>活動、票券、QA</span>
-                    </a>
-                    <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
-                         data-parent="#accordionSidebar">
-                        <div class="bg-white py-2 collapse-inner rounded">
-                            <div class="collapse-divider"></div>
-                            <h6 class="collapse-header text-gray-600">票券管理:</h6>
-                            <a class="collapse-item" asp-area="" asp-controller="Coupon" asp-action="List">優惠券總表</a>
-                            <a class="collapse-item" asp-area="" asp-controller="Coupon" asp-action="List">會員優惠券</a>
-                            <a class="collapse-item" asp-area="" asp-controller="QandA" asp-action="List">QA專區</a>
-                        </div>
-                    </div>
-                </li>
+                    <!-- #region Heading 大分類-電影院資料庫 -->
+                    <div class="sidebar-heading text-white"> 電影院資料庫</div>
 
-                <!-- Divider -->
-                <hr class="sidebar-divider" />
-
-                <!-- #endregion Heading 大分類-電影院資料庫 -->
-
-                <!-- #region Heading 大分類-會員專區 -->
-                <div class="sidebar-heading text-white"> 會員專區</div>
-
-                <!-- Nav Item 小分類-會員管理系統 -->
-                <li class="nav-item">
-                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
-                       aria-expanded="true" aria-controls="collapsePages">
-                        <i class="fas fa-fw fa-user-circle"></i>
-                        <span>會員管理系統</span>
-                    </a>
-                    <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-                        <div class="bg-white py-2 collapse-inner rounded">
-                            <h6 class="collapse-header">會員管理:</h6>
-                            <a class="collapse-item" asp-area="" asp-controller="Member" asp-action="List">會員資訊</a>
-                            <a class="collapse-item" asp-area="" asp-controller="MyMovieList" asp-action="List">片單管理</a>
-                            <a class="collapse-item" asp-area="" asp-controller="MyFollowList" asp-action="List">追蹤管理</a>
-                            <a class="collapse-item" asp-area="" asp-controller="MyFollowList" asp-action="List">訂單管理</a>
-                        </div>
-                    </div>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link collapsed" asp-area="" asp-controller="Report" asp-action="Report">
-                        <i class="fas fa-fw fa-tachometer-alt"></i>
-                        <span>檢舉管理</span>
-                    </a>
-                    <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-                    </div>
-                </li>
-
-
-                <li class="nav-item">
-                    <a class="nav-link collapsed" asp-area="" asp-controller="Comment" asp-action="List">
-                        <i class="fas fa-fw fa-commenting"></i>
-                        <span>評論管理</span>
-                    </a>
-                    <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-                    </div>
-
-                    @*<div id="collapsePages2" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                    <!-- Nav Item 小分類-電影 -->
+                    <li class="nav-item">
+                        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+                           aria-expanded="true" aria-controls="collapseTwo">
+                            <i class="fas fa-fw fa-film"></i>
+                            <span>電影</span>
+                        </a>
+                        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                             <div class="bg-white py-2 collapse-inner rounded">
-                                <h6 class="collapse-header">評論管理:</h6
-                                <a class="collapse-item" asp-area="" asp-controller="Comment" asp-action="List">評論管理</a>
-                                <a class="collapse-item" asp-area="" asp-controller="CommentImage" asp-action="List">評論圖庫清單</a>
-                                <a class="collapse-item" asp-area="" asp-controller="CommentImagesList" asp-action="List">評論圖片明細</a>
-                                <a class="collapse-item" href="register.html">留言管理</a>
+                                <h6 class="collapse-header text-gray-600">電影管理:</h6>
+                                <a class="collapse-item" asp-area="" asp-controller="Movie" asp-action="List">電影</a>
+                                <a class="collapse-item" asp-area="" asp-controller="MovieImage" asp-action="List">電影海報、劇照</a>
+                                @*<a class="collapse-item" asp-area="" asp-controller="MovieIimagesList" asp-action="List">電影圖片清單</a>*@
+                                <a class="collapse-item" asp-area="" asp-controller="MovieOrigin" asp-action="List">電影產地</a>
+                                <a class="collapse-item" asp-area="" asp-controller="MovieOrigin" asp-action="ListOri">電影國家</a>
+                                <a class="collapse-item" asp-area="" asp-controller="MovieLanguage" asp-action="List">電影語言</a>
+                                <a class="collapse-item" asp-area="" asp-controller="MovieType" asp-action="List">電影分類(片種)</a>
+                                <a class="collapse-item" asp-area="" asp-controller="MovieRating" asp-action="List">電影分級</a>
+                                <a class="collapse-item" asp-area="" asp-controller="Director" asp-action="List">導演</a>
+                                <a class="collapse-item" asp-area="" asp-controller="Actor" asp-action="List">演員</a>
+                            </div>
+                        </div>
+                    </li>
+                    <!-- Nav Item 小分類-影城 -->
+                    <li class="nav-item">
+                        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseKwo"
+                           aria-expanded="true" aria-controls="collapseKwo">
+                            <i class="fas fa-fw fa fa-github-alt"></i>
+                            <span>影城</span>
+                        </a>
+                        <div id="collapseKwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                            <div class="bg-white py-2 collapse-inner rounded">
+                                <h6 class="collapse-header text-gray-600">影城管理:</h6>
+                                <a class="collapse-item" asp-area="" asp-controller="Theater" asp-action="List">電影院</a>
+                                <a class="collapse-item" asp-area="" asp-controller="Cinema" asp-action="List">影廳</a>
+                                <a class="collapse-item" asp-area="" asp-controller="Screening" asp-action="List">場次</a>
+                                <a class="collapse-item" asp-area="" asp-controller="SeatStatus" asp-action="List">座位資訊</a>
+                                <a class="collapse-item" asp-area="" asp-controller="票種ticketType" asp-action="Index">票種、票價</a>
+                            </div>
+                        </div>
+                    </li>
+                    <!-- Nav Item 小分類-商店 -->
+                    <li class="nav-item">
+                        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseProduct"
+                           aria-expanded="true" aria-controls="collapseProduct">
+                            <i class="fas fa-fw fa-ticket"></i>
+                            <span>商店</span>
+                        </a>
+                        <div id="collapseProduct" class="collapse" aria-labelledby="headingproduct"
+                             data-parent="#accordionSidebar">
+                            <div class="bg-white py-2 collapse-inner rounded">
+                                <div class="collapse-divider"></div>
+                                <h6 class="collapse-header text-gray-600">商店管理:</h6>
+                                <a class="collapse-item" asp-area="" asp-controller="product" asp-action="ProductList">影城商店</a>
+                                <a class="collapse-item" asp-area="" asp-controller="product" asp-action="ReceiptList">商店明細</a>
+                            </div>
+                        </div>
+                    </li>
+                    <!-- Nav Item 小分類-活動/票券 -->
+                    <li class="nav-item">
+                        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
+                           aria-expanded="true" aria-controls="collapseUtilities">
+                            <i class="fas fa-fw fa-ticket"></i>
+                            <span>活動、票券、QA</span>
+                        </a>
+                        <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
+                             data-parent="#accordionSidebar">
+                            <div class="bg-white py-2 collapse-inner rounded">
+                                <div class="collapse-divider"></div>
+                                <h6 class="collapse-header text-gray-600">票券管理:</h6>
+                                <a class="collapse-item" asp-area="" asp-controller="Coupon" asp-action="List">優惠券總表</a>
+                                <a class="collapse-item" asp-area="" asp-controller="Coupon" asp-action="List">會員優惠券</a>
+                                <a class="collapse-item" asp-area="" asp-controller="QandA" asp-action="List">QA專區</a>
+                            </div>
+                        </div>
+                    </li>
+
+                    <!-- Divider -->
+                    <hr class="sidebar-divider" />
+
+                    <!-- #endregion Heading 大分類-電影院資料庫 -->
+
+                    <!-- #region Heading 大分類-會員專區 -->
+                    <div class="sidebar-heading text-white"> 會員專區</div>
+
+                    <!-- Nav Item 小分類-會員管理系統 -->
+                    <li class="nav-item">
+                        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
+                           aria-expanded="true" aria-controls="collapsePages">
+                            <i class="fas fa-fw fa-user-circle"></i>
+                            <span>會員管理系統</span>
+                        </a>
+                        <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                            <div class="bg-white py-2 collapse-inner rounded">
+                                <h6 class="collapse-header">會員管理:</h6>
+                                <a class="collapse-item" asp-area="" asp-controller="Member" asp-action="List">會員資訊</a>
+                                <a class="collapse-item" asp-area="" asp-controller="MyMovieList" asp-action="List">片單管理</a>
+                                <a class="collapse-item" asp-area="" asp-controller="MyFollowList" asp-action="List">追蹤管理</a>
+                                <a class="collapse-item" asp-area="" asp-controller="MyFollowList" asp-action="List">訂單管理</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link collapsed" asp-area="" asp-controller="Report" asp-action="Report">
+                            <i class="fas fa-fw fa-tachometer-alt"></i>
+                            <span>檢舉管理</span>
+                        </a>
+                        <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                        </div>
+                    </li>
+
+
+                    <li class="nav-item">
+                        <a class="nav-link collapsed" asp-area="" asp-controller="Comment" asp-action="List">
+                            <i class="fas fa-fw fa-commenting"></i>
+                            <span>評論管理</span>
+                        </a>
+                        <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                        </div>
+
+                        @*<div id="collapsePages2" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                                <div class="bg-white py-2 collapse-inner rounded">
+                                    <h6 class="collapse-header">評論管理:</h6
+                                    <a class="collapse-item" asp-area="" asp-controller="Comment" asp-action="List">評論管理</a>
+                                    <a class="collapse-item" asp-area="" asp-controller="CommentImage" asp-action="List">評論圖庫清單</a>
+                                    <a class="collapse-item" asp-area="" asp-controller="CommentImagesList" asp-action="List">評論圖片明細</a>
+                                    <a class="collapse-item" href="register.html">留言管理</a>
+                                </div>
+                            </div>*@
+                    </li>
+                    <!-- Nav Item 小分類-客服管理系統 -->
+                    <!--<li class="nav-item">
+                        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages3"
+                           aria-expanded="true" aria-controls="collapsePages3">
+                            <i class="fas fa-fw fa-commenting"></i>
+                            <span>客服管理系統</span>
+                        </a>
+                        <div id="collapsePages3" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                            <div class="bg-white py-2 collapse-inner rounded">
+                                <h6 class="collapse-header">客服管理:</h6>
+                                <a class="collapse-item" href="forgot-password.html">檢舉管理</a>
+                                <a class="collapse-item" href="forgot-password.html">來信管理</a>-->
+                    @*<a class="collapse-item" href="forgot-password.html">留言板管理</a>*@
+                    <!--<a class="collapse-item" href="forgot-password.html">AI小幫手管理</a>
+                            </div>
+                        </div>
+                    </li>-->
+                    <!-- Nav Item 小分類-報表 -->
+                    <li class="nav-item">
+                        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages4"
+                           aria-expanded="true" aria-controls="collapsePages4">
+                            <i class="fas fa-fw fa-chart-area"></i>
+                            <span>報表:</span>
+                        </a>
+                        <div id="collapsePages4" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                            <div class="bg-white py-2 collapse-inner rounded">
+                                <h6 class="collapse-header">報表:</h6>
+                                <a class="collapse-item" asp-area="" asp-controller="PBI" asp-action="PBI">PBI</a>
+                                <a class="collapse-item" asp-area="" asp-controller="product" asp-action="ProductChartSample">商品上架統計表</a>
+                                <a class="collapse-item" asp-area="" asp-controller="product" asp-action="ProductChartTwo">商品銷售數量統計表</a>
+                            </div>
+                        </div>
+                    </li>
+
+                    <a asp-area="" asp-controller="Home" asp-action="Logout" class="btn btn-logout"><i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>登出</a>
+                    <br />
+                    <!-- Divider -->
+                    <hr class="sidebar-divider d-none d-md-block">
+
+                    <!-- #endregion Heading 大分類-會員專區 -->
+                    <!-- Sidebar Toggler (Sidebar) -->
+                    <div class="text-center d-none d-md-inline">
+                        <button class="rounded-circle border-0" id="sidebarToggle" onclick="sidebarToggle"></button>
+                    </div>
+                }
+            }
+        </ul>
+        <!-- #endregion 會員登入 -->
+        <!-- #endregion sidebar End 側欄 -->
+
+        <div class="divPosition">
+
+
+            <!-- #region TopBar Start 頂部欄位 -->
+
+            <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow backgroundcolor">
+
+                <!-- Sidebar Toggle (Topbar) -->
+                <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                    <i class="fa fa-bars"></i>
+                </button>
+
+                <!-- Topbar Search -->
+                <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-5 my-2 my-md-0 mw-100 navbar-search">
+                    @*<div class="input-group offset-md-1">
+                            <div class="input-group-append">
+                                @Html.TextBox("txtkeyword", "", new { @class = "form-control bg-light border-0 small" })
+                                <div class="input-group-append">
+                                    <input class="btn btn-primary" type="submit" value="Search" />
+                                </div>
                             </div>
                         </div>*@
-                </li>
-                <!-- Nav Item 小分類-客服管理系統 -->
-                <!--<li class="nav-item">
-                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages3"
-                       aria-expanded="true" aria-controls="collapsePages3">
-                        <i class="fas fa-fw fa-commenting"></i>
-                        <span>客服管理系統</span>
-                    </a>
-                    <div id="collapsePages3" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-                        <div class="bg-white py-2 collapse-inner rounded">
-                            <h6 class="collapse-header">客服管理:</h6>
-                            <a class="collapse-item" href="forgot-password.html">檢舉管理</a>
-                            <a class="collapse-item" href="forgot-password.html">來信管理</a>-->
-                @*<a class="collapse-item" href="forgot-password.html">留言板管理</a>*@
-                <!--<a class="collapse-item" href="forgot-password.html">AI小幫手管理</a>
-                        </div>
-                    </div>
-                </li>-->
-                <!-- Nav Item 小分類-報表 -->
-                <li class="nav-item">
-                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages4"
-                       aria-expanded="true" aria-controls="collapsePages4">
-                        <i class="fas fa-fw fa-chart-area"></i>
-                        <span>報表:</span>
-                    </a>
-                    <div id="collapsePages4" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-                        <div class="bg-white py-2 collapse-inner rounded">
-                            <h6 class="collapse-header">報表:</h6>
-                            <a class="collapse-item" asp-area="" asp-controller="PBI" asp-action="PBI">PBI</a>
-                            <a class="collapse-item" asp-area="" asp-controller="product" asp-action="ProductChartSample">商品上架統計表</a>
-                            <a class="collapse-item" asp-area="" asp-controller="product" asp-action="ProductChartTwo">商品銷售數量統計表</a>
-                        </div>
-                    </div>
-                </li>
+                </form>
 
-                <a asp-area="" asp-controller="Home" asp-action="Logout" class="btn btn-logout"><i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>登出</a>
-                <br />
-                <!-- Divider -->
-                <hr class="sidebar-divider d-none d-md-block">
+                <!-- Topbar Navbar -->
+                <ul class="navbar-nav ml-auto">
 
-                <!-- #endregion Heading 大分類-會員專區 -->
-                <!-- Sidebar Toggler (Sidebar) -->
-                <div class="text-center d-none d-md-inline">
-                    <button class="rounded-circle border-0" id="sidebarToggle" onclick="sidebarToggle"></button>
+                    <!-- Nav Item - Search Dropdown (Visible Only XS) -->
+                    <li class="nav-item dropdown no-arrow d-sm-none">
+                        <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <!-- Dropdown - Messages -->
+                        <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in" aria-labelledby="searchDropdown">
+                            <form class="form-inline mr-auto w-100 navbar-search">
+                                <div class="input-group">
+                                    <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+                                    <div class="input-group-append">
+                                        <button class="btn btn-primary" type="button">
+                                            <i class="fas fa-search fa-sm"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </li>
+                    <!-- #111111111111111111111111111111111111111111111111111111111111 -->
+                    <!-- #region -->
+                    <!-- #region Nav Item - Alerts 狀態中心 -->
+                    <!--<li class="nav-item dropdown no-arrow mx-1">
+    <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <i class="fas fa-bell fa-fw"></i>-->
+                    <!-- Counter - Alerts 狀態通知數量 -->
+                    <!--<span class="badge badge-danger badge-counter">3+</span>
+    </a>-->
+                    <!-- Dropdown - Alerts 狀態中心內文 -->
+                    <!--<div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="alertsDropdown">
+            <h6 class="dropdown-header">狀態中心</h6>
+            <a class="dropdown-item d-flex align-items-center" href="#">
+                <div class="mr-3">
+                    <div class="icon-circle bg-primary">
+                        <i class="fas fa-file-alt text-white"></i>
+                    </div>
                 </div>
-            }
-        }
-    </ul>
-    <!-- #endregion 會員登入 -->
-
-
-    <!-- #endregion sidebar End 側欄 -->
-
-    <div class="divPosition">
-
-
-        <!-- #region TopBar Start 頂部欄位 -->
-
-        <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow backgroundcolor">
-
-            <!-- Sidebar Toggle (Topbar) -->
-            <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
-                <i class="fa fa-bars"></i>
-            </button>
-
-            <!-- Topbar Search -->
-            <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-5 my-2 my-md-0 mw-100 navbar-search">
-                @*<div class="input-group offset-md-1">
-                        <div class="input-group-append">
-                            @Html.TextBox("txtkeyword", "", new { @class = "form-control bg-light border-0 small" })
-                            <div class="input-group-append">
-                                <input class="btn btn-primary" type="submit" value="Search" />
-                            </div>
-                        </div>
-                    </div>*@
-            </form>
-
-            <!-- Topbar Navbar -->
-            <ul class="navbar-nav ml-auto">
-
-                <!-- Nav Item - Search Dropdown (Visible Only XS) -->
-                <li class="nav-item dropdown no-arrow d-sm-none">
-                    <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="fas fa-search fa-fw"></i>
-                    </a>
-                    <!-- Dropdown - Messages -->
-                    <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in" aria-labelledby="searchDropdown">
-                        <form class="form-inline mr-auto w-100 navbar-search">
-                            <div class="input-group">
-                                <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
-                                <div class="input-group-append">
-                                    <button class="btn btn-primary" type="button">
-                                        <i class="fas fa-search fa-sm"></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </form>
+                <div>
+                    <div class="small text-gray-500">10月11日, 2022</div>
+                    <span class="font-weight-bold">前台網頁製作模組完成</span>
+                </div>
+            </a>
+            <a class="dropdown-item d-flex align-items-center" href="#">
+                <div class="mr-3">
+                    <div class="icon-circle bg-success">
+                        <i class="fas fa-donate text-white"></i>
                     </div>
-                </li>
-                <!-- #111111111111111111111111111111111111111111111111111111111111 -->
-                <!-- #region -->
-                <!-- #region Nav Item - Alerts 狀態中心 -->
-                <!--<li class="nav-item dropdown no-arrow mx-1">
-                <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i class="fas fa-bell fa-fw"></i>-->
-                <!-- Counter - Alerts 狀態通知數量 -->
-                <!--<span class="badge badge-danger badge-counter">3+</span>
-                </a>-->
-                <!-- Dropdown - Alerts 狀態中心內文 -->
-                <!--<div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="alertsDropdown">
-                        <h6 class="dropdown-header">狀態中心</h6>
-                        <a class="dropdown-item d-flex align-items-center" href="#">
-                            <div class="mr-3">
-                                <div class="icon-circle bg-primary">
-                                    <i class="fas fa-file-alt text-white"></i>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="small text-gray-500">10月11日, 2022</div>
-                                <span class="font-weight-bold">前台網頁製作模組完成</span>
-                            </div>
-                        </a>
-                        <a class="dropdown-item d-flex align-items-center" href="#">
-                            <div class="mr-3">
-                                <div class="icon-circle bg-success">
-                                    <i class="fas fa-donate text-white"></i>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="small text-gray-500">09月08日, 2022</div>
-                                專題期中報告
-                            </div>
-                        </a>
-                        <a class="dropdown-item d-flex align-items-center" href="#">
-                            <div class="mr-3">
-                                <div class="icon-circle bg-warning">
-                                    <i class="fas fa-exclamation-triangle text-white"></i>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="small text-gray-500">07月20日, 2022</div>
-                                特別時刻! M.D.A. 專案小組啟動!!
-                            </div>
-                        </a>
-                        <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
+                </div>
+                <div>
+                    <div class="small text-gray-500">09月08日, 2022</div>
+                    專題期中報告
+                </div>
+            </a>
+            <a class="dropdown-item d-flex align-items-center" href="#">
+                <div class="mr-3">
+                    <div class="icon-circle bg-warning">
+                        <i class="fas fa-exclamation-triangle text-white"></i>
                     </div>
-                </li>-->
-                <!-- #endregion Nav Item - Alerts 狀態中心 -->
-                <!-- #region Nav Item - Messages 訊息中心 -->
-                <!--<li class="nav-item dropdown no-arrow mx-1">
-                <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i class="fas fa-envelope fa-fw"></i>-->
-                <!-- Counter - Messages 訊息通知數量 -->
-                <!--<span class="badge badge-danger badge-counter">7</span>
-                </a>-->
-                <!-- Dropdown - Messages 訊息中心內文 -->
-                <!--<div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="messagesDropdown">
-                        <h6 class="dropdown-header">訊息中心</h6>
-                        <a class="dropdown-item d-flex align-items-center" href="#">
-                            <div class="dropdown-list-image mr-3">
-                                <img class="rounded-circle" src="~/images/mem01.png" alt="...">
-                                <div class="status-indicator bg-success"></div>
-                            </div>
-                            <div class="font-weight-bold">
-                                <div class="text-truncate">
-                                    大家加油!!
-                                </div>
-                                <div class="small text-gray-500">游曉雯 · 58m</div>
-                            </div>
-                        </a>
-                        <a class="dropdown-item d-flex align-items-center" href="#">
-                            <div class="dropdown-list-image mr-3">
-                                <img class="rounded-circle" src="~/images/mem02.png" alt="...">
-                                <div class="status-indicator"></div>
-                            </div>
-                            <div>
-                                <div class="text-truncate">
-                                    姊姊~ 今天要訂披薩嗎，我想吃!!!
-                                </div>
-                                <div class="small text-gray-500">陳苡錚 · 1d</div>
-                            </div>
-                        </a>
-                        <a class="dropdown-item d-flex align-items-center" href="#">
-                            <div class="dropdown-list-image mr-3">
-                                <img class="rounded-circle" src="~/images/mem03.png" alt="...">
-                                <div class="status-indicator bg-warning"></div>
-                            </div>
-                            <div>
-                                <div class="text-truncate">
-                                    吼呦~ 我老公又加班了!! 整天在那邊寫code!!
-                                </div>
-                                <div class="small text-gray-500">洪暐婷 · 2d</div>
-                            </div>
-                        </a>
-                        <a class="dropdown-item d-flex align-items-center" href="#">
-                            <div class="dropdown-list-image mr-3">
-                                <img class="rounded-circle" src="~/images/cat01.png" alt="...">
-                                <div class="status-indicator bg-success"></div>
-                            </div>
-                            <div>
-                                <div class="text-truncate">
-                                    今天我想早點回去..  可以嗎?
-                                </div>
-                                <div class="small text-gray-500">王婷薇 · 2w</div>
-                            </div>
-                        </a>
-                        <a class="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>
-                    </div>
-                </li>-->
-                <!-- #endregion Nav Item - Messages 訊息中心 -->
-                <!-- #region -->
-                <!-- #111111111111111111111111111111111111111111111111111111111111 -->
-                <div class="topbar-divider d-none d-sm-block"></div>
-
-                <!-- #region Nav Item - User Information 登入狀態 -->
-                <li class="nav-item dropdown no-arrow">
-                    <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <span class="mr-2 d-none d-lg-inline text-gray-600 small">Administrator</span>
-                        <img class="img-profile rounded-circle" src="~/images/MEMBER.png">
-                    </a>
-                    <!-- Dropdown - User Information -->
-                    <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                        <a class="dropdown-item" href="#"><i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>狀態</a>
-                        <a class="dropdown-item" href="#"><i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>設定</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal"><i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>登出</a>
-                    </div>
-                </li>
-                <!-- #endregion Nav Item - User Information 登入狀態 -->
-
-            </ul>
-        </nav>
-        <!-- #endregion TopBar End 頂部欄位 -->
-        <!-- #region RenderBody Start -->
-        <div class="container col-12">
-            <main role="main" class="pb-3">
-                @RenderBody()
-            </main>
+                </div>
+                <div>
+                    <div class="small text-gray-500">07月20日, 2022</div>
+                    特別時刻! M.D.A. 專案小組啟動!!
+                </div>
+            </a>
+            <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
         </div>
-        <!-- #endregion RenderBody End -->
-        <!-- #region Footer Start -->
-        <footer class="sticky-footer bg-white ">
-            <div class="container my-auto">
-                <div class="copyright text-center my-auto">
-                    <span>Copyright &copy; Your Website 2022</span>
+    </li>-->
+                    <!-- #endregion Nav Item - Alerts 狀態中心 -->
+                    <!-- #region Nav Item - Messages 訊息中心 -->
+                    <!--<li class="nav-item dropdown no-arrow mx-1">
+    <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <i class="fas fa-envelope fa-fw"></i>-->
+                    <!-- Counter - Messages 訊息通知數量 -->
+                    <!--<span class="badge badge-danger badge-counter">7</span>
+    </a>-->
+                    <!-- Dropdown - Messages 訊息中心內文 -->
+                    <!--<div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="messagesDropdown">
+            <h6 class="dropdown-header">訊息中心</h6>
+            <a class="dropdown-item d-flex align-items-center" href="#">
+                <div class="dropdown-list-image mr-3">
+                    <img class="rounded-circle" src="~/images/mem01.png" alt="...">
+                    <div class="status-indicator bg-success"></div>
                 </div>
+                <div class="font-weight-bold">
+                    <div class="text-truncate">
+                        大家加油!!
+                    </div>
+                    <div class="small text-gray-500">游曉雯 · 58m</div>
+                </div>
+            </a>
+            <a class="dropdown-item d-flex align-items-center" href="#">
+                <div class="dropdown-list-image mr-3">
+                    <img class="rounded-circle" src="~/images/mem02.png" alt="...">
+                    <div class="status-indicator"></div>
+                </div>
+                <div>
+                    <div class="text-truncate">
+                        姊姊~ 今天要訂披薩嗎，我想吃!!!
+                    </div>
+                    <div class="small text-gray-500">陳苡錚 · 1d</div>
+                </div>
+            </a>
+            <a class="dropdown-item d-flex align-items-center" href="#">
+                <div class="dropdown-list-image mr-3">
+                    <img class="rounded-circle" src="~/images/mem03.png" alt="...">
+                    <div class="status-indicator bg-warning"></div>
+                </div>
+                <div>
+                    <div class="text-truncate">
+                        吼呦~ 我老公又加班了!! 整天在那邊寫code!!
+                    </div>
+                    <div class="small text-gray-500">洪暐婷 · 2d</div>
+                </div>
+            </a>
+            <a class="dropdown-item d-flex align-items-center" href="#">
+                <div class="dropdown-list-image mr-3">
+                    <img class="rounded-circle" src="~/images/cat01.png" alt="...">
+                    <div class="status-indicator bg-success"></div>
+                </div>
+                <div>
+                    <div class="text-truncate">
+                        今天我想早點回去..  可以嗎?
+                    </div>
+                    <div class="small text-gray-500">王婷薇 · 2w</div>
+                </div>
+            </a>
+            <a class="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>
+        </div>
+    </li>-->
+                    <!-- #endregion Nav Item - Messages 訊息中心 -->
+                    <!-- #region -->
+                    <!-- #111111111111111111111111111111111111111111111111111111111111 -->
+
+
+                    @{
+                        if (Accessor.HttpContext.Session.Keys.Contains(CDictionary.SK_LOGINED_USER))
+                        {
+                            var OBJ = Accessor.HttpContext.Session.GetString(CDictionary.SK_LOGINED_USER);//取得登入者的SESSION
+                            var v = JsonSerializer.Deserialize<會員member>(OBJ);
+
+                            if (v.會員電話cellphone != null)
+                            {
+                                <div class="topbar-divider d-none d-sm-block"></div>
+
+
+                                <!-- #region Nav Item - User Information 登入狀態 -->
+                                <li class="nav-item dropdown no-arrow">
+                                    <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <span class="mr-2 d-none d-lg-inline text-gray-600 small">@v.暱稱nickName</span>
+                                        <img class="img-profile rounded-circle" src="~/images/Member/@v.會員照片image">
+                                    </a>
+                                    <!-- Dropdown - User Information -->
+                                    <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                                        <a class="dropdown-item" href="#"><i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>狀態</a>
+                                        <a class="dropdown-item" href="#"><i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>設定</a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal"><i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>登出</a>
+                                    </div>
+                                </li>
+                                <!-- #endregion Nav Item - User Information 登入狀態 -->
+
+                            }
+
+                        }
+                        else
+                        {
+
+                            <li >
+                                <a asp-area="" asp-controller="Home" asp-action="Logout"><i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i></a>
+                            </li>
+                            }
+                            }
+
+
+
+
+
+
+
+
+
+
+
+
+                        </ul>
+            </nav>
+            <!-- #endregion TopBar End 頂部欄位 -->
+            <!-- #region RenderBody Start -->
+            <div class="container col-12">
+                <main role="main" class="pb-3">
+                    @RenderBody()
+                </main>
             </div>
-        </footer>
-        <!-- #endregion Footer End -->
+            <!-- #endregion RenderBody End -->
+            <!-- #region Footer Start -->
+            <footer class="sticky-footer bg-white ">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span>Copyright &copy; Your Website 2022</span>
+                    </div>
+                </div>
+            </footer>
+            <!-- #endregion Footer End -->
 
-    </div>
-    <!-- #region Scripts -->
-    <script src="~/js/vendor/jquery/jquery.min.js"></script>
-    <script src="~/js/vendor/bootstrap/js/bootstrap.min.js"></script>
-    <script src="~/js/vendor/jquery-easing/jquery.easing.min.js"></script>
-    <script src="~/js/sb-admin-2.min.js"></script>
-    <script src="~/js/vendor/chart.js/Chart.min.js"></script>
-    <script src="~/js/chart-area-demo.js"></script>
-    <script src="~/js/chart-pie-demo.js"></script>
-    <script src="/jquery/jquery-1.11.1.min.js"></script>
-    <script src="~/wencssjs/chart.js/Chart.js"></script>
-    <script src="~/wencssjs/chart.js/utils.js"></script>
-    <script src="~/wencssjs/lib/jquery/dist/jquery.js"></script>
-    <script>
-        $(document).ready(function () {
-            $("#sidebarToggle").click(function () {
-                $("#logo1").toggle();
+        </div>
+        <!-- #region Scripts -->
+        <script src="~/js/vendor/jquery/jquery.min.js"></script>
+        <script src="~/js/vendor/bootstrap/js/bootstrap.min.js"></script>
+        <script src="~/js/vendor/jquery-easing/jquery.easing.min.js"></script>
+        <script src="~/js/sb-admin-2.min.js"></script>
+        <script src="~/js/vendor/chart.js/Chart.min.js"></script>
+        <script src="~/js/chart-area-demo.js"></script>
+        <script src="~/js/chart-pie-demo.js"></script>
+        <script src="/jquery/jquery-1.11.1.min.js"></script>
+        <script src="~/wencssjs/chart.js/Chart.js"></script>
+        <script src="~/wencssjs/chart.js/utils.js"></script>
+        <script src="~/wencssjs/lib/jquery/dist/jquery.js"></script>
+        <script>
+            $(document).ready(function () {
+                $("#sidebarToggle").click(function () {
+                    $("#logo1").toggle();
+                });
             });
-        });
-    </script>
-    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
-    <script src="~/js/bootstrap-5.2.2/bootstrap.bundle.min.js"></script>
-    <script src="~/js/vendor/datatables/jquery.dataTables.js"></script>
-    @await RenderSectionAsync("Scripts", required: false)
-    <!-- #endregion Scripts -->
+        </script>
+        <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
+        <script src="~/js/bootstrap-5.2.2/bootstrap.bundle.min.js"></script>
+        <script src="~/js/vendor/datatables/jquery.dataTables.js"></script>
+        @await RenderSectionAsync("Scripts", required: false)
+        <!-- #endregion Scripts -->
 
-</body>
+    </body>
 </html>
