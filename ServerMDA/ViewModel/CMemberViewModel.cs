@@ -30,7 +30,7 @@ namespace ServerMDA.ViewModel
         [DisplayName("電話")]
         public string 會員電話cellphone
         {
-            get { return _member.會員電話cellphone = _member.會員電話cellphone.Substring(0, 4) + "****" + _member.會員電話cellphone.Substring(8); }
+            get { return _member.會員電話cellphone = _member.會員電話cellphone.Substring(0, 4) + "1111" + _member.會員電話cellphone.Substring(8); }
             set { _member.會員電話cellphone = value; }
         }
         [DisplayName("密碼")]
