@@ -83,6 +83,8 @@
                             <div class="bg-white py-2 collapse-inner rounded">
                                 <h6 class="collapse-header text-gray-600">電影管理:</h6>
                                 <a class="collapse-item" asp-area="" asp-controller="Movie" asp-action="List">電影</a>
+                                <a class="collapse-item" asp-area="" asp-controller="Actor" asp-action="List">演員</a>
+                                <a class="collapse-item" asp-area="" asp-controller="Director" asp-action="List">導演</a>
                                 <a class="collapse-item" asp-area="" asp-controller="MovieImage" asp-action="List">電影海報、劇照</a>
                                 @*<a class="collapse-item" asp-area="" asp-controller="MovieIimagesList" asp-action="List">電影圖片清單</a>*@
                                 <a class="collapse-item" asp-area="" asp-controller="MovieOrigin" asp-action="List">電影產地</a>
@@ -90,8 +92,7 @@
                                 <a class="collapse-item" asp-area="" asp-controller="MovieLanguage" asp-action="List">電影語言</a>
                                 <a class="collapse-item" asp-area="" asp-controller="MovieType" asp-action="List">電影分類(片種)</a>
                                 <a class="collapse-item" asp-area="" asp-controller="MovieRating" asp-action="List">電影分級</a>
-                                <a class="collapse-item" asp-area="" asp-controller="Director" asp-action="List">導演</a>
-                                <a class="collapse-item" asp-area="" asp-controller="Actor" asp-action="List">演員</a>
+
                             </div>
                         </div>
                     </li>
@@ -107,9 +108,9 @@
                                 <h6 class="collapse-header text-gray-600">影城管理:</h6>
                                 <a class="collapse-item" asp-area="" asp-controller="Theater" asp-action="List">電影院</a>
                                 <a class="collapse-item" asp-area="" asp-controller="Cinema" asp-action="List">影廳</a>
-                                <a class="collapse-item" asp-area="" asp-controller="Screening" asp-action="List">場次</a>
-                                <a class="collapse-item" asp-area="" asp-controller="SeatStatus" asp-action="List">座位資訊</a>
-                                <a class="collapse-item" asp-area="" asp-controller="票種ticketType" asp-action="Index">票種、票價</a>
+                                @*<a class="collapse-item" asp-area="" asp-controller="Screening" asp-action="List">場次</a>*@
+                                @*<a class="collapse-item" asp-area="" asp-controller="SeatStatus" asp-action="List">座位資訊</a>
+                                <a class="collapse-item" asp-area="" asp-controller="票種ticketType" asp-action="Index">票種、票價</a>*@
                             </div>
                         </div>
                     </li>

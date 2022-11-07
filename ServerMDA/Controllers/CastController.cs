@@ -85,7 +85,7 @@ namespace ServerMDA.Controllers
                     //系列名稱seriesName = p.系列編號series.系列名稱seriesName,
 
                 }).FirstOrDefault();
-            return View(datas);
+            return RedirectToAction("List", "Cast");
         }
         public ActionResult Create(int? id)
         {

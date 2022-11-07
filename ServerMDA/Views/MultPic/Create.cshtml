@@ -130,12 +130,13 @@
         const hint = document.getElementById("Upload_File_Count");
         let count = document.getElementById("Upload_File").files.length;
 
-        hint.innerText = `上傳${count}張照片`;
+
         const file = document.getElementById("Upload_File").files;
         for (let i = 0; i < file.length+1; i++) {
             let objectURL = URL.createObjectURL(file[i]);
             $(`#myimg${i}`).attr('src', objectURL);
         }
+/*        hint.innerText = `上傳${count}張照片`;*/
     })
 
 </script>

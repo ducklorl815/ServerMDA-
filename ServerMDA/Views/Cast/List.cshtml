@@ -1,16 +1,17 @@
 ﻿@using ServerMDA.ViewModel
-@model List<CCastViewModel> 
+@model List<CCastViewModel>
 
 @{
-    ViewData["Title"] = "List";
+    ViewData["Title"] = "主演清單";
 }
 
-<h1>List</h1>
+<h3 class="MovieList">
+    電影圖片清單
+    @*<a class="btn btn-success mb-1" onclick="showmodal('@Url.Action("Create", "MovieImage", Context.Request.Scheme)',null)">新增</a>*@
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
+    <a class="btn btn-success mb-1" onclick="showmodal('@Url.Action("Create", "Cast", Context.Request.Scheme)',null)">新增</a>
+</h3>
+<table id="myTable" class="table table-striped tables table-hover ">
     <thead>
         <tr>
             <th>
@@ -25,30 +26,71 @@
             <th>
                 @Html.DisplayNameFor(model => model.FirstOrDefault().中文標題titleCht)
             </th>
-            <th></th>
+            <th class="col-1">
+                指令
+            </th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.角色名字characterName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.角色說明characterIllustrate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.演員中文名字nameCht)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.中文標題titleCht)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.主演編號maId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.主演編號maId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.主演編號maId">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr style="white-space:nowrap">
+                <td>
+                    @Html.DisplayFor(modelItem => item.角色名字characterName)
+                </td>
+                <td class="tables_hidtext">
+                    @Html.DisplayFor(modelItem => item.角色說明characterIllustrate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.演員中文名字nameCht)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.中文標題titleCht)
+                </td>
+                <td>
+                    <a class="btn btn btn-yuka mb-1" id="btn" onclick="showmodal('@Url.Action("Edit","Cast",new {id=@item.電影編號movieId},Context.Request.Scheme)',null)">修改</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
+
+<div class="modal fade" id="newstaticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-body col-12 ">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="sortstaticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-body col-12 ">
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="~/js/bootstrap-5.2.2/bootstrap.bundle.min.js"></script>
+<script src="~/js/vendor/jquery/jquery.min.js"></script>
+<script src="~/js/vendor/datatables/Datatable_transCht.js"></script>
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
+
+<script>
+
+    showmodal = (url, title) => {
+        $.ajax({
+            type: "GET",
+            url: url,
+            success: function (res) {
+                $("#newstaticBackdrop .modal-body").html(res);
+                $("#newstaticBackdrop .modal-title").html(title);
+                $("#newstaticBackdrop").modal('show');
+            },
+        })
+    }
+</script>

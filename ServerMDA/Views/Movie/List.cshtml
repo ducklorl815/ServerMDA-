@@ -66,51 +66,51 @@
         <tbody>
             @foreach (var item in Model)
             {
-                <tr style="white-space:nowrap">
-                    <th class="col-1">
-                        @Html.DisplayFor(modelItem => item.電影編號movieId)
-                    </th>
-                    <td>
-                        <input type="hidden" value="@item.電影編號movieId" />
-                        @Html.DisplayFor(modelItem => item.中文標題titleCht)
-                    </td>
-                    <td class="tables_hidtext">
-                        @Html.DisplayFor(modelItem => item.英文標題titleEng)
-                    </td>
-                    @*<td class="tables_hidtext">
-                            @Html.DisplayFor(modelItem => item.上映年份releaseYear)
-                        </td>*@
-                    <td class="tables_hidtext">
-                        @Html.DisplayFor(modelItem => item.上映日期releaseDate)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.片長runtime)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.評分rate)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.期待度anticipation)
-                    </td>
-                    <td style="white-space:pre-wrap pre-line pre">
-                        @Html.DisplayFor(modelItem => item.票房boxOffice)
-                    </td>
-                    @*<td class="tables_hidtext">
-                            @Html.DisplayFor(modelItem => item.劇情大綱plot)
-                        </td>*@
-                    <td class="tables_hidtext">
-                        @Html.DisplayFor(modelItem => item.系列名稱seriesName)
-                    </td>
-                    <td>
-                        <a src="@Url.Action("Edit","Cast", new {id= item.電影分級編號ratingId })"></a>
-                        <img src="@Url.Action("ShowPhoto","Movie", new {id= item.電影分級編號ratingId })" class="img-fluid w-50" />
-                    </td>
-                    <td>
-                        <a class="btn btn-yuka " id="btn" onclick="showmodal('@Url.Action("Edit","Movie",new {id=@item.電影編號movieId},Context.Request.Scheme)',null)">修改</a>
-                        <a class="btn btn-details " id="btn" onclick="showmodal('@Url.Action("Details","Movie",new {id=@item.電影編號movieId},Context.Request.Scheme)',null)">細節</a>
-                        @*<a asp-action="Edit" asp-route-id="@item.電影編號movieId" class="btn btn-info mb-1" style="white-space:nowrap">修改</a>*@
-                    </td>
-                </tr>
+            <tr style="white-space:nowrap">
+                <th class="col-1">
+                    @Html.DisplayFor(modelItem => item.電影編號movieId)
+                </th>
+                <td class="tables_hidtext">
+                    <input type="hidden" value="@item.電影編號movieId" />
+                    @Html.DisplayFor(modelItem => item.中文標題titleCht)
+                </td>
+                <td class="tables_hidtext">
+                    @Html.DisplayFor(modelItem => item.英文標題titleEng)
+                </td>
+                @*<td class="tables_hidtext">
+            @Html.DisplayFor(modelItem => item.上映年份releaseYear)
+        </td>*@
+                <td class="tables_hidtext">
+                    @Html.DisplayFor(modelItem => item.上映日期releaseDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.片長runtime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.評分rate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.期待度anticipation)
+                </td>
+                <td style="white-space:pre-wrap pre-line pre">
+                    @Html.DisplayFor(modelItem => item.票房boxOffice)
+                </td>
+                @*<td class="tables_hidtext">
+            @Html.DisplayFor(modelItem => item.劇情大綱plot)
+        </td>*@
+                <td class="tables_hidtext">
+                    @Html.DisplayFor(modelItem => item.系列名稱seriesName)
+                </td>
+                <td>
+                    <a src="@Url.Action("Edit","Cast", new {id= item.電影分級編號ratingId })"></a>
+                    <img src="@Url.Action("ShowPhoto","Movie", new {id= item.電影分級編號ratingId })" class="img-fluid w-50" />
+                </td>
+                <td>
+                    <a class="btn btn-yuka " id="btn" onclick="showmodal('@Url.Action("Edit","Movie",new {id=@item.電影編號movieId},Context.Request.Scheme)',null)">修改</a>
+                    <a class="btn btn-details " id="btn" onclick="showmodal('@Url.Action("Details","Movie",new {id=@item.電影編號movieId},Context.Request.Scheme)',null)">細節</a>
+                    @*<a asp-action="Edit" asp-route-id="@item.電影編號movieId" class="btn btn-info mb-1" style="white-space:nowrap">修改</a>*@
+                </td>
+            </tr>
             }
         </tbody>
     </table>
