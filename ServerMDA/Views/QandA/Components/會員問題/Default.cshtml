@@ -1,0 +1,55 @@
+﻿@model List<ServerMDA.ViewModel.CQandAViewModel>
+
+
+@{
+    ViewData["Title"] = "Default"; @*會員問題*@
+}
+<div>
+    <table id="myTable" class="table tables display compact hover col-12">
+        <thead>
+            <tr style="white-space:nowrap">
+                <th class="col-1">
+                    序號
+                </th>
+                <th class="col-2">
+                    問題
+                </th>
+                <th class="col-8">
+                    回答
+                </th>
+                <th class="col-1">
+                    指令
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @{int count = 0;
+                foreach (var item in Model)
+                {
+                    count++;
+                    <tr>
+                        <td id="編號" style="vertical-align: central; align-content:center">
+                            @count
+                            <input type="hidden" value="@Html.DisplayFor(modelItem => item.會員問題memQaId)" />
+                        </td>
+                        <td id="QQQ">
+                            <div class="col-10 offset-1">
+                                @Html.DisplayFor(modelItem => item.會員問題Question)
+                            </div>
+                        </td>
+                        <td id="AAA">
+                            <div class="col-10 offset-1">
+                                @Html.DisplayFor(modelItem => item.會員答案Answer)
+                            </div>
+                        </td>
+                        <td>
+
+                            <a class="btn btn-yuka " id="btn" onclick="showmodal('@Url.Action("Edit2", "QandA", new { id = @item.會員問題memQaId }, Context.Request.Scheme)',null)">修改</a>
+                            @*<a class="btn btn-details " id="btn" onclick="showmodal('@Url.Action("Details","Member",new {id=@item.會員編號memberId},Context.Request.Scheme)',null)">細節</a>*@
+                        </td>
+                    </tr>
+                } }
+        </tbody>
+
+    </table>
+</div>

@@ -1,24 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "D:\\後台\\ServerMDA\\ServerMDA.csproj": {}
+    "C:\\MDA後台\\ServerMDA\\ServerMDA.csproj": {}
   },
   "projects": {
-    "D:\\後台\\ServerMDA\\ServerMDA.csproj": {
+    "C:\\MDA後台\\ServerMDA\\ServerMDA.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\後台\\ServerMDA\\ServerMDA.csproj",
+        "projectUniqueName": "C:\\MDA後台\\ServerMDA\\ServerMDA.csproj",
         "projectName": "ServerMDA",
-        "projectPath": "D:\\後台\\ServerMDA\\ServerMDA.csproj",
-        "packagesPath": "C:\\Users\\WennieYu\\.nuget\\packages\\",
-        "outputPath": "D:\\後台\\ServerMDA\\obj\\",
+        "projectPath": "C:\\MDA後台\\ServerMDA\\ServerMDA.csproj",
+        "packagesPath": "C:\\Users\\yikis\\.nuget\\packages\\",
+        "outputPath": "C:\\MDA後台\\ServerMDA\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\WennieYu\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\yikis\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
@@ -78,7 +79,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.409\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.413\\RuntimeIdentifierGraph.json"
         }
       }
     }

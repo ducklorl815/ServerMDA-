@@ -1,0 +1,321 @@
+﻿@model ServerMDA.ViewModel.CQandAViewModel
+
+@{
+    ViewData["Title"] = "新增";
+    Layout = null;
+}
+
+<div class="row">
+    <form asp-action="Create1">
+        <div class="d-flex flex-row">
+            <div class="col-6">
+                <h4 class="offset-md-1">新增QA項目</h4>
+                <input type="hidden" asp-for="qtype" value="1" />
+                <div id="quickchange">
+                    <h3 class="chagetitle" style="width: 250px; vertical-align:middle; ">問題分類</h3>
+                    <select id="selector2" class="form-select" name="selector" style="width:200px;">
+                        <option value="1">一般資訊</option>
+                        <option value="2">會員問題 </option>
+                        <option value="3">評分問題 </option>
+                        <option value="4">評論問題 </option>
+                        <option value="5">加入片單 </option>
+                        <option value="6">訂票問題 </option>
+                        <option value="7">取票問題 </option>
+                        <option value="8">退票問題 </option>
+                        <option value="9">優惠券 </option>
+                        <option value="10">購物問題 </option>
+                    </select>
+                </div>
+                <div id="11">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="問題Question" class="control-label"></label>
+                        <input asp-for="問題Question" class="form-control" id="Q1" />
+                        <span asp-validation-for="問題Question" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="答案Answer" class="control-label"></label>
+                        <textarea asp-for="答案Answer" class="form-control" style="width:700px;height:150px;" id="A1"></textarea>
+                        <span asp-validation-for="答案Answer" class="text-danger"></span>
+                    </div>
+                </div>
+                <div id="12" style="display:none;">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="會員問題Question" class="control-label"></label>
+                        <input asp-for="會員問題Question" class="form-control" id="Q2" />
+                        <span asp-validation-for="會員問題Question" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="會員答案Answer" class="control-label"></label>
+                        <textarea asp-for="會員答案Answer" class="form-control" style="width:700px;height:150px;" id="A2"></textarea>
+                        <span asp-validation-for="會員答案Answer" class="text-danger"></span>
+                    </div>
+                </div>
+                <div id="13" style="display:none;">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="評分問題Question" class="control-label"></label>
+                        <input asp-for="評分問題Question" class="form-control" id="Q3" />
+                        <span asp-validation-for="評分問題Question" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="評分答案Answer" class="control-label"></label>
+                        <textarea asp-for="評分答案Answer" class="form-control" style="width:700px;height:150px;" id="A3"></textarea>
+                        <span asp-validation-for="評分答案Answer" class="text-danger"></span>
+                    </div>
+                </div>
+                <div id="14" style="display:none;">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="評論問題Question" class="control-label"></label>
+                        <input asp-for="評論問題Question" class="form-control" id="Q4" />
+                        <span asp-validation-for="評論問題Question" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="評論答案Answer" class="control-label"></label>
+                        <textarea asp-for="評論答案Answer" class="form-control" style="width:700px;height:150px;" id="A4"></textarea>
+                        <span asp-validation-for="評論答案Answer" class="text-danger"></span>
+                    </div>
+                </div>
+                <div id="15" style="display:none;">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="加入片單Question" class="control-label"></label>
+                        <input asp-for="加入片單Question" class="form-control" id="Q5" />
+                        <span asp-validation-for="加入片單Question" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="加入片單Answer" class="control-label"></label>
+                        <textarea asp-for="加入片單Answer" class="form-control" style="width:700px;height:150px;" id="A5"></textarea>
+                        <span asp-validation-for="加入片單Answer" class="text-danger"></span>
+                    </div>
+                </div>
+                <div id="16" style="display:none;">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="訂票問題Question" class="control-label"></label>
+                        <input asp-for="訂票問題Question" class="form-control" id="Q6" />
+                        <span asp-validation-for="訂票問題Question" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="訂票問題Answer" class="control-label"></label>
+                        <textarea asp-for="訂票問題Answer" class="form-control" style="width:700px;height:150px;" id="A6"></textarea>
+                        <span asp-validation-for="訂票問題Answer" class="text-danger"></span>
+                    </div>
+                </div>
+                <div id="17" style="display:none;">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="取票問題Question" class="control-label"></label>
+                        <input asp-for="取票問題Question" class="form-control" id="Q7" />
+                        <span asp-validation-for="取票問題Question" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="取票問題Answer" class="control-label"></label>
+                        <textarea asp-for="取票問題Answer" class="form-control" style="width:700px;height:150px;" id="A7"></textarea>
+                        <span asp-validation-for="取票問題Answer" class="text-danger"></span>
+                    </div>
+                </div>
+                <div id="18" style="display:none;">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="退票問題Question" class="control-label"></label>
+                        <input asp-for="退票問題Question" class="form-control" id="Q8" />
+                        <span asp-validation-for="退票問題Question" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="退票問題Answer" class="control-label"></label>
+                        <textarea asp-for="退票問題Answer" class="form-control" style="width:700px;height:150px;" id="A8"></textarea>
+                        <span asp-validation-for="退票問題Answer" class="text-danger"></span>
+                    </div>
+                </div>
+                <div id="19" style="display:none;">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="優惠券問題Question" class="control-label"></label>
+                        <input asp-for="優惠券問題Question" class="form-control" id="Q9" />
+                        <span asp-validation-for="優惠券問題Question" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="優惠券問題Answer" class="control-label"></label>
+                        <textarea asp-for="優惠券問題Answer" class="form-control" style="width:700px;height:150px;" id="A9"></textarea>
+                        <span asp-validation-for="優惠券問題Answer" class="text-danger"></span>
+                    </div>
+                </div>
+                <div id="20" style="display:none;">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="購物問題Question" class="control-label"></label>
+                        <input asp-for="購物問題Question" class="form-control" id="Q10" />
+                        <span asp-validation-for="購物問題Question" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="購物問題Answer" class="control-label"></label>
+                        <textarea asp-for="購物問題Answer" class="form-control" style="width:700px;height:150px;" id="A10"></textarea>
+                        <span asp-validation-for="購物問題Answer" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            </div>
+       
+        <div class="d-flex flex-row">
+            <div class="form-group" style="float:right">
+                <input type="submit" value="新增" class="btn btn-success" />
+                <button type="button" class="btn btn-dark" aria-label="Close" id="demo">Demo</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" aria-label="Close">回到清單</button>
+            </div>
+        </div>
+
+
+    </form>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
+<script>
+
+    demo.addEventListener("click", () => {
+        const Question = document.querySelector("#Q1");
+        const Answer = document.querySelector("#A1");
+        const Question2 = document.querySelector("#Q2");
+        const Answer2 = document.querySelector("#A2");
+        Question.value = "請問可以MDA有提供線上收看的功能嗎？";
+        Answer.value = "沒有。";
+        Question2.value = "沒錢可以送我電影片嗎？";
+        Answer2.value = "不行。";
+    })
+
+
+    $('#selector2').on('change', function () {
+            console.log(this.value)
+        arrToDo = this.value;
+        $('#qtype').val(arrToDo);
+        if (this.value == 1) {           
+            $('#11').css('display', 'block')
+            $('#12').css('display', 'none')
+            $('#13').css('display', 'none')
+            $('#14').css('display', 'none')
+            $('#15').css('display', 'none')
+            $('#16').css('display', 'none')
+            $('#17').css('display', 'none')
+            $('#18').css('display', 'none')
+            $('#19').css('display', 'none')
+            $('#20').css('display', 'none')
+            }
+        if (this.value == 2) {
+            $('#12').css('display', 'block')
+            $('#11').css('display', 'none')                
+            $('#13').css('display', 'none')
+            $('#14').css('display', 'none')
+            $('#15').css('display', 'none')
+            $('#16').css('display', 'none')
+            $('#17').css('display', 'none')
+            $('#18').css('display', 'none')
+            $('#19').css('display', 'none')
+            $('#20').css('display', 'none')
+            }
+        if (this.value == 3) {
+            $('#13').css('display', 'block')
+            $('#11').css('display', 'none')
+            $('#12').css('display', 'none')
+            $('#14').css('display', 'none')
+            $('#15').css('display', 'none')
+            $('#16').css('display', 'none')
+            $('#17').css('display', 'none')
+            $('#18').css('display', 'none')
+            $('#19').css('display', 'none')
+            $('#20').css('display', 'none')
+        }
+        if (this.value == 4) {
+            $('#14').css('display', 'block')
+            $('#11').css('display', 'none')
+            $('#12').css('display', 'none')
+            $('#13').css('display', 'none')
+            $('#15').css('display', 'none')
+            $('#16').css('display', 'none')
+            $('#17').css('display', 'none')
+            $('#18').css('display', 'none')
+            $('#19').css('display', 'none')
+            $('#20').css('display', 'none')
+        }
+        if (this.value == 5) {
+            $('#15').css('display', 'block')
+            $('#11').css('display', 'none')
+            $('#12').css('display', 'none')
+            $('#13').css('display', 'none')
+            $('#14').css('display', 'none')
+            $('#16').css('display', 'none')
+            $('#17').css('display', 'none')
+            $('#18').css('display', 'none')
+            $('#19').css('display', 'none')
+            $('#20').css('display', 'none')
+         }
+        if (this.value == 6) {
+            $('#16').css('display', 'block')
+            $('#11').css('display', 'none')
+            $('#12').css('display', 'none')
+            $('#13').css('display', 'none')
+            $('#14').css('display', 'none')
+            $('#15').css('display', 'none')
+            $('#17').css('display', 'none')
+            $('#18').css('display', 'none')
+            $('#19').css('display', 'none')
+            $('#20').css('display', 'none')
+        }
+        if (this.value == 7) {
+            $('#17').css('display', 'block')
+            $('#11').css('display', 'none')
+            $('#12').css('display', 'none')
+            $('#13').css('display', 'none')
+            $('#14').css('display', 'none')
+            $('#15').css('display', 'none')
+            $('#16').css('display', 'none')
+            $('#18').css('display', 'none')
+            $('#19').css('display', 'none')
+            $('#20').css('display', 'none')
+        }
+        if (this.value == 8) {
+            $('#18').css('display', 'block')
+            $('#11').css('display', 'none')
+            $('#12').css('display', 'none')
+            $('#13').css('display', 'none')
+            $('#14').css('display', 'none')
+            $('#15').css('display', 'none')
+            $('#16').css('display', 'none')
+            $('#17').css('display', 'none')
+            $('#19').css('display', 'none')
+            $('#20').css('display', 'none')
+        }
+        if (this.value == 9) {
+            $('#19').css('display', 'block')
+            $('#11').css('display', 'none')
+            $('#12').css('display', 'none')
+            $('#13').css('display', 'none')
+            $('#14').css('display', 'none')
+            $('#15').css('display', 'none')
+            $('#16').css('display', 'none')
+            $('#17').css('display', 'none')
+            $('#18').css('display', 'none')
+            $('#20').css('display', 'none')
+        }
+        if (this.value == 10) {
+            $('#20').css('display', 'block')
+            $('#11').css('display', 'none')
+            $('#12').css('display', 'none')
+            $('#13').css('display', 'none')
+            $('#14').css('display', 'none')
+            $('#15').css('display', 'none')
+            $('#16').css('display', 'none')
+            $('#17').css('display', 'none')
+            $('#18').css('display', 'none')
+            $('#19').css('display', 'none')
+        }
+        })
+
+</script>
+
+<script src="~/js/vendor/datatables/jquery.dataTables.js"></script>

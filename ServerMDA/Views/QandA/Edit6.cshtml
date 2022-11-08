@@ -1,0 +1,110 @@
+﻿@using ServerMDA.ViewModel
+@model List<CQandAViewModel>
+
+@{
+    ViewData["Title"] = "Edit6";
+    Layout = null;
+}
+
+@section styles{
+    <style>
+        textarea {
+        }
+    </style>
+}
+
+<h4>訂票問題QA編輯</h4>
+<hr />
+
+<div class="row">
+    <div class="col-md-4">
+        @*<form asp-action="Edit">*@
+            @{ foreach (var item in Model)
+                {
+
+
+
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" asp-for="@item.訂票問題orderticketQaId" id="id1"/>
+                    <div class="form-group">
+                        <label asp-for="@item.訂票問題Question" class="control-label"></label>
+                        <input asp-for="@item.訂票問題Question" class="form-control" style="width:500px;" id="qq1"/>
+                        <span asp-validation-for="@item.訂票問題Question" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="@item.訂票問題Answer" class="control-label"></label>
+                        <textarea asp-for="@item.訂票問題Answer" class="form-control" style="width:700px;height:150px;" id="aa1"></textarea>
+                        <span asp-validation-for="@item.訂票問題Answer" class="text-danger"></span>
+                    </div>
+
+                }
+            }
+        <div class="form-group">
+            @*<input type="submit" value="Save" class="btn btn-primary" />*@
+            <button id="submit" type="button" value="Save" class="btn btn-primary">Save</button>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" aria-label="Close" id="close">回到清單</button>
+        </div>
+        @*</form>*@
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+
+}
+
+<script>
+    const id = document.querySelectorAll("#id1");
+    const qu = document.querySelectorAll("#qq1");
+    const an = document.querySelectorAll("#aa1")
+    const all = document.querySelectorAll("#aa1,#qq1")
+
+    //let arrId = new Array();
+    //let arrQ = new Array();
+    //let arrA = new Array();
+
+    let arr = [];
+    all.forEach(e => {
+        e.addEventListener("blur", async () => {
+            for (var i = 0; i < id.length; i++) {
+                let object = {
+                    arrID: Number(id[i].value),
+                    arrQ: qu[i].value,
+                    arrA: an[i].value
+                };
+                arr.push(object);
+            }
+        })
+    })
+    //for (var i = 0; i < id.length; i++) {
+    //    let object = {
+    //        arrID: Number(id[i].value),
+    //        arrQ: qu[i].value,
+    //        arrA: an[i].value
+    //    };
+    //    arr.push(object);
+    //    //arrId.push(id[i].value);
+    //    //arrQ.push(qu[i].value);
+    //    //arrA.push(an[i].value);
+    //}
+
+    $('#submit').click(function () {
+
+        $.ajax({
+            type: "POST",
+            url: "@Url.Content("~/ApiHome/editqa6")",
+            data: { jsonString:JSON.stringify(arr) },
+            success: function () {
+                alert('success');
+                $('#close').click();
+                location.reload();
+            },
+            dataType: 'json',
+        });
+      
+    })
+
+</script>
