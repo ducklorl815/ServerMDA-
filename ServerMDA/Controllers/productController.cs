@@ -19,7 +19,6 @@ namespace ServerMDA.Controllers
         private readonly MDAContext _context;
         private IWebHostEnvironment _enviro;
 
-
         public productController(MDAContext context, IWebHostEnvironment p)
         {
             _context = context;
