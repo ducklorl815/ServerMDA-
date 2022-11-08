@@ -37,12 +37,13 @@
 
                     <div class="form-group">
                         <label asp-for="電影名稱movieName" class="control-label"></label>
-                        <select asp-for="電影名稱movieName" name="中文標題titleCht" class="form-control">
+                        <select asp-for="電影名稱movieName" name="中文標題titleCht" class="form-control" id="movieid">
                             <option></option>
                             @{
+                                int i = 0;
                                 foreach (var r in Model.titleChtList)
                                 {
-
+                                    
                                     <option>@r</option>
                                 }
                             }
