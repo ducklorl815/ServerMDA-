@@ -177,17 +177,39 @@
 }
 
 <script>
+    const allQ=document.querySelectorAll('#')
 
     demo.addEventListener("click", () => {
         const Question = document.querySelector("#Q1");
         const Answer = document.querySelector("#A1");
         const Question2 = document.querySelector("#Q2");
         const Answer2 = document.querySelector("#A2");
+        const Question3 = document.querySelector("#Q3");
+        const Answer3 = document.querySelector("#A3");
         Question.value = "請問可以MDA有提供線上收看的功能嗎？";
         Answer.value = "沒有。";
         Question2.value = "沒錢可以送我電影片嗎？";
         Answer2.value = "不行。";
+        Question3.value = "評分系統可以訂票嗎";
+        Answer3.value = "不行。";
     })
+
+
+    all.forEach(e => {
+        e.addEventListener("blur", async () => {
+            for (var i = 0; i < id.length; i++) {
+                let object = {
+                    arrID: Number(id[i].value),
+                    arrQ: qu[i].value,
+                    arrA: an[i].value
+                };
+                arr.push(object);
+            }
+        })
+    })
+
+
+
 
 
     $('#selector2').on('change', function () {
@@ -205,6 +227,7 @@
             $('#18').css('display', 'none')
             $('#19').css('display', 'none')
             $('#20').css('display', 'none')
+           
             }
         if (this.value == 2) {
             $('#12').css('display', 'block')
@@ -315,6 +338,8 @@
             $('#19').css('display', 'none')
         }
         })
+
+
 
 </script>
 

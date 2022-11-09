@@ -5,6 +5,7 @@
     ViewData["Title"] = "Default"; @*訂票問題*@
 }
 <div>
+    <a class="btn btn-yuka " id="btn" onclick="showmodal('@Url.Action("Edit6", "QandA", new { id = Model.First().訂票問題orderticketQaId }, Context.Request.Scheme)',null)">修改</a>
     <table id="myTable" class="table tables display compact hover col-12">
         <thead>
             <tr style="white-space:nowrap">
@@ -44,7 +45,7 @@
                         </td>
                         <td>
 
-                            <a class="btn btn-yuka " id="btn" onclick="showmodal('@Url.Action("Edit6", "QandA", new { id = @item.訂票問題orderticketQaId }, Context.Request.Scheme)',null)">修改</a>
+
                             @*<a class="btn btn-details " id="btn" onclick="showmodal('@Url.Action("Details","Member",new {id=@item.會員編號memberId},Context.Request.Scheme)',null)">細節</a>*@
                         </td>
                     </tr>

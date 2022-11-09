@@ -133,13 +133,9 @@ namespace ServerMDA.Models
 
             modelBuilder.Entity<優惠券couponQa>(entity =>
             {
-                entity.HasNoKey();
-
                 entity.ToTable("優惠券couponQa");
 
-                entity.Property(e => e.優惠券couponQaId)
-                    .ValueGeneratedOnAdd()
-                    .HasColumnName("優惠券couponQaID");
+                entity.Property(e => e.優惠券couponQaId).HasColumnName("優惠券couponQaID");
 
                 entity.Property(e => e.問題question)
                     .IsRequired()
@@ -280,13 +276,9 @@ namespace ServerMDA.Models
 
             modelBuilder.Entity<加入片單addlistQa>(entity =>
             {
-                entity.HasNoKey();
-
                 entity.ToTable("加入片單addlistQa");
 
-                entity.Property(e => e.加入片單addlistQaId)
-                    .ValueGeneratedOnAdd()
-                    .HasColumnName("加入片單addlistQaID");
+                entity.Property(e => e.加入片單addlistQaId).HasColumnName("加入片單addlistQaID");
 
                 entity.Property(e => e.問題question)
                     .IsRequired()
@@ -297,13 +289,9 @@ namespace ServerMDA.Models
 
             modelBuilder.Entity<取票問題taketicketQa>(entity =>
             {
-                entity.HasNoKey();
-
                 entity.ToTable("取票問題taketicketQa");
 
-                entity.Property(e => e.取票問題taketicketQaId)
-                    .ValueGeneratedOnAdd()
-                    .HasColumnName("取票問題taketicketQaID");
+                entity.Property(e => e.取票問題taketicketQaId).HasColumnName("取票問題taketicketQaID");
 
                 entity.Property(e => e.問題question)
                     .IsRequired()
@@ -1007,53 +995,41 @@ namespace ServerMDA.Models
 
             modelBuilder.Entity<訂票問題orderticketQa>(entity =>
             {
-                entity.HasNoKey();
-
                 entity.ToTable("訂票問題orderticketQa");
+
+                entity.Property(e => e.訂票問題orderticketQaId).HasColumnName("訂票問題orderticketQaID");
 
                 entity.Property(e => e.問題question)
                     .IsRequired()
                     .HasColumnName("問題Question");
 
                 entity.Property(e => e.答案answer).HasColumnName("答案Answer");
-
-                entity.Property(e => e.訂票問題orderticketQaId)
-                    .ValueGeneratedOnAdd()
-                    .HasColumnName("訂票問題orderticketQaID");
             });
 
             modelBuilder.Entity<評分問題rateQa>(entity =>
             {
-                entity.HasNoKey();
-
                 entity.ToTable("評分問題rateQa");
+
+                entity.Property(e => e.評分問題rateQaId).HasColumnName("評分問題rateQaID");
 
                 entity.Property(e => e.問題question)
                     .IsRequired()
                     .HasColumnName("問題Question");
 
                 entity.Property(e => e.答案answer).HasColumnName("答案Answer");
-
-                entity.Property(e => e.評分問題rateQaId)
-                    .ValueGeneratedOnAdd()
-                    .HasColumnName("評分問題rateQaID");
             });
 
             modelBuilder.Entity<評論問題commentQa>(entity =>
             {
-                entity.HasNoKey();
-
                 entity.ToTable("評論問題commentQa");
+
+                entity.Property(e => e.評論問題commentQaId).HasColumnName("評論問題commentQaID");
 
                 entity.Property(e => e.問題question)
                     .IsRequired()
                     .HasColumnName("問題Question");
 
                 entity.Property(e => e.答案answer).HasColumnName("答案Answer");
-
-                entity.Property(e => e.評論問題commentQaId)
-                    .ValueGeneratedOnAdd()
-                    .HasColumnName("評論問題commentQaID");
             });
 
             modelBuilder.Entity<評論圖片明細commentImagesList>(entity =>
@@ -1100,17 +1076,13 @@ namespace ServerMDA.Models
 
             modelBuilder.Entity<購物問題shopQa>(entity =>
             {
-                entity.HasNoKey();
-
                 entity.ToTable("購物問題shopQa");
+
+                entity.Property(e => e.購物問題shopQaId).HasColumnName("購物問題shopQaID");
 
                 entity.Property(e => e.問題question).HasColumnName("問題Question");
 
                 entity.Property(e => e.答案answer).HasColumnName("答案Answer");
-
-                entity.Property(e => e.購物問題shopQaId)
-                    .ValueGeneratedOnAdd()
-                    .HasColumnName("購物問題shopQaID");
             });
 
             modelBuilder.Entity<購買商品明細receipt>(entity =>
@@ -1156,19 +1128,15 @@ namespace ServerMDA.Models
 
             modelBuilder.Entity<退票問題refundQa>(entity =>
             {
-                entity.HasNoKey();
-
                 entity.ToTable("退票問題refundQa");
+
+                entity.Property(e => e.退票問題refundQaId).HasColumnName("退票問題refundQaID");
 
                 entity.Property(e => e.問題question)
                     .IsRequired()
                     .HasColumnName("問題Question");
 
                 entity.Property(e => e.答案answer).HasColumnName("答案Answer");
-
-                entity.Property(e => e.退票問題refundQaId)
-                    .ValueGeneratedOnAdd()
-                    .HasColumnName("退票問題refundQaID");
             });
 
             modelBuilder.Entity<電影movie>(entity =>

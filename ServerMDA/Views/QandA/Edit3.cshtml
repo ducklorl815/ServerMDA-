@@ -19,29 +19,32 @@
 <div class="row">
     <div class="col-md-4">
         @*<form asp-action="Edit">*@
-            @{ foreach (var item in Model)
-                {
+        @{ foreach (var item in Model)
+            {
 
 
 
-                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                    <input type="hidden" asp-for="@item.評分問題rateQaId" id="id1"/>
-                    <div class="form-group">
-                        <label asp-for="@item.評分問題Question" class="control-label"></label>
-                        <input asp-for="@item.評分問題Question" class="form-control" style="width:500px;" id="qq1"/>
-                        <span asp-validation-for="@item.評分問題Question" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="@item.評分答案Answer" class="control-label"></label>
-                        <textarea asp-for="@item.評分答案Answer" class="form-control" style="width:700px;height:150px;" id="aa1"></textarea>
-                        <span asp-validation-for="@item.評分答案Answer" class="text-danger"></span>
-                    </div>
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="@item.評分問題rateQaId" id="id1" />
 
-                }
+                <div class="form-group">
+                    <label asp-for="@item.評分問題Question" class="control-label"></label>
+                    <input class="w3-check" type="checkbox" id="select" name="checkbox" />
+                    <input asp-for="@item.評分問題Question" class="form-control" style="width:500px;" id="qq1" />
+                    <span asp-validation-for="@item.評分問題Question" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="@item.評分答案Answer" class="control-label"></label>
+                    <textarea asp-for="@item.評分答案Answer" class="form-control" style="width:700px;height:150px;" id="aa1"></textarea>
+                    <span asp-validation-for="@item.評分答案Answer" class="text-danger"></span>
+                </div>
+
             }
+        }
         <div class="form-group">
             @*<input type="submit" value="Save" class="btn btn-primary" />*@
             <button id="submit" type="button" value="Save" class="btn btn-primary">Save</button>
+            <button id="delete" type="button" value="Save" class="btn btn-primary">刪除</button>
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" aria-label="Close" id="close">回到清單</button>
         </div>
         @*</form>*@
@@ -61,10 +64,7 @@
     const qu = document.querySelectorAll("#qq1");
     const an = document.querySelectorAll("#aa1")
     const all = document.querySelectorAll("#aa1,#qq1")
-
-    //let arrId = new Array();
-    //let arrQ = new Array();
-    //let arrA = new Array();
+    const checkbox = document.querySelectorAll("#select")
 
     let arr = [];
     all.forEach(e => {
@@ -79,19 +79,8 @@
             }
         })
     })
-    //for (var i = 0; i < id.length; i++) {
-    //    let object = {
-    //        arrID: Number(id[i].value),
-    //        arrQ: qu[i].value,
-    //        arrA: an[i].value
-    //    };
-    //    arr.push(object);
-    //    //arrId.push(id[i].value);
-    //    //arrQ.push(qu[i].value);
-    //    //arrA.push(an[i].value);
-    //}
 
-    $('#submit').click(function () {
+   $('#submit').click(function () {
 
         $.ajax({
             type: "POST",
@@ -104,7 +93,38 @@
             },
             dataType: 'json',
         });
-      
     })
+
+    let arr2 = [];
+    for (let i = 0; i < checkbox.length; i++) {
+        checkbox[i].addEventListener('click', function () {
+            if (this.checked) {
+                arr2.push(id[i].value)
+            }
+            else {
+                let ok = arr2.indexOf((id[i].value))
+                arr2.splice(ok, 1)
+            }
+            console.log(arr2)
+        });
+    }
+
+
+    $('#delete').click(function () {
+
+        $.ajax({
+            type: "POST",
+            url: "/ApiHome/delete3",
+            data: { arr2: arr2 },
+            success: function () {
+                alert('success');
+                $("input:checked").prop("checked", false)
+                $('#close').click();
+                location.reload();
+            },
+            dataType: 'json',
+        });
+    })
+
 
 </script>

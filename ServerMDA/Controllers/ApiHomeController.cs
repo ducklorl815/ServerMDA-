@@ -268,5 +268,114 @@ namespace ServerMDA.Controllers
             return Json("1");
         }
 
+        public IActionResult delete(int[] arr2)
+        {
+            foreach (var i in arr2)
+            {
+                var q = _MDA.一般資訊generaInformations.Where(p => p.一般資訊generaInformationId == i).FirstOrDefault();
+                _MDA.一般資訊generaInformations.Remove(q);
+            }
+            _MDA.SaveChanges();
+            return Json("1");
+        }
+
+        public IActionResult delete2(int[] arr2)
+        {
+            foreach (var i in arr2)
+            {
+                var q = _MDA.會員問題memQas.Where(p => p.會員問題memQaId == i).FirstOrDefault();
+                _MDA.會員問題memQas.Remove(q);
+            }
+            _MDA.SaveChanges();
+            return Json("1");
+        }
+
+        public IActionResult delete3(int[] arr2)
+        {
+            foreach (var i in arr2)
+            {
+                var q = _MDA.評分問題rateQas.Where(p => p.評分問題rateQaId == i).FirstOrDefault();
+                _MDA.評分問題rateQas.Remove(q);
+            }
+            _MDA.SaveChanges();
+            return Json("1");
+        }
+
+        public IActionResult delete4(int[] arr2)
+        {
+            foreach (var i in arr2)
+            {
+                var q = _MDA.評論問題commentQas.Where(p => p.評論問題commentQaId == i).FirstOrDefault();
+                _MDA.評論問題commentQas.Remove(q);
+            }
+            _MDA.SaveChanges();
+            return Json("1");
+        }
+
+        public IActionResult delete5(int[] arr2)
+        {
+            foreach (var i in arr2)
+            {
+                var q = _MDA.加入片單addlistQas.Where(p => p.加入片單addlistQaId == i).FirstOrDefault();
+                _MDA.加入片單addlistQas.Remove(q);
+            }
+            _MDA.SaveChanges();
+            return Json("1");
+        }
+
+        public IActionResult delete6(int[] arr2)
+        {
+            foreach (var i in arr2)
+            {
+                var q = _MDA.訂票問題orderticketQas.Where(p => p.訂票問題orderticketQaId == i).FirstOrDefault();
+                _MDA.訂票問題orderticketQas.Remove(q);
+            }
+            _MDA.SaveChanges();
+            return Json("1");
+        }
+
+        public IActionResult delete7(int[] arr2)
+        {
+            foreach (var i in arr2)
+            {
+                var q = _MDA.取票問題taketicketQas.Where(p => p.取票問題taketicketQaId == i).FirstOrDefault();
+                _MDA.取票問題taketicketQas.Remove(q);
+            }
+            _MDA.SaveChanges();
+            return Json("1");
+        }
+
+        public IActionResult delete8(int[] arr2)
+        {
+            foreach (var i in arr2)
+            {
+                var q = _MDA.退票問題refundQas.Where(p => p.退票問題refundQaId == i).FirstOrDefault();
+                _MDA.退票問題refundQas.Remove(q);
+            }
+            _MDA.SaveChanges();
+            return Json("1");
+        }
+
+        public IActionResult delete9(int[] arr2)
+        {
+            foreach (var i in arr2)
+            {
+                var q = _MDA.優惠券couponQas.Where(p => p.優惠券couponQaId == i).FirstOrDefault();
+                _MDA.優惠券couponQas.Remove(q);
+            }
+            _MDA.SaveChanges();
+            return Json("1");
+        }
+
+        public IActionResult delete10(int[] arr2)
+        {
+            foreach (var i in arr2)
+            {
+                var q = _MDA.購物問題shopQas.Where(p => p.購物問題shopQaId == i).FirstOrDefault();
+                _MDA.購物問題shopQas.Remove(q);
+            }
+            _MDA.SaveChanges();
+            return Json("1");
+        }
     }
 }

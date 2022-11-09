@@ -28,7 +28,8 @@
                     <input type="hidden" asp-for="@item.退票問題refundQaId" id="id1"/>
                     <div class="form-group">
                         <label asp-for="@item.退票問題Question" class="control-label"></label>
-                        <input asp-for="@item.退票問題Question" class="form-control" style="width:500px;" id="qq1"/>
+                        <input class="w3-check" type="checkbox" id="select" name="checkbox" />
+                        <input asp-for="@item.退票問題Question" class="form-control" style="width:500px;" id="qq1" />
                         <span asp-validation-for="@item.退票問題Question" class="text-danger"></span>
                     </div>
                     <div class="form-group">
@@ -39,11 +40,12 @@
 
                 }
             }
-        <div class="form-group">
-            @*<input type="submit" value="Save" class="btn btn-primary" />*@
-            <button id="submit" type="button" value="Save" class="btn btn-primary">Save</button>
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" aria-label="Close" id="close">回到清單</button>
-        </div>
+    <div class="form-group">
+        @*<input type="submit" value="Save" class="btn btn-primary" />*@
+        <button id="submit" type="button" value="Save" class="btn btn-primary">Save</button>
+        <button id="delete" type="button" value="Save" class="btn btn-primary">刪除</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" aria-label="Close" id="close">回到清單</button>
+    </div>
         @*</form>*@
     </div>
 </div>
@@ -61,6 +63,7 @@
     const qu = document.querySelectorAll("#qq1");
     const an = document.querySelectorAll("#aa1")
     const all = document.querySelectorAll("#aa1,#qq1")
+    const checkbox = document.querySelectorAll("#select")
 
     //let arrId = new Array();
     //let arrQ = new Array();
@@ -105,6 +108,37 @@
             dataType: 'json',
         });
       
+    })
+
+    let arr2 = [];
+    for (let i = 0; i < checkbox.length; i++) {
+        checkbox[i].addEventListener('click', function () {
+            if (this.checked) {
+                arr2.push(id[i].value)
+            }
+            else {
+                let ok = arr2.indexOf((id[i].value))
+                arr2.splice(ok, 1)
+            }
+            console.log(arr2)
+        });
+    }
+
+
+    $('#delete').click(function () {
+
+        $.ajax({
+            type: "POST",
+            url: "/ApiHome/delete8",
+            data: { arr2: arr2 },
+            success: function () {
+                alert('success');
+                $("input:checked").prop("checked", false)
+                $('#close').click();
+                location.reload();
+            },
+            dataType: 'json',
+        });
     })
 
 </script>
