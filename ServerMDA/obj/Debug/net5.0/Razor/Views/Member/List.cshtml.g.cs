@@ -35,7 +35,9 @@ using ServerMDA.ViewModel;
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"5083793f5183d6f2ad7e487d04305671640b3af5", @"/Views/Member/List.cshtml")]
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"f44792abd596afd1ba2515f7ae3cd7cc9ca71375", @"/Views/_ViewImports.cshtml")]
+    #nullable restore
     public class Views_Member_List : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<List<CMemberViewModel>>
+    #nullable disable
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("href", new global::Microsoft.AspNetCore.Html.HtmlString("~/css/bootstrap-5.2.2/YukabtnEdit.css"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_1 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("rel", new global::Microsoft.AspNetCore.Html.HtmlString("stylesheet"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -106,7 +108,7 @@ using ServerMDA.ViewModel;
 ");
             }
             );
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("link", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "5083793f5183d6f2ad7e487d04305671640b3af58630", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("link", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "5083793f5183d6f2ad7e487d04305671640b3af58676", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -133,7 +135,7 @@ WriteAttributeValue("", 673, Url.Action("Create", "Member", Context.Request.Sche
             WriteAttributeValue("", 728, "\',null)", 728, 7, true);
             EndWriteAttribute();
             WriteLiteral(">新增</a>\r\n        </h3>\r\n    </div>\r\n    <div id=\"quickchange\">\r\n        <h3 class=\"chagetitle\" style=\"width: 250px; vertical-align:middle; \">快速修改</h3>\r\n        <select id=\"selector\" class=\"form-select\" name=\"selector\" style=\"width:200px;\">\r\n            ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5083793f5183d6f2ad7e487d04305671640b3af510718", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5083793f5183d6f2ad7e487d04305671640b3af510764", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_TagHelpers_OptionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.OptionTagHelper>();
@@ -158,7 +160,7 @@ WriteAttributeValue("", 673, Url.Action("Create", "Member", Context.Request.Sche
 #line hidden
 #nullable disable
             WriteLiteral("                    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5083793f5183d6f2ad7e487d04305671640b3af512261", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5083793f5183d6f2ad7e487d04305671640b3af512307", async() => {
 #nullable restore
 #line 42 "C:\Users\Student\Documents\ServerMDA-\ServerMDA\Views\Member\List.cshtml"
                                                  Write(t.優惠名稱couponName);
@@ -207,7 +209,7 @@ WriteAttributeValue("", 673, Url.Action("Create", "Member", Context.Request.Sche
 #line hidden
 #nullable disable
             WriteLiteral("                    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5083793f5183d6f2ad7e487d04305671640b3af514670", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5083793f5183d6f2ad7e487d04305671640b3af514716", async() => {
 #nullable restore
 #line 48 "C:\Users\Student\Documents\ServerMDA-\ServerMDA\Views\Member\List.cshtml"
                                                    Write(p.權限名稱permissionName);
@@ -247,7 +249,7 @@ WriteAttributeValue("", 673, Url.Action("Create", "Member", Context.Request.Sche
 #line hidden
 #nullable disable
             WriteLiteral("            </optgroup>\r\n            <optgroup label=\"會員資格\" id=\"Formal\" >\r\n                ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5083793f5183d6f2ad7e487d04305671640b3af516815", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5083793f5183d6f2ad7e487d04305671640b3af516861", async() => {
                 WriteLiteral("正式會員 ");
             }
             );
@@ -263,7 +265,7 @@ WriteAttributeValue("", 673, Url.Action("Create", "Member", Context.Request.Sche
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n                ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5083793f5183d6f2ad7e487d04305671640b3af517990", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5083793f5183d6f2ad7e487d04305671640b3af518036", async() => {
                 WriteLiteral("非正式會員 ");
             }
             );
@@ -279,7 +281,7 @@ WriteAttributeValue("", 673, Url.Action("Create", "Member", Context.Request.Sche
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n            </optgroup>\r\n            <optgroup label=\"發放紅利\" id=\"Formal\" >\r\n                ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5083793f5183d6f2ad7e487d04305671640b3af519249", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5083793f5183d6f2ad7e487d04305671640b3af519295", async() => {
                 WriteLiteral("紅利1200");
             }
             );
@@ -295,7 +297,7 @@ WriteAttributeValue("", 673, Url.Action("Create", "Member", Context.Request.Sche
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n                ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5083793f5183d6f2ad7e487d04305671640b3af520425", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5083793f5183d6f2ad7e487d04305671640b3af520471", async() => {
                 WriteLiteral("紅利2400 ");
             }
             );
@@ -311,7 +313,7 @@ WriteAttributeValue("", 673, Url.Action("Create", "Member", Context.Request.Sche
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n                ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5083793f5183d6f2ad7e487d04305671640b3af521602", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5083793f5183d6f2ad7e487d04305671640b3af521648", async() => {
                 WriteLiteral("紅利3600 ");
             }
             );
@@ -327,7 +329,7 @@ WriteAttributeValue("", 673, Url.Action("Create", "Member", Context.Request.Sche
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n                ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5083793f5183d6f2ad7e487d04305671640b3af522779", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5083793f5183d6f2ad7e487d04305671640b3af522825", async() => {
                 WriteLiteral("紅利4800 ");
             }
             );
@@ -466,7 +468,7 @@ WriteAttributeValue("", 673, Url.Action("Create", "Member", Context.Request.Sche
 #line hidden
 #nullable disable
             WriteLiteral("\r\n                    </td>\r\n                    <td>\r\n                        <div>\r\n                            ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "5083793f5183d6f2ad7e487d04305671640b3af529341", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "5083793f5183d6f2ad7e487d04305671640b3af529387", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -559,7 +561,7 @@ WriteAttributeValue("", 5450, Url.Action("Edit","Member",new {id=@item.會員編
 </div>
 
 ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5083793f5183d6f2ad7e487d04305671640b3af533778", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5083793f5183d6f2ad7e487d04305671640b3af533824", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -573,7 +575,7 @@ WriteAttributeValue("", 5450, Url.Action("Edit","Member",new {id=@item.會員編
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5083793f5183d6f2ad7e487d04305671640b3af534819", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5083793f5183d6f2ad7e487d04305671640b3af534865", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -737,7 +739,7 @@ WriteAttributeValue("", 5450, Url.Action("Edit","Member",new {id=@item.會員編
 </script>
 
 ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5083793f5183d6f2ad7e487d04305671640b3af540573", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5083793f5183d6f2ad7e487d04305671640b3af540619", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -753,16 +755,26 @@ WriteAttributeValue("", 5450, Url.Action("Edit","Member",new {id=@item.會員編
             WriteLiteral("\r\n\r\n");
         }
         #pragma warning restore 1998
+        #nullable restore
         [global::Microsoft.AspNetCore.Mvc.Razor.Internal.RazorInjectAttribute]
-        public global::Microsoft.AspNetCore.Mvc.ViewFeatures.IModelExpressionProvider ModelExpressionProvider { get; private set; }
+        public global::Microsoft.AspNetCore.Mvc.ViewFeatures.IModelExpressionProvider ModelExpressionProvider { get; private set; } = default!;
+        #nullable disable
+        #nullable restore
         [global::Microsoft.AspNetCore.Mvc.Razor.Internal.RazorInjectAttribute]
-        public global::Microsoft.AspNetCore.Mvc.IUrlHelper Url { get; private set; }
+        public global::Microsoft.AspNetCore.Mvc.IUrlHelper Url { get; private set; } = default!;
+        #nullable disable
+        #nullable restore
         [global::Microsoft.AspNetCore.Mvc.Razor.Internal.RazorInjectAttribute]
-        public global::Microsoft.AspNetCore.Mvc.IViewComponentHelper Component { get; private set; }
+        public global::Microsoft.AspNetCore.Mvc.IViewComponentHelper Component { get; private set; } = default!;
+        #nullable disable
+        #nullable restore
         [global::Microsoft.AspNetCore.Mvc.Razor.Internal.RazorInjectAttribute]
-        public global::Microsoft.AspNetCore.Mvc.Rendering.IJsonHelper Json { get; private set; }
+        public global::Microsoft.AspNetCore.Mvc.Rendering.IJsonHelper Json { get; private set; } = default!;
+        #nullable disable
+        #nullable restore
         [global::Microsoft.AspNetCore.Mvc.Razor.Internal.RazorInjectAttribute]
-        public global::Microsoft.AspNetCore.Mvc.Rendering.IHtmlHelper<List<CMemberViewModel>> Html { get; private set; }
+        public global::Microsoft.AspNetCore.Mvc.Rendering.IHtmlHelper<List<CMemberViewModel>> Html { get; private set; } = default!;
+        #nullable disable
     }
 }
 #pragma warning restore 1591

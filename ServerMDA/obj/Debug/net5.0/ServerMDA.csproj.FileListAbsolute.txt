@@ -386,7 +386,6 @@ C:\Users\Student\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\ServerMDA.deps.
 C:\Users\Student\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\ServerMDA.runtimeconfig.json
 C:\Users\Student\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\ServerMDA.runtimeconfig.dev.json
 C:\Users\Student\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\ServerMDA.dll
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\ref\ServerMDA.dll
 C:\Users\Student\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\ServerMDA.pdb
 C:\Users\Student\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\ServerMDA.Views.dll
 C:\Users\Student\Documents\ServerMDA-\ServerMDA\bin\Debug\net5.0\ServerMDA.Views.pdb
@@ -504,7 +503,6 @@ C:\Users\Student\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\ServerMDA.MvcAp
 C:\Users\Student\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\ServerMDA.RazorAssemblyInfo.cache
 C:\Users\Student\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\ServerMDA.RazorAssemblyInfo.cs
 C:\Users\Student\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\staticwebassets\ServerMDA.StaticWebAssets.Manifest.cache
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\staticwebassets\ServerMDA.StaticWebAssets.xml
 C:\Users\Student\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\scopedcss\bundle\ServerMDA.styles.css
 C:\Users\Student\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\ServerMDA.TagHelpers.input.cache
 C:\Users\Student\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\ServerMDA.TagHelpers.output.cache
@@ -876,7 +874,6 @@ C:\Users\Student\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\The
 C:\Users\Student\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\Theater\Edit.cshtml.g.cs
 C:\Users\Student\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\Theater\EditSeatMap.cshtml.g.cs
 C:\Users\Student\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\Theater\List.cshtml.g.cs
-C:\Users\Student\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\ServerMDA.csprojAssemblyReference.cache
 C:\Users\duckl\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\Actor\Create.cshtml.g.cs
 C:\Users\duckl\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\Actor\Details.cshtml.g.cs
 C:\Users\duckl\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\Razor\Views\Actor\Edit.cshtml.g.cs
@@ -1789,3 +1786,5 @@ C:\MDA後\ServerMDA\obj\Debug\net5.0\ServerMDA.dll
 C:\MDA後\ServerMDA\obj\Debug\net5.0\ref\ServerMDA.dll
 C:\MDA後\ServerMDA\obj\Debug\net5.0\ServerMDA.pdb
 C:\MDA後\ServerMDA\obj\Debug\net5.0\ServerMDA.genruntimeconfig.cache
+C:\Users\Student\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\ServerMDA.csproj.AssemblyReference.cache
+C:\Users\Student\Documents\ServerMDA-\ServerMDA\obj\Debug\net5.0\refint\ServerMDA.dll
