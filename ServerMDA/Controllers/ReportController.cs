@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-//using MimeKit;
-//using MailKit.Net.Smtp;
+using MimeKit;
+using MailKit.Net.Smtp;
 using ServerMDA.Models;
 using ServerMDA.ViewModel.Report;
 using System;
@@ -74,24 +74,24 @@ namespace ServerMDA.Controllers
         [HttpPost]
         public IActionResult sendmail(CReplyEmailViewModel vm)
         {
-            //string email = vm.emailReporter;
-            //MimeMessage message = new MimeMessage();
-            //BodyBuilder builder = new BodyBuilder();
+            string email = vm.emailReporter;
+            MimeMessage message = new MimeMessage();
+            BodyBuilder builder = new BodyBuilder();
 
-            //builder.HtmlBody = vm.emailContent;
+            builder.HtmlBody = vm.emailContent;
 
-            //message.From.Add(new MailboxAddress("MDA官網", "jo3wait@outlook.com"));
-            //message.To.Add(new MailboxAddress("親愛的顧客", "jo3wait@outlook.com"));//email
-            //message.Subject = vm.emailTitle;
-            //message.Body = builder.ToMessageBody();
+            message.From.Add(new MailboxAddress("MDA官網", "jo3wait@outlook.com"));
+            message.To.Add(new MailboxAddress("親愛的顧客", "ilovemdaofficialok@gmail.com"));//email
+            message.Subject = vm.emailTitle;
+            message.Body = builder.ToMessageBody();
 
-            //using (SmtpClient client = new SmtpClient())
-            //{
-            //    client.Connect("smtp.outlook.com", 587, MailKit.Security.SecureSocketOptions.StartTls); //587 TLS
-            //    client.Authenticate("jo3wait@outlook.com", "msit143group3");
-            //    client.Send(message);
-            //    client.Disconnect(true);
-            //}
+            using (SmtpClient client = new SmtpClient())
+            {
+                client.Connect("smtp.outlook.com", 587, MailKit.Security.SecureSocketOptions.StartTls); //587 TLS
+                client.Authenticate("jo3wait@outlook.com", "msit143group3");
+                client.Send(message);
+                client.Disconnect(true);
+            }
 
             HttpContext.Session.SetString(CDictionaryReport.SK_導回的tab, vm.type);
             var q = _MDAcontext.我的追蹤清單myFollowLists.Where(l => l.我的追蹤清單編號cfId == vm.cfid).FirstOrDefault();
@@ -118,7 +118,7 @@ namespace ServerMDA.Controllers
             //        $"&emsp; 謝謝您！";
 
             //    message.From.Add(new MailboxAddress("MDA官網", "jo3wait@outlook.com"));
-            //    message.To.Add(new MailboxAddress("親愛的顧客", "jo3wait@outlook.com"));//email
+            //    message.To.Add(new MailboxAddress("親愛的顧客", "ilovemdaofficialok@gmail.com"));//email
             //    message.Subject = "MDA會員檢舉後續處理情形";
             //    message.Body = builder.ToMessageBody();
 

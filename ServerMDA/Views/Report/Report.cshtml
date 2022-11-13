@@ -105,7 +105,7 @@
                             <td>@item.對象名稱targetName</td>
                             <td>@item.會員編號memberId</td>
                             <td>@item.檢舉理由reportReason</td>
-                            <td><a href='@Url.Content("https://localhost:44345/Comment/會員評論/" + item.連接編號connectId)' target="_blank">被檢舉頁面</a></td>
+                            <td><a href='@Url.Content("http://192.168.36.4:44340/Comment/會員評論/" + item.連接編號connectId)' target="_blank">被檢舉頁面</a></td>
                             @*<td><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#dealModalmem" data-bs-whatever="@item.連接編號connectId">停權</button></td>*@
                             @{
                                 if (item.停權m != 1)
@@ -122,7 +122,7 @@
                                         data-bs-email="@item.會員編號member.電子信箱email"
                                         data-bs-tar="mem"
                                         data-bs-cfid="@item.我的追蹤清單編號cfId"
-                                        data-bs-link='@Url.Content("https://localhost:44345/Comment/會員評論/" + item.連接編號connectId)'>
+                                        data-bs-link='@Url.Content("http://192.168.36.4:44340/Comment/會員評論/" + item.連接編號connectId)'>
                                     回覆檢舉人
                                 </button>
                             </td>
@@ -178,7 +178,7 @@
                             <td>@item.對象名稱targetName</td>
                             <td>@item.會員編號memberId</td>
                             <td>@item.檢舉理由reportReason</td>
-                            <td><a href='@Url.Content("https://localhost:44345/Comment/電影評論/" + item.連接編號connectId)' target="_blank">被檢舉頁面</a></td>
+                            <td><a href='@Url.Content("http://192.168.36.4:44340/Comment/電影評論/" + item.連接編號connectId)' target="_blank">被檢舉頁面</a></td>
                             @*<td><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#dealModalcom" data-bs-whatever="@item.連接編號connectId">處理</button></td>*@
                             @{
                                 if (item.屏蔽c == 0)
@@ -195,7 +195,7 @@
                                         data-bs-email="@item.會員編號member.電子信箱email"
                                         data-bs-tar="com"
                                         data-bs-cfid="@item.我的追蹤清單編號cfId"
-                                        data-bs-link='@Url.Content("https://localhost:44345/Comment/電影評論/" + item.連接編號connectId)'>
+                                        data-bs-link='@Url.Content("http://192.168.36.4:44340/Comment/電影評論/" + item.連接編號connectId)'>
                                     回覆檢舉人
                                 </button>
                             </td>
