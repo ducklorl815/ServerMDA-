@@ -71,7 +71,7 @@ namespace ServerMDA.Controllers
             MDAContext db = new MDAContext();
 
             string pName = Guid.NewGuid().ToString() + ".jpg";
-            string path = _enviro.WebRootPath + "/images/Actor/" + pName;
+            string path = _enviro.WebRootPath + "/images/Director/" + pName;
             inDir.photo.CopyTo(new FileStream(path, FileMode.Create));
 
             p.導演照片image = pName;

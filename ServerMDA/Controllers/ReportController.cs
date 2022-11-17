@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Text.Json;
+using System.Net.Mail;
 
 namespace ServerMDA.Controllers
 {
@@ -85,7 +86,7 @@ namespace ServerMDA.Controllers
             message.Subject = vm.emailTitle;
             message.Body = builder.ToMessageBody();
 
-            using (SmtpClient client = new SmtpClient())
+            using (MailKit.Net.Smtp.SmtpClient client = new MailKit.Net.Smtp.SmtpClient())
             {
                 client.Connect("smtp.outlook.com", 587, MailKit.Security.SecureSocketOptions.StartTls); //587 TLS
                 client.Authenticate("jo3wait@outlook.com", "msit143group3");
@@ -118,7 +119,7 @@ namespace ServerMDA.Controllers
             //        $"&emsp; 謝謝您！";
 
             //    message.From.Add(new MailboxAddress("MDA官網", "jo3wait@outlook.com"));
-            //    message.To.Add(new MailboxAddress("親愛的顧客", "ilovemdaofficialok@gmail.com"));//email
+            //    message.To.Add(new MailboxAddress("親愛的顧客", "jo3wait@outlook.com"));//email
             //    message.Subject = "MDA會員檢舉後續處理情形";
             //    message.Body = builder.ToMessageBody();
 

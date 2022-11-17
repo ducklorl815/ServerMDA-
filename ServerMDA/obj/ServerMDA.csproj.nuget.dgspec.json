@@ -1,31 +1,32 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\jo3wait\\Documents\\ServerMDA-\\ServerMDA\\ServerMDA.csproj": {}
+    "C:\\Users\\Student\\Documents\\備份\\ServerMDA\\ServerMDA.csproj": {}
   },
   "projects": {
-    "C:\\Users\\jo3wait\\Documents\\ServerMDA-\\ServerMDA\\ServerMDA.csproj": {
+    "C:\\Users\\Student\\Documents\\備份\\ServerMDA\\ServerMDA.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\jo3wait\\Documents\\ServerMDA-\\ServerMDA\\ServerMDA.csproj",
+        "projectUniqueName": "C:\\Users\\Student\\Documents\\備份\\ServerMDA\\ServerMDA.csproj",
         "projectName": "ServerMDA",
-        "projectPath": "C:\\Users\\jo3wait\\Documents\\ServerMDA-\\ServerMDA\\ServerMDA.csproj",
-        "packagesPath": "C:\\Users\\jo3wait\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\jo3wait\\Documents\\ServerMDA-\\ServerMDA\\obj\\",
+        "projectPath": "C:\\Users\\Student\\Documents\\備份\\ServerMDA\\ServerMDA.csproj",
+        "packagesPath": "C:\\Users\\Student\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Student\\Documents\\備份\\ServerMDA\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\jo3wait\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\Student\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -81,7 +82,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.412\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.214\\RuntimeIdentifierGraph.json"
         }
       }
     }
